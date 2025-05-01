@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import NotifyLoadView from "../NotifyLoad/NotifyLoad.jsx";
+import EndMessageView from "../EndMessage/EndMessageView.jsx";
 import './MainTableStyles.css';
 
 const MainTableView = () => {
@@ -13,7 +15,7 @@ const MainTableView = () => {
             //Используем параметры
             const response = await fetch(`https://jsonplaceholder.typicode.com/comments?_page=${page}&_limit=10`);
             const data = await response.json();
-            setComments(prevComments => [...prevComments, ...data]); // Обновляем состояние комментариев
+            setComments(prevComments => prevComments.concat(data)); // Обновляем состояние комментариев
             setPage(prevPage => prevPage + 1); // Увеличиваем номер страницы
 
             // Проверяем, есть ли еще данные для загрузки
@@ -34,8 +36,8 @@ const MainTableView = () => {
             dataLength={comments.length} // Общее количество загруженных комментариев
             next={fetchComments} // Функция для загрузки следующих данных
             hasMore={hasMore} // Есть ли еще данные для загрузки
-            loader={<h4>Загрузка...</h4>} // Компонент загрузки
-            endMessage={<p>Данных больше нет</p>} // Сообщение о конце данных
+            loader={<NotifyLoadView />} // Компонент загрузки
+            endMessage={<EndMessageView />} // Сообщение о конце данных
         >
             <table className="table table-striped Table" style={{ width: '100%' }}>
                 <thead className="Table-Header">
