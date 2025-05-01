@@ -1,16 +1,18 @@
 .Sidebar {
     background-color: #f8f9fa;
-    padding: 10px 20px;
+    padding: 0;
     font-family: Arial, sans-serif;
 }
 
 .Sidebar-List {
+    display: block;
+    width: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
     background: #007bff;
     border-radius: 8px;
+    text-align: center;
 }
 
 .Sidebar-Item {

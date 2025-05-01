@@ -1,0 +1,42 @@
+.Dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.Dropdown-Button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    min-width: 150px;
+    min-height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+.Dropdown-Button:hover {
+    background-color: #ffffff;
+    color: #007bff;
+    outline: none;
+    border: 2px solid #007bff;
+}
+
+.Dropdown-Menu {
+    display: none;
+    width: 100%;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    z-index: 1000;
+}
+
+.Dropdown-Menu.Dropdown-Menu_Show {
+    display: block;
+}

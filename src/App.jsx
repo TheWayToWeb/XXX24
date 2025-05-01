@@ -3,6 +3,7 @@ import './App.css'
 import SidebarSmart from "./components/TopMenu/SidebarSmart.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MainTableView from "./components/MainTableView/MainTableView.jsx";
+import DropdownView from "./components/Dropdown/DropdownView.jsx";
 
 
 function App() {
@@ -11,10 +12,10 @@ function App() {
         <div className="container-fluid">
             <div className="row">
                 <div className="col-md-3 col-lg-2">
-                    <SidebarSmart />
+                    <DropdownView />
                 </div>
                 <div className="col-md-9 col-lg-10">
-                    <MainTableView />
+                    <MainTableView/>
                 </div>
             </div>
         </div>

@@ -4,7 +4,6 @@ import './SidebarStyles.css';
 const SidebarView = ({ initItems, active, handleClickLink }) => {
     return (
         <nav className="navbar navbar-light bg-light Sidebar">
-            <div className="container-fluid">
                 {initItems.length > 0 ? (
                     <div className="navbar-collapse Sidebar-Collapse">
                         <ul className="navbar-nav Sidebar-List">
@@ -25,7 +24,6 @@ const SidebarView = ({ initItems, active, handleClickLink }) => {
                 ) : (
                     {/*<NoDataMessageView /> */}
                 )}
-            </div>
         </nav>
     );
 };
