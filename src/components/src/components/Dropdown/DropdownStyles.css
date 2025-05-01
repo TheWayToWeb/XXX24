@@ -1,0 +1,117 @@
+.Dropdown {
+    position: relative;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+.Dropdown-Button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    min-width: 150px;
+    min-height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+.Dropdown-Button:hover {
+    background-color: #ffffff;
+    color: #007bff;
+    outline: none;
+    border: 2px solid #007bff;
+}
+
+.Dropdown-Menu {
+    display: none;
+    width: 100%;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    z-index: 1000;
+}
+
+.Dropdown-Menu.Dropdown-Menu_Show {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .Dropdown-Button {
+        min-width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .Dropdown-Menu {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+}
+@media (max-width: 1400px) {
+    .Dropdown-Button {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .Dropdown-Button {
+        min-width: 200px;
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .Dropdown-Button {
+        min-width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .Dropdown-Menu {
+        width: calc(100% - 20px);
+        left: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Dropdown-Button {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .Dropdown-Menu {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .Dropdown-Button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .Dropdown-Menu {
+        font-size: 14px;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Dropdown-Button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
