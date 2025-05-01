@@ -3,7 +3,7 @@ import './SidebarStyles.css';
 
 const SidebarView = ({ initItems, active, handleClickLink }) => {
     return (
-        <nav className="navbar navbar-light bg-light Sidebar">
+        <nav className="navbar bg-light Sidebar">
                 {initItems.length > 0 ? (
                     <div className="navbar-collapse Sidebar-Collapse">
                         <ul className="navbar-nav Sidebar-List">

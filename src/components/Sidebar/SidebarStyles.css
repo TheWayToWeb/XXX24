@@ -30,17 +30,14 @@
     transition: background 0.3s, color 0.3s;
 }
 
-.Sidebar-Link:hover {
-    background-color: #e2e6ea;
-}
-
 .Sidebar-Item .Sidebar-Link {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 .Sidebar-Item.Sidebar-Item_Active .Sidebar-Link {
-    color: #ffffff;
-    background-color: #007bff;
+    background-color: #ffffff;
+    color: #007bff;
+    border: 2px solid #007bff;
 }
 
 .Sidebar-Collapse {
@@ -48,20 +45,81 @@
     align-items: center;
 }
 
-@media (max-width: 768px) {
-    .Sidebar-List{
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #f8f9fa;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 1000;
+@media (min-width: 1400px) {
+    .Sidebar-list {
+        padding: 35px;
+        font-size: 20px;
     }
 
-    .Sidebar-Item {
-        margin-right: 0;
-        margin-bottom: 10px;
+    .Sidebar-Link {
+        padding: 25px 35px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .Sidebar-List {
+        padding: 30px;
+        font-size: 19px;
+    }
+
+    .Sidebar-Link {
+        padding: 20px 30px;
+    }
+}
+
+@media (min-width: 992px) {
+    .Sidebar-List {
+        padding: 25px;
+        font-size: 18px;
+    }
+
+    .Sidebar-Link {
+        padding: 15px 25px;
+    }
+}
+
+@media (min-width: 768px) {
+    .Sidebar-List {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        font-size: 17px;
+    }
+
+    .Sidebar-Link {
+        padding: 15px;
+    }
+}
+
+@media (min-width: 576px) {
+    .Sidebar-List {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .Sidebar-Link {
+        padding: 12px 20px;
+    }
+}
+
+@media (min-width: 480px) {
+    .Sidebar-List {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .Sidebar-Link {
+        padding: 10px 18px;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 479px) {
+    .Sidebar-List {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    .Sidebar-Link {
+        padding: 8px 15px;
     }
 }
