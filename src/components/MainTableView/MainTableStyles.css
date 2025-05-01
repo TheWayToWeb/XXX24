@@ -53,6 +53,43 @@
     background-color: #e0e0e0;
 }
 
+@media (max-width: 1400px) {
+    .Table {
+        font-size: 18px;
+    }
+
+    .Table-Header th,
+    .Table-Body td {
+        padding: 14px 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .Table {
+        font-size: 17px;
+    }
+
+    .Table-Header th,
+    .Table-Body td {
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .Table {
+        font-size: 16px;
+    }
+
+    .Table-Header th,
+    .Table-Body td {
+        padding: 12px 15px;
+    }
+
+    .Table-Body td::before {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
     .Table {
         display: block;
@@ -80,5 +117,44 @@
         left: 10px;
         font-weight: bold;
         text-align: left;
+    }
+}
+
+@media (max-width: 576px) {
+    .Table-Header th,
+    .Table-Body td {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+
+    .Table-Body td::before {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Table-Header th,
+    .Table-Body td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .Table-Body td::before {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 479px) {
+    .Table {
+        font-size: 15px;
+    }
+
+    .Table-Header th,
+    .Table-Body td {
+        padding: 9px 12px;
+    }
+
+    .Table-Body td::before {
+        font-size: 13px;
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SidebarSmart from "../TopMenu/SidebarSmart.jsx";
+import SidebarSmart from "../Sidebar/SidebarSmart.jsx";
 import './DropdownStyles.css';
 
 const DropdownView = ({ show, onToggle }) => {
