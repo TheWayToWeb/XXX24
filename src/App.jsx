@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.css'
-import SidebarSmart from "./components/TopMenu/SidebarSmart.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MainTableView from "./components/MainTableView/MainTableView.jsx";
-import DropdownView from "./components/Dropdown/DropdownView.jsx";
+import TableContainerView from "./components/TableContainer/TableContainerView.jsx";
+import DropdownContainerView from "./components/DropdownContainer/DropdownContainerView.jsx";
 
 
 function App() {
@@ -11,12 +10,8 @@ function App() {
     <>
         <div className="container-fluid">
             <div className="row">
-                <div className="col-md-3 col-lg-2">
-                    <DropdownView />
-                </div>
-                <div className="col-md-9 col-lg-10">
-                    <MainTableView/>
-                </div>
+                <DropdownContainerView />
+                <TableContainerView />
             </div>
         </div>
     </>

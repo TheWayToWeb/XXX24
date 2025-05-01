@@ -1,19 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SidebarSmart from "../TopMenu/SidebarSmart.jsx";
-import '../Dropdown/DropdownStyles.css';
+import './DropdownStyles.css';
 
-const DropdownView = () => {
-    return (
-        <div className="dropdown Dropdown">
-            <button className="btn dropdown-toggle Dropdown-Button" type="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
-            </button>
-            <ul className="dropdown-menu Dropdown-Menu Dropdown-Menu_Show">
-                <SidebarSmart />
-            </ul>
-        </div>
-    );
+const DropdownView = ({ show, onToggle }) => {
+  return (
+      <div className="dropdown Dropdown">
+          <button
+              className="btn dropdown-toggle Dropdown-Button"
+              type="button"
+              onClick={onToggle}
+              aria-expanded={show}
+          >
+            Категории
+          </button>
+          <ul
+              className={`dropdown-menu Dropdown-Menu ${show ? 'Dropdown-Menu_Show' : ''}`}
+          >
+              {show ? <SidebarSmart /> : null}
+          </ul>
+      </div>
+  );
 };
 
 export default DropdownView;
+
+DropdownView.propTypes = {
+    show: PropTypes.bool.isRequired,
+    onToggle: PropTypes.func.isRequired
+};
+

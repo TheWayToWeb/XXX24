@@ -19,7 +19,6 @@ const SidebarView = ({ initItems, active, handleClickLink }) => {
                                 </li>
                             ))}
                         </ul>
-                        {/*<DropdownSearchFiltersSmart /> */}
                     </div>
                 ) : (
                     {/*<NoDataMessageView /> */}
