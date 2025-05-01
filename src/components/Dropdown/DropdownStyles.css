@@ -1,6 +1,7 @@
 .Dropdown {
     position: relative;
     display: inline-block;
+    padding-top: 20px;
 }
 
 .Dropdown-Button {
@@ -10,7 +11,7 @@
     background-color: #007bff;
     color: #ffffff;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border-radius: 8px;
     min-width: 150px;
     min-height: 50px;
@@ -39,4 +40,25 @@
 
 .Dropdown-Menu.Dropdown-Menu_Show {
     display: block;
+}
+
+@media (max-width: 768px) {
+    .Dropdown-Button {
+        min-width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .Dropdown-Menu {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .Dropdown-Button {
+        font-size: 14px;
+        padding: 10px;
+    }
 }

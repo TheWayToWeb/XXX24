@@ -16,7 +16,6 @@
 }
 
 .Sidebar-Item {
-    padding: 8px 16px;
     border-bottom: 1px solid #ffffff;
 }
 
@@ -25,8 +24,8 @@
 }
 
 .Sidebar-Link {
+    padding: 10px 20px;
     text-decoration: none;
-    padding: 8px 12px;
     border-radius: 5px;
     transition: background 0.3s, color 0.3s;
 }
