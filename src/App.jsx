@@ -1,21 +1,14 @@
 import React from 'react';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import TableContainerView from "./components/TableContainer/TableContainerView.jsx";
-import DropdownContainerView from "./components/DropdownContainer/DropdownContainerView.jsx";
+import GridView from "./components/Grid/GridView.jsx";
 
-
-function App() {
-  return (
-    <>
-        <div className="container-fluid">
-            <div className="row">
-                <DropdownContainerView />
-                <TableContainerView />
-            </div>
-        </div>
-    </>
-  )
+const App = () => {
+    return (
+        <>
+           <GridView />
+        </>
+    );
 }
 
-export default App
+export default App;

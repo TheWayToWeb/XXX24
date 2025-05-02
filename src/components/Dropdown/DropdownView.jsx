@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SidebarSmart from "../Sidebar/SidebarSmart.jsx";
 import './DropdownStyles.css';
+import SidebarIndexView from "../Sidebar/SidebarIndexView.jsx";
 
 const DropdownView = ({ show, onToggle }) => {
   return (
@@ -17,7 +17,7 @@ const DropdownView = ({ show, onToggle }) => {
           <ul
               className={`dropdown-menu Dropdown-Menu ${show ? 'Dropdown-Menu_Show' : ''}`}
           >
-              {show ? <SidebarSmart /> : null}
+              {show ? <SidebarIndexView /> : null}
           </ul>
       </div>
   );
