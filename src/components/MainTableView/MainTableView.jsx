@@ -8,6 +8,8 @@ const MainTableView = () => {
     const [comments, setComments] = useState([]); // Состояние для хранения данных комментариев
     const [hasMore, setHasMore] = useState(true); // Начальное значение true, чтобы была возможность загрузки
     const [page, setPage] = useState(1);
+    const [columnHeader, setColumnHeader] = useState(['#', 'Name', 'Email', 'Comment']);
+    const [editingHeaderIndex, setEditingHeaderIndex] = useState(null);
     const [editingCell, setEditingCell] = useState({ rowIndex: null, columnKey: null }); // Состояние для отслеживания редактируемой ячейки
     const [inputValue, setInputValue] = useState(''); // Состояние для хранения значения ввода
 
@@ -31,6 +33,18 @@ const MainTableView = () => {
     useEffect(() => {
         fetchComments(); // Вызываем функцию получения данных
     }, []); // Пустой массив зависимостей означает, что эффект выполнится только один раз при монтировании компонента
+
+    const handleHeaderEditClick = (index) => {
+        setEditingHeaderIndex(index);
+        setInputValue(columnHeader[index]);
+    };
+
+    const handleHeaderBlur = (index) => {
+        const updatedHeaders = [...columnHeader];
+        updatedHeaders[index] = inputValue;
+        setColumnHeader(updatedHeaders);
+        setEditingHeaderIndex(null);
+    };
 
     const handleEditClick = (rowIndex, columnKey) => {
         setEditingCell({ rowIndex, columnKey });
@@ -62,10 +76,25 @@ const MainTableView = () => {
                 <table className="table table-striped Table" style={{ width: '100%' }}>
                     <thead className="Table-Header">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Comment</th>
+                        {columnHeader.map((header, index) => (
+                            <th
+                                scope="col"
+                                key={index}
+                                onClick={() => handleHeaderEditClick(index)}
+                            >
+                                {editingHeaderIndex === index ? (
+                                    <input
+                                        type="text"
+                                        value={inputValue}
+                                        onChange={handleInputChange}
+                                        onBlur={handleHeaderBlur}
+                                        autoFocus
+                                        className="form-control Input-Editer"
+                                    />
+                                ): (header
+                                )}
+                            </th>
+                        ))}
                     </tr>
                     </thead>
                     <tbody className="Table-Body">
@@ -80,6 +109,7 @@ const MainTableView = () => {
                                         onChange={handleInputChange}
                                         onBlur={handleBlur}
                                         autoFocus
+                                        className="form-control Input-Editer"
                                     />
                                 ) : (
                                     comment.name
@@ -93,6 +123,7 @@ const MainTableView = () => {
                                         onChange={handleInputChange}
                                         onBlur={handleBlur}
                                         autoFocus
+                                        className="form-control Input-Editer"
                                     />
                                 ) : (
                                     comment.email
@@ -106,6 +137,7 @@ const MainTableView = () => {
                                         onChange={handleInputChange}
                                         onBlur={handleBlur}
                                         autoFocus
+                                        className="form-control Input-Editer"
                                     />
                                 ) : (
                                     comment.body
