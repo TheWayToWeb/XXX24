@@ -88,7 +88,7 @@
     }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) and  (max-width: 1199px) {
     .Table {
         font-size: 16px;
     }
@@ -156,7 +156,7 @@
     }
 }
 
-@media (min-width: 376px) and (max-width: 479px) {
+@media (max-width: 479px) {
     .Table {
         font-size: 15px;
     }
@@ -206,7 +206,7 @@
     }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 1200px) and (max-width: 1199px) {
     .TableButtonGroup {
         padding: 16px 24px;
         font-size: 22px;
@@ -227,14 +227,14 @@
     }
 }
 
-@media (min-width: 480px) and (max-width:  575px) {
+@media (min-width: 480px) and (max-width: 575px) {
     .TableButtonGroup {
         padding: 10px 18px;
         font-size: 16px;
     }
 }
 
-@media (min-width: 376px) and (max-width: 479px) {
+@media (max-width: 479px) {
     .TableButtonGroup {
         padding: 8px 16px;
         font-size: 14px;
@@ -261,7 +261,7 @@
 }
 
 /* Адаптивные стили */
-@media (min-width: 376px) and (max-width: 479px) {
+@media (max-width: 479px) {
     .Input-Editer {
         padding: 14px 18px; /* Уменьшаем отступы */
         font-size: 14px; /* Уменьшаем размер шрифта */

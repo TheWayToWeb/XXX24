@@ -47,7 +47,6 @@
 
 @media (min-width: 1400px) {
     .Sidebar-list {
-        padding: 35px;
         font-size: 20px;
     }
 
@@ -56,9 +55,8 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1399px) {
     .Sidebar-List {
-        padding: 30px;
         font-size: 19px;
     }
 
@@ -67,9 +65,8 @@
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 992px) and (max-width: 1199px) {
     .Sidebar-List {
-        padding: 25px;
         font-size: 18px;
     }
 
@@ -78,11 +75,10 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
     .Sidebar-List {
         display: flex;
         flex-direction: column;
-        padding: 20px;
         font-size: 17px;
     }
 
@@ -91,7 +87,7 @@
     }
 }
 
-@media (min-width: 576px) {
+@media (min-width: 576px) and (max-width: 767px) {
     .Sidebar-List {
         padding: 15px;
         font-size: 16px;
@@ -102,7 +98,7 @@
     }
 }
 
-@media (min-width: 480px) {
+@media (min-width: 480px) and (max-width: 575px) {
     .Sidebar-List {
         padding: 10px;
         font-size: 15px;
@@ -113,7 +109,7 @@
     }
 }
 
-@media (min-width: 376px) and (max-width: 479px) {
+@media (max-width: 479px) {
     .Sidebar-List {
         padding: 5px;
         font-size: 14px;
