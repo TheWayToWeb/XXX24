@@ -1,11 +1,170 @@
+:root {
+    --burger-color: #007bff;
+    --burger-active-color: transparent;
+    --burger-transition: all 0.3s ease-in-out;
+}
+
+.BurgerButton {
+    width: 32px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.BurgerButton span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--burger-color);
+    border-radius: 5px;
+    transition: background-color var(--burger-transition);
+}
+
+.BurgerButton span::before,
+.BurgerButton span::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: var(--burger-color);
+    border-radius: 5px;
+    transition: transform var(--burger-transition);
+}
+
+.BurgerButton span::before {
+    transform: translateY(-10px);
+}
+
+.BurgerButton span::after {
+    transform: translateY(10px);
+    margin-top: -4px;
+}
+
+.BurgerButton_Active span {
+    background-color: var(--burger-active-color);
+}
+
+.BurgerButton_Active span::before {
+    transform: rotate(45deg) translateY(0);
+}
+
+.BurgerButton_Active span::after {
+    transform: rotate(-45deg) translateY(0);
+}
+
+@media (min-width: 1400px) {
+    .BurgerButton {
+        width: 42px;
+        height: 34px;
+    }
+
+    .BurgerButton span,
+    .BurgerButton span::before,
+    .BurgerButton span::after {
+        height: 8px;
+    }
+}
+
+@media (max-width: 1399px) {
+    .BurgerButton {
+        /* Увеличиваем ширину кнопки */
+        width: 40px;
+        /* Увеличиваем высоту кнопки */
+        height: 32px;
+    }
+
+    .BurgerButton span,
+    .BurgerButton span::before,
+    .BurgerButton span::after {
+        /* увеличиваем высоту полосок */
+        height: 7px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .BurgerButton {
+        width: 38px;
+        height: 30px;
+    }
+
+    .BurgerButton span,
+    .BurgerButton span::before,
+    .BurgerButton span::after {
+        height: 6px;
+    }
+}
+
+@media (max-width: 991px) {
+    .BurgerButton {
+        width: 36px;
+        height: 38px;
+    }
+
+    .BurgerButton span,
+    .BurgerButton span::before,
+    .BurgerButton span::after {
+        height: 5px;
+    }
+}
+
+@media (max-width: 767px) {
+    .BurgerButton {
+        width: 34px;
+        height: 26px;
+    }
+
+    .BurgerButton span,
+    .BurgerButton span::before,
+    .BurgerButton span::after {
+        height: 5px;
+    }
+}
+
+@media (max-width: 575px) {
+    .BurgerButton {
+        width: 32px;
+        height: 24px;
+    }
+
+    .BurgerButton span,
+    .BurgerButton span::before,
+    .BurgerButton span::after {
+        height: 4px;
+    }
+}
+
+@media (max-width: 479px) {
+    .BurgerButton {
+        width: 30px;
+        height: 22px;
+    }
+
+    .BurgerButton span,
+    .BurgerButton span::before,
+    .BurgerButton span::after {
+        height: 3px;
+    }
+}
+
 .MainMenu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
     background-color: #ffffff;
     border: 2px solid #007bff;
     padding: 15px;
     display: flex;
     justify-content: space-around;
     border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.MainMenu.MainMenu_Active {
+    right: 0;
 }
 
 .MainMenu-Link {
@@ -34,7 +193,7 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 1399px) {
     .MainMenu {
         padding: 30px;
         justify-content: space-between;
@@ -46,7 +205,7 @@
     }
 }
 
-@media (min-width: 992px) {
+@media (max-width: 1199px) {
     .MainMenu {
         padding: 25px;
         justify-content: space-around;
@@ -58,7 +217,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 991px) {
     .MainMenu {
         padding: 10px;
         justify-content: center;
@@ -70,7 +229,7 @@
     }
 }
 
-@media (min-width: 576px) {
+@media (max-width: 767px) {
     .MainMenu {
         padding: 15px;
         justify-content: space-around;
@@ -82,7 +241,7 @@
     }
 }
 
-@media (min-width: 480px) {
+@media (max-width: 575px) {
     .MainMenu {
         flex-direction: column;
         align-items: center;
@@ -95,7 +254,7 @@
     }
 }
 
-@media (min-width: 376px) and (max-width: 479px) {
+@media (max-width: 479px) {
     .MainMenu {
         padding: 12px;
         justify-content: center;

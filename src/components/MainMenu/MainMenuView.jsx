@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MainMenuStyles.css';
 
 const menuItems = [
@@ -15,18 +15,31 @@ const menuItems = [
 ];
 
 const MainMenuView = () => {
+    const [isActive, setIsActive] = useState(false);
+    const toggleMenu = () => {
+        setIsActive(!isActive);
+    };
+
     return (
-        <nav className="nav MainMenu">
-            {menuItems.map((item, index) => (
-                <a
-                    key={index}
-                    className={`nav-link MainMenu-Link ${item.isActive ? 'MainMenu-Link_Active' : ''}`}
-                    href={item.href}
-                >
-                    {item.name}
-                </a>
-            ))}
-        </nav>
+        <>
+            <div
+                className={`BurgerButton ${isActive ? 'BurgerButton_Active' : ''}`}
+                onClick={toggleMenu}
+            >
+                <span></span>
+            </div>
+            <nav className={`nav MainMenu ${isActive ? 'MainMenu_Active' : ''}`}>
+                {menuItems.map((item, index) => (
+                    <a
+                        key={index}
+                        className={`nav-link MainMenu-Link ${item.isActive ? 'MainMenu-Link_Active' : ''}`}
+                        href={item.href}
+                    >
+                        {item.name}
+                    </a>
+                ))}
+            </nav>
+        </>
     );
 };
 
