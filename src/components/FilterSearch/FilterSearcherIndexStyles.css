@@ -1,19 +1,16 @@
 :root {
-    --filter-group-padding-mobile: 12px;
-    --filter-group-padding-tablet-sm: 16px;
-    --filter-group-padding-tablet-md: 20px;
-    --filter-group-padding-desktop-sm: 24px;
-    --filter-group-padding-desktop-md: 28px;
-    --filter-group-padding-desktop-lg: 32px;
-    --filter-group-padding-desktop-xl: 36px;
-    --filter-item-padding-vertical-mobile: 6px;
-    --filter-searcher-width-mobile-sm: calc(50% + 32px);
-    --filter-searcher-width-mobile-md: calc(60% + 32px);
-    --filter-searcher-width-tablet: calc(70% + 32px);
-    --filter-searcher-width-desktop-sm: 80%;
-    --filter-searcher-width-desktop-md: 90%;
-    --filter-searcher-width-desktop-lg: 95%;
-    --filter-searcher-width-desktop-xl: 100%;
+    --group-padding-mobile: 12px;
+    --group-padding-tablet-sm: 16px;
+    --group-padding-tablet-md: 20px;
+    --group-padding-desktop-sm: 24px;
+    --group-padding-desktop-md: 28px;
+    --group-padding-desktop-lg: 32px;
+    --group-padding-desktop-xl: 36px;
+    --item-padding-vertical-mobile: 6px;
+    --searcher-width-desktop-sm: 80%;
+    --searcher-width-desktop-md: 90%;
+    --searcher-width-desktop-lg: 95%;
+    --searcher-width-desktop-xl: 100%;
 }
 
 .FilterSearchGroup {
@@ -24,81 +21,82 @@
     width: 100%;
 }
 
+/* Для очень маленьких экранов */
 @media (max-width: 479px) {
     .FilterSearchGroup {
         display: block;
-        padding: var(--filter-group-padding-mobile);
+        padding: var(--group-padding-mobile);
     }
 
     .FilterSearchGroup-Item {
         display: flex;
         justify-content: center;
-        padding-top: var(--filter-item-padding-vertical-mobile);
-        padding-bottom: var(--filter-item-padding-vertical-mobile);
-    }
-
-    .FilterSearchGroup .FilterSearcher {
-        width: var(--filter-searcher-width-mobile-sm);
+        padding-top: var(--item-padding-vertical-mobile);
+        padding-bottom: var(--item-padding-vertical-mobile);
     }
 }
 
+/* Для маленьких мобильных экранов */
 @media (min-width: 480px) and (max-width: 575px) {
     .FilterSearchGroup {
-        padding: var(--filter-group-padding-tablet-sm);
-    }
-
-    .FilterSearchGroup .FilterSearcher {
-        width: var(--filter-searcher-width-mobile-md);
+        padding: var(--group-padding-tablet-sm);
     }
 }
 
+/* Для мобильных экранов (общие стили) */
+@media (max-width: 767px) {
+    .FilterSearchGroup .FilterSearcher {
+        width: 100%;
+    }
+}
+
+/* Для средних мобильных экранов */
 @media (min-width: 576px) and (max-width: 767px) {
     .FilterSearchGroup {
-        padding: var(--filter-group-padding-tablet-md);
-    }
-
-    .FilterSearchGroup .FilterSearcher {
-        width: var(--filter-searcher-width-tablet);
+        padding: var(--group-padding-tablet-md);
     }
 }
 
+/* Для маленьких десктопов и планшетов */
 @media (min-width: 768px) and (max-width: 991px) {
     .FilterSearchGroup {
-        padding: var(--filter-group-padding-desktop-sm);
+        padding: var(--group-padding-desktop-sm);
     }
 
     .FilterSearchGroup .FilterSearcher {
-        width: var(--filter-searcher-width-desktop-sm);
+        width: var(--searcher-width-desktop-sm);
     }
 }
 
+/* Для средних десктопов */
 @media (min-width: 992px) and (max-width: 1199px) {
     .FilterSearchGroup {
-        padding: var(--filter-group-padding-desktop-md);
+        padding: var(--group-padding-desktop-md);
     }
 
     .FilterSearchGroup .FilterSearcher {
-        width: var(--filter-searcher-width-desktop-md);
+        width: var(--searcher-width-desktop-md);
     }
 }
 
+/* Для больших десктопов */
 @media (min-width: 1200px) and (max-width: 1399px) {
     .FilterSearchGroup {
-        padding: var(--filter-group-padding-desktop-lg);
+        padding: var(--group-padding-desktop-lg);
     }
 
     .FilterSearchGroup .FilterSearcher {
-        width: var(--filter-searcher-width-desktop-lg);
+        width: var(--searcher-width-desktop-lg);
     }
 }
 
+/* Для очень больших десктопов */
 @media (min-width: 1400px) {
     .FilterSearchGroup {
-        padding: var(--filter-group-padding-desktop-xl);
+        padding: var(--group-padding-desktop-xl);
     }
 
     .FilterSearchGroup .FilterSearcher {
-        width: var(--filter-searcher-width-desktop-xl);
+        width: var(--searcher-width-desktop-xl);
     }
 }
-

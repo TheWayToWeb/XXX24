@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // Импортируем PropTypes
 
-const EndMessage = React.memo(({ visible }) => {
+const EndMessage = ({ visible }) => {
     return (
         <>
             {visible ? (
@@ -10,7 +10,7 @@ const EndMessage = React.memo(({ visible }) => {
         </>
 
     );
-});
+};
 
 EndMessage.propTypes = {
     visible: PropTypes.bool.isRequired,

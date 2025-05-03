@@ -1,68 +1,64 @@
 :root {
-    --dropdown-padding-top: 5px;
-    --dropdown-padding-bottom-mobile: 5px;
-    --dropdown-button-bg: #007bff;
-    --dropdown-button-color: #ffffff;
-    --dropdown-button-hover-bg: #ffffff;
-    --dropdown-button-hover-color: #007bff;
-    --dropdown-button-border-radius: 8px;
-    --dropdown-button-border-width-hover: 2px;
-    --dropdown-button-min-width: 150px;
-    --dropdown-button-min-height: 50px;
-    --dropdown-button-padding-desktop: 10px 20px;
-    --dropdown-button-font-size-desktop: 16px;
-    --dropdown-menu-bg: #ffffff;
-    --dropdown-menu-border-color: #007bff;
-    --dropdown-menu-border-width: 1px;
-    --dropdown-menu-border-radius: 8px;
-    --dropdown-menu-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --dropdown-menu-z-index: 1000;
-    --dropdown-menu-padding-mobile: 5px;
-    --dropdown-menu-font-size-mobile: 14px;
-    --dropdown-transition-duration: 0.3s;
-    --dropdown-transition-property: background-color, color, border;
-    --dropdown-transition-timing-function: ease;
+    --button-bg: #007bff;
+    --button-color: #ffffff;
+    --button-hover-bg: #ffffff;
+    --button-hover-color: #007bff;
+    --button-border-radius: 8px;
+    --button-border-width-hover: 2px;
+    --button-min-width: 150px;
+    --button-min-height: 50px;
+    --button-padding: 10px 20px;
+    --button-font-size: 16px;
+    --menu-bg: #ffffff;
+    --menu-border-color: #007bff;
+    --menu-border-width: 1px;
+    --menu-border-radius: 8px;
+    --menu-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --menu-z-index: 1000;
+    --transition-duration: 0.3s;
+    --transition-property: background-color, color, border-color;
+    --transition-timing-function: ease;
 }
 
 .Dropdown {
     position: relative;
     display: inline-block;
-    padding-top: var(--dropdown-padding-top);
+    padding-top: 5px; /* Была --dropdown-padding-top, используется только здесь */
 }
 
 .Dropdown-Button {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: var(--dropdown-button-bg);
-    color: var(--dropdown-button-color);
+    background-color: var(--button-bg);
+    color: var(--button-color);
     border: none;
-    padding: var(--dropdown-button-padding-desktop);
-    border-radius: var(--dropdown-button-border-radius);
-    min-width: var(--dropdown-button-min-width);
-    min-height: var(--dropdown-button-min-height);
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    min-width: var(--button-min-width);
+    min-height: var(--button-min-height);
     cursor: pointer;
-    transition: var(--dropdown-transition-property) var(--dropdown-transition-duration) var(--dropdown-transition-timing-function);
-    font-size: var(--dropdown-button-font-size-desktop);
+    transition: var(--transition-property) var(--transition-duration) var(--transition-timing-function);
+    font-size: var(--button-font-size);
 }
 
 .Dropdown-Button:hover {
-    background-color: var(--dropdown-button-hover-bg);
-    color: var(--dropdown-button-hover-color);
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-color);
     outline: none;
-    border: var(--dropdown-button-border-width-hover) solid var(--dropdown-button-hover-color);
+    border: var(--button-border-width-hover) solid var(--button-hover-color);
 }
 
 .Dropdown-Menu {
     display: none;
     width: 100%;
     position: absolute;
-    background-color: var(--dropdown-menu-bg);
-    border: var(--dropdown-menu-border-width) solid var(--dropdown-menu-border-color);
-    border-radius: var(--dropdown-menu-border-radius);
-    box-shadow: var(--dropdown-menu-box-shadow);
+    background-color: var(--menu-bg);
+    border: var(--menu-border-width) solid var(--menu-border-color);
+    border-radius: var(--menu-border-radius);
+    box-shadow: var(--menu-box-shadow);
     padding: 0;
-    z-index: var(--dropdown-menu-z-index);
+    z-index: var(--menu-z-index);
 }
 
 .Dropdown-Menu.Dropdown-Menu_Show {
@@ -72,16 +68,13 @@
 /* Адаптивные стили */
 @media (min-width: 1200px) and (max-width: 1399px) {
     .Dropdown-Button {
-        font-size: calc(var(--dropdown-button-font-size-desktop) + 2px);
-        padding: calc(var(--dropdown-button-padding-desktop) + 2px);
+        font-size: calc(var(--button-font-size) + 2px);
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .Dropdown-Button {
         min-width: 200px;
-        font-size: var(--dropdown-button-font-size-desktop);
-        padding: var(--dropdown-button-padding-desktop);
     }
 }
 
@@ -91,8 +84,6 @@
     }
     .Dropdown-Button {
         min-width: 100%;
-        padding: 12px;
-        font-size: var(--dropdown-button-font-size-desktop);
     }
 
     .Dropdown-Menu {
@@ -104,8 +95,6 @@
 @media (min-width: 576px) and (max-width: 767px) {
     .Dropdown-Button {
         min-width: 100%;
-        padding: 12px;
-        font-size: var(--dropdown-button-font-size-desktop);
     }
 
     .Dropdown-Menu {
@@ -115,18 +104,35 @@
     }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
     .Dropdown {
-        padding-top: 0;
-        padding-bottom: var(--dropdown-padding-bottom-mobile);
+        width: 100%;
+        min-height: 40px;
     }
     .Dropdown-Button {
-        font-size: calc(var(--dropdown-button-font-size-desktop) - 2px);
-        padding: calc(var(--dropdown-button-padding-desktop) - 10px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0;
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .Dropdown-ButtonText {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .Dropdown {
+        padding-bottom: 5px; /* Была --dropdown-padding-bottom-mobile, используется только здесь */
+    }
+    .Dropdown-Button {
+        font-size: calc(var(--button-font-size) - 2px);
     }
 
     .Dropdown-Menu {
-        font-size: var(--dropdown-menu-font-size-mobile);
-        padding: var(--dropdown-menu-padding-mobile);
+        font-size: 14px; /* Была --dropdown-menu-font-size-mobile, используется только здесь */
+        padding: 5px; /* Была --dropdown-menu-padding-mobile, используется только здесь */
     }
 }

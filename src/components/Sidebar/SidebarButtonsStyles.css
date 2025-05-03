@@ -1,36 +1,64 @@
 :root {
-    --sidebar-buttons-color-base: #ffffff;
-    --sidebar-buttons-padding-mobile-s: 15px; /* max-width: 575px */
-    --sidebar-buttons-padding-mobile-m: 20px; /* 576px - 767px */
-    --sidebar-buttons-padding-tablet: 25px;   /* 768px - 991px */
-    --sidebar-buttons-padding-desktop-s: 30px; /* 992px - 1199px */
-    --sidebar-buttons-padding-desktop-m: 35px; /* 1200px - 1399px */
-    --sidebar-buttons-padding-desktop-l: 20px; /* min-width: 1400px */
-    --sidebar-buttons-vertical-padding-base: 10px;
+    --button-background: #ffffff;
+    --padding-mobile: 15px;
+    --padding-tablet: 25px;
+    --padding-desktop-s: 30px;
+    --padding-desktop-m: 35px;
+    --padding-desktop-l: 20px;
+    --vertical-padding: 10px;
+    --button-radius: 8px;
+    --container-margin-mobile: 0;
+    --container-margin-tablet: 20px;
+    --container-margin-desktop: 10px;
 }
 
-/* Верстка кнопок добавления пунктов меню боковой панели */
 .SidebarButtonsContainer {
     position: absolute;
     left: 0;
     right: 0;
     background: transparent;
-    padding-top: var(--sidebar-buttons-vertical-padding-base);
-    padding-bottom: var(--sidebar-buttons-vertical-padding-base);
+    padding-top: var(--padding-mobile);
+    padding-bottom: var(--padding-mobile);
+    margin: var(--container-margin-mobile);
 }
 
 .SidebarButtonItems-Button {
-    background-color: var(--sidebar-buttons-color-base);
+    background-color: var(--button-background);
 }
 
+/* Для маленьких мобильных устройств */
 @media (max-width: 480px) {
     .SidebarButtonsContainer {
-        display: flex; /* Для управления расположением кнопок внутри */
-        justify-content: space-around; /* Или flex-start, flex-end, space-between в зависимости от макета */
+        display: flex;
+        justify-content: space-around;
+    }
+}
+/* Для мобильных устройств выстраиваем кнопки вертикально */
+@media (max-width: 767px) {
+    #sidebarButton-1 {
+        border-radius: 8px 8px 0 0;
+        border-bottom: none;
+    }
+
+    #sidebarButton-2 {
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+    }
+
+    #sidebarButton-1,
+    #sidebarButton-2 {
+        min-width: 40px;
     }
 }
 
-@media (max-width: 767px) {
+/* Для мобильных устройств (от 576px до 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .SidebarButtonsContainer {
+        padding-top: var(--padding-tablet);
+        padding-bottom: var(--padding-tablet);
+        margin: var(--container-margin-mobile); /* Переопределяем margin для мобильных */
+    }
+
     .SidebarButtonItems-Button {
         width: 100%;
     }
@@ -38,7 +66,7 @@
     #sidebarButton-1 {
         border-bottom: none;
         border-bottom-left-radius: 0;
-        border-bottom-right-radius:0;
+        border-bottom-right-radius: 0;
     }
 
     #sidebarButton-2 {
@@ -48,44 +76,37 @@
     }
 }
 
-@media (max-width: 575px) {
-    .SidebarButtons-Container {
-        padding-top: var(--sidebar-buttons-padding-mobile-s);
-        padding-bottom: var(--sidebar-buttons-padding-mobile-s);
+/* Для планшетов и больше (от 768px) */
+@media (min-width: 768px) {
+    .SidebarButtonsContainer {
+        margin: var(--container-margin-tablet);
+    }
+
+    #sidebarButton-1,
+    #sidebarButton-2 {
+        border-radius: var(--button-radius);
     }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
-    .SidebarButtons-Container {
-        padding-top: var(--sidebar-buttons-padding-mobile-m);
-        padding-bottom: var(--sidebar-buttons-padding-mobile-m);
+/* Для десктопов (от 1024px) */
+@media (min-width: 1024px) {
+    .SidebarButtonsContainer {
+        margin: var(--container-margin-desktop);
     }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-    .SidebarButtons-Container {
-        padding-top: var(--sidebar-buttons-padding-tablet);
-        padding-bottom: var(--sidebar-buttons-padding-tablet);
-    }
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-    .SidebarButtons-Container {
-        padding-top: var(--sidebar-buttons-padding-desktop-s);
-        padding-bottom: var(--sidebar-buttons-padding-desktop-s);
-    }
-}
-
+/* Для больших десктопов (от 1200px до 1399px) */
 @media (min-width: 1200px) and (max-width: 1399px) {
-    .SidebarButtons-Container {
-        padding-top: var(--sidebar-buttons-padding-desktop-m);
-        padding-bottom: var(--sidebar-buttons-padding-desktop-m);
+    .SidebarButtonsContainer {
+        padding-top: var(--padding-desktop-m);
+        padding-bottom: var(--padding-desktop-m);
     }
 }
 
+/* Для очень больших десктопов (от 1400px) */
 @media (min-width: 1400px) {
-    .SidebarButtons-Container {
-        padding-top: var(--sidebar-buttons-padding-desktop-l);
-        padding-bottom: var(--sidebar-buttons-padding-desktop-l);
+    .SidebarButtonsContainer {
+        padding-top: var(--padding-desktop-l);
+        padding-bottom: var(--padding-desktop-l);
     }
 }

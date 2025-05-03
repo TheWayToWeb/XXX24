@@ -12,7 +12,7 @@ const DropdownView = React.memo(({ show, onToggle }) => {
                 onClick={onToggle}
                 aria-expanded={show}
             >
-                Категории
+                <span className="Dropdown-ButtonText">Категории</span>
             </button>
             <ul
                 className={`dropdown-menu Dropdown-Menu ${show ? 'Dropdown-Menu_Show' : ''}`}
