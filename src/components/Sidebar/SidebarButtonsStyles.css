@@ -1,0 +1,91 @@
+:root {
+    --sidebar-buttons-color-base: #ffffff;
+    --sidebar-buttons-padding-mobile-s: 15px; /* max-width: 575px */
+    --sidebar-buttons-padding-mobile-m: 20px; /* 576px - 767px */
+    --sidebar-buttons-padding-tablet: 25px;   /* 768px - 991px */
+    --sidebar-buttons-padding-desktop-s: 30px; /* 992px - 1199px */
+    --sidebar-buttons-padding-desktop-m: 35px; /* 1200px - 1399px */
+    --sidebar-buttons-padding-desktop-l: 20px; /* min-width: 1400px */
+    --sidebar-buttons-vertical-padding-base: 10px;
+}
+
+/* Верстка кнопок добавления пунктов меню боковой панели */
+.SidebarButtonsContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: transparent;
+    padding-top: var(--sidebar-buttons-vertical-padding-base);
+    padding-bottom: var(--sidebar-buttons-vertical-padding-base);
+}
+
+.SidebarButtonItems-Button {
+    background-color: var(--sidebar-buttons-color-base);
+}
+
+@media (max-width: 480px) {
+    .SidebarButtonsContainer {
+        display: flex; /* Для управления расположением кнопок внутри */
+        justify-content: space-around; /* Или flex-start, flex-end, space-between в зависимости от макета */
+    }
+}
+
+@media (max-width: 767px) {
+    .SidebarButtonItems-Button {
+        width: 100%;
+    }
+
+    #sidebarButton-1 {
+        border-bottom: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius:0;
+    }
+
+    #sidebarButton-2 {
+        border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .SidebarButtons-Container {
+        padding-top: var(--sidebar-buttons-padding-mobile-s);
+        padding-bottom: var(--sidebar-buttons-padding-mobile-s);
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .SidebarButtons-Container {
+        padding-top: var(--sidebar-buttons-padding-mobile-m);
+        padding-bottom: var(--sidebar-buttons-padding-mobile-m);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .SidebarButtons-Container {
+        padding-top: var(--sidebar-buttons-padding-tablet);
+        padding-bottom: var(--sidebar-buttons-padding-tablet);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .SidebarButtons-Container {
+        padding-top: var(--sidebar-buttons-padding-desktop-s);
+        padding-bottom: var(--sidebar-buttons-padding-desktop-s);
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .SidebarButtons-Container {
+        padding-top: var(--sidebar-buttons-padding-desktop-m);
+        padding-bottom: var(--sidebar-buttons-padding-desktop-m);
+    }
+}
+
+@media (min-width: 1400px) {
+    .SidebarButtons-Container {
+        padding-top: var(--sidebar-buttons-padding-desktop-l);
+        padding-bottom: var(--sidebar-buttons-padding-desktop-l);
+    }
+}

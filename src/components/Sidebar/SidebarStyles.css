@@ -20,6 +20,7 @@
     --sidebar-font-size-xxl: 18px;
     --sidebar-font-size-huge: 19px;
     --sidebar-font-size-extra-huge: 20px;
+
 }
 
 .Sidebar {
@@ -147,3 +148,5 @@
         padding: var(--sidebar-padding-small) var(--sidebar-padding-medium);
     }
 }
+
+
