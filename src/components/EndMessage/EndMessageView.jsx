@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // Импортируем PropTypes
 
-const EndMessage = ({ visible }) => {
-    if (!visible) return null;
-
+const EndMessage = React.memo(({ visible }) => {
     return (
-        <div className="alert alert-info">Данных больше нет</div>
+        <>
+            {visible ? (
+                <div className="alert alert-info">Данных больше нет</div>
+            ) : null}
+        </>
+
     );
-};
+});
 
 EndMessage.propTypes = {
     visible: PropTypes.bool.isRequired,

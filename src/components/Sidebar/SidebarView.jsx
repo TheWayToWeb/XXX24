@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'; // Импортируем PropTypes
 import './SidebarStyles.css';
 import './SidebarButtonsStyles.css';
 
-const SidebarView = ({ initItems, active, handleClickLink }) => {
+const SidebarView = React.memo(({ initItems, active, handleClickLink }) => {
     const buttonsData = [
         { id: 1, label: '+', action: 'add' },
         { id: 2, label: '-', action: 'subtract' },
@@ -11,25 +11,21 @@ const SidebarView = ({ initItems, active, handleClickLink }) => {
     return (
         <>
             <nav className="navbar bg-light Sidebar">
-                {initItems.length > 0 ? (
-                    <div className="navbar-collapse Sidebar-Collapse">
-                        <ul className="navbar-nav Sidebar-List">
-                            {initItems.map((item) => (
-                                <li
-                                    className={`nav-item Sidebar-Item ${active === item.id ? 'Sidebar-Item_Active' : ''}`}
-                                    key={item.id}
-                                    onClick={() => handleClickLink(item)}
-                                >
-                                    <a className="nav-link Sidebar-Link">
-                                        {item.innerText}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                ) : (
-                    null // Заменил JSX-комментарий на null, чтобы избежать ошибки рендеринга
-                )}
+                {initItems.length > 0 ? <div className="navbar-collapse Sidebar-Collapse">
+                    <ul className="navbar-nav Sidebar-List">
+                        {initItems.map((item) => (
+                            <li
+                                className={`nav-item Sidebar-Item ${active === item.id ? 'Sidebar-Item_Active' : ''}`}
+                                key={item.id}
+                                onClick={() => handleClickLink(item)}
+                            >
+                                <a className="nav-link Sidebar-Link">
+                                    {item.innerText}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div> : null}
             </nav>
             <div className="container SidebarButtonsContainer">
                 <div className="row btn-group SidebarButtonItems">
@@ -50,7 +46,7 @@ const SidebarView = ({ initItems, active, handleClickLink }) => {
         </>
 
     );
-};
+});
 
 // Добавляем проверку типов пропсов с помощью PropTypes
 SidebarView.propTypes = {

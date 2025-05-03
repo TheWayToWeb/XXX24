@@ -7,7 +7,7 @@ const EndMessageSmart = () => {
   useEffect(() => {
       const timer = setTimeout(() => {
           setVisible(false);
-      }, 2000);
+      }, 500);
 
       // Очистка таймера по размонтированию компонента
       return () => clearTimeout(timer);

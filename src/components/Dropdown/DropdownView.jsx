@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './DropdownStyles.css';
-import './DropdownStyles.css';
 import SidebarIndexView from "../Sidebar/SidebarIndexView.jsx";
 
-const DropdownView = ({ show, onToggle }) => {
+const DropdownView = React.memo(({ show, onToggle }) => {
     return (
         <div className="dropdown Dropdown">
             <button
@@ -22,7 +21,7 @@ const DropdownView = ({ show, onToggle }) => {
             </ul>
         </div>
     );
-};
+});
 
 DropdownView.propTypes = {
     show: PropTypes.bool.isRequired,

@@ -2,23 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types'; // Импортируем PropTypes
 import InfiniteScroll from 'react-infinite-scroll-component';
 import NotifyLoadView from "../NotifyLoad/NotifyLoadView.jsx";
-import EndMessageView from "../EndMessage/EndMessageView.jsx";
+import EndMessageIndexView from '../EndMessage/EndMessageIndexView.jsx';
 import './MainTableStyles.css';
 
-const MainTableView = ({
-                           comments,
-                           hasMore,
-                           fetchComments,
-                           columnHeader,
-                           editingHeaderIndex,
-                           editingCell,
-                           inputValue,
-                           handleHeaderEditClick,
-                           handleHeaderBlur,
-                           handleEditClick,
-                           handleInputChange,
-                           handleBlur
-                       }) => {
+const MainTableView = React.memo(({
+                                      comments,
+                                      hasMore,
+                                      fetchComments,
+                                      columnHeader,
+                                      editingHeaderIndex,
+                                      editingCell,
+                                      inputValue,
+                                      handleHeaderEditClick,
+                                      handleHeaderBlur,
+                                      handleEditClick,
+                                      handleInputChange,
+                                      handleBlur
+                                  }) => {
     return (
         <>
             <InfiniteScroll
@@ -26,7 +26,7 @@ const MainTableView = ({
                 next={fetchComments}
                 hasMore={hasMore}
                 loader={<NotifyLoadView />}
-                endMessage={<EndMessageView />}
+                endMessage={<EndMessageIndexView />}
             >
                 <table className="table table-striped Table" style={{ width: '100%' }}>
                     <thead className="Table-Header">
@@ -121,7 +121,7 @@ const MainTableView = ({
             </div>
         </>
     );
-};
+});
 
 MainTableView.propTypes = {
     comments: PropTypes.arrayOf(

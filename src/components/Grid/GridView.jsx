@@ -5,6 +5,7 @@ import MainMenuIndexView from "../MainMenu/MainMenuIndexView.jsx";
 import MainTableIndexView from "../MainTable/MainTableIndexView.jsx";
 
 const GridView = () => {
+
     return(
         <div className="container-fluid">
             <div className="row">
@@ -13,7 +14,13 @@ const GridView = () => {
                 </div>
                 <div className="col-md-9 col-lg-10">
                     <MainMenuIndexView />
-                    <FilterSearcherIndexView />
+                    <FilterSearcherIndexView
+                        searchFields={[
+                            { placeholder: "Поиск по названию", initialValue: "" },
+                            { placeholder: "Поиск по категории", initialValue: "" },
+                            { placeholder: "Поиск по автору", initialValue: "" },
+                        ]}
+                    />
                     <MainTableIndexView />
                 </div>
             </div>

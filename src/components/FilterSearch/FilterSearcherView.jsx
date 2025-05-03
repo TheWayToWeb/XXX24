@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types'; // Импортируем PropTypes
 import './FilterSearcherStyles.css';
 
-const FilterSearcherView = ({ items, isOpen, onInputClick }) => {
+const FilterSearcherView = React.memo(({ items, isOpen, onInputClick }) => {
     const [activeItem, setActiveItem] = useState(null);
 
     const handleItemClick = (item) => {
@@ -33,7 +33,7 @@ const FilterSearcherView = ({ items, isOpen, onInputClick }) => {
             )}
         </>
     );
-};
+});
 
 FilterSearcherView.propTypes = {
     items: PropTypes.arrayOf(

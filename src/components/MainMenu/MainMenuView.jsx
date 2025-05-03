@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import PropTypes from 'prop-types'; // Импортируем PropTypes
 import './MainMenuStyles.css';
 
-const MainMenuView = ({ isActive, onToggleMenu, menuItems }) => {
+const MainMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
     const menuRef = useRef(null);
     const buttonsData = [
         { id: 1, label: '+', action: 'add' },
@@ -70,7 +70,7 @@ const MainMenuView = ({ isActive, onToggleMenu, menuItems }) => {
             </nav>
         </>
     );
-}
+});
 
 MainMenuView.propTypes = {
     isActive: PropTypes.bool.isRequired,
