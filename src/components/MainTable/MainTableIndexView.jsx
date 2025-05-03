@@ -1,11 +1,11 @@
 import React from 'react';
-import MainTableView from "./MainTableView.jsx";
+import MainTableSmart from "./MainTableSmart.jsx";
 import './MainTableIndexStyles.css';
 
 const MainTableIndexView = () => {
     return (
         <>
-            <MainTableView />
+            <MainTableSmart />
         </>
     );
 };

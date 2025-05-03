@@ -1,5 +1,29 @@
+:root {
+    --sidebar-bg: #f8f9fa;
+    --sidebar-list-bg: #007bff;
+    --sidebar-link-color: #ffffff;
+    --sidebar-link-active-bg: #ffffff;
+    --sidebar-link-active-color: #007bff;
+    --sidebar-border-color: #ffffff;
+    --sidebar-border-radius: 8px;
+    --sidebar-link-border-radius: 5px;
+    --sidebar-transition-duration: 0.3s;
+    --sidebar-padding-small: 5px;
+    --sidebar-padding-medium: 10px;
+    --sidebar-padding-large: 15px;
+    --sidebar-padding-xl: 20px;
+    --sidebar-padding-xxl: 25px;
+    --sidebar-font-size-small: 14px;
+    --sidebar-font-size-medium: 15px;
+    --sidebar-font-size-large: 16px;
+    --sidebar-font-size-xl: 17px;
+    --sidebar-font-size-xxl: 18px;
+    --sidebar-font-size-huge: 19px;
+    --sidebar-font-size-extra-huge: 20px;
+}
+
 .Sidebar {
-    background-color: #f8f9fa;
+    background-color: var(--sidebar-bg);
     padding: 0;
     font-family: Arial, sans-serif;
 }
@@ -9,35 +33,34 @@
     width: 100%;
     list-style: none;
     margin: 0;
-    padding: 0;
-    background: #007bff;
-    border-radius: 8px;
+    padding: var(--sidebar-padding-medium); /* Базовый padding */
+    background: var(--sidebar-list-bg);
+    border-radius: var(--sidebar-border-radius);
     text-align: center;
 }
 
 .Sidebar-Item {
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid var(--sidebar-border-color);
 }
 
-.Sidebar-Item:nth-child(last-child) {
+.Sidebar-Item:last-child {
     border-bottom: none;
 }
 
 .Sidebar-Link {
-    padding: 10px 20px;
+    display: block; /* Чтобы занимал всю ширину Item */
+    padding: var(--sidebar-padding-medium) var(--sidebar-padding-xl); /* Базовый padding */
     text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
+    border-radius: var(--sidebar-link-border-radius);
+    transition: background var(--sidebar-transition-duration) ease-in-out,
+    color var(--sidebar-transition-duration) ease-in-out;
+    color: var(--sidebar-link-color);
 }
 
-.Sidebar-Item .Sidebar-Link {
-    color: #ffffff;
-}
-
-.Sidebar-Item.Sidebar-Item_Active .Sidebar-Link {
-    background-color: #ffffff;
-    color: #007bff;
-    border: 2px solid #007bff;
+.Sidebar-Item_Active .Sidebar-Link {
+    background-color: var(--sidebar-link-active-bg);
+    color: var(--sidebar-link-active-color);
+    border: 2px solid var(--sidebar-link-active-color);
 }
 
 .Sidebar-Collapse {
@@ -45,33 +68,37 @@
     align-items: center;
 }
 
+/* Адаптивные стили */
 @media (min-width: 1400px) {
-    .Sidebar-list {
-        font-size: 20px;
+    .Sidebar-List {
+        font-size: var(--sidebar-font-size-extra-huge);
+        padding: var(--sidebar-padding-xl);
     }
 
     .Sidebar-Link {
-        padding: 25px 35px;
+        padding: var(--sidebar-padding-xxl) calc(var(--sidebar-padding-xl) + 15px);
     }
 }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
     .Sidebar-List {
-        font-size: 19px;
+        font-size: var(--sidebar-font-size-huge);
+        padding: var(--sidebar-padding-large);
     }
 
     .Sidebar-Link {
-        padding: 20px 30px;
+        padding: var(--sidebar-padding-xl) calc(var(--sidebar-padding-large) + 10px);
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .Sidebar-List {
-        font-size: 18px;
+        font-size: var(--sidebar-font-size-xxl);
+        padding: var(--sidebar-padding-large);
     }
 
     .Sidebar-Link {
-        padding: 15px 25px;
+        padding: var(--sidebar-padding-large) calc(var(--sidebar-padding-large) + 5px);
     }
 }
 
@@ -79,43 +106,44 @@
     .Sidebar-List {
         display: flex;
         flex-direction: column;
-        font-size: 17px;
+        font-size: var(--sidebar-font-size-xl);
+        padding: var(--sidebar-padding-large);
     }
 
     .Sidebar-Link {
-        padding: 15px;
+        padding: var(--sidebar-padding-large);
     }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
     .Sidebar-List {
-        padding: 15px;
-        font-size: 16px;
+        padding: var(--sidebar-padding-large);
+        font-size: var(--sidebar-font-size-large);
     }
 
     .Sidebar-Link {
-        padding: 12px 20px;
+        padding: var(--sidebar-padding-medium) var(--sidebar-padding-xl);
     }
 }
 
 @media (min-width: 480px) and (max-width: 575px) {
     .Sidebar-List {
-        padding: 10px;
-        font-size: 15px;
+        padding: var(--sidebar-padding-medium);
+        font-size: var(--sidebar-font-size-medium);
     }
 
     .Sidebar-Link {
-        padding: 10px 18px;
+        padding: var(--sidebar-padding-medium) var(--sidebar-padding-large);
     }
 }
 
 @media (max-width: 479px) {
     .Sidebar-List {
-        padding: 5px;
-        font-size: 14px;
+        padding: var(--sidebar-padding-small);
+        font-size: var(--sidebar-font-size-small);
     }
 
     .Sidebar-Link {
-        padding: 8px 15px;
+        padding: var(--sidebar-padding-small) var(--sidebar-padding-medium);
     }
 }

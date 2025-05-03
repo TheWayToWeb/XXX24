@@ -2,14 +2,37 @@
     --burger-color: #007bff;
     --burger-active-color: transparent;
     --burger-transition: all 0.3s ease-in-out;
+    --burger-width-base: 32px;
+    --burger-height-base: 24px;
+    --burger-bar-height-base: 4px;
+    --burger-border-radius: 5px;
+    --main-menu-bg: #ffffff;
+    --main-menu-border-color: #007bff;
+    --main-menu-border-width: 2px;
+    --main-menu-border-radius: 5px;
+    --main-menu-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    --main-menu-transition: right 0.3s ease-in-out;
+    --main-menu-z-index: 1000;
+    --main-menu-padding-base: 15px;
+    --main-menu-link-color: #007bff;
+    --main-menu-link-padding-base: 10px 15px;
+    --main-menu-link-border-radius: 3px;
+    --main-menu-link-active-bg: #007bff;
+    --main-menu-link-active-color: #ffffff;
+    --main-menu-link-font-weight-active: bold;
+    --font-size-small: 15px;
+    --font-size-medium: 16px;
+    --font-size-large: 17px;
+    --font-size-xl: 18px;
+    --font-size-xxl: 19px;
 }
 
 .BurgerButton {
     position: absolute;
     right: 0;
     top: 0;
-    width: 32px;
-    height: 24px;
+    width: var(--burger-width-base);
+    height: var(--burger-height-base);
     cursor: pointer;
     z-index: 1000;
 }
@@ -17,9 +40,9 @@
 .BurgerButton span {
     display: block;
     width: 100%;
-    height: 4px;
+    height: var(--burger-bar-height-base);
     background-color: var(--burger-color);
-    border-radius: 5px;
+    border-radius: var(--burger-border-radius);
     transition: background-color var(--burger-transition);
 }
 
@@ -28,19 +51,19 @@
     display: block;
     content: "";
     width: 100%;
-    height: 4px;
+    height: var(--burger-bar-height-base);
     background-color: var(--burger-color);
-    border-radius: 5px;
+    border-radius: var(--burger-border-radius);
     transition: transform var(--burger-transition);
 }
 
 .BurgerButton span::before {
-    transform: translateY(-10px);
+    transform: translateY(calc(var(--burger-bar-height-base) * -2.5)); /* -10px */
 }
 
 .BurgerButton span::after {
-    transform: translateY(10px);
-    margin-top: -4px;
+    transform: translateY(calc(var(--burger-bar-height-base) * 2.5)); /* 10px */
+    margin-top: calc(var(--burger-bar-height-base) * -1); /* -4px */
 }
 
 .BurgerButton_Active span {
@@ -55,92 +78,90 @@
     transform: rotate(-45deg) translateY(0);
 }
 
+/* Адаптивные стили для BurgerButton */
 @media (min-width: 1400px) {
     .BurgerButton {
-        width: 42px;
-        height: 34px;
+        width: calc(var(--burger-width-base) + 10px); /* 42px */
+        height: calc(var(--burger-height-base) + 10px); /* 34px */
     }
 
     .BurgerButton span,
     .BurgerButton span::before,
     .BurgerButton span::after {
-        height: 8px;
+        height: calc(var(--burger-bar-height-base) * 2); /* 8px */
     }
 
     .BurgerButton span::after {
-        margin-top: -8px;
+        margin-top: calc(var(--burger-bar-height-base) * -2); /* -8px */
     }
 }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
     .BurgerButton {
-        /* Увеличиваем ширину кнопки */
-        width: 40px;
-        /* Увеличиваем высоту кнопки */
-        height: 32px;
+        width: calc(var(--burger-width-base) + 8px); /* 40px */
+        height: calc(var(--burger-height-base) + 8px); /* 32px */
     }
 
     .BurgerButton span,
     .BurgerButton span::before,
     .BurgerButton span::after {
-        /* увеличиваем высоту полосок */
-        height: 7px;
+        height: calc(var(--burger-bar-height-base) * 1.75); /* 7px */
     }
 
-    .BurgerButton span:after {
-        margin-top: -7px;
+    .BurgerButton span::after {
+        margin-top: calc(var(--burger-bar-height-base) * -1.75); /* -7px */
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .BurgerButton {
-        width: 38px;
-        height: 30px;
+        width: calc(var(--burger-width-base) + 6px); /* 38px */
+        height: calc(var(--burger-height-base) + 6px); /* 30px */
     }
 
     .BurgerButton span,
     .BurgerButton span::before,
     .BurgerButton span::after {
-        height: 6px;
+        height: calc(var(--burger-bar-height-base) * 1.5); /* 6px */
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .BurgerButton {
-        width: 36px;
-        height: 38px;
+        width: calc(var(--burger-width-base) + 4px); /* 36px */
+        height: calc(var(--burger-height-base) + 14px); /* 38px */
     }
 
     .BurgerButton span,
     .BurgerButton span::before,
     .BurgerButton span::after {
-        height: 5px;
+        height: calc(var(--burger-bar-height-base) * 1.25); /* 5px */
     }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
     .BurgerButton {
-        width: 34px;
-        height: 26px;
+        width: calc(var(--burger-width-base) + 2px); /* 34px */
+        height: calc(var(--burger-height-base) + 2px); /* 26px */
     }
 
     .BurgerButton span,
     .BurgerButton span::before,
     .BurgerButton span::after {
-        height: 5px;
+        height: calc(var(--burger-bar-height-base) * 1.25); /* 5px */
     }
 }
 
 @media (max-width: 575px) {
     .BurgerButton {
-        width: 30px;
-        height: 22px;
+        width: var(--burger-width-base); /* 30px */
+        height: calc(var(--burger-height-base) - 2px); /* 22px */
     }
 
     .BurgerButton span,
     .BurgerButton span::before,
     .BurgerButton span::after {
-        height: 4px;
+        height: var(--burger-bar-height-base); /* 4px */
     }
 }
 
@@ -150,13 +171,16 @@
     right: -250px;
     width: 250px;
     height: 100%;
-    background-color: #ffffff;
-    border: 2px solid #007bff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    transition: right 0.3s ease-in-out;
-    z-index: 1000;
+    background-color: var(--main-menu-bg);
+    border: var(--main-menu-border-width) solid var(--main-menu-border-color);
+    padding: var(--main-menu-padding-base);
+    border-radius: var(--main-menu-border-radius);
+    box-shadow: var(--main-menu-box-shadow);
+    transition: right var(--main-menu-transition);
+    z-index: var(--main-menu-z-index);
+    display: flex; /* Для удобного расположения ссылок */
+    flex-direction: column; /* Размещение ссылок по вертикали */
+    align-items: flex-start; /* Выравнивание ссылок по левому краю */
 }
 
 .MainMenu.MainMenu_Active {
@@ -166,101 +190,101 @@
 .MainMenu-Link {
     display: block;
     width: 100%;
-    color: #007bff;
+    color: var(--main-menu-link-color);
     text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 3px;
-    transition: background-color 0.3s, color 0.3s;
+    padding: var(--main-menu-link-padding-base);
+    border-radius: var(--main-menu-link-border-radius);
+    transition: background-color var(--burger-transition), color var(--burger-transition);
+    margin-bottom: 8px; /* Добавляем небольшой отступ между ссылками */
+}
+
+.MainMenu-Link:last-child {
+    margin-bottom: 0; /* Убираем отступ у последней ссылки */
 }
 
 .MainMenu-Link_Active {
-    background-color: #007bff;
-    color: #ffffff;
-    font-weight: bold;
+    background-color: var(--main-menu-link-active-bg);
+    color: var(--main-menu-link-active-color);
+    font-weight: var(--main-menu-link-font-weight-active);
 }
 
+/* Адаптивные стили для MainMenu */
 @media (min-width: 1400px) {
     .MainMenu {
-        justify-content: space-around;
+        padding: calc(var(--main-menu-padding-base) * 1.5); /* 22.5px */
     }
 
     .MainMenu-Link {
-        font-size: 18px;
-        max-height: 55px;
+        font-size: var(--font-size-xl);
+        padding: calc(var(--main-menu-link-padding-base) + 4px);
     }
 }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
     .MainMenu {
-        justify-content: space-between;
+        padding: calc(var(--main-menu-padding-base) * 1.3); /* 19.5px */
     }
 
     .MainMenu-Link {
-        font-size: 17px;
-        max-height: 50px;
+        font-size: var(--font-size-large);
+        padding: calc(var(--main-menu-link-padding-base) + 2px);
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .MainMenu {
-        padding: 25px;
-        justify-content: space-around;
+        padding: calc(var(--main-menu-padding-base) * 1.7); /* 25.5px */
     }
 
     .MainMenu-Link {
-        padding: 15px 25px;
-        font-size: 19px;
+        padding: calc(var(--main-menu-link-padding-base) + 5px);
+        font-size: var(--font-size-xxl);
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .MainMenu {
-        padding: 10px;
-        justify-content: center;
+        padding: calc(var(--main-menu-padding-base) * 0.7); /* 10.5px */
     }
 
     .MainMenu-Link {
-        font-size: 18px;
-        max-height: 50px;
+        font-size: var(--font-size-xl);
+        padding: calc(var(--main-menu-link-padding-base) + 3px);
     }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
     .MainMenu {
-        padding: 15px;
-        justify-content: space-around;
+        padding: var(--main-menu-padding-base);
     }
 
     .MainMenu-Link {
-        padding: 10px 15px;
-        font-size: 17px;
-        max-height: 45px;
+        padding: var(--main-menu-link-padding-base);
+        font-size: var(--font-size-large);
     }
 }
 
 @media (min-width: 480px) and (max-width: 575px) {
     .MainMenu {
-        flex-direction: column;
+        padding: calc(var(--main-menu-padding-base) * 0.8); /* 12px */
         align-items: center;
     }
 
     .MainMenu-Link {
-        width: 100%;
+        width: 80%;
         text-align: center;
-        margin-bottom: 5px;
-        max-height: 43px;
-        font-size: 16px;
+        margin-bottom: 8px;
+        font-size: var(--font-size-medium);
     }
 }
 
 @media (max-width: 479px) {
     .MainMenu {
-        padding: 12px;
-        justify-content: center;
+        padding: calc(var(--main-menu-padding-base) * 0.8); /* 12px */
     }
 
     .MainMenu-Link {
-        font-size: 15px;
-        max-height: 40px;
+        font-size: var(--font-size-small);
+        padding: calc(var(--main-menu-link-padding-base) - 2px);
     }
 }

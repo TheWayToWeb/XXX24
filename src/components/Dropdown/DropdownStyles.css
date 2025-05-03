@@ -1,59 +1,87 @@
+:root {
+    --dropdown-padding-top: 5px;
+    --dropdown-padding-bottom-mobile: 5px;
+    --dropdown-button-bg: #007bff;
+    --dropdown-button-color: #ffffff;
+    --dropdown-button-hover-bg: #ffffff;
+    --dropdown-button-hover-color: #007bff;
+    --dropdown-button-border-radius: 8px;
+    --dropdown-button-border-width-hover: 2px;
+    --dropdown-button-min-width: 150px;
+    --dropdown-button-min-height: 50px;
+    --dropdown-button-padding-desktop: 10px 20px;
+    --dropdown-button-font-size-desktop: 16px;
+    --dropdown-menu-bg: #ffffff;
+    --dropdown-menu-border-color: #007bff;
+    --dropdown-menu-border-width: 1px;
+    --dropdown-menu-border-radius: 8px;
+    --dropdown-menu-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --dropdown-menu-z-index: 1000;
+    --dropdown-menu-padding-mobile: 5px;
+    --dropdown-menu-font-size-mobile: 14px;
+    --dropdown-transition-duration: 0.3s;
+    --dropdown-transition-property: background-color, color, border;
+    --dropdown-transition-timing-function: ease;
+}
+
 .Dropdown {
     position: relative;
     display: inline-block;
-    padding-top: 5px;
+    padding-top: var(--dropdown-padding-top);
 }
 
 .Dropdown-Button {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: var(--dropdown-button-bg);
+    color: var(--dropdown-button-color);
     border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    min-width: 150px;
-    min-height: 50px;
+    padding: var(--dropdown-button-padding-desktop);
+    border-radius: var(--dropdown-button-border-radius);
+    min-width: var(--dropdown-button-min-width);
+    min-height: var(--dropdown-button-min-height);
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, border 0.3s;
+    transition: var(--dropdown-transition-property) var(--dropdown-transition-duration) var(--dropdown-transition-timing-function);
+    font-size: var(--dropdown-button-font-size-desktop);
 }
 
 .Dropdown-Button:hover {
-    background-color: #ffffff;
-    color: #007bff;
+    background-color: var(--dropdown-button-hover-bg);
+    color: var(--dropdown-button-hover-color);
     outline: none;
-    border: 2px solid #007bff;
+    border: var(--dropdown-button-border-width-hover) solid var(--dropdown-button-hover-color);
 }
 
 .Dropdown-Menu {
     display: none;
     width: 100%;
     position: absolute;
-    background-color: #ffffff;
-    border: 1px solid #007bff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--dropdown-menu-bg);
+    border: var(--dropdown-menu-border-width) solid var(--dropdown-menu-border-color);
+    border-radius: var(--dropdown-menu-border-radius);
+    box-shadow: var(--dropdown-menu-box-shadow);
     padding: 0;
-    z-index: 1000;
+    z-index: var(--dropdown-menu-z-index);
 }
 
 .Dropdown-Menu.Dropdown-Menu_Show {
     display: block;
 }
 
+/* Адаптивные стили */
 @media (min-width: 1200px) and (max-width: 1399px) {
     .Dropdown-Button {
-        font-size: 18px;
-        padding: 12px 24px;
+        font-size: calc(var(--dropdown-button-font-size-desktop) + 2px);
+        padding: calc(var(--dropdown-button-padding-desktop) + 2px);
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .Dropdown-Button {
         min-width: 200px;
-        font-size: 16px;
-        padding: 10px 20px;
+        font-size: var(--dropdown-button-font-size-desktop);
+        padding: var(--dropdown-button-padding-desktop);
     }
 }
 
@@ -64,7 +92,7 @@
     .Dropdown-Button {
         min-width: 100%;
         padding: 12px;
-        font-size: 16px;
+        font-size: var(--dropdown-button-font-size-desktop);
     }
 
     .Dropdown-Menu {
@@ -77,7 +105,7 @@
     .Dropdown-Button {
         min-width: 100%;
         padding: 12px;
-        font-size: 16px;
+        font-size: var(--dropdown-button-font-size-desktop);
     }
 
     .Dropdown-Menu {
@@ -90,15 +118,15 @@
 @media (max-width: 575px) {
     .Dropdown {
         padding-top: 0;
-        padding-bottom: 5px;
+        padding-bottom: var(--dropdown-padding-bottom-mobile);
     }
     .Dropdown-Button {
-        font-size: 14px;
-        padding: 10px;
+        font-size: calc(var(--dropdown-button-font-size-desktop) - 2px);
+        padding: calc(var(--dropdown-button-padding-desktop) - 10px);
     }
 
     .Dropdown-Menu {
-        font-size: 14px;
-        padding: 5px;
+        font-size: var(--dropdown-menu-font-size-mobile);
+        padding: var(--dropdown-menu-padding-mobile);
     }
 }

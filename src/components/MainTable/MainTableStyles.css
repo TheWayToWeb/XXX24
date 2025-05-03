@@ -1,101 +1,114 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #ffffff;
+    --text-color-primary: #333;
+    --text-color-secondary: #fff;
+    --border-color: #ddd;
+    --hover-background: #e0e0e0;
+    --even-row-background: #f2f2f2;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --padding-small: 8px;
+    --padding-medium: 10px;
+    --padding-large: 12px;
+    --padding-xl: 14px;
+    --padding-xxl: 16px;
+    --padding-huge: 18px;
+    --padding-extra-huge: 20px;
+    --font-size-small: 14px;
+    --font-size-medium: 15px;
+    --font-size-large: 16px;
+    --font-size-xl: 17px;
+    --font-size-xxl: 18px;
+    --font-size-huge: 20px;
+    --transition-duration: 0.3s;
+}
+
 .Table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
     font-family: Arial, sans-serif;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--box-shadow-color);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-medium); /* Базовый размер шрифта */
 }
 
 .Table-Header {
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: var(--primary-color);
+    color: var(--text-color-secondary);
 }
 
 .Table-Header th {
-    padding: 10px 15px;
-    border-right: 1px solid white; /* Правая граница */
+    padding: var(--padding-medium) var(--padding-large);
+    border-right: 1px solid var(--text-color-secondary);
     text-align: center;
 }
 
 .Table-Header tr th:first-child {
-    border-top-left-radius: 8px;
+    border-top-left-radius: var(--border-radius);
 }
 
 .Table-Header tr th:last-child {
-    border-top-right-radius: 8px;
-}
-
-.Table-Header td:last-child {
-    border-right: none;
+    border-top-right-radius: var(--border-radius);
+    border-right: none; /* Убираем границу у последнего элемента */
 }
 
 .Table-Body {
-    background-color: #ffffff;
+    background-color: var(--secondary-color);
 }
 
 .Table-Body tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: var(--even-row-background);
 }
 
 .Table-Body td {
-    padding: 10px 15px;
-    border-bottom: 1px solid #ddd; /* Нижняя граница */
-    border-right: 1px solid #ffffff; /* Правая граница */
+    padding: var(--padding-medium) var(--padding-large);
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--secondary-color);
     text-align: center;
-    transition: background 0.3s;
+    transition: background var(--transition-duration) ease-in-out;
 }
 
 .Table-Body td:last-child {
-    border-right: none; /* Убираем правую границу у последней ячейки в строке */
+    border-right: none;
 }
 
 .Table-Body td:hover {
-    background-color: #e0e0e0;
+    background-color: var(--hover-background);
 }
 
+/* Адаптивные стили для таблицы */
 @media (min-width: 1400px) {
     .Table {
-        font-size: 18px;
-    }
-
-    .Table-Header,
-    .Table-Body,
-    .Table-Body tr {
-        display: revert;
+        font-size: var(--font-size-xxl);
     }
 
     .Table-Header th,
     .Table-Body td {
-        padding: 14px 20px;
+        padding: var(--padding-extra-huge) var(--padding-huge);
     }
 }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
     .Table {
-        font-size: 17px;
-    }
-
-    .Table-Header,
-    .Table-Body,
-    .Table-Body tr {
-        display: revert;
+        font-size: var(--font-size-xl);
     }
 
     .Table-Header th,
     .Table-Body td {
-        padding: 12px 15px;
+        padding: var(--padding-huge) var(--padding-extra-huge);
     }
 }
 
-@media (min-width: 992px) and  (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1199px) {
     .Table {
-        font-size: 16px;
+        font-size: var(--font-size-large);
     }
 
     .Table-Header th,
     .Table-Body td {
-        padding: 12px 15px;
+        padding: var(--padding-large) var(--padding-large);
     }
 
     .Table-Body td::before {
@@ -107,6 +120,7 @@
     .Table {
         display: block;
         overflow-x: auto;
+        font-size: var(--font-size-large); /* Сохраняем размер шрифта */
     }
 
     .Table-Header,
@@ -118,7 +132,7 @@
     .Table-Header th,
     .Table-Body td {
         box-sizing: border-box;
-        padding: 10px;
+        padding: var(--padding-medium);
         text-align: right;
         position: relative;
     }
@@ -126,130 +140,160 @@
     .Table-Body td::before {
         content: attr(data-label);
         position: absolute;
-        left: 10px;
+        left: var(--padding-medium);
         font-weight: bold;
         text-align: left;
+        font-size: var(--font-size-medium); /* Адаптируем размер шрифта */
     }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+    .Table {
+        font-size: var(--font-size-medium);
+    }
+
     .Table-Header th,
     .Table-Body td {
-        padding: 10px 12px;
-        font-size: 15px;
+        padding: var(--padding-medium);
+        font-size: var(--font-size-medium);
     }
 
     .Table-Body td::before {
-        font-size: 14px;
+        font-size: var(--font-size-small);
     }
 }
 
 @media (min-width: 480px) and (max-width: 575px) {
+    .Table {
+        font-size: var(--font-size-small);
+    }
+
     .Table-Header th,
     .Table-Body td {
-        padding: 8px 10px;
-        font-size: 14px;
+        padding: var(--padding-small);
+        font-size: var(--font-size-small);
     }
 
     .Table-Body td::before {
-        font-size: 12px;
+        font-size: calc(var(--font-size-small) - 1px); /* Немного уменьшаем */
     }
 }
 
 @media (max-width: 479px) {
     .Table {
-        font-size: 15px;
+        font-size: calc(var(--font-size-small) - 1px);
     }
 
     .Table-Header th,
     .Table-Body td {
-        padding: 9px 12px;
+        padding: var(--padding-small);
+        font-size: calc(var(--font-size-small) - 2px);
     }
 
     .Table-Body td::before {
-        font-size: 13px;
+        font-size: calc(var(--font-size-small) - 3px);
     }
 }
 
 .TableButtonGroup {
-    /* Делаем группу кнопок липкой, чтобы она оставалась видимой при прокрутке */
     position: sticky;
     left: 50%;
     bottom: 20px;
-    transform: translateX(-50%);
-    border-radius: 8px;
-    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    padding: var(--padding-medium) var(--padding-large);
     cursor: pointer;
+    display: flex; /* Для лучшего контроля над элементами внутри */
+    gap: 10px; /* Расстояние между кнопками */
 }
 
 .TableButtonGroup-Button {
-    background-color: #ffffff;
-    color: #007bff;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: var(--padding-small) var(--padding-large);
+    font-size: var(--font-size-medium);
+    cursor: pointer;
+    transition: background-color var(--transition-duration) ease-in-out, color var(--transition-duration) ease-in-out;
+}
+
+.TableButtonGroup-Button:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color-secondary);
 }
 
 .TableButtonGroup-Button_Active {
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: var(--primary-color);
+    color: var(--text-color-secondary);
+    border-color: var(--primary-color);
 }
 
+/* Адаптивные стили для группы кнопок */
 @media (min-width: 1400px) {
     .TableButtonGroup {
-        padding: 20px 28px;
-        font-size: 26px;
+        padding: var(--padding-extra-huge) var(--padding-huge);
+        font-size: var(--font-size-huge);
+        gap: 15px;
     }
 }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
     .TableButtonGroup {
-        padding: 18px 26px;
-        font-size: 24px;
+        padding: var(--padding-huge) var(--padding-extra-huge);
+        font-size: var(--font-size-xxl);
+        gap: 14px;
     }
 }
 
-@media (min-width: 1200px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1199px) {
     .TableButtonGroup {
-        padding: 16px 24px;
-        font-size: 22px;
+        padding: var(--padding-large) var(--padding-large);
+        font-size: var(--font-size-xl);
+        gap: 12px;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .TableButtonGroup {
-        padding: 14px 22px;
-        font-size: 20px;
+        padding: var(--padding-large) var(--padding-medium);
+        font-size: var(--font-size-large);
+        gap: 10px;
     }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
     .TableButtonGroup {
-        padding: 12px 20px;
-        font-size: 18px;
+        padding: var(--padding-medium) var(--padding-medium);
+        font-size: var(--font-size-medium);
+        gap: 8px;
     }
 }
 
 @media (min-width: 480px) and (max-width: 575px) {
     .TableButtonGroup {
-        padding: 10px 18px;
-        font-size: 16px;
+        padding: var(--padding-small);
+        font-size: var(--font-size-small);
+        gap: 6px;
     }
 }
 
 @media (max-width: 479px) {
     .TableButtonGroup {
-        padding: 8px 16px;
-        font-size: 14px;
+        padding: calc(var(--padding-small) - 2px);
+        font-size: calc(var(--font-size-small) - 2px);
+        gap: 4px;
     }
 }
 
 .Input-Editer {
     width: 100%;
-    /*padding: 16px 20px;*/
     background-color: transparent;
     border: none;
     color: inherit;
     font-size: inherit;
     font-family: inherit;
     text-align: center;
+    padding: var(--padding-medium) var(--padding-large); /* Базовые отступы */
 }
 
 .Input-Editer:focus {
@@ -260,52 +304,52 @@
     box-shadow: none;
 }
 
-/* Адаптивные стили */
+/* Адаптивные стили для инпута */
 @media (max-width: 479px) {
     .Input-Editer {
-        padding: 14px 18px; /* Уменьшаем отступы */
-        font-size: 14px; /* Уменьшаем размер шрифта */
+        padding: var(--padding-small);
+        font-size: var(--font-size-small);
     }
 }
 
 @media (min-width: 480px) and (max-width: 575px) {
     .Input-Editer {
-        padding: 15px 19px; /* Немного увеличиваем отступы */
-        font-size: 15px; /* Увеличиваем размер шрифта */
+        padding: var(--padding-small);
+        font-size: var(--font-size-small);
     }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
     .Input-Editer {
-        padding: 16px 20px; /* Стандартные отступы */
-        font-size: 16px; /* Стандартный размер шрифта */
+        padding: var(--padding-medium);
+        font-size: var(--font-size-medium);
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .Input-Editer {
-        padding: 18px 22px; /* Увеличиваем отступы */
-        font-size: 17px; /* Увеличиваем размер шрифта */
+        padding: var(--padding-large);
+        font-size: var(--font-size-large);
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .Input-Editer {
-        padding: 16px 20px; /* Еще больше увеличиваем отступы */
-        font-size: 18px; /* Увеличиваем размер шрифта */
+        padding: var(--padding-large);
+        font-size: var(--font-size-xl);
     }
 }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
     .Input-Editer {
-        padding: 18px 22px; /* Максимальные отступы для больших экранов */
-        font-size: 19px; /* Увеличиваем размер шрифта */
+        padding: var(--padding-huge);
+        font-size: var(--font-size-xxl);
     }
 }
 
 @media (min-width: 1400px) {
     .Input-Editer {
-        padding: 20px 24px; /* Максимальные отступы для очень больших экранов */
-        font-size: 20px; /* Увеличиваем размер шрифта до максимума */
+        padding: var(--padding-extra-huge);
+        font-size: var(--font-size-huge);
     }
 }
