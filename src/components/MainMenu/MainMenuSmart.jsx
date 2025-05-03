@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import MainMenuView from "./MainMenuView.jsx";
 
 const menuItems = [
-    {id: 1, name: 'Active', href: '/', isActive: true },
-    {id: 2, name: 'Приходы', href: '/' },
-    {id: 3, name: 'Расходы', href: '/' },
-    {id: 4, name: 'Задание', href: '/' },
-    {id: 5, name: 'Остатки', href: '/' },
-    {id: 6, name: 'Визуализация', href: '/' },
-    {id: 7, name: 'Админ', href: '/' },
-    {id: 8, name: 'Поддержка', href: '/' },
-    {id: 9, name: 'Прочее', href: '/' },
-    {id: 10, name: 'Персональное', href: '/' },
+    {id: 1, name: 'Приходы', href: '/', isActive: true },
+    {id: 2, name: 'Расходы', href: '/' },
+    {id: 3, name: 'Задание', href: '/' },
+    {id: 4, name: 'Остатки', href: '/' },
+    {id: 5, name: 'Визуализация', href: '/' },
+    {id: 6, name: 'Админ', href: '/' },
+    {id: 7, name: 'Поддержка', href: '/' },
+    {id: 8, name: 'Прочее', href: '/' },
+    {id: 9, name: 'Персональное', href: '/' }
 ];
 
 const MainMenu = () => {

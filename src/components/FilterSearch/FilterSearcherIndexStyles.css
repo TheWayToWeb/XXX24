@@ -1,0 +1,86 @@
+.FilterSearchGroup {
+    display: flex;
+}
+
+.FilterSearchGroup .FilterSearchGroup-Item {
+    width: 100%;
+}
+
+@media (max-width: 479px) {
+    .FilterSearchGroup {
+        display: block;
+        padding: 12px;
+    }
+
+    .FilterSearchGroup .FilterSearchGroup-Item {
+        display: flex;
+        justify-content: center;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    .FilterSearchGroup .FilterSearcher {
+        width: calc(50% + 32px);
+    }
+}
+
+@media (min-width: 480px) and (max-width: 575px) {
+    .FilterSearchGroup {
+        padding: 16px;
+    }
+
+    .FilterSearchGroup .FilterSearcher {
+        width: calc(60% + 32px);
+    }
+}
+
+@media (min-width: 575px) and (max-width: 767px) {
+    .FilterSearchGroup {
+        padding: 20px;
+    }
+
+    .FilterSearchGroup .FilterSearcher {
+        width: calc(70% + 32px);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .FilterSearchGroup {
+        padding: 24px;
+    }
+
+    .FilterSearchGroup .FilterSearcher {
+        width: calc(80%);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .FilterSearchGroup {
+        padding: 28px;
+    }
+
+    .FilterSearchGroup .FilterSearcher {
+        width: calc(90%);
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .FilterSearchGroup {
+        padding: 32px;
+    }
+
+    .FilterSearchGroup .FilterSearcher {
+        width: calc(95%);
+    }
+}
+
+@media (min-width: 1400px) {
+    .FilterSearchGroup {
+        padding: 36px;
+    }
+
+    .FilterSearchGroup .FilterSearcher {
+        width: calc(100%);
+    }
+}
+

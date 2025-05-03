@@ -88,6 +88,10 @@
 }
 
 @media (max-width: 575px) {
+    .Dropdown {
+        padding-top: 0;
+        padding-bottom: 5px;
+    }
     .Dropdown-Button {
         font-size: 14px;
         padding: 10px;

@@ -4,15 +4,17 @@ import './FilterSearcherIndexStyles.css';
 
 const FilterSearcherIndexView = () => {
     return (
-        <div className="FilterSearchGroup">
-            <div className="FilterSearchGroup-Item">
-                <FilterSearcherSmart />
-            </div>
-            <div className="FilterSearchGroup-Item">
-                <FilterSearcherSmart />
-            </div>
-            <div className="FilterSearchGroup-Item">
-                <FilterSearcherSmart />
+        <div className="container">
+            <div className="FilterSearchGroup">
+                <div className="FilterSearchGroup-Item">
+                    <FilterSearcherSmart />
+                </div>
+                <div className="FilterSearchGroup-Item">
+                    <FilterSearcherSmart />
+                </div>
+                <div className="FilterSearchGroup-Item">
+                    <FilterSearcherSmart />
+                </div>
             </div>
         </div>
     );

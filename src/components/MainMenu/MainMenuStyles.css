@@ -5,6 +5,9 @@
 }
 
 .BurgerButton {
+    position: absolute;
+    right: 0;
+    top: 0;
     width: 32px;
     height: 24px;
     cursor: pointer;
