@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // Импортируем PropTypes
 import InfiniteScroll from 'react-infinite-scroll-component';
 import NotifyLoadView from "../NotifyLoad/NotifyLoadView.jsx";
 import EndMessageView from "../EndMessage/EndMessageView.jsx";
@@ -120,6 +121,32 @@ const MainTableView = ({
             </div>
         </>
     );
+};
+
+MainTableView.propTypes = {
+    comments: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            name: PropTypes.string.isRequired,
+            email: PropTypes.string.isRequired,
+            body: PropTypes.string.isRequired,
+            // Добавьте другие ожидаемые свойства объекта comment
+        })
+    ).isRequired,
+    hasMore: PropTypes.bool.isRequired,
+    fetchComments: PropTypes.func.isRequired,
+    columnHeader: PropTypes.arrayOf(PropTypes.string).isRequired,
+    editingHeaderIndex: PropTypes.number,
+    editingCell: PropTypes.shape({
+        rowIndex: PropTypes.number,
+        columnKey: PropTypes.oneOf(['name', 'email', 'body']),
+    }).isRequired,
+    inputValue: PropTypes.string.isRequired,
+    handleHeaderEditClick: PropTypes.func.isRequired,
+    handleHeaderBlur: PropTypes.func.isRequired,
+    handleEditClick: PropTypes.func.isRequired,
+    handleInputChange: PropTypes.func.isRequired,
+    handleBlur: PropTypes.func.isRequired,
 };
 
 export default MainTableView;

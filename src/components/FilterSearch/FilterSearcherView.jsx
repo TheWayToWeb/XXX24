@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types'; // Импортируем PropTypes
 import './FilterSearcherStyles.css';
 
-const FilterSearcherView = ({ items, isOpen,onInputClick }) => {
+const FilterSearcherView = ({ items, isOpen, onInputClick }) => {
     const [activeItem, setActiveItem] = useState(null);
 
     const handleItemClick = (item) => {
@@ -18,7 +19,10 @@ const FilterSearcherView = ({ items, isOpen,onInputClick }) => {
             {isOpen && (
                 <ul className="list-group FilteredList">
                     {items.map((item) => (
-                        <li className={`list-group-item FilteredList-Item  ${activeItem === item.id ? 'FilteredList-Item_Active' : ''}`}
+                        <li
+                            className={`list-group-item FilteredList-Item  ${
+                                activeItem === item.id ? 'FilteredList-Item_Active' : ''
+                            }`}
                             key={item.id}
                             onClick={() => handleItemClick(item)}
                         >
@@ -29,6 +33,18 @@ const FilterSearcherView = ({ items, isOpen,onInputClick }) => {
             )}
         </>
     );
+};
+
+FilterSearcherView.propTypes = {
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+            text: PropTypes.string.isRequired,
+            // Добавьте другие ожидаемые свойства объекта item
+        })
+    ).isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    onInputClick: PropTypes.func.isRequired,
 };
 
 export default FilterSearcherView;

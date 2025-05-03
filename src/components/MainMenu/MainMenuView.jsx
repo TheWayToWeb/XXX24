@@ -1,4 +1,5 @@
 import React, {useEffect, useRef} from 'react';
+import PropTypes from 'prop-types'; // Импортируем PropTypes
 import './MainMenuStyles.css';
 
 const MainMenuView = ({ isActive, onToggleMenu, menuItems }) => {
@@ -10,12 +11,12 @@ const MainMenuView = ({ isActive, onToggleMenu, menuItems }) => {
 
     useEffect(() => {
         const handleClickOutside = (e) => {
-          if (isActive &&
-              menuRef.current &&
-              !menuRef.current.contains(e.target) &&
-              !e.target.classList.contains('BurgerButton')) {
-              onToggleMenu(false);
-          }
+            if (isActive &&
+                menuRef.current &&
+                !menuRef.current.contains(e.target) &&
+                !e.target.classList.contains('BurgerButton')) {
+                onToggleMenu(false);
+            }
         };
 
         document.addEventListener('mousedown', handleClickOutside);
@@ -70,5 +71,17 @@ const MainMenuView = ({ isActive, onToggleMenu, menuItems }) => {
         </>
     );
 }
+
+MainMenuView.propTypes = {
+    isActive: PropTypes.bool.isRequired,
+    onToggleMenu: PropTypes.func.isRequired,
+    menuItems: PropTypes.arrayOf(
+        PropTypes.shape({
+            href: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            isActive: PropTypes.bool,
+        })
+    ).isRequired,
+};
 
 export default MainMenuView;

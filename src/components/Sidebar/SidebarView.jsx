@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // Импортируем PropTypes
 import './SidebarStyles.css';
 import './SidebarButtonsStyles.css';
 
 const SidebarView = ({ initItems, active, handleClickLink }) => {
     const buttonsData = [
-        {id: 1, label: '+', action: 'add'},
-        {id: 2, label: '-', action: 'subsctract'}
+        { id: 1, label: '+', action: 'add' },
+        { id: 2, label: '-', action: 'subtract' },
     ];
     return (
         <>
@@ -27,7 +28,7 @@ const SidebarView = ({ initItems, active, handleClickLink }) => {
                         </ul>
                     </div>
                 ) : (
-                    {/*<NoDataMessageView /> */}
+                    null // Заменил JSX-комментарий на null, чтобы избежать ошибки рендеринга
                 )}
             </nav>
             <div className="container SidebarButtonsContainer">
@@ -49,6 +50,19 @@ const SidebarView = ({ initItems, active, handleClickLink }) => {
         </>
 
     );
+};
+
+// Добавляем проверку типов пропсов с помощью PropTypes
+SidebarView.propTypes = {
+    initItems: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            innerText: PropTypes.string.isRequired,
+            // Добавьте другие ожидаемые свойства объекта item
+        })
+    ).isRequired,
+    active: PropTypes.number,
+    handleClickLink: PropTypes.func.isRequired,
 };
 
 export default SidebarView;
