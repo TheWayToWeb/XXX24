@@ -18,6 +18,7 @@ const MainMenu = () => {
     const toggleMenu = () => {
         setIsActive(!isActive);
     };
+
     return (
         <MainMenuView
             isActive={isActive}

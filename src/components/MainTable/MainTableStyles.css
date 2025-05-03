@@ -204,6 +204,7 @@
     cursor: pointer;
     display: flex; /* Для лучшего контроля над элементами внутри */
     gap: 10px; /* Расстояние между кнопками */
+    max-width: 50%;
 }
 
 .TableButtonGroup-Button {
@@ -242,6 +243,12 @@
         padding: var(--padding-huge) var(--padding-extra-huge);
         font-size: var(--font-size-xxl);
         gap: 14px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .TableButtonGroup {
+        max-width: 25%;
     }
 }
 
