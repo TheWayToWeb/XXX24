@@ -3,6 +3,10 @@ import './MainMenuStyles.css';
 
 const MainMenuView = ({ isActive, onToggleMenu, menuItems }) => {
     const menuRef = useRef(null);
+    const buttonsData = [
+        { id: 1, label: '+', action: 'add' },
+        { id: 2, label: '-', action: 'subtract' },
+    ];
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -41,6 +45,27 @@ const MainMenuView = ({ isActive, onToggleMenu, menuItems }) => {
                         {item.name}
                     </a>
                 ))}
+                <div className="container-fluid MainMenuButtonsContainer">
+                    <div className="row btn-group MainMenuButtonItems">
+                        {
+                            buttonsData.map((button) => (
+                                <div
+                                    key={button.id}
+                                    className="col-md-6 col-xl-6 col-lg-6 MainMenuButtonItems-Column"
+                                >
+                                    <button
+                                        type="button"
+                                        className="btn btn-outline-primary MainMenuButtonItems-Button"
+                                        onClick={() => {
+                                            // Здесь можно добавить логику для обработки действия кнопки
+                                            console.log(`Button "${button.label}" clicked (${button.action})`);
+                                        }}
+                                    >{button.label}</button>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
             </nav>
         </>
     );
