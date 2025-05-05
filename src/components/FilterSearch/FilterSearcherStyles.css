@@ -5,7 +5,7 @@
     --filter-searcher-focus-color: #007bff;
     --filter-searcher-box-shadow-inset: rgba(0, 0, 0, 0.1);
     --filter-searcher-box-shadow-focus: rgba(0, 123, 255, 0.5);
-    --filter-searcher-border-radius: 5px;
+    --filter-searcher-border-radius: 25px;
     --filter-searcher-padding-small: 8px;
     --filter-searcher-padding-medium: 10px;
     --filter-searcher-padding-large: 12px;
