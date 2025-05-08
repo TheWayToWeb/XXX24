@@ -54,7 +54,7 @@
     width: 100%;
     position: absolute;
     background-color: var(--menu-bg);
-    border: var(--menu-border-width) solid var(--menu-border-color);
+    border: none;
     border-radius: var(--menu-border-radius);
     box-shadow: var(--menu-box-shadow);
     padding: 0;

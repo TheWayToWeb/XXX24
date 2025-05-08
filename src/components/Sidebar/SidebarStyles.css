@@ -1,32 +1,31 @@
 :root {
-    --sidebar-bg: #f8f9fa;
-    --sidebar-list-bg: #007bff;
-    --sidebar-link-color: #ffffff;
-    --sidebar-link-active-bg: #ffffff;
-    --sidebar-link-active-color: #007bff;
-    --sidebar-border-color: #ffffff;
-    --sidebar-border-radius: 8px;
-    --sidebar-link-border-radius: 5px;
-    --sidebar-transition-duration: 0.3s;
-    --sidebar-padding-small: 5px;
-    --sidebar-padding-medium: 10px;
-    --sidebar-padding-large: 15px;
-    --sidebar-padding-xl: 20px;
-    --sidebar-padding-xxl: 25px;
-    --sidebar-font-size-small: 14px;
-    --sidebar-font-size-medium: 15px;
+    --sidebar-bg: #f8f9fa; /* Светло-серый фон */
+    --sidebar-list-bg: #e0e0e0; /* Светло-серый фон списка */
+    --sidebar-link-color: #333333; /* Темно-серый цвет текста ссылок */
+    --sidebar-link-active-bg: #d0d0d0; /* Еще светлее серый для активной ссылки */
+    --sidebar-link-active-color: #000000; /* Черный цвет текста активной ссылки */
+    --sidebar-border-color: #cccccc; /* Светло-серая граница */
+    --sidebar-border-radius: 4px; /* Менее скругленные углы */
+    --sidebar-link-border-radius: 2px; /* Менее скругленные углы для ссылок */
+    --sidebar-transition-duration: 0.2s; /* Более быстрая анимация */
+    --sidebar-padding-small: 4px;
+    --sidebar-padding-medium: 8px;
+    --sidebar-padding-large: 12px;
+    --sidebar-padding-xl: 16px;
+    --sidebar-padding-xxl: 20px;
+    --sidebar-font-size-small: 12px;
+    --sidebar-font-size-medium: 14px;
     --sidebar-font-size-large: 16px;
-    --sidebar-font-size-xl: 17px;
-    --sidebar-font-size-xxl: 18px;
-    --sidebar-font-size-huge: 19px;
-    --sidebar-font-size-extra-huge: 20px;
-
+    --sidebar-font-size-xl: 18px;
+    --sidebar-font-size-xxl: 20px;
+    --sidebar-font-size-huge: 22px;
+    --sidebar-font-size-extra-huge: 24px;
 }
 
 .Sidebar {
     background-color: var(--sidebar-bg);
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Типичный шрифт Windows */
 }
 
 .Sidebar-List {
@@ -37,6 +36,7 @@
     background: var(--sidebar-list-bg);
     border-radius: var(--sidebar-border-radius);
     text-align: center;
+    border: 1px solid var(--sidebar-border-color); /* Добавляем границу вокруг списка */
 }
 
 .Sidebar-Item {
@@ -54,12 +54,18 @@
     transition: background var(--sidebar-transition-duration) ease-in-out,
     color var(--sidebar-transition-duration) ease-in-out;
     color: var(--sidebar-link-color);
+    padding: var(--sidebar-padding-medium); /* Уменьшаем отступы по умолчанию */
+    cursor: pointer;
+}
+
+.Sidebar-Link:hover {
+    color: #fefefe;
 }
 
 .Sidebar-Item_Active .Sidebar-Link {
-    background-color: var(--sidebar-link-active-bg);
     color: var(--sidebar-link-active-color);
-    border: 2px solid var(--sidebar-link-active-color);
+    border: none; /* Убираем границу активной ссылки */
+    text-decoration: underline;
 }
 
 .Sidebar-Collapse {
@@ -74,7 +80,7 @@
     }
 
     .Sidebar-Link {
-        padding: var(--sidebar-padding-xxl) calc(var(--sidebar-padding-xl) + 15px);
+        padding: var(--sidebar-padding-xxl);
     }
 }
 
@@ -84,7 +90,7 @@
     }
 
     .Sidebar-Link {
-        padding: var(--sidebar-padding-xl) calc(var(--sidebar-padding-large) + 10px);
+        padding: var(--sidebar-padding-xl);
     }
 }
 
@@ -95,7 +101,7 @@
     }
 
     .Sidebar-Link {
-        padding: var(--sidebar-padding-large) calc(var(--sidebar-padding-large) + 5px);
+        padding: var(--sidebar-padding-large);
     }
 }
 

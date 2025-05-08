@@ -1,17 +1,17 @@
 :root {
-    --button-background-mobile: #007bff;
-    --button-color: #ffffff;
-    --button-color-medium: #6c757d;
-    --padding-mobile: 15px;
-    --padding-tablet: 25px;
-    --padding-desktop-s: 30px;
-    --padding-desktop-m: 35px;
-    --padding-desktop-l: 20px;
-    --vertical-padding: 10px;
-    --button-radius: 8px;
+    --button-background-mobile: #f0f0f0; /* Светло-серый, как фон ячеек */
+    --button-color: #333333; /* Темно-серый, как текст в ячейках */
+    --button-color-medium: #808080; /* Средне-серый для hover эффектов */
+    --padding-mobile: 10px; /* Уменьшенный отступ для мобильных */
+    --padding-tablet: 12px; /* Умеренный отступ для планшетов */
+    --padding-desktop-s: 15px; /* Небольшой отступ для десктопов */
+    --padding-desktop-m: 18px;
+    --padding-desktop-l: 12px;
+    --vertical-padding: 8px; /* Уменьшенный вертикальный отступ */
+    --button-radius: 4px; /* Меньший радиус, более угловатый вид */
     --container-margin-mobile: 0;
-    --container-margin-tablet: 20px;
-    --container-margin-desktop: 10px;
+    --container-margin-tablet: 10px; /* Уменьшенный отступ контейнера */
+    --container-margin-desktop: 5px;
 }
 
 .SidebarButtons {
@@ -36,6 +36,7 @@
 
     .SidebarButton {
         background-color: var(--button-background-mobile);
+        border: 1px solid #cccccc; /* Тонкая серая граница для мобильных кнопок */
     }
 }
 
@@ -46,7 +47,9 @@
 
     .SidebarButton {
         width: 100%;
-        max-width: 40px; /* Можно убрать, если не требуется ограничение ширины */
+        max-width: 60px; /* Немного увеличил макс. ширину */
+        border-left: none; /* Убираем левую границу */
+        border-right: none; /* Убираем правую границу */
     }
     /* Скрываем десктопные кнопки на мобильных интерфейсах */
     .SidebarButtons_Vertical {
@@ -54,15 +57,13 @@
     }
 
     .SidebarButton#sidebarButton-1 {
-        border-bottom: none;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        border-bottom: 1px solid #cccccc;
+        border-radius: var(--button-radius) var(--button-radius) 0 0;
     }
 
     .SidebarButton#sidebarButton-2 {
         border-top: none;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+        border-radius: 0 0 var(--button-radius) var(--button-radius);
     }
 }
 
@@ -90,15 +91,30 @@
     }
 
     .SidebarButtons_Vertical {
-        margin-bottom: var(--container-margin-tablet); /* Можно использовать переменную для отступа */
+        margin-bottom: var(--container-margin-tablet);
     }
 
     .SidebarButton {
         transition: all 0.3s ease-in-out;
+        border-radius: 0; /* Убираем скругление для вертикального стека */
+    }
+
+    .SidebarButton:focus {
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    }
+
+    .SidebarButtons_Vertical .SidebarButton:last-child {
+        border-bottom: none; /* Убираем границу у последней кнопки */
+        border-bottom-left-radius: var(--button-radius);
+        border-bottom-right-radius: var(--button-radius);
+    }
+
+    .SidebarButtons_Vertical .SidebarButton:first-child {
+        border-top-left-radius: var(--button-radius);
+        border-top-right-radius: var(--button-radius);
     }
 
     .SidebarButtons_Vertical .SidebarButton:hover {
-        background-color: transparent;
-        color: var(--button-color-medium);
+        color: var(--button-color);
     }
 }
