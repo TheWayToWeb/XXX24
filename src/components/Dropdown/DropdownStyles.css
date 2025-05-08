@@ -23,7 +23,7 @@
 .Dropdown {
     position: relative;
     display: inline-block;
-    padding-top: 5px; /* Была --dropdown-padding-top, используется только здесь */
+    padding-top: 5px; /* --dropdown-padding-top, используется только здесь */
 }
 
 .Dropdown-Button {
@@ -125,14 +125,14 @@
 
 @media (max-width: 575px) {
     .Dropdown {
-        padding-bottom: 5px; /* Была --dropdown-padding-bottom-mobile, используется только здесь */
+        padding-bottom: 5px; /* --dropdown-padding-bottom-mobile, используется только здесь */
     }
     .Dropdown-Button {
         font-size: calc(var(--button-font-size) - 2px);
     }
 
     .Dropdown-Menu {
-        font-size: 14px; /* Была --dropdown-menu-font-size-mobile, используется только здесь */
-        padding: 5px; /* Была --dropdown-menu-padding-mobile, используется только здесь */
+        font-size: 14px; /* --dropdown-menu-font-size-mobile, используется только здесь */
+        padding: 5px; /*  --dropdown-menu-padding-mobile, используется только здесь */
     }
 }

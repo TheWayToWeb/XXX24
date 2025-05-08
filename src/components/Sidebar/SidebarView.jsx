@@ -10,7 +10,7 @@ const SidebarView = React.memo(({ initItems, active, handleClickLink }) => {
     ];
     return (
         <>
-            <nav className="navbar bg-light Sidebar">
+            <nav className="navbar Sidebar">
                 {initItems.length > 0 ? <div className="navbar-collapse Sidebar-Collapse">
                     <ul className="navbar-nav Sidebar-List">
                         {initItems.map((item) => (
@@ -19,25 +19,58 @@ const SidebarView = React.memo(({ initItems, active, handleClickLink }) => {
                                 key={item.id}
                                 onClick={() => handleClickLink(item)}
                             >
-                                <a className="nav-link Sidebar-Link">
-                                    {item.innerText}
-                                </a>
+                                {
+                                    item.id <= initItems.length - 1 && (
+                                        <a className="nav-link Sidebar-Link">
+                                            {item.innerText}
+                                        </a>
+                                    )
+                                }
+                                {
+                                    item.id === initItems.length ? (
+                                        <div
+                                            className="container-fluid"
+                                            id="fullWidthItemContainer"
+                                        >
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    <a className="nav-link Sidebar-Link">
+                                                        {item.innerText}
+                                                    </a>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <div
+                                                        className="btn-group-vertical SidebarButtons SidebarButtons_Vertical"
+                                                    >
+                                                        {buttonsData.map((button) => (
+                                                            <button
+                                                                type="button"
+                                                                className="btn SidebarButton"
+                                                                key={button.id}
+                                                            >{button.label}</button>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ) : null
+                                }
                             </li>
                         ))}
                     </ul>
                 </div> : null}
             </nav>
-            <div className="container SidebarButtonsContainer">
-                <div className="row btn-group SidebarButtonItems">
+            <div className="container">
+                <div className="row btn-group SidebarButtons SidebarButtons_Horizontal">
                     {buttonsData.map((button) => (
                         <div
-                            className=" col-sm-6 col-md-6 col-lg-6 col-xl-6 SidebarButtonItems-Column"
+                            className="col-sm-6"
                             key={button.id}
                         >
                             <button
                                 id={`sidebarButton-${button.id}`}
                                 type="button"
-                                className="btn btn-outline-primary SidebarButtonItems-Button"
+                                className="btn SidebarButton"
                             >{button.label}</button>
                         </div>
                     ))}

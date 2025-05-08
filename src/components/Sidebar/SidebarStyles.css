@@ -49,7 +49,6 @@
 
 .Sidebar-Link {
     display: block; /* Чтобы занимал всю ширину Item */
-    padding: var(--sidebar-padding-medium) var(--sidebar-padding-xl); /* Базовый padding */
     text-decoration: none;
     border-radius: var(--sidebar-link-border-radius);
     transition: background var(--sidebar-transition-duration) ease-in-out,
