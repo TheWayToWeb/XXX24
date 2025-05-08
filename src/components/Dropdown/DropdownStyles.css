@@ -1,39 +1,48 @@
 :root {
-    --button-bg: #007bff;
-    --button-color: #ffffff;
-    --button-hover-bg: #ffffff;
-    --button-hover-color: #007bff;
-    --button-border-radius: 8px;
-    --button-border-width-hover: 2px;
-    --button-min-width: 150px;
-    --button-min-height: 50px;
-    --button-padding: 10px 20px;
-    --button-font-size: 16px;
-    --menu-bg: #ffffff;
-    --menu-border-color: #007bff;
+    --button-bg: #e0e0e0; /* Светло-серый фон кнопок */
+    --button-color: #212529; /* Темно-серый цвет текста кнопок */
+    --button-hover-bg: #e9ecef; /* Еще светлее серый при наведении */
+    --button-hover-color: #212529;
+    --button-border-radius: 4px; /* Менее скругленные углы */
+    --button-border-width: 1px; /* Толщина границы кнопки */
+    --button-border-width-hover: 1px; /* Тонкая граница при наведении */
+    --button-min-width: 100px; /* Уменьшаем минимальную ширину */
+    --button-min-height: 30px; /* Уменьшаем минимальную высоту */
+    --button-padding-y: 6px; /* Вертикальные отступы кнопки */
+    --button-padding-x: 12px; /* Горизонтальные отступы кнопки */
+    --button-font-size: 14px; /* Уменьшаем размер шрифта */
+    --button-focus-shadow: 0 0 0.2rem 0.05rem rgba(0, 0, 0, 0.1); /* Тень при фокусе */
+    --menu-bg: #ffffff; /* Белый фон меню */
+    --menu-border-color: #ced4da; /* Светло-серая граница меню */
     --menu-border-width: 1px;
-    --menu-border-radius: 8px;
-    --menu-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --menu-border-radius: 4px;
+    --menu-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Более легкая тень */
+    --menu-padding-y: 5px; /* Вертикальные отступы меню */
+    --menu-item-padding-y: 6px; /* Вертикальные отступы элемента меню */
+    --menu-item-padding-x: 15px; /* Горизонтальные отступы элемента меню */
+    --menu-item-hover-bg: #f8f9fa; /* Светло-серый фон при наведении на пункт меню */
+    --menu-separator-margin-y: 0.5rem; /* Вертикальные отступы разделителя меню */
+    --menu-separator-border-top: 1px solid #e9ecef; /* Стиль разделителя меню */
     --menu-z-index: 1000;
-    --transition-duration: 0.3s;
-    --transition-property: background-color, color, border-color;
-    --transition-timing-function: ease;
+    --transition-duration: 0.15s; /* Более быстрая анимация */
+    --transition-property: background-color, color;
+    --transition-timing-function: ease-in-out;
 }
 
 .Dropdown {
     position: relative;
     display: inline-block;
-    padding-top: 5px; /* --dropdown-padding-top, используется только здесь */
+    padding-top: 3px; /* Уменьшаем верхний отступ */
 }
 
 .Dropdown-Button {
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Центрируем содержимое */
     align-items: center;
     background-color: var(--button-bg);
     color: var(--button-color);
-    border: none;
-    padding: var(--button-padding);
+    border: var(--button-border-width) solid #ced4da; /* Добавляем тонкую серую границу */
+    padding: var(--button-padding-y) var(--button-padding-x);
     border-radius: var(--button-border-radius);
     min-width: var(--button-min-width);
     min-height: var(--button-min-height);
@@ -46,93 +55,130 @@
     background-color: var(--button-hover-bg);
     color: var(--button-hover-color);
     outline: none;
-    border: var(--button-border-width-hover) solid var(--button-hover-color);
+    border: none;
+}
+
+.Dropdown-Button:focus {
+    box-shadow: var(--button-focus-shadow);
 }
 
 .Dropdown-Menu {
     display: none;
-    width: 100%;
+    width: auto; /* Автоматическая ширина меню */
     position: absolute;
     background-color: var(--menu-bg);
-    border: none;
+    border: var(--menu-border-width) solid var(--menu-border-color);
     border-radius: var(--menu-border-radius);
     box-shadow: var(--menu-box-shadow);
-    padding: 0;
+    padding: var(--menu-padding-y) 0; /* Небольшие вертикальные отступы */
     z-index: var(--menu-z-index);
 }
 
-.Dropdown-Menu.Dropdown-Menu_Show {
+.Dropdown-Menu_Show {
     display: block;
+    border: none;
+}
+
+.Dropdown-MenuItem {
+    display: block;
+    padding: var(--menu-item-padding-y) var(--menu-item-padding-x);
+    clear: both;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--button-color);
+    text-align: left;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: background-color var(--transition-duration) ease-in-out, color var(--transition-duration) ease-in-out;
+    font-size: var(--button-font-size); /* Используем размер шрифта кнопки по умолчанию */
+}
+
+.Dropdown-MenuItem:hover {
+    background-color: var(--menu-item-hover-bg);
+    color: var(--button-color);
+    text-decoration: none;
+}
+
+.Dropdown-MenuSeparator {
+    height: 0;
+    margin: var(--menu-separator-margin-y) 0;
+    overflow: hidden;
+    border-top: var(--menu-separator-border-top);
 }
 
 /* Адаптивные стили */
-@media (min-width: 1200px) and (max-width: 1399px) {
+/*Extra Small Screens (>= 344px)*/
+@media (min-width: 344px) {
+    .Dropdown {
+        padding-top: 3px;
+    }
+
     .Dropdown-Button {
-        font-size: calc(var(--button-font-size) + 2px);
+        min-width: 150px;
+        font-size: 12px;
+        padding: 4px 12px;
+    }
+
+    .Dropdown-Menu {
+        width: auto; /* Автоматическая ширина меню на небольших экранах*/
+        left: auto; /* Возвращаем автоматическое позиционирование */
+    }
+
+    .Dropdown-MenuItem {
+        font-size: 12px;
+        padding: 8px 15px;
     }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+/* Small screens (≥ 576px) */
+@media (min-width: 576px) {
     .Dropdown-Button {
+        min-width: 120px;
+        font-size: 14px;
+    }
+}
+
+/* Medium screens (≥ 768px) */
+@media (min-width: 768px) {
+    .Dropdown-Button {
+        font-size: 16px;
+        padding: 8px 16px;
+        min-width: 150px;
+    }
+
+    .Dropdown-MenuItem {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+/* Large screens (≥ 992px) */
+@media (min-width: 992px) {
+    .Dropdown-Button {
+        min-width: 180px;
+    }
+}
+
+/* Extra large screens (≥ 1200px) */
+@media (min-width: 1200px) {
+    .Dropdown-Button {
+        font-size: 18px;
+        padding: 10px 20px;
         min-width: 200px;
     }
-}
 
-@media (min-width: 768px) and (max-width: 991px) {
-    .Dropdown {
-        min-width: 100%;
-    }
-    .Dropdown-Button {
-        min-width: 100%;
-    }
-
-    .Dropdown-Menu {
-        background-color: transparent;
-        border: none;
+    .Dropdown-MenuItem {
+        font-size: 18px;
+        padding: 12px 25px;
     }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+/* Extra extra large screens (≥ 1400px) */
+@media (min-width: 1400px) {
     .Dropdown-Button {
-        min-width: 100%;
-    }
-
-    .Dropdown-Menu {
-        width: 100%;
-        left: 0;
-        right: 0;
-    }
-}
-
-@media (max-width: 767px) {
-    .Dropdown {
-        width: 100%;
-        min-height: 40px;
-    }
-    .Dropdown-Button {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 0;
-        min-width: 40px;
-        min-height: 40px;
-    }
-
-    .Dropdown-ButtonText {
-        display: none;
-    }
-}
-
-@media (max-width: 575px) {
-    .Dropdown {
-        padding-bottom: 5px; /* --dropdown-padding-bottom-mobile, используется только здесь */
-    }
-    .Dropdown-Button {
-        font-size: calc(var(--button-font-size) - 2px);
-    }
-
-    .Dropdown-Menu {
-        font-size: 14px; /* --dropdown-menu-font-size-mobile, используется только здесь */
-        padding: 5px; /*  --dropdown-menu-padding-mobile, используется только здесь */
+        font-size: 24px;
+        min-width: 220px;
     }
 }
