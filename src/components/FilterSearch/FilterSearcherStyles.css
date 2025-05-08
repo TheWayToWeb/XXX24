@@ -1,32 +1,32 @@
 :root {
-    --filter-searcher-bg: #007bff;
-    --filter-searcher-color: #ffffff;
-    --filter-searcher-focus-border: #007bff;
-    --filter-searcher-focus-color: #007bff;
-    --filter-searcher-box-shadow-inset: rgba(0, 0, 0, 0.1);
-    --filter-searcher-box-shadow-focus: rgba(0, 123, 255, 0.5);
-    --filter-searcher-border-radius: 8px;
-    --filter-searcher-padding-small: 8px;
-    --filter-searcher-padding-medium: 10px;
-    --filter-searcher-padding-large: 12px;
-    --filter-searcher-padding-xl: 14px;
-    --filter-searcher-padding-xxl: 16px;
-    --filter-searcher-padding-huge: 18px;
-    --filter-searcher-font-size-small: 16px;
-    --filter-searcher-font-size-medium: 18px;
-    --filter-searcher-font-size-large: 20px;
-    --filtered-list-bg: #ffffff; /* Предполагаемый цвет фона, если нужен */
-    --filtered-list-box-shadow: rgba(0, 0, 0, 0.1);
-    --filtered-list-border-radius: 5px;
-    --filtered-list-max-height-mobile: 250px;
-    --filtered-list-max-height-desktop: 300px;
-    --filtered-list-min-width: 240px;
-    --filtered-list-item-padding-small: 8px;
-    --filtered-list-item-padding-medium: 10px;
-    --filtered-list-item-active-bg: #007bff;
-    --filtered-list-item-active-color: #ffffff;
-    --transition-duration: 0.3s;
-    --transition-easing: ease;
+    --filter-searcher-bg: #f8f9fa; /* Светло-серый фон поля поиска */
+    --filter-searcher-color: #212529; /* Темно-серый цвет текста поиска */
+    --filter-searcher-focus-border: #007bff; /* Синий цвет границы при фокусе (можно изменить на более нейтральный серый) */
+    --filter-searcher-focus-color: #212529; /* Темно-серый цвет текста при фокусе */
+    --filter-searcher-box-shadow-inset: rgba(0, 0, 0, 0.075); /* Более светлая внутренняя тень */
+    --filter-searcher-box-shadow-focus: rgba(0, 123, 255, 0.25); /* Более светлая тень фокуса */
+    --filter-searcher-border-radius: 4px; /* Менее скругленные углы */
+    --filter-searcher-padding-small: 6px; /* Уменьшенные отступы */
+    --filter-searcher-padding-medium: 8px;
+    --filter-searcher-padding-large: 10px;
+    --filter-searcher-padding-xl: 12px;
+    --filter-searcher-padding-xxl: 14px;
+    --filter-searcher-padding-huge: 16px;
+    --filter-searcher-font-size-small: 14px; /* Уменьшенные размеры шрифта */
+    --filter-searcher-font-size-medium: 16px;
+    --filter-searcher-font-size-large: 18px;
+    --filtered-list-bg: #ffffff; /* Белый фон списка */
+    --filtered-list-box-shadow: rgba(0, 0, 0, 0.05); /* Более легкая тень списка */
+    --filtered-list-border-radius: 2px; /* Менее скругленные углы списка */
+    --filtered-list-max-height-mobile: 200px; /* Уменьшенная максимальная высота для мобильных */
+    --filtered-list-max-height-desktop: 250px; /* Уменьшенная максимальная высота для десктопов */
+    --filtered-list-min-width: 200px; /* Уменьшенная минимальная ширина списка */
+    --filtered-list-item-padding-small: 6px; /* Уменьшенные отступы элемента списка */
+    --filtered-list-item-padding-medium: 8px;
+    --filtered-list-item-active-bg: #e9ecef; /* Светло-серый фон активного элемента */
+    --filtered-list-item-active-color: #212529; /* Темно-серый цвет активного элемента */
+    --transition-duration: 0.15s; /* Более быстрая анимация */
+    --transition-easing: ease-in-out;
 }
 
 .FilterSearcher {
@@ -34,31 +34,34 @@
     background-color: var(--filter-searcher-bg);
     color: var(--filter-searcher-color);
     border-radius: var(--filter-searcher-border-radius);
-    box-shadow: inset 0 1px 3px var(--filter-searcher-box-shadow-inset);
+    box-shadow: inset 0 1px 2px var(--filter-searcher-box-shadow-inset); /* Уменьшена интенсивность тени */
     transition: border-color var(--transition-duration) var(--transition-easing);
-    border: 1px solid transparent; /* Для корректного отображения фокуса */
+    border: 1px solid #ced4da; /* Добавлена светлая серая граница по умолчанию */
+    font-size: var(--filter-searcher-font-size-large);
+    padding: var(--filter-searcher-padding-huge);
 }
 
 .FilterSearcher:focus {
-    border-color: var(--filter-searcher-focus-border);
+    border-color: #007bff; /* Оставляем синий для фокуса, но можно заменить на серый, например #6c757d */
     color: var(--filter-searcher-focus-color);
     outline: none;
-    box-shadow: 0 0 5px var(--filter-searcher-box-shadow-focus);
+    box-shadow: 0 0 3px var(--filter-searcher-box-shadow-focus); /* Уменьшена интенсивность тени фокуса */
 }
 
 .FilteredList {
     position: absolute;
     border-radius: var(--filtered-list-border-radius);
-    box-shadow: 0 2px 8px var(--filtered-list-box-shadow);
+    box-shadow: 0 1px 3px var(--filtered-list-box-shadow); /* Уменьшена интенсивность тени списка */
     max-height: var(--filtered-list-max-height-desktop);
     overflow-y: auto;
     min-width: var(--filtered-list-min-width);
     z-index: 1000;
-    background-color: var(--filtered-list-bg); /* Явное задание цвета фона */
+    background-color: var(--filtered-list-bg);
+    border: 1px solid #ced4da; /* Добавлена светлая серая граница списка */
 }
 
 .FilteredList-Item {
-    padding: var(--filtered-list-item-padding-medium) var(--filtered-list-item-padding-medium);
+    padding: var(--filtered-list-item-padding-medium);
     cursor: pointer;
     transition: background-color var(--transition-duration) var(--transition-easing),
     color var(--transition-duration) var(--transition-easing);
@@ -69,58 +72,55 @@
     color: var(--filtered-list-item-active-color);
 }
 
-/* Адаптивные стили */
-@media (max-width: 479px) {
+/* Адаптация под самые маленькие мобильные экраны от 344px */
+@media (min-width: 344px) {
     .FilterSearcher {
-        font-size: var(--filter-searcher-font-size-small);
-        padding: var(--filter-searcher-padding-small) var(--filter-searcher-padding-small);
-    }
-
-    .FilteredList {
-        min-width: 100%;
-        max-height: var(--filtered-list-max-height-mobile);
+        font-size: var(--filter-searcher-font-size-medium);
+        padding: var(--filter-searcher-padding-medium);
     }
 
     .FilteredList-Item {
-        padding: var(--filtered-list-item-padding-small) var(--filtered-list-item-padding-small);
+        padding: var(--filtered-list-item-padding-medium);
+        font-size: var(--filter-searcher-font-size-medium);
     }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+/* Адаптация под маленькие мобильные экраны от 576px */
+@media (min-width: 576px) {
     .FilterSearcher {
-        font-size: var(--filter-searcher-font-size-small);
-        padding: var(--filter-searcher-padding-medium) var(--filter-searcher-padding-medium);
+        font-size: var(--filter-searcher-font-size-large);
+        padding: var(--filter-searcher-padding-large);
     }
 
     .FilteredList {
-        max-height: var(--filtered-list-max-height-desktop);
+        min-width: var(--filtered-list-min-width); /* Возвращаем значение по умолчанию или корректируем */
+    }
+
+    .FilteredList-Item {
+        padding: var(--filtered-list-item-padding-medium); /* Возвращаем значение по умолчанию или корректируем */
+        font-size: var(--filter-searcher-font-size-large);
     }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+/* Адаптация под планшеты от 768px */
+@media (min-width: 768px) {
     .FilterSearcher {
         font-size: var(--filter-searcher-font-size-medium);
-        padding: var(--filter-searcher-padding-large) var(--filter-searcher-padding-large);
+        padding: var(--filter-searcher-padding-large);
     }
 }
-
-@media (min-width: 992px) and (max-width: 1199px) {
+/* Адаптация под планшеты от 992px */
+@media (min-width: 992px) {
     .FilterSearcher {
         font-size: var(--filter-searcher-font-size-large);
-        padding: var(--filter-searcher-padding-xl) var(--filter-searcher-padding-xl);
+        padding: var(--filter-searcher-padding-xl);
     }
 }
 
-@media (min-width: 1200px) and (max-width: 1399px) {
+/* Адаптация под ПК */
+@media (min-width: 1200px) {
     .FilterSearcher {
         font-size: var(--filter-searcher-font-size-medium);
-        padding: var(--filter-searcher-padding-xxl) var(--filter-searcher-padding-xxl);
-    }
-}
-
-@media (min-width: 1400px) {
-    .FilterSearcher {
-        font-size: var(--filter-searcher-font-size-large);
-        padding: var(--filter-searcher-padding-huge) var(--filter-searcher-padding-huge);
+        padding: var(--filter-searcher-padding-xxl);
     }
 }

@@ -5,14 +5,12 @@ import './FilterSearcherIndexStyles.css';
 
 const FilterSearcherIndexView = React.memo(({ searchFields }) => {
     return (
-        <div className="container">
-            <div className="FilterSearchGroup">
-                {searchFields.map((field, index) => (
-                    <div key={index} className="FilterSearchGroup-Item">
-                        <FilterSearcherSmart placeholder={field.placeholder} initialValue={field.initialValue} />
-                    </div>
-                ))}
-            </div>
+        <div className="FilterSearchSection">
+            {searchFields.map((field, index) => (
+                <div key={index} className="FilterSearchItemContainer">
+                    <FilterSearcherSmart placeholder={field.placeholder} initialValue={field.initialValue} />
+                </div>
+            ))}
         </div>
     );
 });

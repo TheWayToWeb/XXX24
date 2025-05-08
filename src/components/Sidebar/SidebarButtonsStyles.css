@@ -24,7 +24,7 @@
     color: var(--button-color);
 }
 
-/* Мобильные устройства (до 575px) */
+/* Адаптация под мобильные устройства (до 575px) */
 @media (max-width: 575px) {
     .SidebarButtons {
         padding: var(--padding-mobile) 0;
@@ -40,6 +40,17 @@
     }
 }
 
+/* Адаптация под мобильные устройства (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .SidebarButtons {
+        padding: var(--padding-tablet) 0;
+    }
+
+    .SidebarButtons_Horizontal {
+        margin: var(--container-margin-mobile);
+    }
+}
+/* Адаптация под мобильные устройства до 767px */
 @media (max-width: 767px) {
     #fullWidthItemContainer {
         justify-content: center;
@@ -67,18 +78,7 @@
     }
 }
 
-/* Мобильные устройства (576px - 767px) */
-@media (min-width: 576px) and (max-width: 767px) {
-    .SidebarButtons {
-        padding: var(--padding-tablet) 0;
-    }
-
-    .SidebarButtons_Horizontal {
-        margin: var(--container-margin-mobile);
-    }
-}
-
-/* Планшеты и больше (от 768px) */
+/* Адаптация под планшеты и более широкие экраны (от 768px) */
 @media (min-width: 768px) {
     .SidebarButtons {
         top: 50%;
