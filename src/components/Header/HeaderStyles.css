@@ -12,7 +12,7 @@
 
 #link-1::before {
     /* Unicode для иконки */
-    content: "\F3C6";
+    content:"\F3C6";
     /* Указываем, что шрифт - Bootstrap Icons */
     font-family: 'bootstrap-icons'; /* Указываем шрифт Bootstrap Icons */
     /* Чтобы иконка вела себя как блочный элемент, но занимала место как строчный */
@@ -22,14 +22,14 @@
 }
 
 #link-2::before {
-    content: "\F3CA";
+    content:"\F3CA";
     font-family: 'bootstrap-icons';
     display: inline-block;
     margin-right: 0.5em;
 }
 
 #link-3::before {
-    content: 'F3C7';
+    content: "\F3C7";
     font-family: 'bootstrap-icons';
     display: inline-block;
     margin-right: 0.5em;

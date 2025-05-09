@@ -16,7 +16,7 @@ const HeaderView = ({ links }) => {
                             key={link.id}
                             id={`link-${link.id}`}
                             to={link.path}
-                         />
+                        />
                     ))}
                 </nav>
             </header>
