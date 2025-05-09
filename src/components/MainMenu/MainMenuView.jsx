@@ -1,5 +1,7 @@
 import React, {useEffect, useRef} from 'react';
-import PropTypes from 'prop-types'; // Импортируем PropTypes
+// импортируем библиотеку PropTypes
+import PropTypes from 'prop-types';
+import './BurgerButtonStyles.css';
 import './MainMenuStyles.css';
 
 const MainMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
