@@ -1,6 +1,8 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DropdownIndexView from "../Dropdown/DropdownIndexView.jsx";
 import FilterSearcherIndexView from "../FilterSearch/FilterSearcherIndexView.jsx";
+import TabsRouterIndexView from "../TabsRouter/TabsRouterIndexView.jsx";
 import MainMenuIndexView from "../MainMenu/MainMenuIndexView.jsx";
 import MainTableIndexView from "../MainTable/MainTableIndexView.jsx";
 
@@ -20,7 +22,15 @@ const DataTableSection = () => {
                             { placeholder: "Поиск по автору", initialValue: "" },
                         ]}
                     />
-                    <MainTableIndexView />
+                    <BrowserRouter>
+                        <TabsRouterIndexView />
+                        <Routes>
+                            <Route path="/" element={<MainTableIndexView />} />
+                            {/* Другие маршруты для 'Дерево' и 'Канбан', если они есть */}
+                            {/* <Route path="/tree" element={<TreeView />} /> */}
+                            {/* <Route path="/kanban" element={<KanbanView />} /> */}
+                        </Routes>
+                    </BrowserRouter>
                 </div>
             </div>
         </div>
