@@ -26,7 +26,7 @@ const MainMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
         }
     }, [isActive, onToggleMenu]);
     return (
-        <>
+        <div id="main-menu">
             <div
                 className={`BurgerButton ${isActive ? 'BurgerButton_Active' : ''}`}
                 onClick={onToggleMenu}
@@ -68,7 +68,7 @@ const MainMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
                     </div>
                 </div>
             </nav>
-        </>
+        </div>
     );
 });
 

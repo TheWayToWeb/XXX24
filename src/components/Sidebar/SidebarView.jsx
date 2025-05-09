@@ -30,7 +30,6 @@ const SidebarView = React.memo(({ initItems, active, handleClickLink }) => {
                                     item.id === initItems.length ? (
                                         <div
                                             className="container-fluid"
-                                            id="fullWidthItemContainer"
                                         >
                                             <div className="row">
                                                 <div className="col-md-6">

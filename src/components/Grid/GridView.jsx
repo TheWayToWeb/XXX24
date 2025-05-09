@@ -1,4 +1,5 @@
 import React from 'react';
+import HeaderIndexView from "../Header/HeaderIndexView.jsx";
 import DropdownIndexView from "../Dropdown/DropdownIndexView.jsx";
 import FilterSearcherIndexView from "../FilterSearch/FilterSearcherIndexView.jsx";
 import MainMenuIndexView from "../MainMenu/MainMenuIndexView.jsx";
@@ -8,11 +9,12 @@ const GridView = () => {
 
     return(
         <div className="container-fluid">
+            <HeaderIndexView/>
             <div className="row">
-                <div className="col-12 col-sm-4 col-md-3 col-lg-3">
+                <div className="col-sm-4 col-md-3 col-lg-3">
                     <DropdownIndexView />
                 </div>
-                <div className="col-12 col-sm-8 col-md-9 col-lg-9">
+                <div className="col-sm-8 col-md-9 col-lg-9">
                     <MainMenuIndexView />
                     <FilterSearcherIndexView
                         searchFields={[

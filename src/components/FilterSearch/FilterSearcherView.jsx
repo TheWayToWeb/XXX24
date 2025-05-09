@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types'; // Импортируем PropTypes
-import './FilterSearcherStyles.css';
+import React, { useState } from "react";
+import PropTypes from "prop-types"; // Импортируем PropTypes
+import "./FilterSearcherStyles.css";
 
-const FilterSearcherView = React.memo(({ items, isOpen, onInputClick }) => {
+const FilterSearcherView = React.memo(({ items, isOpen, onInputClick, placeholder, value }) => {
     const [activeItem, setActiveItem] = useState(null);
 
     const handleItemClick = (item) => {
@@ -11,21 +11,11 @@ const FilterSearcherView = React.memo(({ items, isOpen, onInputClick }) => {
 
     return (
         <>
-            <input
-                type="text"
-                className="form-control FilterSearcher"
-                onClick={onInputClick}
-            />
+            <input type="text" className="form-control FilterSearcher" onClick={onInputClick} placeholder={placeholder} value={value} />
             {isOpen && (
                 <ul className="list-group FilteredList">
                     {items.map((item) => (
-                        <li
-                            className={`list-group-item FilteredList-Item  ${
-                                activeItem === item.id ? 'FilteredList-Item_Active' : ''
-                            }`}
-                            key={item.id}
-                            onClick={() => handleItemClick(item)}
-                        >
+                        <li className={`list-group-item FilteredList-Item  ${activeItem === item.id ? "FilteredList-Item_Active" : ""}`} key={item.id} onClick={() => handleItemClick(item)}>
                             {item.text}
                         </li>
                     ))}

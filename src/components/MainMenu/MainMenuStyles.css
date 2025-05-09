@@ -27,10 +27,12 @@
     --font-size-xxl: 19px;
 }
 
+#main-menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .BurgerButton {
-    position: absolute;
-    right: 0;
-    top: 0;
     width: var(--burger-width-base);
     height: var(--burger-height-base);
     cursor: pointer;
