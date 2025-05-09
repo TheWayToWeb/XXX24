@@ -1,26 +1,18 @@
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #ffffff;
+    --primary-color: #28a745;
+    --secondary-color: #e0e0e0;
     --text-color-primary: #333;
-    --text-color-secondary: #fff;
-    --border-color: #ddd;
-    --hover-background: #e0e0e0;
+    --text-color-secondary: #e0e0e0;
+    --border-color: #6c757d;
+    --hover-background: #f8f9fa;
     --even-row-background: #f2f2f2;
     --box-shadow-color: rgba(0, 0, 0, 0.1);
     --border-radius: 8px;
-    --padding-small: 8px;
     --padding-medium: 10px;
     --padding-large: 12px;
-    --padding-xl: 14px;
-    --padding-xxl: 16px;
-    --padding-huge: 18px;
-    --padding-extra-huge: 20px;
     --font-size-small: 14px;
-    --font-size-medium: 15px;
     --font-size-large: 16px;
     --font-size-xl: 17px;
-    --font-size-xxl: 18px;
-    --font-size-huge: 20px;
     --transition-duration: 0.3s;
 }
 
@@ -77,63 +69,34 @@
     background-color: var(--hover-background);
 }
 
-/* Адаптивные стили для таблицы */
-@media (min-width: 1400px) {
+/* Адаптивные стили для мобильных устройств и планшетов от 0 до 991px */
+@media (max-width: 991px) {
     .Table {
-        font-size: var(--font-size-xxl);
+        border: 0;
     }
 
-    .Table-Header th,
-    .Table-Body td {
-        padding: var(--padding-extra-huge) var(--padding-huge);
-    }
-}
-
-@media (min-width: 1200px) and (max-width: 1399px) {
-    .Table {
-        font-size: var(--font-size-xl);
-    }
-
-    .Table-Header th,
-    .Table-Body td {
-        padding: var(--padding-huge) var(--padding-extra-huge);
-    }
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-    .Table {
-        font-size: var(--font-size-large);
-    }
-
-    .Table-Header th,
-    .Table-Body td {
-        padding: var(--padding-large) var(--padding-large);
-    }
-
-    .Table-Body td::before {
+    .Table-Header {
         display: none;
     }
-}
 
-@media (min-width: 768px) and (max-width: 991px) {
-    .Table {
-        display: block;
-        overflow-x: auto;
-        font-size: var(--font-size-large); /* Сохраняем размер шрифта */
-    }
-
-    .Table-Header,
-    .Table-Body,
     .Table-Body tr {
-        width: 100%;
+        margin-bottom: var(--padding-medium);
+        display: block;
+        border-bottom: none;
     }
 
-    .Table-Header th,
     .Table-Body td {
-        box-sizing: border-box;
-        padding: var(--padding-medium);
+        display: block;
         text-align: right;
+        font-size: var(--font-size-small);
+        border-bottom: 1px dotted var(--border-color);
+        padding-left: 50%;
         position: relative;
+        border-right: 1px solid transparent; /* Убираем правую границу */
+    }
+
+    .Table-Body td:last-child {
+        border-bottom: 0;
     }
 
     .Table-Body td::before {
@@ -141,220 +104,45 @@
         position: absolute;
         left: var(--padding-medium);
         font-weight: bold;
+        text-transform: uppercase;
         text-align: left;
-        font-size: var(--font-size-medium); /* Адаптируем размер шрифта */
+        font-size: calc(var(--font-size-small) - 1px); /* Ещё немного уменьшаем */
     }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+/*Стили для экранов больше 991px остаются прежними*/
+/* Адаптивные стили для ноутбуков с большими экранами от 992px */
+@media (min-width: 992px) {
     .Table {
-        font-size: var(--font-size-medium);
+        font-size: var(--font-size-large);
     }
 
     .Table-Header th,
     .Table-Body td {
-        padding: var(--padding-medium);
-        font-size: var(--font-size-medium);
-    }
-
-    .Table-Body td::before {
-        font-size: var(--font-size-small);
+        padding: var(--padding-medium) var(--padding-large);
     }
 }
-
-@media (min-width: 480px) and (max-width: 575px) {
-    .Table {
-        font-size: var(--font-size-small);
-    }
-
-    .Table-Header th,
-    .Table-Body td {
-        padding: var(--padding-small);
-        font-size: var(--font-size-small);
-    }
-
-    .Table-Body td::before {
-        font-size: calc(var(--font-size-small) - 1px); /* Немного уменьшаем */
-    }
-}
-
-@media (max-width: 479px) {
-    .Table {
-        font-size: calc(var(--font-size-small) - 1px);
-    }
-
-    .Table-Header th,
-    .Table-Body td {
-        padding: var(--padding-small);
-        font-size: calc(var(--font-size-small) - 2px);
-    }
-
-    .Table-Body td::before {
-        font-size: calc(var(--font-size-small) - 3px);
-    }
-}
-
-.TableButtonGroup {
-    position: sticky;
-    left: 50%;
-    bottom: 20px;
-    border-radius: var(--border-radius);
-    padding: var(--padding-medium) var(--padding-large);
-    cursor: pointer;
-    display: flex; /* Для лучшего контроля над элементами внутри */
-    gap: 10px; /* Расстояние между кнопками */
-    max-width: 50%;
-}
-
-.TableButtonGroup-Button {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    border-radius: var(--border-radius);
-    padding: var(--padding-small) var(--padding-large);
-    font-size: var(--font-size-medium);
-    cursor: pointer;
-    transition: background-color var(--transition-duration) ease-in-out, color var(--transition-duration) ease-in-out;
-}
-
-.TableButtonGroup-Button:hover {
-    background-color: var(--primary-color);
-    color: var(--text-color-secondary);
-}
-
-.TableButtonGroup-Button_Active {
-    background-color: var(--primary-color);
-    color: var(--text-color-secondary);
-    border-color: var(--primary-color);
-}
-
-/* Адаптивные стили для группы кнопок */
-@media (min-width: 1400px) {
-    .TableButtonGroup {
-        padding: var(--padding-extra-huge) var(--padding-huge);
-        font-size: var(--font-size-huge);
-        gap: 15px;
-    }
-}
-
-@media (min-width: 1200px) and (max-width: 1399px) {
-    .TableButtonGroup {
-        padding: var(--padding-huge) var(--padding-extra-huge);
-        font-size: var(--font-size-xxl);
-        gap: 14px;
-    }
-}
-
+/* Адаптивные стили для ПК от 1200px */
 @media (min-width: 1200px) {
-    .TableButtonGroup {
-        max-width: 25%;
-    }
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-    .TableButtonGroup {
-        padding: var(--padding-large) var(--padding-large);
-        font-size: var(--font-size-xl);
-        gap: 12px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .TableButtonGroup {
-        padding: var(--padding-large) var(--padding-medium);
-        font-size: var(--font-size-large);
-        gap: 10px;
-    }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-    .TableButtonGroup {
-        padding: var(--padding-medium) var(--padding-medium);
-        font-size: var(--font-size-medium);
-        gap: 8px;
-    }
-}
-
-@media (min-width: 480px) and (max-width: 575px) {
-    .TableButtonGroup {
-        padding: var(--padding-small);
-        font-size: var(--font-size-small);
-        gap: 6px;
-    }
-}
-
-@media (max-width: 479px) {
-    .TableButtonGroup {
-        padding: calc(var(--padding-small) - 2px);
-        font-size: calc(var(--font-size-small) - 2px);
-        gap: 4px;
-    }
-}
-
-.Input-Editer {
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    color: inherit;
-    font-size: inherit;
-    font-family: inherit;
-    text-align: center;
-}
-
-.Input-Editer:focus {
-    color: inherit;
-    background-color: transparent;
-    border: none;
-    outline: 0;
-    box-shadow: none;
-}
-
-/* Адаптивные стили для инпута */
-@media (max-width: 479px) {
-    .Input-Editer {
-        padding: var(--padding-small);
-        font-size: var(--font-size-small);
-    }
-}
-
-@media (min-width: 480px) and (max-width: 575px) {
-    .Input-Editer {
-        padding: var(--padding-small);
-        font-size: var(--font-size-small);
-    }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-    .Input-Editer {
-        padding: var(--padding-medium);
-        font-size: var(--font-size-medium);
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .Input-Editer {
-        padding: var(--padding-large);
-        font-size: var(--font-size-large);
-    }
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-    .Input-Editer {
-        padding: var(--padding-large);
+    .Table {
         font-size: var(--font-size-xl);
     }
-}
 
-@media (min-width: 1200px) and (max-width: 1399px) {
-    .Input-Editer {
-        padding: var(--padding-huge);
-        font-size: var(--font-size-xxl);
+    .Table-Header th,
+    .Table-Body td {
+        padding: var(--padding-large) var(--padding-large); /* Исправлено: использована существующая переменная */
     }
 }
-
+/* Адаптивные стили для широких экранов от 1400px */
 @media (min-width: 1400px) {
-    .Input-Editer {
-        padding: var(--padding-extra-huge);
-        font-size: var(--font-size-huge);
+    .Table {
+        font-size: var(--font-size-large); /* Исправлено: использована существующая переменная */
+    }
+
+    .Table-Header th,
+    .Table-Body td {
+        padding: var(--padding-large) var(--padding-large); /* Исправлено: использована существующая переменная */
     }
 }
+
+

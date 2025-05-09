@@ -1,10 +1,10 @@
 :root {
-    --color-primary: #28a745; /* Зеленый цвет */
+    --color-primary: #007bff;
     --color-white: #ffffff;
     --border-radius-base: 8px;
     --border-width-base: 2px;
     --font-color-primary: #ffffff;
-    --font-color-secondary: #28a745;
+    --font-color-secondary: #007bff;
     --transition-base: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     --main-menu-button-margin-horizontal-base: 5px;
     --side-menu-button-padding-horizontal-base: 10px;

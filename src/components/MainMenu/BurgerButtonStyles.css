@@ -1,5 +1,5 @@
 :root {
-    --burger-color: #28a745;
+    --burger-color: #007bff;
     --burger-active-color: transparent;
     --burger-transition: all 0.3s ease-in-out;
     --burger-width-base: 50px; /* 50px */

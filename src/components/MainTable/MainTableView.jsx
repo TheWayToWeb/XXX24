@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types'; // Импортируем PropTypes
 import InfiniteScroll from 'react-infinite-scroll-component';
 import NotifyLoadView from "../NotifyLoad/NotifyLoadView.jsx";
 import EndMessageIndexView from '../EndMessage/EndMessageIndexView.jsx';
 import './MainTableStyles.css';
+import './TableButtonsStyles.css';
+import './InputEditerStyles.css';
 
 const MainTableView = React.memo(({
                                       comments,
@@ -19,6 +21,15 @@ const MainTableView = React.memo(({
                                       handleInputChange,
                                       handleBlur
                                   }) => {
+    const buttonsData = [
+        {id: 1, text: '+'},
+        {id: 2, text: '-'}
+    ];
+    const [buttonActive, setButtonActive] = useState(false);
+    const handleButtonClick = () => {
+        setButtonActive(!buttonActive)
+    };
+
     return (
         <>
             <InfiniteScroll
@@ -28,7 +39,7 @@ const MainTableView = React.memo(({
                 loader={<NotifyLoadView />}
                 endMessage={<EndMessageIndexView />}
             >
-                <table className="table table-striped Table" style={{ width: '100%' }}>
+                <table className="table Table" style={{ width: '100%' }}>
                     <thead className="Table-Header">
                     <tr>
                         {columnHeader.map((header, index) => (
@@ -44,7 +55,7 @@ const MainTableView = React.memo(({
                                         onChange={handleInputChange}
                                         onBlur={handleHeaderBlur}
                                         autoFocus
-                                        className="form-control Input-Editer"
+                                        className="form-control InputEditer"
                                     />
                                 ): (header
                                 )}
@@ -64,7 +75,7 @@ const MainTableView = React.memo(({
                                         onChange={handleInputChange}
                                         onBlur={handleBlur}
                                         autoFocus
-                                        className="form-control Input-Editer"
+                                        className="form-control InputEditer"
                                     />
                                 ) : (
                                     comment.name
@@ -78,7 +89,7 @@ const MainTableView = React.memo(({
                                         onChange={handleInputChange}
                                         onBlur={handleBlur}
                                         autoFocus
-                                        className="form-control Input-Editer"
+                                        className="form-control InputEditer"
                                     />
                                 ) : (
                                     comment.email
@@ -92,7 +103,7 @@ const MainTableView = React.memo(({
                                         onChange={handleInputChange}
                                         onBlur={handleBlur}
                                         autoFocus
-                                        className="form-control Input-Editer"
+                                        className="form-control InputEditer"
                                     />
                                 ) : (
                                     comment.body
@@ -103,21 +114,18 @@ const MainTableView = React.memo(({
                     </tbody>
                 </table>
             </InfiniteScroll>
-            <div className="btn-group TableButtonGroup">
-                <button
-                    type="button"
-                    className="btn btn-outline-primary TableButtonGroup-Button TableButtonGroup-Button_Active"
-                    id="addRow"
-                >
-                    +
-                </button>
-                <button
-                    type="button"
-                    className="btn btn-outline-primary TableButtonGroup-Button"
-                    id="deleteRow"
-                >
-                    -
-                </button>
+            <div className="btn-group TableButtons">
+                {
+                    buttonsData.map((button) => (
+                        <button
+                            key={button.id}
+                            type="button"
+                            className={`{btn TableButton ${buttonActive ? 'TableButton_Active': ''}`}
+                            id={`tableButton-${button.id}`}
+                            onClick={() => handleButtonClick()}
+                        >{button.text}</button>
+                    ))
+                }
             </div>
         </>
     );
