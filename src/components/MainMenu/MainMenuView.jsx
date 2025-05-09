@@ -3,6 +3,7 @@ import React, {useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 import './BurgerButtonStyles.css';
 import './MainMenuStyles.css';
+import './MainMenuButtonsStyles.css';
 
 const MainMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
     const menuRef = useRef(null);
@@ -48,17 +49,18 @@ const MainMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
                         {item.name}
                     </a>
                 ))}
-                <div className="container-fluid MainMenuButtonsContainer">
-                    <div className="row btn-group MainMenuButtonItems">
+                <div className="container-fluid" id="mainMenuButtonsContainer">
+                    <div className="row btn-group MainMenuButtons MainMenuButtons_Horizontal">
                         {
                             buttonsData.map((button) => (
                                 <div
                                     key={button.id}
-                                    className="col-md-6 col-xl-6 col-lg-6 MainMenuButtonItems-Column"
+                                    className="col-md-6 col-xl-6 col-lg-6"
                                 >
                                     <button
                                         type="button"
-                                        className="btn btn-outline-primary MainMenuButtonItems-Button"
+                                        className="btn MainMenuButton"
+                                        id={`sideMenuButton-${button.id}`}
                                         onClick={() => {
                                             // Здесь можно добавить логику для обработки действия кнопки
                                             console.log(`Button "${button.label}" clicked (${button.action})`);

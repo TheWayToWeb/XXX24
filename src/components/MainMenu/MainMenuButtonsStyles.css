@@ -1,0 +1,139 @@
+:root {
+    --color-primary: #28a745; /* Зеленый цвет */
+    --color-white: #ffffff;
+    --border-radius-base: 8px;
+    --border-width-base: 2px;
+    --font-color-primary: #ffffff;
+    --font-color-secondary: #28a745;
+    --transition-base: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    --main-menu-button-margin-horizontal-base: 5px;
+    --side-menu-button-padding-horizontal-base: 10px;
+    --side-menu-button-padding-vertical-base: 8px;
+    --side-menu-button-margin-vertical-base: 5px;
+    --font-size-base: 16px;
+    --font-size-medium: 18px;
+    --font-size-large: 20px;
+    --color-transparent: transparent;
+    --main-menu-container-padding-base: 10px;
+}
+
+#mainMenuButtonsContainer {
+    display: flex;
+    justify-content: center;
+    padding: var(--main-menu-container-padding-base); /* Добавим немного отступов контейнеру */
+}
+
+.MainMenuButtons {
+    border-radius: var(--border-radius-base);
+    font-size: var(--font-size-base);
+    cursor: pointer; /* Указатель при наведении */
+    transition: var(--transition-base);
+}
+
+.MainMenuButtons_Horizontal {
+    background-color: var(--color-primary);
+    border: var(--border-width-base) solid var(--color-primary);
+    color: var(--color-white);
+}
+
+.MainMenuButtons_Horizontal:hover {
+    background-color: var(--color-white);
+    border: none;
+    color: var(--color-primary);
+}
+
+#sideMenuButton-1,
+#sideMenuButton-2 {
+    border-radius: var(--border-radius-base);
+    transition: var(--transition-base);
+    padding: var(--side-menu-button-padding-vertical-base) var(--side-menu-button-padding-horizontal-base);
+    margin: var(--side-menu-button-margin-vertical-base);
+    border: var(--border-width-base) solid var(--color-transparent); /* Задаем прозрачную границу у кнопок */
+    color: inherit; /* Наследуем цвет текста от родителя */
+    font-size: var(--font-size-base);
+    cursor: pointer;
+}
+
+#sideMenuButton-1:hover,
+#sideMenuButton-2:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* Адаптивные стили */
+/* Для маленьких мобильных экранов (от 344px) */
+@media (min-width: 344px) {
+    .MainMenuButtons {
+        flex-direction: column;
+        font-size: calc(var(--font-size-base) * 0.9);
+        padding: 0;
+        margin: calc(var(--main-menu-button-margin-horizontal-base) * 0.5);
+    }
+
+    #sideMenuButton-1,
+    #sideMenuButton-2 {
+        font-size: calc(var(--font-size-base) * 0.9);
+        padding: calc(var(--side-menu-button-padding-vertical-base) * 0.8) calc(var(--side-menu-button-padding-horizontal-base) * 0.8);
+        margin: calc(var(--side-menu-button-margin-vertical-base) * 0.5);
+    }
+}
+
+/* Для мобильных экранов (от 576px) */
+@media (min-width: 576px) {
+    .MainMenuButtons {
+        flex-direction: column;
+        font-size: var(--font-size-base);
+        padding: 0;
+        margin: var(--main-menu-button-margin-horizontal-base);
+    }
+
+    #sideMenuButton-1,
+    #sideMenuButton-2 {
+        font-size: var(--font-size-base);
+        padding: var(--side-menu-button-padding-vertical-base) var(--side-menu-button-padding-horizontal-base);
+        margin: var(--side-menu-button-margin-vertical-base);
+    }
+}
+
+/* Для планшетов (от 768px) */
+@media (min-width: 768px) {
+    #mainMenuButtonsContainer {
+        justify-content: center; /* Возвращаем центрирование на планшетах */
+    }
+
+    .MainMenuButtons {
+        flex-direction: column;
+        font-size: var(--font-size-medium);
+    }
+
+    #sideMenuButton-1,
+    #sideMenuButton-2 {
+        font-size: var(--font-size-medium);
+    }
+}
+
+/* Для небольших десктопов (от 992px) */
+@media (min-width: 992px) {
+    .MainMenuButtons {
+        flex-direction: row;
+        font-size: var(--font-size-large);
+    }
+
+    #sideMenuButton-1,
+    #sideMenuButton-2 {
+        font-size: var(--font-size-large);
+    }
+}
+
+/* Для больших десктопов (от 1200px) */
+@media (min-width: 1200px) {
+    .MainMenuButtons {
+        flex-direction: row;
+        font-size: var(--font-size-large);
+    }
+
+    #sideMenuButton-1,
+    #sideMenuButton-2 {
+        font-size: var(--font-size-large);
+    }
+}
