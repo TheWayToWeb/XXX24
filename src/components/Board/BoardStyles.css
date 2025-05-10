@@ -1,0 +1,43 @@
+
+.Board {
+    padding: 10px; /* Меньшие отступы, как в Excel */
+    background-color: #f8f9fa; /* Очень светлый серый фон, как лист Excel */
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Типичный шрифт Excel */
+}
+
+.Card {
+    margin-bottom: 8px; /* Меньшие отступы между "ячейками" */
+    border: 1px solid #d3d3d3; /* Тонкая серая граница, как у ячеек */
+    border-radius: 8px;
+    box-shadow: none; /* Убираем тень */
+}
+
+.Card-Body {
+    padding: 8px; /* Меньшие внутренние отступы */
+}
+
+.Card-Title {
+    font-size: 1rem; /* Размер шрифта как в Excel */
+    margin-bottom: 4px;
+    color: #212529; /* Темно-серый цвет текста */
+    font-weight: bold; /* Как заголовки в Excel */
+}
+
+.Card-Subtitle {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-bottom: 6px;
+    font-style: italic; /* Может быть курсивом, как дополнительная информация */
+}
+
+.Card-Text {
+    font-size: 0.875rem; /* Размер шрифта как основной текст в Excel */
+    color: #212529;
+    margin-bottom: 4px;
+}
+
+.Card-Text span {
+    font-weight: bold; /* Выделение "Задача" и "Статус" */
+    margin-right: 5px;
+}
