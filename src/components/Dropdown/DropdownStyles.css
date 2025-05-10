@@ -1,8 +1,8 @@
 :root {
     --button-bg: #e0e0e0; /* Светло-серый фон кнопок */
     --button-color: #212529; /* Темно-серый цвет текста кнопок */
-    --button-hover-bg: #e9ecef; /* Еще светлее серый при наведении */
-    --button-hover-color: #212529;
+    --button-hover-bg: #f8f9fa; /* Светло-серый цвет для кнопки при наведении */
+    --button-hover-color: #343a40;
     --button-border-radius: 4px; /* Менее скругленные углы */
     --button-border-width: 1px; /* Толщина границы кнопки */
     --button-padding-y: 6px; /* Вертикальные отступы кнопки */
@@ -61,6 +61,7 @@
 .Dropdown-Menu_Show {
     display: block;
     border: none;
+    background: transparent;
 }
 
 /* Адаптивные стили для очень маленьких экранов мобильных устройств от 344px */

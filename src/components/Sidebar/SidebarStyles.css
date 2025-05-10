@@ -2,8 +2,9 @@
     --sidebar-bg: #f8f9fa; /* Светло-серый фон */
     --sidebar-list-bg: #e0e0e0; /* Светло-серый фон списка */
     --sidebar-link-color: #333333; /* Темно-серый цвет текста ссылок */
-    --sidebar-link-active-bg: #d0d0d0; /* Еще светлее серый для активной ссылки */
-    --sidebar-link-active-color: #000000; /* Черный цвет текста активной ссылки */
+    --sidebar-link-active-bg: #d0d0d0;
+    --sidebar-link-hover-color: #343a40; /* Цвет текста ссылки при наведении */
+    --sidebar-link-active-color: #007bff; /* Цвет текста ссылки когда она активна */
     --sidebar-border-color: #cccccc; /* Светло-серая граница */
     --sidebar-border-radius: 4px; /* Менее скругленные углы */
     --sidebar-link-border-radius: 2px; /* Менее скругленные углы для ссылок */
@@ -11,15 +12,12 @@
     --sidebar-padding-small: 4px;
     --sidebar-padding-medium: 8px;
     --sidebar-padding-large: 12px;
-    --sidebar-padding-xl: 16px;
-    --sidebar-padding-xxl: 20px;
     --sidebar-font-size-small: 12px;
     --sidebar-font-size-medium: 14px;
     --sidebar-font-size-large: 16px;
     --sidebar-font-size-xl: 18px;
     --sidebar-font-size-xxl: 20px;
     --sidebar-font-size-huge: 22px;
-    --sidebar-font-size-extra-huge: 24px;
 }
 
 .Sidebar {
@@ -51,21 +49,19 @@
     display: block; /* Чтобы занимал всю ширину Item */
     text-decoration: none;
     border-radius: var(--sidebar-link-border-radius);
-    transition: background var(--sidebar-transition-duration) ease-in-out,
-    color var(--sidebar-transition-duration) ease-in-out;
+    transition: background var(--sidebar-transition-duration) ease-in-out;
     color: var(--sidebar-link-color);
     padding: var(--sidebar-padding-medium); /* Уменьшаем отступы по умолчанию */
+    border: none;
     cursor: pointer;
 }
 
 .Sidebar-Link:hover {
-    color: #fefefe;
+    color: var(--sidebar-link-hover-color);
 }
 
 .Sidebar-Item_Active .Sidebar-Link {
     color: var(--sidebar-link-active-color);
-    border: none; /* Убираем границу активной ссылки */
-    text-decoration: underline;
 }
 
 .Sidebar-Collapse {
@@ -73,29 +69,29 @@
     align-items: center;
 }
 
-/* Адаптация под самые маленькие мобильные экраны до 479px */
-@media (max-width: 479px) {
+/* Адаптация под самые маленькие мобильные экраны от 360x */
+@media (min-width: 360px) {
     .Sidebar-List {
         padding: var(--sidebar-padding-small);
         font-size: var(--sidebar-font-size-small);
     }
 }
-/* Адаптация под другие самые маленькие мобильные экраны от 480px до 575px */
-@media (min-width: 480px) and (max-width: 575px) {
+/* Адаптация под маленькие экраны от 576px */
+@media (min-width: 576px) {
     .Sidebar-List {
         padding: var(--sidebar-padding-medium);
         font-size: var(--sidebar-font-size-medium);
     }
 }
-/* Адаптация под маленькие экраны от 576px до 767px */
-@media (min-width: 576px) and (max-width: 767px) {
+/* Адаптация под маленькие экраны планшетов */
+@media (min-width: 768px) {
     .Sidebar-List {
         padding: var(--sidebar-padding-large);
         font-size: var(--sidebar-font-size-large);
     }
 }
-/* Адаптация под планшетные экраны от 768px до 991px */
-@media (min-width: 768px) and (max-width: 991px) {
+/* Адаптация под экраны ноутбуков от 992px */
+@media (min-width: 992px) {
     .Sidebar-List {
         display: flex;
         flex-direction: column;
@@ -106,8 +102,8 @@
         padding: var(--sidebar-padding-large);
     }
 }
-/* Адаптация под ноутбуки */
-@media (min-width: 992px) and (max-width: 1199px) {
+/* Адаптация под экраны ПК */
+@media (min-width: 1200px) {
     .Sidebar-List {
         font-size: var(--sidebar-font-size-xxl);
         padding: var(--sidebar-padding-large);
@@ -117,24 +113,13 @@
         padding: var(--sidebar-padding-large);
     }
 }
-/* Адаптация под экраны ПК */
-@media (min-width: 1200px) and (max-width: 1399px) {
+/* Адаптация под большие и широкие экраны ПК */
+@media (min-width: 1400px) {
     .Sidebar-List {
         font-size: var(--sidebar-font-size-huge);
     }
 
     .Sidebar-Link {
-        padding: var(--sidebar-padding-xl);
+        padding: var(--sidebar-padding-large);
     }
 }
-/* Адаптация под широкие экраны ПК */
-@media (min-width: 1400px) {
-    .Sidebar-List {
-        font-size: var(--sidebar-font-size-extra-huge);
-    }
-
-    .Sidebar-Link {
-        padding: var(--sidebar-padding-xxl);
-    }
-}
-
