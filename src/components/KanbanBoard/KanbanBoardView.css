@@ -1,16 +1,24 @@
+:root {
+    --kanban-bg-color: #e0e0e0;
+    --kanban-border-color: #d3d3d3;
+    --kanban-border-radius: 8px;
+    --kanban-item-font-size: 20px;
+    --kanban-item-shadow-h-offset: 3px;
+    --kanban-item-shadow-v-offset: 3px;
+    --kanban-item-shadow-blur: 7px;
+    --kanban-item-shadow-color: rgba(52, 58, 64, 0.15);
+    --kanban-padding: 10px;
+}
+
 .KanbanContainer {
-    background-color: #f0f0f0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    background-color: var(--kanban-bg-color);
+    padding: var(--kanban-padding);
+    border: 1px solid var(--kanban-border-color);
+    border-radius: var(--kanban-border-radius);
 }
 
 .KanbanItem {
-    background-color: #ddd;
-    color: #333;
-    margin: 5px;
     text-align: center;
-    font-size: 20px;
-    border: 1px solid #bbb;
-    border-radius: 8px;
+    font-size: var(--kanban-item-font-size);
+    box-shadow: var(--kanban-item-shadow-h-offset) var(--kanban-item-shadow-v-offset) var(--kanban-item-shadow-blur) var(--kanban-item-shadow-color);
 }
