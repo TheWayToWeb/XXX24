@@ -7,7 +7,9 @@ const KanbanBoardView = ({ numberOfBoards = 4 }) => {
     const [posts, setPosts] = useState([]);
     const [postComments, setPostComments] = useState([]);
     const [users, setUsers] = useState([]);
+    const [userPosts, setUserPosts] = useState([]);
     const [todos, setTodos] = useState([]);
+    const [userTodos, setUserTodos] = useState([]);
     const boards = Array.from({ length: numberOfBoards });
 
     useEffect(() => {
@@ -70,6 +72,22 @@ const KanbanBoardView = ({ numberOfBoards = 4 }) => {
     }, []);
 
     useEffect(() => {
+        // Этот эффект будет запущен после получения users и posts
+        if (users.length > 0 && posts.length > 0) {
+           const newUserPosts = users.map(user => {
+              const relatedPosts = posts.filter(post => post.userId === user.id);
+
+              return {
+                  ...user, // клонируем все поля из users,
+                  posts: relatedPosts,
+                  hasPosts: relatedPosts.length > 0
+              };
+           });
+           setUserPosts(newUserPosts);
+        }
+    }, [posts, users]);
+
+    useEffect(() => {
         const fetchTodos = async () => {
             try {
                 const response = await fetch('https://jsonplaceholder.typicode.com/todos');
@@ -82,6 +100,22 @@ const KanbanBoardView = ({ numberOfBoards = 4 }) => {
 
         fetchTodos();
     }, []);
+
+    useEffect(() => {
+        if (users.length > 0 && todos.length > 0) {
+            const newUserTodos = users.map((user) => {
+                const relatedTodosList = todos.filter(todo => todo.userId === user.id);
+
+                return {
+                    ...user,
+                    todosList: relatedTodosList,
+                    hasTodosList: relatedTodosList.length > 0
+                };
+            });
+            console.log(newUserTodos);
+            setUserTodos(newUserTodos);
+        }
+    }, [users, todos]);
 
     return (
         <div className="KanbanContainer">
@@ -98,9 +132,9 @@ const KanbanBoardView = ({ numberOfBoards = 4 }) => {
                                 <BoardView
                                     index={index}
                                     comments={index === 0 ? comments : []}
-                                    postComments={index === 1 ? postComments: []}
-                                    users={index === 2 ? users: []}
-                                    todos={index === 3 ? todos: []}
+                                    posts={index === 1 ? postComments: []}
+                                    users={index === 2 ? userPosts: []}
+                                    todos={index === 3 ? userTodos: []}
                                 />
                             </div>
                         </div>
