@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // импортируем библиотеку PropTypes
 import PropTypes from 'prop-types';
 import './BurgerButtonStyles.css';
@@ -6,11 +6,28 @@ import './MainMenuStyles.css';
 import './MainMenuButtonsStyles.css';
 
 const MainMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
+    const [buttonsData, setButtonsData] = useState([]);
     const menuRef = useRef(null);
-    const buttonsData = [
-        { id: 1, label: '+', action: 'add' },
-        { id: 2, label: '-', action: 'subtract' },
-    ];
+    // Получение данных кнопок (запрос к API)
+    useEffect(() => {
+        const loadButtonsData = async () => {
+            try {
+                // Задержка сетевого запроса
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                const fetchedDataControlButtons = [
+                    { id: 1, label: '+', action: 'add' },
+                    { id: 2, label: '-', action: 'substract' },
+                    { id: 3, label: '0', action: 'counter'}
+                ];
+                setButtonsData(fetchedDataControlButtons)
+            } catch (error) {
+                console.error("Ошибка при получении данных кнопок бургер меню ", error);
+                setButtonsData([]);
+            }
+        };
+
+        loadButtonsData();
+    }, []);
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -29,12 +46,12 @@ const MainMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
         }
     }, [isActive, onToggleMenu]);
     return (
-        <div id="main-menu">
+        <div id="right-menu-global-container">
             <div
                 className={`BurgerButton ${isActive ? 'BurgerButton_Active' : ''}`}
                 onClick={onToggleMenu}
             >
-                <span></span>
+                <span />
             </div>
             <nav
                 className={`MainMenu ${isActive ? 'MainMenu_Active' : ''}`}
@@ -49,7 +66,7 @@ const MainMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
                         {item.name}
                     </a>
                 ))}
-                <div className="container-fluid" id="mainMenuButtonsContainer">
+                <div className="container-fluid" id="right-menu-content-container">
                     <div className="row btn-group MainMenuButtons MainMenuButtons_Horizontal">
                         {
                             buttonsData.map((button) => (
@@ -60,7 +77,7 @@ const MainMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
                                     <button
                                         type="button"
                                         className="btn MainMenuButton"
-                                        id={`sideMenuButton-${button.id}`}
+                                        id={`burger-menu-${button.action}`}
                                         onClick={() => {
                                             // Здесь можно добавить логику для обработки действия кнопки
                                             console.log(`Button "${button.label}" clicked (${button.action})`);

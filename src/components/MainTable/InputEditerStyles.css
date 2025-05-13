@@ -14,16 +14,22 @@
 
 .InputEditer {
     width: 100%;
+    text-align: center;
+}
+
+.InputEditer_Transparent {
     background-color: transparent;
     border: none;
     color: inherit;
-    font-size: var(--font-size-huge);
     font-family: inherit;
-    text-align: center;
+}
+
+.InputEditer_Prominent {
+    font-size: var(--font-size-huge);
     padding: var(--padding-extra-huge);
 }
 
-.InputEditer:focus {
+.InputEditer_Transparent:focus {
     color: inherit;
     background-color: transparent;
     border: none;
@@ -33,35 +39,35 @@
 
 /* Адаптивные стили для инпута */
 @media (min-width: 360px) {
-    .InputEditer {
+    .InputEditer_Prominent {
         padding: var(--padding-small);
         font-size: var(--font-size-small);
     }
 }
 
 @media (min-width: 576px) {
-    .InputEditer {
+    .InputEditer_Prominent {
         padding: var(--padding-medium);
         font-size: var(--font-size-medium);
     }
 }
 
 @media (min-width: 768px) {
-    .InputEditer {
+    .InputEditer_Prominent {
         padding: var(--padding-large);
         font-size: var(--font-size-large);
     }
 }
 
 @media (min-width: 992px) {
-    .InputEditer {
+    .InputEditer_Prominent {
         padding: var(--padding-large);
         font-size: var(--font-size-xl);
     }
 }
 
 @media (min-width: 1200px) {
-    .InputEditer {
+    .InputEditer_Prominent {
         padding: var(--padding-huge);
         font-size: var(--font-size-xxl);
     }

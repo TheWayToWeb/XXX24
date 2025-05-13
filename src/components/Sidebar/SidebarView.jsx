@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'; // Импортируем PropTypes
 import './SidebarStyles.css';
 import './SidebarButtonsStyles.css';
 
 const SidebarView = React.memo(({ initItems, active, handleClickLink }) => {
-    const buttonsData = [
-        { id: 1, label: '+', action: 'add' },
-        { id: 2, label: '-', action: 'subtract' },
-    ];
     const [activeButton, setActiveButton] = useState(null);
+    const [buttonsData, setButtonsData] = useState([]);
+    // Имитация асинхронной операции получения данных кнопок (запрос к API)
+    useEffect(() => {
+        const loadButtonsData = async () => {
+            try {
+                // Задержка имитации сетевого запроса
+                await new Promise(resolve => setTimeout(resolve, 500));
+                const fetchedDataControlButtons = [
+                    { id: 1, label: '+', action: 'add' },
+                    { id: 2, label: '-', action: 'subsctract' },
+                    { id: 3, label: '0', action: 'counter'}
+                ];
+                setButtonsData(fetchedDataControlButtons);
+            } catch (error) {
+                console.error("Ошибка при получении данных кнопок боковой панели: ", error);
+                setButtonsData([]);
+            }
+        };
+
+        loadButtonsData();
+    }, []);
     const handleButtonClick = (item) => {
         setActiveButton(item.id);
     };
@@ -58,7 +75,7 @@ const SidebarView = React.memo(({ initItems, active, handleClickLink }) => {
                                                             <button
                                                                 type="button"
                                                                 className={`btn SidebarButton ${activeButton === button.id ? 'SidebarButton_Active' : ''}`}
-                                                                id={`sidebarButton-${button.id}`}
+                                                                id={`sidebar-${button.action}`}
                                                                 key={button.id}
                                                                 onClick={() => handleButtonClick(button)}
                                                             >{button.label}</button>

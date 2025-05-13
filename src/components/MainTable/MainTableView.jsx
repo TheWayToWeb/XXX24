@@ -1,135 +1,93 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types'; // Импортируем PropTypes
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import NotifyLoadView from "../NotifyLoad/NotifyLoadView.jsx";
+import NotifyLoadView from '../NotifyLoad/NotifyLoadView.jsx';
 import EndMessageIndexView from '../EndMessage/EndMessageIndexView.jsx';
-import './MainTableStyles.css';
+import TablePartView from './TablePartView.jsx'; // Импортируем компонент TablePartView
 import './TableButtonsStyles.css';
-import './InputEditerStyles.css';
 
-const MainTableView = React.memo(({
-                                      comments,
-                                      hasMore,
-                                      fetchComments,
-                                      columnHeader,
-                                      editingHeaderIndex,
-                                      editingCell,
-                                      inputValue,
-                                      handleHeaderEditClick,
-                                      handleHeaderBlur,
-                                      handleEditClick,
-                                      handleInputChange,
-                                      handleBlur
-                                  }) => {
-    const buttonsData = [
-        {id: 1, text: '+'},
-        {id: 2, text: '-'}
-    ];
-    const [buttonActive, setButtonActive] = useState(false);
-    const handleButtonClick = () => {
-        setButtonActive(!buttonActive)
-    };
+const MainTableView = React.memo(
+    ({
+         comments,
+         hasMore,
+         fetchComments,
+         columnHeader,
+         editingHeaderIndex,
+         editingCell,
+         inputValue,
+         handleHeaderEditClick,
+         handleHeaderBlur,
+         handleEditClick,
+         handleInputChange,
+         handleBlur,
+     }) => {
+        const [buttonsData, setButtonsData] = useState([]);
+        const [buttonActive, setButtonActive] = useState(false);
 
-    return (
-        <>
-            <InfiniteScroll
-                dataLength={comments.length}
-                next={fetchComments}
-                hasMore={hasMore}
-                loader={<NotifyLoadView />}
-                endMessage={<EndMessageIndexView />}
-            >
-                <table className="table Table" style={{ width: '100%' }}>
-                    <thead className="Table-Header">
-                    <tr>
-                        {columnHeader.map((header, index) => (
-                            <th
-                                scope="col"
-                                key={index}
-                                onClick={() => handleHeaderEditClick(index)}
-                            >
-                                {editingHeaderIndex === index ? (
-                                    <input
-                                        type="text"
-                                        value={inputValue}
-                                        onChange={handleInputChange}
-                                        onBlur={handleHeaderBlur}
-                                        autoFocus
-                                        className="form-control InputEditer"
-                                    />
-                                ): (header
-                                )}
-                            </th>
-                        ))}
-                    </tr>
-                    </thead>
-                    <tbody className="Table-Body">
-                    {comments.map((comment, index) => (
-                        <tr key={comment.id}>
-                            <td>{index + 1}</td>
-                            <td onClick={() => handleEditClick(index, 'name')}>
-                                {editingCell.rowIndex === index && editingCell.columnKey === 'name' ? (
-                                    <input
-                                        type="text"
-                                        value={inputValue}
-                                        onChange={handleInputChange}
-                                        onBlur={handleBlur}
-                                        autoFocus
-                                        className="form-control InputEditer"
-                                    />
-                                ) : (
-                                    comment.name
-                                )}
-                            </td>
-                            <td onClick={() => handleEditClick(index, 'email')}>
-                                {editingCell.rowIndex === index && editingCell.columnKey === 'email' ? (
-                                    <input
-                                        type="text"
-                                        value={inputValue}
-                                        onChange={handleInputChange}
-                                        onBlur={handleBlur}
-                                        autoFocus
-                                        className="form-control InputEditer"
-                                    />
-                                ) : (
-                                    comment.email
-                                )}
-                            </td>
-                            <td onClick={() => handleEditClick(index, 'body')}>
-                                {editingCell.rowIndex === index && editingCell.columnKey === 'body' ? (
-                                    <input
-                                        type="text"
-                                        value={inputValue}
-                                        onChange={handleInputChange}
-                                        onBlur={handleBlur}
-                                        autoFocus
-                                        className="form-control InputEditer"
-                                    />
-                                ) : (
-                                    comment.body
-                                )}
-                            </td>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-            </InfiniteScroll>
-            <div className="btn-group TableButtons">
-                {
-                    buttonsData.map((button) => (
+        useEffect(() => {
+            // Имитация асинхронной операции получения данных кнопок (запрос к API)
+            const loadButtonsData = async () => {
+                try {
+                    // Задержка для имитации сетевого запроса
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    const fetchedDataControlButtons = [
+                        { id: 1, text: '+', action: 'add' },
+                        { id: 2, text: '-', action: 'substract' },
+                        { id: 3, text: '0', action: 'counter'}
+                    ];
+                    setButtonsData(fetchedDataControlButtons);
+                } catch (error) {
+                    console.error("Ошибка при получении данных табличных кнопок: ", error);
+                    setButtonsData([]);
+                }
+            };
+
+            loadButtonsData();
+        }, []); // эффект выполнится только один раз
+        const handleButtonClick = () => {
+            setButtonActive(!buttonActive);
+        };
+
+        return (
+            <>
+                <InfiniteScroll
+                    dataLength={comments.length}
+                    next={fetchComments}
+                    hasMore={hasMore}
+                    loader={<NotifyLoadView />}
+                    endMessage={<EndMessageIndexView />}
+                >
+                    <TablePartView
+                        comments={comments}
+                        columnHeader={columnHeader}
+                        editingHeaderIndex={editingHeaderIndex}
+                        editingCell={editingCell}
+                        inputValue={inputValue}
+                        handleHeaderEditClick={handleHeaderEditClick}
+                        handleHeaderBlur={handleHeaderBlur}
+                        handleEditClick={handleEditClick}
+                        handleInputChange={handleInputChange}
+                        handleBlur={handleBlur}
+                    />
+                </InfiniteScroll>
+                <div className="btn-group TableButtons">
+                    {buttonsData.map((button) => (
                         <button
                             key={button.id}
                             type="button"
-                            className={`{btn TableButton ${buttonActive ? 'TableButton_Active': ''}`}
-                            id={`tableButton-${button.id}`}
+                            className={`{btn TableButton ${
+                                buttonActive ? 'TableButton_Active' : ''
+                            }}`}
                             onClick={() => handleButtonClick()}
-                        >{button.text}</button>
-                    ))
-                }
-            </div>
-        </>
-    );
-});
+                        >
+                            {button.text}
+                        </button>
+                    ))}
+                </div>
+            </>
+        );
+    }
+);
 
 MainTableView.propTypes = {
     comments: PropTypes.arrayOf(
@@ -138,7 +96,6 @@ MainTableView.propTypes = {
             name: PropTypes.string.isRequired,
             email: PropTypes.string.isRequired,
             body: PropTypes.string.isRequired,
-            // Добавьте другие ожидаемые свойства объекта comment
         })
     ).isRequired,
     hasMore: PropTypes.bool.isRequired,

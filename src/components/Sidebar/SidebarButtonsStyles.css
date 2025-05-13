@@ -62,11 +62,11 @@
     box-shadow: none;
 }
 
-#sidebarButton-1 {
+#sidebar-add {
     margin-right: var(--button-spacing-small);
 }
 
-#sidebarButton-2 {
+#sidebar-subsctract {
     margin-left: var(--button-spacing-small);
 }
 
@@ -84,11 +84,11 @@
         min-width: var(--button-min-width-tablet);
     }
 
-    #sidebarButton-1 {
+    #sidebar-add {
         margin-right: var(--container-margin-mobile);
     }
 
-    #sidebarButton-2 {
+    #sidebar-subsctract {
         margin-left: var(--container-margin-mobile);
     }
 }
@@ -103,11 +103,11 @@
         box-shadow: var(--button-shadow);
     }
 
-    #sidebarButton-1 {
+    #sidebar-add {
         margin-right: var(--button-spacing-medium);
     }
 
-    #sidebarButton-2 {
+    #sidebar-subsctract {
         margin-left: var(--button-spacing-medium);
     }
 }
