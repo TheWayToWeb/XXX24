@@ -1,0 +1,107 @@
+:root {
+    --card-margin-bottom: 8px;
+    --card-border-radius: 8px;
+    --card-box-shadow-h-offset: 3px;
+    --card-box-shadow-v-offset: 3px;
+    --card-box-shadow-blur: 7px;
+    --card-box-shadow-color: rgba(52, 58, 64, 0.15);
+    --card-body-padding: 8px;
+    --card-body-bg-color: #e0e0e0;
+    --card-title-font-size: 1rem;
+    --card-title-padding-bottom: 12px;
+    --card-title-color: #333333;
+    --card-title-font-weight: bold;
+    --card-title-margin-bottom: 0;
+    --card-subtitle-font-size: 0.875rem;
+    --card-subtitle-color: #a7adb3;
+    --card-subtitle-padding-bottom: 6px;
+    --card-text-font-size: 0.875rem;
+    --card-text-color: #333333;
+    --card-text-padding-bottom: 6px;
+    --card-text-margin-bottom: 0;
+    --shadow-offset-bottom: 4px;  /* Положительное значение для тени снизу */
+    --shadow-blur: 8px;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --card-footer-bg-color: #e0e0e0; /* Добавлена переменная для фона футера */
+    --card-in-footer-item-font-size: 14px; /* Добавлена переменная для размера шрифта элементов футера */
+    --card-in-footer-item-color: #a7adb3; /* Добавлена переменная для цвета текста элементов футера */
+}
+
+.Card {
+    margin-bottom: var(--card-margin-bottom);
+    border: none;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow-h-offset) var(--card-box-shadow-v-offset) var(--card-box-shadow-blur) var(--card-box-shadow-color);
+}
+
+.Card-Body {
+    padding: var(--card-body-padding);
+    background-color: var(--card-body-bg-color);
+    border-radius: var(--card-border-radius);
+}
+
+.Card-Body_FinishedRounded {
+    border-radius: var(--card-border-radius); /* Заменено на переменную */
+    margin-bottom: var(--card-margin-bottom); /* Заменено на переменную */
+    box-shadow: 0 var(--card-box-shadow-v-offset) var(--card-box-shadow-blur) var(--card-box-shadow-color);
+}
+
+.Card-Title {
+    font-size: var(--card-title-font-size);
+    padding-bottom: var(--card-title-padding-bottom);
+    color: var(--card-title-color);
+    font-weight: var(--card-title-font-weight);
+    margin-bottom: var(--card-title-margin-bottom);
+}
+
+.Card-Subtitle {
+    font-size: var(--card-subtitle-font-size);
+    color: var(--card-subtitle-color);
+    padding-bottom: var(--card-subtitle-padding-bottom);
+}
+
+.Card-Text {
+    font-size: var(--card-text-font-size);
+    color: var(--card-text-color);
+    padding-bottom: var(--card-text-padding-bottom);
+    margin-bottom: var(--card-text-margin-bottom);
+}
+
+.Card-Text:last-child {
+    padding-bottom: 0;
+}
+
+.CardFooter {
+    padding: 0;
+}
+
+.CardFooter_HasCard {
+    background-color: var(--card-footer-bg-color); /* Заменено на переменную */
+    border: none;
+}
+
+.CardInFooter {
+    border: none;
+    padding-bottom: var(--card-margin-bottom); /* Заменено на переменную */
+    box-shadow: 0 var(--shadow-offset-bottom) var(--shadow-blur) var(--shadow-color); /* Тень снизу */
+}
+
+.CardInFooter-List {
+    margin-bottom: 0;
+}
+
+.CardInFooter-Item {
+    padding: 4px var(--card-body-padding); /* Заменено на переменную */
+    font-size: var(--card-in-footer-item-font-size); /* Заменено на переменную */
+    color: var(--card-in-footer-item-color); /* Заменено на переменную */
+}
+
+.CardInFooter-Body {
+    background-color: var(--card-footer-bg-color); /* Заменено на переменную */
+    padding: var(--card-body-padding); /* Заменено на переменную */
+    border-radius: var(--card-border-radius); /* Заменено на переменную */
+}
+
+.CardInFooter-Text {
+    font-size: var(--card-in-footer-item-font-size); /* Заменено на переменную */
+}

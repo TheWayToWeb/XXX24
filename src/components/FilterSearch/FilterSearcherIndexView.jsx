@@ -1,9 +1,30 @@
-import React from 'react';
-import PropTypes from 'prop-types'; // Импортируйте PropTypes
+import React, { useState, useEffect } from 'react';
 import FilterSearcherSmart from "./FilterSearcherSmart.jsx";
 import './FilterSearcherIndexStyles.css';
 
-const FilterSearcherIndexView = React.memo(({ searchFields }) => {
+const FilterSearcherIndexView = React.memo(() => {
+    const [searchFields, setSearchFields] = useState([]);
+
+    // Эффект для получения данных по API
+    useEffect(() => {
+        const loadFields = async () => {
+            try {
+                // имитация асинхронного запроса к серверу
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                const fetchedFields = [
+                    { placeholder: "Поиск по названию", initialValue: "" },
+                    { placeholder: "Поиск по категории", initialValue: "" },
+                    { placeholder: "Поиск по автору", initialValue: "" },
+                ];
+                setSearchFields(fetchedFields)
+            } catch (error) {
+                console.error("Ошибка при получении данных поиска: ", error);
+                setSearchFields([]);
+            }
+        };
+
+        loadFields();
+    }, []);
     return (
         <div className="FilterSearchSection">
             {searchFields.map((field, index) => (
@@ -14,15 +35,5 @@ const FilterSearcherIndexView = React.memo(({ searchFields }) => {
         </div>
     );
 });
-
-FilterSearcherIndexView.propTypes = {
-    searchFields: PropTypes.arrayOf(
-        PropTypes.shape({
-            placeholder: PropTypes.string,
-            initialValue: PropTypes.string,
-            // Добавьте другие специфичные пропсы для FilterSearcherSmart, если необходимо
-        }).isRequired
-    ).isRequired,
-};
 
 export default FilterSearcherIndexView;

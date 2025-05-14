@@ -1,0 +1,16 @@
+:root {
+    --board-padding: 10px;
+    --board-bg-color: #f8f9fa;
+    --board-border-color: #d3d3d3;
+    --board-border-radius: 8px;
+    --board-font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+}
+
+.KanbanBoard {
+    padding: var(--board-padding);
+    background-color: var(--board-bg-color);
+    border: 1px solid var(--board-border-color);
+    border-radius: var(--board-border-radius);
+    min-height: 100vh;
+    font-family: var(--board-font-family), sans-serif;
+}

@@ -1,11 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import DataTableSectionView from "./components/DataTableSection/DataTableSectionView.jsx";
+import DataManagerView from "./components/DataManager/DataManagerView.jsx";
 
 function App() {
     return (
-        <DataTableSectionView />
+        <DataManagerView />
     );
 }
 

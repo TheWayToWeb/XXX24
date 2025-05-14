@@ -1,0 +1,102 @@
+:root {
+    --primary-color: #343a40;
+    --secondary-color: #e0e0e0;
+    --text-color-secondary: #e0e0e0;
+    --border-radius: 8px;
+    --padding-small: 8px;
+    --padding-medium: 10px;
+    --padding-large: 12px;
+    --padding-huge: 18px;
+    --padding-extra-huge: 20px;
+    --font-size-small: 14px;
+    --font-size-medium: 15px;
+    --font-size-large: 16px;
+    --font-size-xl: 17px;
+    --font-size-xxl: 18px;
+    --font-size-huge: 20px;
+    --transition-duration: 0.3s;
+}
+
+.TableButtons {
+    position: sticky;
+    left: 50%;
+    bottom: 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    /* Максимальную ширину кнопок таблицы лучше всего задавать пикселями */
+    max-width: 25%;
+    padding: var(--padding-small); /* Используется в медиазапросах */
+    font-size: var(--font-size-small); /* Используется в медиазапросах */
+    gap: 6px; /* Используется в медиазапросах */
+}
+
+.TableButton {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: var(--padding-small) var(--padding-large);
+    font-size: var(--font-size-medium);
+    box-shadow: 0 4px 6px rgba(108, 117, 125, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-duration) ease-in-out, color var(--transition-duration) ease-in-out;
+}
+
+.TableButton:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color-secondary);
+}
+
+.TableButton_Active {
+    background-color: var(--primary-color);
+    color: var(--text-color-secondary);
+    border-color: var(--primary-color);
+}
+
+@media (min-width: 360px) {
+    .TableButtons {
+        font-size: var(--font-size-small);
+        gap: 6px;
+    }
+}
+
+@media (min-width: 576px) {
+    .TableButtons {
+        padding: var(--padding-medium);
+        font-size: var(--font-size-medium);
+        gap: 8px;
+    }
+}
+
+@media (min-width: 768px) {
+    .TableButtons {
+        padding: var(--padding-large);
+        font-size: var(--font-size-large);
+        gap: 10px;
+    }
+}
+
+@media (min-width: 992px) {
+    .TableButtons {
+        padding: var(--padding-large);
+        font-size: var(--font-size-xl);
+        gap: 12px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .TableButtons {
+        padding: var(--padding-huge);
+        font-size: var(--font-size-xxl);
+        gap: 14px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .TableButtons {
+        padding: var(--padding-extra-huge);
+        font-size: var(--font-size-huge);
+        gap: 15px;
+    }
+}
