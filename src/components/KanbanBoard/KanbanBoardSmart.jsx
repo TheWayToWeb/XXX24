@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ContainerFluidView from "../ContainerFluid/ContainerFluidView.jsx";
 import KanbanBoardView from "./KanbanBoardView.jsx";
 import './KanbanBoardContainerStyles.css';
 
@@ -118,13 +119,13 @@ const KanbanBoardSmart = ({ numberOfBoards = 4 }) => {
     }, [users, todos]);
 
     return (
-        <div className="container-fluid BoardGrid">
-            <div className="row">
-                {boards.map((_, index) => (
-                    <div
-                        className="col-sm-12 col-md-6 col-lg-4 col-xl-3"
-                        key={index}
-                    >
+        <ContainerFluidView>
+            {boards.map((_, index) => (
+                <div
+                    className="col-12 col-sm-12 col-md-4 col-lg-3"
+                    key={index}
+                >
+                    <div className="BoardGrid">
                         <div className="KanbanBoardContainer">
                             <KanbanBoardView
                                 index={index}
@@ -135,9 +136,9 @@ const KanbanBoardSmart = ({ numberOfBoards = 4 }) => {
                             />
                         </div>
                     </div>
-                ))}
-            </div>
-        </div>
+                </div>
+            ))}
+        </ContainerFluidView>
     );
 }
 

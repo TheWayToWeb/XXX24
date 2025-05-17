@@ -10,33 +10,34 @@ const AdvancedDataCardView = (props) => {
         case "comment": {
             const { id, name, email, body } = data || {};
             return (
-                <div className="col-sm-12" key={id}>
-                    <div className="card Card">
+                <div className="col CardList" key={id}>
+                    <div className="card Card Card_Single">
                         <div className="card-body Card-Body">
                             <h5 className="card-title Card-Title">{name}</h5>
                             <h6 className="card-subtitle Card-Subtitle">{email}</h6>
                             <p className="card-text Card-Text">{body}</p>
                         </div>
                     </div>
+                    
                 </div>
             );
         }
         case "todo": {
             const { id, name, address, hasTodosList, todosList } = data || {};
             return (
-                <div className="col-sm-12" key={id}>
-                    <div className="card Card">
-                        <div className="card-body Card-Body Card-Body_FinishedRounded">
+                <div className="col CardList" key={id}>
+                    <div className="card text-center Card Card_Single">
+                        <div className="card-body Card-Body">
                             <h5 className="card-title Card-Title">{name}</h5>
                             <h6 className="card-subtitle Card-Subtitle">{address?.city}</h6>
                         </div>
                         {hasTodosList && (
-                            <div className="card-footer CardFooter CardFooter_HasCard">
+                            <div className="card-footer CardFooter CardFooter_Available">
                                 {todosList?.map((task) => (
-                                    <div className="card CardInFooter" key={task.id}>
-                                        <div className="card-body CardInFooter-Body">
-                                            <h5 className="card-text CardInFooter-Text">{task.title}</h5>
-                                            <div className={`card-text CardInFooter-Text ${task.completed ? 'bg-success' : 'bg-warning'}`}>{task.completed ? "Success" : "Warning"}</div>
+                                    <div className="card text-center Card" key={task.id}>
+                                        <div className="card-body Card-Body">
+                                            <h5 className="card-title Card-Title">{task.title}</h5>
+                                            <p className={`card-text Card-Text Card-Text_Visual ${task.completed ? 'bg-success' : 'bg-warning'}`}>{task.completed ? "Success" : "Warning"}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -49,22 +50,20 @@ const AdvancedDataCardView = (props) => {
         case "post": {
             const { id, title, body, hasComments, comments: postComments } = data || {};
             return (
-                <div className="col-sm-12" key={id}>
-                    <div className="card Card">
+                <div className="col CardList" key={id}>
+                    <div className="card text-center Card Card_Single">
                         <div className="card-body Card-Body">
                             <h5 className="card-title Card-Title">{title}</h5>
                             <p className="card-text Card-Text">{body}</p>
                         </div>
                         {hasComments && (
-                            <div className="card-footer CardFooter CardFooter_HasCard">
+                            <div className="card-footer CardFooter CardFooter_Available">
                                 {postComments?.map(comment => (
-                                    <div className="card text-center CardInFooter">
-                                        <ul className="list-group list-group-flush CardInFooter-List">
-                                            <li className="list-group-item CardInFooter-Item">Пользователь: {comment.id}</li>
-                                            <li className="list-group-item CardInFooter-Item">{comment.email}</li>
-                                        </ul>
-                                        <div className="card-body CardInFooter-Body">
-                                            <div className="card-text CardInFooter-Text">{comment.body}</div>
+                                    <div className="card text-center Card">
+                                        <div className="card-body Card-Body">
+                                            <h5 className="card-title Card-Title">Пользователь: {comment.id}</h5>
+                                            <h6 className="card-subtitle Card-Subtitle">{comment.email}</h6>
+                                            <p className="card-text Card-Text">{comment.body}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -77,8 +76,8 @@ const AdvancedDataCardView = (props) => {
         case "user": {
             const { id, name, address, email, hasPosts, posts, phone } = data || {};
             return (
-                <div className="col-sm-12" key={id}> {/* Используем id из деструктурированного user */}
-                    <div className="card Card">
+                <div className=" CardList" key={id}> {/* Используем id из деструктурированного user */}
+                    <div className="card Card Card_Single">
                         <div className="card-body Card-Body">
                             <h5 className="card-title Card-Title">{name}</h5> {/* Используем name из деструктурированного user */}
                             <h6 className="card-subtitle Card-Subtitle">{address?.city}</h6> {/* Используем address из деструктурированного user */}
@@ -116,9 +115,9 @@ const AdvancedDataCardView = (props) => {
                             </div>
                         </div>
                         {hasPosts && (
-                            <div className="card-footer CardFooter CardFooter_HasCard">
+                            <div className="card-footer CardFooter CardFooter_Available">
                                 {posts.map((post) => (
-                                    <div className="card CardInFooter" key={post.id}>
+                                    <div className="card Card" key={post.id}>
                                         <div className="card-body Card-Body">
                                             <h5 className="card-title Card-Title">{post.title}</h5>
                                             <p className="card-text Card-Text">{post.body}</p>

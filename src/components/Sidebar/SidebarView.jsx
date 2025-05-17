@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ContainerFluidView from "../ContainerFluid/ContainerFluidView.jsx";
 import PropTypes from 'prop-types'; // Импортируем PropTypes
 import './SidebarStyles.css';
 import './SidebarButtonsStyles.css';
@@ -57,7 +58,7 @@ const SidebarView = React.memo(({ initItems, active, handleClickLink }) => {
                                         >
                                             <div className="row">
                                                 <div
-                                                    className="col-md-12"
+                                                    className="col"
                                                 >
                                                     <a
                                                         type="button"
@@ -67,7 +68,7 @@ const SidebarView = React.memo(({ initItems, active, handleClickLink }) => {
                                                         {item.innerText}
                                                     </a>
                                                 </div>
-                                                <div className="col-md-12">
+                                                <div className="col">
                                                     <div
                                                         className="btn-group SidebarButtons SidebarButtons_Horizontal"
                                                     >

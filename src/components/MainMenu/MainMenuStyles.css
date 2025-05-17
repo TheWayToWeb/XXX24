@@ -78,6 +78,11 @@
     font-weight: var(--main-menu-link-font-weight-active);
 }
 
+.MainMenu-Column {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
 /* Адаптивные стили для самых маленьких мобильных экранов от 344px */
 @media (min-width: 344px) {
     .MainMenu {

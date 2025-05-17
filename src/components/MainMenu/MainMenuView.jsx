@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ContainerFluidView from "../ContainerFluid/ContainerFluidView.jsx";
 // импортируем библиотеку PropTypes
 import PropTypes from 'prop-types';
 import './BurgerButtonStyles.css';
@@ -66,28 +67,27 @@ const MainMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
                         {item.name}
                     </a>
                 ))}
-                <div className="container-fluid" id="right-menu-content-container">
-                    <div className="row btn-group MainMenuButtons MainMenuButtons_Horizontal">
-                        {
-                            buttonsData.map((button) => (
-                                <div
-                                    key={button.id}
-                                    className="col-md-6 col-xl-6 col-lg-6"
-                                >
-                                    <button
-                                        type="button"
-                                        className="btn MainMenuButton"
-                                        id={`burger-menu-${button.action}`}
-                                        onClick={() => {
-                                            // Здесь можно добавить логику для обработки действия кнопки
-                                            console.log(`Button "${button.label}" clicked (${button.action})`);
-                                        }}
-                                    >{button.label}</button>
-                                </div>
-                            ))
-                        }
-                    </div>
-                </div>
+                <ContainerFluidView>
+                {
+                    buttonsData.map((button) => (
+                        <div
+                            key={button.id}
+                            className="col-4 MainMenu-Column"
+                        >
+                            <div className="btn-group MainMenu-ControlsGroup MainMenu-ControlsGroup_Horizontal">
+                                <button
+                                    type="button"
+                                    className={`btn MainMenu-Control control-${button.action}`}
+                                    onClick={() => {
+                                        // Здесь можно добавить логику для обработки действия кнопки
+                                        console.log(`Button "${button.label}" clicked (${button.action})`);
+                                    }}
+                                >{button.label}</button>
+                            </div>
+                        </div>
+                    ))
+                }
+                </ContainerFluidView>
             </nav>
         </div>
     );

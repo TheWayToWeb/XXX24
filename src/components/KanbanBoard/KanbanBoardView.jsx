@@ -39,9 +39,7 @@ const KanbanBoardView = ({ index, comments, posts, users, todos }) => {
 
     return (
         <div className="KanbanBoard">
-            <div className="container-fluid">
-                <div className="row">{content}</div>
-            </div>
+            { content }
         </div>
     );
 };
