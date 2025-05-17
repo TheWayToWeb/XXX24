@@ -1,5 +1,5 @@
 import React from "react";
-import {EnvelopeAt, FileX, TelephoneOutbound} from "react-bootstrap-icons";
+import { EnvelopeAt, FileX, TelephoneOutbound } from "react-bootstrap-icons";
 import './AdvancedDataCardStyles.css';
 
 const AdvancedDataCardView = (props) => {
@@ -12,13 +12,19 @@ const AdvancedDataCardView = (props) => {
             return (
                 <div className="col CardList" key={id}>
                     <div className="card Card Card_Single">
+                        <div className="card-header Card-Header">
+                            <div className="btn-group" id="comments-btn-group">
+                                <button type="button" className="btn">+</button>
+                                <button type="button" className="btn">-</button>
+                                <button type="button" className="btn">0</button>
+                            </div>
+                        </div>
                         <div className="card-body Card-Body">
                             <h5 className="card-title Card-Title">{name}</h5>
                             <h6 className="card-subtitle Card-Subtitle">{email}</h6>
                             <p className="card-text Card-Text">{body}</p>
                         </div>
                     </div>
-                    
                 </div>
             );
         }
@@ -39,10 +45,20 @@ const AdvancedDataCardView = (props) => {
                                             <h5 className="card-title Card-Title">{task.title}</h5>
                                             <p className={`card-text Card-Text Card-Text_Visual ${task.completed ? 'bg-success' : 'bg-warning'}`}>{task.completed ? "Success" : "Warning"}</p>
                                         </div>
+                                        <div className="btn-group" id="comments-btn-group">
+                                            <button type="button" className="btn">+</button>
+                                            <button type="button" className="btn">-</button>
+                                            <button type="button" className="btn">0</button>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
                         )}
+                    </div>
+                    <div className="btn-group" id="comments-btn-group">
+                        <button type="button" className="btn">+</button>
+                        <button type="button" className="btn">-</button>
+                        <button type="button" className="btn">0</button>
                     </div>
                 </div>
             );

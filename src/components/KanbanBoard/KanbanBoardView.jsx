@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './KanbanBoardStyles.css';
 import AdvancedDataCardView from '../AdvancedDataCard/AdvancedDataCardView.jsx';
 import NotifyLoadCardView from "../NotifyLoadCardView/NotifyLoadCardView.jsx";
 
 const KanbanBoardView = ({ index, comments, posts, users, todos }) => {
-    let content;
+    const commentsArray = Array.from(comments);
+    const [visibleCount, setVisibleCount] = useState(6);
+
+    let visibleComments, content;
 
     switch (index) {
         case 0:
-            content = comments && comments.length > 0
-                ? comments.map(comment => (
-                    <AdvancedDataCardView params={["comment", comment]} key={comment.id} />
-                ))
-                : <NotifyLoadCardView notifyLoadComponent={NotifyLoadCardView} />;
+            visibleComments = commentsArray.slice(0, visibleCount);
+            content = visibleComments.length > 0 ? visibleComments.map(comment => (
+                <AdvancedDataCardView params={["comment", comment]} key={comment.id} />
+            )) : <NotifyLoadCardView notifyLoadComponent={NotifyLoadCardView} />;
             break;
         case 1:
             content = posts && posts.length > 0
@@ -39,7 +41,12 @@ const KanbanBoardView = ({ index, comments, posts, users, todos }) => {
 
     return (
         <div className="KanbanBoard">
-            { content }
+            {content}
+            {index === 0 && commentsArray.length > visibleCount && (
+                <button onClick={() => setVisibleCount(visibleCount + 3)}>
+                    Показать больше
+                </button>
+            )}
         </div>
     );
 };
