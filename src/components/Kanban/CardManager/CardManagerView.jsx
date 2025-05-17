@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AdvancedDataCardIndexView from "../AdvancedDataCard/AdvancedDataCardIndexView.jsx";
-import NotifyLoadCardView from "../NotifyLoadCardView/NotifyLoadCardView.jsx";
-import NotifyLoadView from "../../Application/NotifyLoad/NotifyLoadView.jsx";
+import NotifyLoaderView from "../NotifyLoader/NotifyLoaderView.jsx";
 
-const CardManagerView = ({ itemsVisible, type, visibleCount }) => {
+const CardManagerView = React.memo(({ itemsVisible, type, visibleCount }) => {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchLoader = async () => {
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            if (itemsVisible.length > 0) {
+                // Если количество элементов в массиве > 0, то скрываем loader
+                setLoading(false);
+            } else {
+                // Если нет элементов, то тогда показываем loader
+                setLoading(true);
+            }
+        };
+
+        fetchLoader();
+    }, [itemsVisible]);
     return (
         <>
-            {itemsVisible.length > 0 ? (
-                itemsVisible.map((item) => (
+            {loading ? (
+                <NotifyLoaderView text="Загрузка..." />
+            ) : (
+                itemsVisible.map(item => (
                     <AdvancedDataCardIndexView
                         itemsVisible={itemsVisible}
                         type={type}
@@ -16,9 +34,9 @@ const CardManagerView = ({ itemsVisible, type, visibleCount }) => {
                         key={item.id}
                     />
                 ))
-            ) : <NotifyLoadCardView notifyLoadComponent={ <NotifyLoadView/> }/>}
+            )}
         </>
     );
-};
+});
 
 export default CardManagerView;

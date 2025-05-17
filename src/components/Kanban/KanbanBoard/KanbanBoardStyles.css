@@ -1,38 +1,16 @@
 :root {
-    --board-padding: 10px;
-    --board-bg-color: #f8f9fa;
-    --board-border-color: #d3d3d3;
-    --board-border-radius: 8px;
-    --board-font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+    --kanban-bg-color: #e0e0e0;
+    --kanban-border-radius: 8px;
+    --kanban-item-font-size: 20px;
+    --kanban-item-shadow-h-offset: 3px;
+    --kanban-item-shadow-v-offset: 3px;
+    --kanban-item-shadow-blur: 7px;
+    --kanban-item-shadow-color: rgba(52, 58, 64, 0.15);
 }
 
-.KanbanBoard {
-    padding: var(--board-padding);
-    background-color: var(--board-bg-color);
-    border: 1px solid var(--board-border-color);
-    border-radius: var(--board-border-radius);
-    min-height: 100vh;
-    font-family: var(--board-font-family), sans-serif;
-}
-
-.ShowMore {
-    border: 2px solid #343a40;
-    color: #343a40;
-    background-color: #ffffff;
-    font-size: 12px;
-    padding: 4px;
-    border-radius: 8px;
-    min-width: 100%;
-    transition: background-color 0.3s ease;
-}
-
-.ShowMore:hover {
-    border: none;
-    color: #ffffff;
-    background-color: #343a40;
-
-}
-
-.ShowMore:focus {
-    box-shadow: none;
+.BoardSectionContainer {
+    background-color: var(--kanban-bg-color);
+    border-radius: var(--kanban-border-radius);
+    font-size: var(--kanban-item-font-size);
+    box-shadow: var(--kanban-item-shadow-h-offset) var(--kanban-item-shadow-v-offset) var(--kanban-item-shadow-blur) var(--kanban-item-shadow-color);
 }

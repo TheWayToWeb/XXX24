@@ -1,8 +1,8 @@
 import React from 'react';
 
-const NotifyLoadView = () => {
+const NotifyLoadView = ({text}) => {
     return (
-        <div className="alert alert-secondary">Загрузка</div>
+        <div className="NotifyLoad">{text}</div>
     );
 };
 

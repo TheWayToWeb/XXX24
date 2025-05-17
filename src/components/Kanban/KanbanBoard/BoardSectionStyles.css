@@ -1,0 +1,42 @@
+:root {
+    --board-padding: 10px;
+    --board-bg-color: #f8f9fa;
+    --board-border-color: #d3d3d3;
+    --board-border-radius: 8px;
+    --board-font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+
+    --button-text-color: #ffffff;
+    --button-bg-color: #007bff;
+    --button-font-size: 12px;
+    --button-padding: 4px;
+    --button-transition: background-color 0.3s ease;
+    --button-hover-bg-color: #ffffff;
+    --button-hover-text-color: #007bff;
+}
+
+.BoardSection {
+    background-color: var(--board-bg-color);
+    border-radius: var(--board-border-radius);
+    min-height: 100vh;
+    font-family: var(--board-font-family), sans-serif;
+}
+
+.BoardSectionButton {
+    color: var(--button-text-color);
+    background-color: var(--button-bg-color);
+    font-size: var(--button-font-size);
+    padding: var(--button-padding);
+    border-radius: var(--board-border-radius); /* Используем ту же переменную для радиуса */
+    min-width: 100%;
+    transition: var(--button-transition);
+}
+
+.BoardSectionButton:hover {
+    border: none;
+    color: var(--button-hover-text-color);
+    background-color: var(--button-hover-bg-color);
+}
+
+.BoardSectionButton:focus {
+    box-shadow: none;
+}

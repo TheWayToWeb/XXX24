@@ -2,7 +2,7 @@ import React from 'react';
 import './AdvancedDataCardFooterStyles.css';
 import './DataCardStyles.css';
 
-const AdvancedDataCardFooterView = ({ hasEntries, entries, renderedTypeList }) => {
+const AdvancedDataCardFooterView = React.memo(({ hasEntries, entries, renderedTypeList }) => {
     const renderItems = () => {
       switch (renderedTypeList) {
           case 'todo':
@@ -57,6 +57,6 @@ const AdvancedDataCardFooterView = ({ hasEntries, entries, renderedTypeList }) =
             )}
         </>
     );
-};
+});
 
 export default AdvancedDataCardFooterView;

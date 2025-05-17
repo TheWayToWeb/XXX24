@@ -1,7 +1,6 @@
 :root {
     --card-margin-bottom: 8px;
     --card-border-radius: 8px;
-    --card-footer-bg-color: #e0e0e0;
     --card-padding: 0;
     --card-border: none;
     --card-body-border-color: #a7adb3;
@@ -17,7 +16,6 @@
 }
 
 .CardFooter_Available {
-    background-color: var(--card-footer-bg-color);
     margin-top: var(--card-margin-bottom);
 }
 
@@ -40,8 +38,5 @@
 }
 
 .CardFooter_Available .Card-Body {
-    border-bottom: var(--card-body-border-bottom);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
     padding: var(--card-body-padding);
 }

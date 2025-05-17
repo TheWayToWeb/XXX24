@@ -58,7 +58,7 @@ const SidebarView = React.memo(({ initItems, active, handleClickLink }) => {
                                         >
                                             <div className="row">
                                                 <div
-                                                    className="col"
+                                                    className="col-12"
                                                 >
                                                     <a
                                                         type="button"
@@ -68,7 +68,7 @@ const SidebarView = React.memo(({ initItems, active, handleClickLink }) => {
                                                         {item.innerText}
                                                     </a>
                                                 </div>
-                                                <div className="col">
+                                                <div className="col-12">
                                                     <div
                                                         className="btn-group SidebarButtons SidebarButtons_Horizontal"
                                                     >

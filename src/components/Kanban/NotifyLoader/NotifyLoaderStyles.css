@@ -1,0 +1,19 @@
+:root {
+    --data-card-loader-border-radius: 8px;
+    --data-card-loader-background-color: #007bff;
+    --data-card-loader-color: #ffffff;
+    --data-card-loader-text-align: center;
+    --data-card-loader-font-size: 16px;
+    --data-card-loader-padding: 4px;
+    --data-card-loader-width: 100%;
+}
+
+.NotifyLoader {
+    border-radius: var(--data-card-loader-border-radius);
+    background-color: var(--data-card-loader-background-color);
+    color: var(--data-card-loader-color);
+    text-align: var(--data-card-loader-text-align);
+    font-size: var(--data-card-loader-font-size);
+    padding: var(--data-card-loader-padding);
+    min-width: var(--data-card-loader-width);
+}

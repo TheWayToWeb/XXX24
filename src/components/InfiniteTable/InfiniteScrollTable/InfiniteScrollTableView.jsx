@@ -54,7 +54,7 @@ const InfiniteScrollTableView = React.memo(
                     dataLength={comments.length}
                     next={fetchComments}
                     hasMore={hasMore}
-                    loader={<NotifyLoadView />}
+                    loader={<NotifyLoadView text="Загрузка..." />}
                     endMessage={<EndMessageIndexView />}
                 >
                     <TableView

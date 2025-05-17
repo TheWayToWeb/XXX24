@@ -1,7 +1,7 @@
 import React from "react";
 import AdvancedDataCardListView from "./AdvancedDataCardListView.jsx";
 
-const AdvancedDataCardIndexView = ({ itemsVisible, type, visibleCount, currentItemVisibleId }) => {
+const AdvancedDataCardIndexView = React.memo(({ itemsVisible, type, visibleCount, currentItemVisibleId }) => {
 
     return (
         <AdvancedDataCardListView
@@ -11,6 +11,6 @@ const AdvancedDataCardIndexView = ({ itemsVisible, type, visibleCount, currentIt
             currentItemVisibleId={currentItemVisibleId}
         />
     );
-};
+});
 
 export default AdvancedDataCardIndexView;

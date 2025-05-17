@@ -1,7 +1,7 @@
 import React from 'react';
 import './AdvancedDataCardHeaderStyles.css';
 
-const AdvancedDataCardHeaderView = ({ currentItemVisibleId, visibleCount }) => {
+const AdvancedDataCardHeaderView = React.memo(({ currentItemVisibleId, visibleCount }) => {
     return (
         <div
             className="card-header CardHeader"
@@ -14,6 +14,6 @@ const AdvancedDataCardHeaderView = ({ currentItemVisibleId, visibleCount }) => {
             </div>
         </div>
     );
-}
+});
 
 export default AdvancedDataCardHeaderView;

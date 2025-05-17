@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AdvancedDataCardFooterView from "./AdvancedDataCardFooterView.jsx";
 import { EnvelopeAt, FileX, TelephoneOutbound } from "react-bootstrap-icons";
 import './AdvancedDataCardList.css';
 import './DataCardStyles.css';
 import AdvancedDataCardHeaderView from "./AdvancedDataCardHeaderView.jsx";
 
-const AdvancedDataCardListView = ({ renderedTypeList, rest, visibleCount, currentItemVisibleId }) => {
-    const data = rest[0]; // Используем первый элемент из массива rest для получения данных
+const AdvancedDataCardListView = React.memo(({ renderedTypeList, rest, visibleCount, currentItemVisibleId }) => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        // Симуляция загрузки данных для отображения loader
+        const fetchData = async () => {
+            await new Promise((resolve) => setTimeout(resolve, 100));
+
+            // Устанавливаем data
+            setData(rest[0]);
+        };
+
+        fetchData();
+    }, [rest]);
+
     const renderCommentDataList = () => {
         const { id, name, email, body } = data;
 
@@ -150,6 +163,6 @@ const AdvancedDataCardListView = ({ renderedTypeList, rest, visibleCount, curren
             {chooseRenderDataList()}
         </>
     );
-};
+});
 
 export default AdvancedDataCardListView;

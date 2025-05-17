@@ -1,39 +1,38 @@
 :root {
     /* Цвета кнопок */
-    --button-default-background: #e0e0e0;
-    --button-text-color: #343a40;
-    --button-active-background: #343a40;
-    --button-active-text-color: #e0e0e0;
-    --button-hover-background: #343a40; /* Используется как активный фон */
-    --button-hover-text-color: #e0e0e0;
+    --sidebar-button-text-color: #343a40;
+    --sidebar-button-active-background: #343a40;
+    --sidebar-button-active-text-color: #e0e0e0;
+    --sidebar-button-hover-background: #343a40; /* Используется как активный фон */
+    --sidebar-button-hover-text-color: #e0e0e0;
 
     /* Оформление */
-    --button-radius: 8px;
-    --button-shadow: 0 4px 6px rgba(108, 117, 125, 0.5);
-    --button-focus-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    --sidebar-button-radius: 8px;
+    --sidebar-button-shadow: 0 4px 6px rgba(108, 117, 125, 0.5);
+    --sidebar-button-focus-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
 
     /* Отступы кнопок */
-    --padding-mobile: 5px 10px;
-    --padding-tablet: 12px;
+    --sidebar-button-padding-mobile: 5px 10px;
+    --sidebar-button-padding-tablet: 12px;
 
     /* Отступы контейнера */
-    --container-margin-mobile: 0;
-    --container-margin-tablet: 10px;
+    --sidebar-button-container-margin-mobile: 0;
+    --sidebar-button-container-margin-tablet: 10px;
 
     /* Размеры */
-    --font-size-base: 15px;
-    --button-min-width-mobile: 32px;
-    --button-min-width-tablet: 36px;
-    --button-min-width-desktop: 42px;
+    --sidebar-button-font-size-base: 15px;
+    --sidebar-button-min-width-mobile: 32px;
+    --sidebar-button-min-width-tablet: 36px;
+    --sidebar-button-min-width-desktop: 42px;
 
     /* Интервалы между кнопками */
-    --button-spacing-small: 2px;
-    --button-spacing-medium: 5px;
+    --sidebar-button-spacing-small: 2px;
+    --sidebar-button-spacing-medium: 5px;
 
     /* Анимация */
-    --transition-duration: 0.3s;
-    --transition-property: background-color, color, box-shadow;
-    --transition-easing: ease-in-out;
+    --sidebar-button-transition-duration: 0.3s;
+    --sidebar-button-transition-property: background-color, color, box-shadow;
+    --sidebar-button-transition-easing: ease-in-out;
 }
 
 .SidebarButtons {
@@ -42,20 +41,20 @@
 }
 
 .SidebarButton {
-    background-color: var(--button-default-background);
-    font-size: var(--font-size-base);
-    color: var(--button-text-color);
-    transition: var(--transition-property) var(--transition-duration) var(--transition-easing);
+    background-color: transparent;
+    font-size: var(--sidebar-button-font-size-base);
+    color: var(--sidebar-button-text-color);
+    transition: var(--sidebar-button-transition-property) var(--sidebar-button-transition-duration) var(--sidebar-button-transition-easing);
 }
 
 .SidebarButton_Active {
-    border-radius: var(--button-radius) !important;
-    background-color: var(--button-active-background);
-    color: var(--button-active-text-color);
+    border-radius: var(--sidebar-button-radius) !important;
+    background-color: var(--sidebar-button-active-background);
+    color: var(--sidebar-button-active-text-color);
 }
 
 .SidebarButton_Active:hover {
-    color: var(--button-active-text-color); /* Сохраняем цвет активной кнопки при наведении */
+    color: var(--sidebar-button-active-text-color); /* Сохраняем цвет активной кнопки при наведении */
 }
 
 .SidebarButton_Active:focus {
@@ -63,51 +62,51 @@
 }
 
 #sidebar-add {
-    margin-right: var(--button-spacing-small);
+    margin-right: var(--sidebar-button-spacing-small);
 }
 
 #sidebar-subsctract {
-    margin-left: var(--button-spacing-small);
+    margin-left: var(--sidebar-button-spacing-small);
 }
 
 @media (min-width: 344px) {
     .SidebarButton {
-        padding: var(--padding-mobile);
-        min-width: var(--button-min-width-mobile);
+        padding: var(--sidebar-button-padding-mobile);
+        min-width: var(--sidebar-button-min-width-mobile);
     }
 }
 
 @media (min-width: 576px) {
     .SidebarButton {
-        padding-top: var(--padding-mobile); /* Используем общую переменную */
-        padding-bottom: var(--padding-mobile); /* Используем общую переменную */
-        min-width: var(--button-min-width-tablet);
+        padding-top: var(--sidebar-button-padding-mobile); /* Используем общую переменную */
+        padding-bottom: var(--sidebar-button-padding-mobile); /* Используем общую переменную */
+        min-width: var(--sidebar-button-min-width-tablet);
     }
 
     #sidebar-add {
-        margin-right: var(--container-margin-mobile);
+        margin-right: var(--sidebar-button-container-margin-mobile);
     }
 
     #sidebar-subsctract {
-        margin-left: var(--container-margin-mobile);
+        margin-left: var(--sidebar-button-container-margin-mobile);
     }
 }
 
 @media (min-width: 768px) {
     .SidebarButton {
-        padding: var(--padding-tablet);
-        min-width: var(--button-min-width-desktop);
+        padding: var(--sidebar-button-padding-tablet);
+        min-width: var(--sidebar-button-min-width-desktop);
     }
 
     .SidebarButton_Active {
-        box-shadow: var(--button-shadow);
+        box-shadow: var(--sidebar-button-shadow);
     }
 
     #sidebar-add {
-        margin-right: var(--button-spacing-medium);
+        margin-right: var(--sidebar-button-spacing-medium);
     }
 
     #sidebar-subsctract {
-        margin-left: var(--button-spacing-medium);
+        margin-left: var(--sidebar-button-spacing-medium);
     }
 }

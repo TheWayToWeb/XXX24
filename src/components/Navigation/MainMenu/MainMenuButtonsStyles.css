@@ -1,88 +1,76 @@
 :root {
-    --color-primary: #007bff;
-    --color-white: #ffffff;
-    --border-radius-base: 8px;
-    --border-width-base: 2px;
-    --font-color-primary: #ffffff;
-    --font-color-secondary: #007bff;
-    --transition-base: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    --main-menu-color-primary: #007bff;
+    --main-menu-color-white: #ffffff;
+    --main-menu-border-radius-base: 8px;
+    --main-menu-border-width-base: 2px;
+    --main-menu-font-color-primary: #ffffff;
+    --main-menu-font-color-secondary: #007bff;
+    --main-menu-transition-base: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     --main-menu-button-margin-horizontal-base: 5px;
     --side-menu-button-padding-horizontal-base: 10px;
     --side-menu-button-padding-vertical-base: 8px;
     --side-menu-button-margin-vertical-base: 5px;
-    --font-size-base: 16px;
-    --font-size-medium: 18px;
-    --font-size-large: 20px;
-    --color-transparent: transparent;
+    --main-menu-font-size-extra-small: 12px;
+    --main-menu-font-size-small: 14px;
+    --main-menu-font-size-base: 16px;
+    --main-menu-font-size-medium: 18px;
+    --main-menu-font-size-large: 20px;
     --main-menu-container-padding-base: 10px;
 }
 
 .MainMenu-ControlsGroup {
     min-width: 100%;
-    border-radius: var(--border-radius-base);
-    font-size: var(--font-size-base);
+    border-radius: var(--main-menu-border-radius-base);
+    font-size: var(--main-menu-font-size-base);
     cursor: pointer; /* Указатель при наведении */
-    transition: var(--transition-base);
+    transition: var(--main-menu-transition-base);
 }
 
 .MainMenu-ControlsGroup_Horizontal {
-    background-color: var(--color-primary);
-    border: var(--border-width-base) solid var(--color-primary);
-    color: var(--color-white);
+    background-color: var(--main-menu-color-primary);
+    border: var(--main-menu-border-width-base) solid var(--main-menu-color-primary);
+    color: var(--main-menu-color-white);
 }
 
 .MainMenu-ControlsGroup_Horizontal:hover {
-    background-color: var(--color-white);
+    background-color: var(--main-menu-color-white);
     border: none;
-    color: var(--color-primary);
+    color: var(--main-menu-color-primary);
 }
 
 .control-add,
-.control-substract {
-    border-radius: var(--border-radius-base);
-    transition: var(--transition-base);
+.control-substract,
+.control-counter {
+    border-radius: var(--main-menu-border-radius-base);
+    transition: var(--main-menu-transition-base);
     padding: var(--side-menu-button-padding-vertical-base) var(--side-menu-button-padding-horizontal-base);
-    border: var(--border-width-base) solid var(--color-transparent); /* Задаем прозрачную границу у кнопок */
-    color: var(--color-white);
-    font-size: var(--font-size-base);
+    border: none;
+    color: var(--main-menu-color-white);
+    font-size: var(--main-menu-font-size-base);
     cursor: pointer;
 }
 
 .control-add:hover,
-.control-substract:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
+.control-substract:hover,
+.control-counter:hover{
+    border-color: var(--main-menu-color-primary);
+    color: var(--main-menu-color-primary);
 }
 
 /* Адаптивные стили */
-/* Для маленьких мобильных экранов (от 344px) */
-@media (min-width: 344px) {
-    .MainMenu-ControlsGroup {
-        flex-direction: column;
-        font-size: calc(var(--font-size-base) * 0.9);
-        padding: 0;
-        margin: calc(var(--main-menu-button-margin-horizontal-base) * 0.5);
-    }
-
-    .control-add,
-    .control-menu-substract {
-        font-size: calc(var(--font-size-base) * 0.9);
-        padding: calc(var(--side-menu-button-padding-vertical-base) * 0.8) calc(var(--side-menu-button-padding-horizontal-base) * 0.8);
-    }
-}
-
 /* Для мобильных экранов (от 576px) */
 @media (min-width: 576px) {
     .MainMenu-ControlsGroup {
         flex-direction: column;
-        font-size: var(--font-size-base);
+        font-size: var(--main-menu-font-size-base);
         padding: 0;
         margin: var(--main-menu-button-margin-horizontal-base);
     }
 
     .control-add,
-    .control-substract {
-        font-size: var(--font-size-base);
+    .control-substract,
+    .control-counter {
+        font-size: var(--main-menu-font-size-base);
         padding: var(--side-menu-button-padding-vertical-base) var(--side-menu-button-padding-horizontal-base);
     }
 }
@@ -91,12 +79,13 @@
 @media (min-width: 768px) {
     .MainMenu-ControlsGroup {
         flex-direction: column;
-        font-size: var(--font-size-medium);
+        font-size: var(--main-menu-font-size-medium);
     }
 
     .control-add,
-    .control-substract {
-        font-size: var(--font-size-medium);
+    .control-substract,
+    .control-counter{
+        font-size: var(--main-menu-font-size-medium);
     }
 }
 
@@ -104,12 +93,13 @@
 @media (min-width: 992px) {
     .MainMenu-ControlsGroup {
         flex-direction: row;
-        font-size: var(--font-size-large);
+        font-size: var(--main-menu-font-size-large);
     }
 
     .control-add,
-    .control-substract {
-        font-size: var(--font-size-large);
+    .control-substract,
+    .control-counter {
+        font-size: var(--main-menu-font-size-large);
     }
 }
 
@@ -117,11 +107,12 @@
 @media (min-width: 1200px) {
     .MainMenu-ControlsGroup {
         flex-direction: row;
-        font-size: var(--font-size-large);
+        font-size: var(--main-menu-font-size-large);
     }
 
     .control-add,
-    .control-substract {
-        font-size: var(--font-size-large);
+    .control-substract,
+    .control-counter {
+        font-size: var(--main-menu-font-size-large);
     }
 }

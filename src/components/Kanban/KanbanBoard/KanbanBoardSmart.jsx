@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ContainerFluidView from "../../Application/ContainerFluid/ContainerFluidView.jsx";
-import KanbanBoardView from "./KanbanBoardView.jsx";
-import './KanbanBoardContainerStyles.css';
+import BoardSectionView from "./BoardSectionView.jsx";
+import './KanbanBoardStyles.css';
 
 const KanbanBoardSmart = ({ numberOfBoards = 4 }) => {
     const [comments, setComments] = useState([]);
@@ -124,16 +124,14 @@ const KanbanBoardSmart = ({ numberOfBoards = 4 }) => {
                     className="col-12 col-sm-12 col-md-4 col-lg-3"
                     key={index}
                 >
-                    <div className="BoardGrid">
-                        <div className="KanbanBoardContainer">
-                            <KanbanBoardView
-                                index={index}
-                                comments={index === 0 ? comments : []}
-                                posts={index === 1 ? postComments: []}
-                                users={index === 2 ? userPosts: []}
-                                todos={index === 3 ? userTodos: []}
-                            />
-                        </div>
+                    <div className="BoardSectionContainer">
+                        <BoardSectionView
+                            index={index}
+                            comments={index === 0 ? comments : []}
+                            posts={index === 1 ? postComments: []}
+                            users={index === 2 ? userPosts: []}
+                            todos={index === 3 ? userTodos: []}
+                        />
                     </div>
                 </div>
             ))}
