@@ -42,7 +42,7 @@ const TableView = React.memo(
                 </thead>
                 <tbody className="Table-Body">
                 {comments.map((comment, index) => (
-                    <tr key={comment.id}>
+                    <tr key={index + 1}>
                         <td>{index + 1}</td>
                         <td onClick={() => handleEditClick(index, 'name')}>
                             {editingCell.rowIndex === index &&

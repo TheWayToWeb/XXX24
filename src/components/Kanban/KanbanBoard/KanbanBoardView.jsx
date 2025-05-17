@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './KanbanBoardStyles.css';
 import CardManagerView from "../CardManager/CardManagerView.jsx";
+import AdvancedDataCardHeaderView from "../AdvancedDataCard/AdvancedDataCardHeaderView.jsx";
 
 const KanbanBoardView = ({ index, comments, posts, users, todos }) => {
     const dataArrays = [comments, posts, users, todos].map(data => Array.from(data));
@@ -40,6 +41,7 @@ const KanbanBoardView = ({ index, comments, posts, users, todos }) => {
                     <CardManagerView
                         itemsVisible={visibleData[0]}
                         type={types[0]}
+                        visibleCount={visibleCount}
                     />
                 );
             case 1:
@@ -47,6 +49,7 @@ const KanbanBoardView = ({ index, comments, posts, users, todos }) => {
                     <CardManagerView
                         itemsVisible={visibleData[1]}
                         type={types[1]}
+                        visibleCount={visibleCount}
                     />
                 );
             case 2:
@@ -54,6 +57,7 @@ const KanbanBoardView = ({ index, comments, posts, users, todos }) => {
                     <CardManagerView
                         itemsVisible={visibleData[2]}
                         type={types[2]}
+                        visibleCount={visibleCount}
                     />
                 );
             case 3:
@@ -61,6 +65,7 @@ const KanbanBoardView = ({ index, comments, posts, users, todos }) => {
                     <CardManagerView
                         itemsVisible={visibleData[3]}
                         type={types[3]}
+                        visibleCount={visibleCount}
                     />
                 );
         }
@@ -69,7 +74,6 @@ const KanbanBoardView = ({ index, comments, posts, users, todos }) => {
     return (
         <div className="KanbanBoard">
             { renderResultContentManager() }
-
             {index >= 0 && index < dataArrays.length && dataArrays[index].length > visibleCount && (
                 <button
                     className="btn ShowMore"

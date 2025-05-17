@@ -1,13 +1,14 @@
 import React from "react";
 import AdvancedDataCardListView from "./AdvancedDataCardListView.jsx";
 
-const AdvancedDataCardIndexView = (props) => {
-    const [type, ...rest] = props.params; // Сперва передаем, количество видимых элементов и тип
+const AdvancedDataCardIndexView = ({ itemsVisible, type, visibleCount, currentItemVisibleId }) => {
 
     return (
         <AdvancedDataCardListView
             renderedTypeList={type}
-            rest={rest}
+            rest={itemsVisible}
+            visibleCount={visibleCount}
+            currentItemVisibleId={currentItemVisibleId}
         />
     );
 };

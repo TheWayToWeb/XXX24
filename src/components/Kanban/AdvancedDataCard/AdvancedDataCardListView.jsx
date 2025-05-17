@@ -3,8 +3,9 @@ import AdvancedDataCardFooterView from "./AdvancedDataCardFooterView.jsx";
 import { EnvelopeAt, FileX, TelephoneOutbound } from "react-bootstrap-icons";
 import './AdvancedDataCardList.css';
 import './DataCardStyles.css';
+import AdvancedDataCardHeaderView from "./AdvancedDataCardHeaderView.jsx";
 
-const AdvancedDataCardListView = ({ renderedTypeList, rest }) => {
+const AdvancedDataCardListView = ({ renderedTypeList, rest, visibleCount, currentItemVisibleId }) => {
     const data = rest[0]; // Используем первый элемент из массива rest для получения данных
     const renderCommentDataList = () => {
         const { id, name, email, body } = data;
@@ -12,6 +13,10 @@ const AdvancedDataCardListView = ({ renderedTypeList, rest }) => {
         return (
             <div className="col CardList" key={id}>
                 <div className="card Card Card_Single">
+                    <AdvancedDataCardHeaderView
+                        currentItemVisibleId={currentItemVisibleId}
+                        visibleCount={visibleCount}
+                    />
                     <div className="card-body Card-Body">
                         <h5 className="card-title Card-Title">{name}</h5>
                         <h6 className="card-subtitle Card-Subtitle">{email}</h6>
@@ -28,6 +33,10 @@ const AdvancedDataCardListView = ({ renderedTypeList, rest }) => {
         return (
             <div className="col CardList" key={id}>
                 <div className="card text-center Card Card_Single">
+                    <AdvancedDataCardHeaderView
+                        currentItemVisibleId={currentItemVisibleId}
+                        visibleCount={visibleCount}
+                    />
                     <div className="card-body Card-Body">
                         <h5 className="card-title Card-Title">{name}</h5>
                         <h6 className="card-subtitle Card-Subtitle">{address?.city}</h6>
@@ -48,17 +57,19 @@ const AdvancedDataCardListView = ({ renderedTypeList, rest }) => {
       return (
           <div className="col CardList" key={id}>
               <div className="card text-center Card Card_Single">
-                  <div className="card text-center Card Card_Single">
-                      <div className="card-body Card-Body">
-                          <h5 className="card-title Card-Title">{title}</h5>
-                          <p className="card-text Card-Text">{body}</p>
-                      </div>
-                      <AdvancedDataCardFooterView
-                          hasEntries={hasComments}
-                          entries={postComments}
-                          renderedTypeList={renderedTypeList}
-                      />
+                  <AdvancedDataCardHeaderView
+                      currentItemVisibleId={currentItemVisibleId}
+                      visibleCount={visibleCount}
+                  />
+                  <div className="card-body Card-Body">
+                      <h5 className="card-title Card-Title">{title}</h5>
+                      <p className="card-text Card-Text">{body}</p>
                   </div>
+                  <AdvancedDataCardFooterView
+                      hasEntries={hasComments}
+                      entries={postComments}
+                      renderedTypeList={renderedTypeList}
+                  />
               </div>
           </div>
       );
@@ -70,6 +81,10 @@ const AdvancedDataCardListView = ({ renderedTypeList, rest }) => {
         return (
             <div className="CardList" key={id}>
                 <div className="card text-center Card Card_Single">
+                    <AdvancedDataCardHeaderView
+                        currentItemVisibleId={currentItemVisibleId}
+                        visibleCount={visibleCount}
+                    />
                     <div className="card-body Card-Body">
                         <h5 className="card-title Card-Title">{name}</h5> {/* Используем name из деструктурированного user */}
                         <h6 className="card-subtitle Card-Subtitle">{address?.city}</h6> {/* Используем address из деструктурированного user */}

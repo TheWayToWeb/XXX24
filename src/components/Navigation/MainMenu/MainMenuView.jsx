@@ -47,7 +47,7 @@ const MainMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
         }
     }, [isActive, onToggleMenu]);
     return (
-        <div id="right-menu-global-container">
+        <div className="MainMenu-GlobalContainer">
             <div
                 className={`BurgerButton ${isActive ? 'BurgerButton_Active' : ''}`}
                 onClick={onToggleMenu}

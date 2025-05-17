@@ -12,7 +12,7 @@
     --main-menu-padding-horizontal-base: 20px; /* 20px */
 }
 
-#right-menu-global-container {
+.MainMenu-GlobalContainer {
     display: flex;
     justify-content: flex-end;
     align-items: center; /* Центрирование по вертикали, если есть другие элементы */
@@ -82,7 +82,7 @@
 
 /* Адаптивные стили для очень маленьких мобильных экранов от 344px */
 @media (min-width: 344px) {
-    #right-menu-global-container {
+    .MainMenu-GlobalContainer {
         min-height: 35px; /* 35px */
         padding: 0 15px; /* 0 15px */
     }
@@ -110,7 +110,7 @@
 
 /* Адаптивные стили для мобильных экранов от 576px */
 @media (min-width: 576px) {
-    #right-menu-global-container {
+    .MainMenu-GlobalContainer {
         min-height: 40px; /* 40px */
         padding: 0 var(--main-menu-padding-horizontal-base); /* 0 20px */
     }
@@ -138,7 +138,7 @@
 
 /* Адаптивные стили для планшетов от 768px */
 @media (min-width: 768px) {
-    #right-menu-global-container {
+    .MainMenu-GlobalContainer {
         min-height: 50px; /* 50px */
         padding: 0 30px; /* 0 30px */
     }
@@ -166,7 +166,7 @@
 
 /* Адаптивные стили для планшетов от 992px */
 @media (min-width: 992px) {
-    #right-menu-global-container {
+    .MainMenu-GlobalContainer {
         min-height: 55px; /* 55px */
         padding: 0 40px; /* 0 40px */
     }
@@ -194,7 +194,7 @@
 
 /* Адаптивные стили для ПК от 1200px */
 @media (min-width: 1200px) {
-    #right-menu-global-container {
+    .MainMenu-GlobalContainer {
         min-height: 60px; /* 60px */
         padding: 0 50px; /* 0 50px */
     }
