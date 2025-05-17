@@ -1,0 +1,47 @@
+:root {
+    --card-margin-bottom: 8px;
+    --card-border-radius: 8px;
+    --card-footer-bg-color: #e0e0e0;
+    --card-padding: 0;
+    --card-border: none;
+    --card-body-border-color: #a7adb3;
+    --card-body-border-bottom: 1px solid var(--card-body-border-color);
+    --card-body-padding: 0;
+    --card-footer-padding: 0;
+}
+
+.CardFooter {
+    padding: var(--card-footer-padding);
+    border: var(--card-border);
+    border-radius: var(--card-border-radius) !important;
+}
+
+.CardFooter_Available {
+    background-color: var(--card-footer-bg-color);
+    margin-top: var(--card-margin-bottom);
+}
+
+.CardFooter_Available .Card {
+    margin-bottom: var(--card-margin-bottom);
+}
+
+.CardFooter_Available .Card:first-child .Card-Body {
+    border-top-left-radius: var(--card-border-radius);
+    border-top-right-radius: var(--card-border-radius);
+}
+
+.CardFooter_Available .Card:last-child {
+    margin-bottom: 0;
+}
+
+.CardFooter_Available .Card:last-child .Card-Body {
+    border-bottom-left-radius: var(--card-border-radius);
+    border-bottom-right-radius: var(--card-border-radius);
+}
+
+.CardFooter_Available .Card-Body {
+    border-bottom: var(--card-body-border-bottom);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: var(--card-body-padding);
+}
