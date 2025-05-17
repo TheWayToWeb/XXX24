@@ -13,7 +13,7 @@ const KanbanBoardView = ({ index, comments, posts, users, todos }) => {
         case 0:
             visibleComments = commentsArray.slice(0, visibleCount);
             content = visibleComments.length > 0 ? visibleComments.map(comment => (
-                <AdvancedDataCardView params={["comment", comment]} key={comment.id} />
+                <AdvancedDataCardView params={["comment", visibleCount, comment]} key={comment.id} />
             )) : <NotifyLoadCardView notifyLoadComponent={NotifyLoadCardView} />;
             break;
         case 1:
@@ -43,7 +43,10 @@ const KanbanBoardView = ({ index, comments, posts, users, todos }) => {
         <div className="KanbanBoard">
             {content}
             {index === 0 && commentsArray.length > visibleCount && (
-                <button onClick={() => setVisibleCount(visibleCount + 3)}>
+                <button
+                    className="btn ShowMore"
+                    onClick={() => setVisibleCount(visibleCount + 3)}
+                >
                     Показать больше
                 </button>
             )}

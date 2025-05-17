@@ -3,7 +3,7 @@ import { EnvelopeAt, FileX, TelephoneOutbound } from "react-bootstrap-icons";
 import './AdvancedDataCardStyles.css';
 
 const AdvancedDataCardView = (props) => {
-    const [type, ...rest] = props.params; // Ожидаем, что первый элемент массива - это type
+    const [type, visibleCount, ...rest] = props.params; // Ожидаем, что первый элемент массива - это type
     const data = rest[0]; // Предполагаем, что второй элемент массива - это data (если есть)
 
     switch (type) {
@@ -12,7 +12,10 @@ const AdvancedDataCardView = (props) => {
             return (
                 <div className="col CardList" key={id}>
                     <div className="card Card Card_Single">
-                        <div className="card-header Card-Header">
+                        <div
+                            className="card-header Card-Header"
+                            style={{display: (id === visibleCount) ? 'block' : 'none'}}
+                        >
                             <div className="btn-group" id="comments-btn-group">
                                 <button type="button" className="btn">+</button>
                                 <button type="button" className="btn">-</button>

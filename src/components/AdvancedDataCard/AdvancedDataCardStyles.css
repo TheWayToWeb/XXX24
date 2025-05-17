@@ -118,7 +118,7 @@
 
 #comments-btn-group {
     position: absolute;
-    top: -10px;
+    top: -15px;
     left: 0;
     right: 0;
     border: none;
@@ -126,11 +126,14 @@
 }
 
 #comments-btn-group button {
-    color: transparent;
+    background-color: #ffffff;
+    border: 2px solid #343a40;
+    color: #343a40;
     border-radius: 8px;
     margin-right: 3px;
     padding: 0;
     font-size: 12px;
+    transition: background-color 0.3s ease;
 }
 
 #comments-btn-group button:last-child {
@@ -140,6 +143,7 @@
 #comments-btn-group button:hover {
     background-color: #343a40;
     color: #ffffff;
+    border: none;
 }
 
 #comments-btn-group button:focus {
