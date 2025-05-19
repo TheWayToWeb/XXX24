@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TabsRouterIndexView from "../../Navigation/TabsRouter/TabsRouterIndexView.jsx";
 import InfiniteScrollTableIndexView from "../../InfiniteTable/InfiniteScrollTable/InfiniteScrollTableIndexView.jsx";
-import TreeDataView from "../../TreeDataView/TreeDataView.jsx";
+import TreeDataView from "../../RichTreeView/RichTreeView.jsx";
 import KanbanBoardIndexView from "../../Kanban/KanbanBoard/KanbanBoardIndexView.jsx";
 
 const AppNavigatorView = () => {
