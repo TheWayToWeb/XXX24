@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ContainerFluid from "../Application/ContainerFluid/ContainerFluidView.jsx";
+import TreeListView from "./TreeListView.jsx";
+import RichTreeIconView from "./RichTreeIconView.jsx";
 import { Folder, ChevronRight } from 'react-bootstrap-icons';
 import './RichTreeStyles.css';
 import './TreeListStyles.css';
-import RichTreeIconView from "./RichTreeIconView.jsx";
 
 
 const data = [
@@ -30,71 +31,34 @@ const data = [
     }
 ];
 
-const AccordionItem = ({ title, content }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleAccordion = () => {
-        setIsOpen(!isOpen);
-    };
-
-    return (
-        <div className="accordion TreeList">
-            <div className="accordion-item TreeList-Item">
-                <h2 className="accordion-header TreeList-Header">
-                    <button
-                        className="accordion-button TreeList-Title"
-                        onClick={() => toggleAccordion()}
-                    >
-                        <ContainerFluid>
-                            <div className="col-md-6 TreeList-Column">
-                                <RichTreeIconView icon={<Folder />} />
-                            </div>
-                            <div className="col-md-6 TreeList-Column">
-                                <div className="TreeList-Text">
-                                    { title }
-                                </div>
-                            </div>
-                        </ContainerFluid>
-                    </button>
-                </h2>
-                {isOpen && (
-                    <div className="accordion-body TreeList-Content">
-                        { content }
-                    </div>
-                )}
-            </div>
-        </div>
-    );
-};
-
 const RichTreeView = () => {
-    const [isOpenTree, setIsOpenTree] = useState(false);
+    const [openTree, setOpenTree] = useState(false);
     const toggleTree = () => {
-        setIsOpenTree(!isOpenTree);
+        setOpenTree(!openTree);
     };
     const dropdownRef = useRef(null);
 
 
-    const handleClickOutside = (event) => {
+    const handleClickOutsideTree = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            setIsOpenTree(false);
+            setOpenTree(false);
         }
     };
 
     useEffect(() => {
         // Добавляем обработчик события на документ
-        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('mousedown', handleClickOutsideTree);
 
         // Удаляем обработчик при размонтировании компонента
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('mousedown', handleClickOutsideTree);
         };
     }, []);
 
 
     return (
         <div ref={dropdownRef} className="dropdown RichTree">
-            <button className="dropdown-button RichTree-Button" onClick={toggleTree}>
+            <button className="dropdown-button RichTree-Button" onClick={ toggleTree }>
                 <ContainerFluid>
                     <div className="col-md-6 RichTree-Column">
                         <div className="RichTree-IconPair">
@@ -111,11 +75,11 @@ const RichTreeView = () => {
                     </div>
                 </ContainerFluid>
             </button>
-            {isOpenTree && (
+            {openTree && (
                 <div className="dropdown-list RichTree-List">
-                    <div className="RichTree-AccordionBox">
+                    <div className={`RichTree-Dropdown ${openTree ? 'RichTree-Dropdown_Visible' : ''}`}>
                         {data.map(item => (
-                            <AccordionItem
+                            <TreeListView
                                 key={item.id}
                                 title={item.name}
                                 content={

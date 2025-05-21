@@ -7,3 +7,14 @@
     fill: var(--tree-icon-fill);
     font-size: var(--tree-icon-font-size);
 }
+
+@media (max-width: 767px) {
+    .RichTreeIcon:first-child {
+        order: 1;
+        padding: 8px;
+    }
+
+    .RichTreeIcon:first-child svg.bi-chevron-right {
+        transform: rotate(90deg);
+    }
+}

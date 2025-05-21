@@ -13,18 +13,19 @@
     --rich-tree-text-padding-right: 8px;
 
     --rich-tree-list-justify-content: center;
-    --rich-tree-list-padding-left: 50px;
-    --rich-tree-list-padding-right: 50px;
+    --rich-tree-list-padding-left: 20px;
 
     --rich-tree-multilevel-dropdown-min-width: 50%;
     --rich-tree-multilevel-dropdown-border-left: 2px solid #007bff;
 }
 
 .RichTree-Button {
-    padding: var(--rich-tree-button-padding);
     border: var(--rich-tree-button-border);
     background: var(--rich-tree-button-background);
     min-width: var(--rich-tree-button-min-width);
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: var(--rich-tree-button-padding);
 }
 
 .RichTree-Column {
@@ -33,7 +34,8 @@
 
 .RichTree-HeadlineContainer {
     display: flex;
-    padding: var(--rich-tree-headline-padding);
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .RichTree-IconPair {
@@ -46,26 +48,23 @@
     margin-bottom: var(--rich-tree-text-margin-bottom);
 }
 
-.RichTree-Text:first-child {
-    padding-right: var(--rich-tree-text-padding-right);
+.RichTree-Text:last-child {
+    font-size: 14px;
 }
 
 .RichTree-List {
     display: flex;
     justify-content: var(--rich-tree-list-justify-content);
-    padding-left: var(--rich-tree-list-padding-left);
-    padding-right: var(--rich-tree-list-padding-right);
 }
 
-.RichTree-AccordionBox {
-    min-width: var(--rich-tree-multilevel-dropdown-min-width);
-    border-left: var(--rich-tree-multilevel-dropdown-border-left);
-}
-
-@media (min-width: 1200px) {
-    .RichTree-List {
-        padding-left: 25px;
-        padding-right: 25px;
+@media (min-width: 344px) {
+    .RichTree-Text {
+        display: none;
     }
 }
 
+@media (min-width: 768px) {
+    .RichTree-Text {
+        display: block;
+    }
+}
