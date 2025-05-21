@@ -1,0 +1,9 @@
+:root {
+    --tree-icon-fill: #007bff;
+    --tree-icon-font-size: 25px;
+}
+
+.RichTreeIcon svg {
+    fill: var(--tree-icon-fill);
+    font-size: var(--tree-icon-font-size);
+}

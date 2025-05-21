@@ -1,0 +1,25 @@
+:root {
+    --tree-list-title-padding: 0;
+    --tree-list-title-border: none;
+    --tree-list-title-background-color: transparent;
+    --tree-list-title-min-width: 100%;
+
+    --tree-list-column-padding: 0;
+
+    --tree-list-text-font-size: 18px;
+}
+
+.TreeList-Title {
+    padding: var(--tree-list-title-padding);
+    border: var(--tree-list-title-border);
+    background: var(--tree-list-title-background-color);
+    min-width: var(--tree-list-title-min-width);
+}
+
+.TreeList-Column {
+    padding: var(--tree-list-column-padding);
+}
+
+.TreeList-Text {
+    font-size: var(--tree-list-text-font-size);
+}
