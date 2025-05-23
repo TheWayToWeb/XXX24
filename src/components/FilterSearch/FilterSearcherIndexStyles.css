@@ -1,0 +1,82 @@
+:root {
+    --group-padding-mobile: 12px;
+    --group-padding-tablet-sm: 16px;
+    --group-padding-tablet-md: 20px;
+    --group-padding-desktop-sm: 24px;
+    --group-padding-desktop-md: 28px;
+    --group-padding-desktop-lg: 32px;
+    --group-padding-desktop-xl: 36px;
+    --item-padding-vertical-mobile: 6px;
+    --searcher-width-mobile: 100%;
+    --searcher-width-tablet-sm: 90%;
+    --searcher-width-tablet-md: 80%;
+    --searcher-width-desktop-sm: 75%;
+    --searcher-width-desktop-md: 60%;
+    --searcher-width-desktop-lg: 50%;
+}
+
+.FilterSearchSection {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Выравнивание элементов по началу строки */
+    gap: 10px; /* Отступ между элементами секции */
+}
+
+.FilterSearchItemContainer {
+    padding-top: 10px;
+    width: var(--searcher-width-desktop-lg); /* По умолчанию для больших экранов */
+}
+
+/* Адаптивные стили для очень маленьких мобильных экранов от 344px */
+@media (min-width: 344px) {
+    .FilterSearchSection {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .FilterSearchItemContainer {
+        width: var(--searcher-width-mobile);
+        padding-top: var(--item-padding-vertical-mobile);
+    }
+}
+
+/* Адаптивные стили для мобильных экранов от 576px */
+@media (min-width: 576px) {
+    .FilterSearchSection {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .FilterSearchItemContainer {
+        width: var(--searcher-width-tablet-sm);
+        padding-top: var(--item-padding-vertical-mobile);
+    }
+}
+
+/* Адаптивные стили для планшетов от 768px */
+@media (min-width: 768px) {
+    .FilterSearchSection {
+        flex-direction: row;
+        align-items: center; /* Выравнивание элементов по центру по вертикали */
+        gap: 15px;
+    }
+
+    .FilterSearchItemContainer {
+        width: var(--searcher-width-tablet-md);
+        padding-top: 0; /* Убираем верхний отступ на планшетах */
+    }
+}
+
+/* Адаптивные стили для планшетов с большими экранами от 992px */
+@media (min-width: 992px) {
+    .FilterSearchItemContainer {
+        width: var(--searcher-width-desktop-sm);
+    }
+}
+
+/* Адаптивные стили для ПК экранов от 1200px */
+@media (min-width: 1200px) {
+    .FilterSearchItemContainer {
+        width: var(--searcher-width-desktop-md);
+    }
+}

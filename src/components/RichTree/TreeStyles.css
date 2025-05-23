@@ -1,0 +1,33 @@
+:root {
+    --rich-tree-button-padding: 0;
+    --rich-tree-button-border: none;
+    --rich-tree-button-background: transparent;
+    --rich-tree-button-min-width: 100%;
+
+    --rich-tree-column-padding: 0;
+
+    --rich-tree-headline-padding: 8px;
+
+    --rich-tree-text-font-size: 18px;
+    --rich-tree-text-margin-bottom: 0;
+}
+
+.Tree-Button {
+    border: var(--rich-tree-button-border);
+    background: var(--rich-tree-button-background);
+    min-width: var(--rich-tree-button-min-width);
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: var(--rich-tree-button-padding);
+}
+
+.Tree-Column,
+.Tree-IconButton {
+    display: flex;
+}
+
+.Tree-MainTitle {
+    text-align: left;
+    font-size: var(--rich-tree-text-font-size);
+    margin-bottom: var(--rich-tree-text-margin-bottom);
+}

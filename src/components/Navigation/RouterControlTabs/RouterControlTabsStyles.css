@@ -1,0 +1,23 @@
+
+.NavigateTabs-Link {
+    display: inline-block;
+    /* Шрифт bootstrap Icons */
+    font-family: 'bootstrap-icons';
+}
+
+#router_1::before {
+    /* Unicode иконки */
+    content:"\F3C6";
+    /* Внешний отступ справа от иконки */
+    margin-right: 8px;
+
+}
+
+#router_2::before {
+    content:"\F3CA";
+    margin-right: 8px;
+}
+
+#router_3::before {
+    content: "\F3C7";
+}

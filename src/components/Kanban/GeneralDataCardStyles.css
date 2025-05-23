@@ -1,0 +1,67 @@
+:root {
+    --card-margin-bottom: 8px;
+    --card-border-radius: 8px;
+    --card-body-padding: 8px;
+    --card-body-bg-color: #e0e0e0;
+    --card-title-font-size: 1rem;
+    --card-title-padding-bottom: 12px;
+    --card-title-color: #333333;
+    --card-title-font-weight: bold;
+    --card-subtitle-font-size: 0.875rem;
+    --card-subtitle-color: #a7adb3;
+    --card-subtitle-padding-bottom: 6px;
+    --card-border-width: 1px;
+    --card-border-style: solid;
+    --card-border-color: #c0c0c0;
+    --card-text-font-size: 0.875rem;
+    --card-text-color: #333333;
+    --card-text-padding-bottom: 6px;
+    --card-footer-bg-color: #e0e0e0;
+}
+
+.Card {
+    border: none;
+    border-radius: var(--card-border-radius);
+}
+
+.Card_Single {
+    margin-bottom: var(--card-margin-bottom);
+}
+
+.CardList:last-child .Card_Single {
+    margin-bottom: 0;
+}
+
+.Card-Body {
+    padding: var(--card-body-padding);
+    background-color: var(--card-body-bg-color);
+    border-radius: var(--card-border-radius);
+    border: var(--card-border-width) var(--card-border-style) var(--card-border-color);
+}
+
+.Card-Title {
+    font-size: var(--card-title-font-size);
+    padding-bottom: var(--card-title-padding-bottom);
+    color: var(--card-title-color);
+    font-weight: var(--card-title-font-weight);
+}
+
+.Card-Subtitle {
+    font-size: var(--card-subtitle-font-size);
+    color: var(--card-subtitle-color);
+    padding-bottom: var(--card-subtitle-padding-bottom);
+}
+
+.Card-Text {
+    font-size: var(--card-text-font-size);
+    color: var(--card-text-color);
+    padding-bottom: var(--card-text-padding-bottom);
+}
+
+.Card-Text:last-child {
+    padding-bottom: 0;
+}
+
+.Card-Text_Visual {
+    border-radius: var(--card-border-radius);
+}

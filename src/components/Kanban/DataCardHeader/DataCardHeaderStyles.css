@@ -1,0 +1,62 @@
+:root {
+    --advanced-card-header-padding: 0;
+    --advanced-card-header-border: none;
+
+    --advanced-card-button-group-position: absolute;
+    --advanced-card-button-group-top: -15px;
+    --advanced-card-button-group-left: 0;
+    --advanced-card-button-group-right: 0;
+    --advanced-card-button-group-background: transparent;
+
+    --advanced-card-button-background-color: #007bff;
+    --advanced-card-button-color: #ffffff;
+    --advanced-card-button-border-radius: 8px;
+    --advanced-card-button-margin-right: 3px;
+    --advanced-card-button-padding: 0;
+    --advanced-card-button-font-size: 12px;
+    --advanced-card-button-transition: background-color 0.3s ease;
+
+    --advanced-card-button-hover-background-color: #ffffff;
+    --advanced-card-button-hover-color: #007bff;
+    --advanced-card-button-focus-box-shadow: none;
+
+    --advanced-card-last-button-margin-right: 0;
+}
+
+.CardHeader {
+    padding: var(--advanced-card-header-padding);
+    border: var(--advanced-card-header-border);
+}
+
+.CardHeader-ButtonGroupContainer {
+    position: var(--advanced-card-button-group-position);
+    top: var(--advanced-card-button-group-top);
+    left: var(--advanced-card-button-group-left);
+    right: var(--advanced-card-button-group-right);
+    border: var(--advanced-card-header-border);
+    background-color: var(--advanced-card-button-group-background);
+}
+
+.CardHeader-Button {
+    background-color: var(--advanced-card-button-background-color);
+    color: var(--advanced-card-button-color);
+    border-radius: var(--advanced-card-button-border-radius) !important;
+    margin-right: var(--advanced-card-button-margin-right);
+    padding: var(--advanced-card-button-padding);
+    font-size: var(--advanced-card-button-font-size);
+    transition: var(--advanced-card-button-transition);
+}
+
+.CardHeader-Button:hover {
+    background-color: var(--advanced-card-button-hover-background-color);
+    color: var(--advanced-card-button-hover-color);
+    border: none;
+}
+
+.CardHeader-Button:focus {
+    box-shadow: var(--advanced-card-button-focus-box-shadow);
+}
+
+.CardHeader-Button:last-child {
+    margin-right: var(--advanced-card-last-button-margin-right);
+}

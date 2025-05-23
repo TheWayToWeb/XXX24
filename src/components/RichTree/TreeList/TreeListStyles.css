@@ -1,0 +1,49 @@
+:root {
+    --tree-list-title-padding: 0;
+    --tree-list-title-border: none;
+    --tree-list-title-background-color: transparent;
+    --tree-list-title-min-width: 100%;
+
+    --tree-list-text-font-size: 18px;
+    --tree-list-text-font-size-mobile: 14px; /* Для мобильных устройств */
+    --tree-list-text-font-size-small: 16px; /* Для средних экранов */
+}
+
+.TreeList-ButtonTitle {
+    padding: var(--tree-list-title-padding);
+    border: var(--tree-list-title-border);
+    background: var(--tree-list-title-background-color);
+    min-width: var(--tree-list-title-min-width);
+}
+
+.TreeList-Column {
+    display: flex;
+}
+
+.TreeList-Title {
+    text-align: left;
+    font-size: var(--tree-list-text-font-size);
+}
+
+.TreeList-Content {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+@media (max-width: 344px) {
+    .TreeList-Text {
+        font-size: var(--tree-list-text-font-size-mobile);
+    }
+}
+
+@media (max-width: 575px) {
+    .TreeList-Text {
+        font-size: var(--tree-list-text-font-size-small);
+    }
+}
+
+@media (max-width: 767px) {
+    .TreeList-Text {
+        font-size: var(--tree-list-text-font-size); /* Оставляем размер шрифта по умолчанию */
+    }
+}

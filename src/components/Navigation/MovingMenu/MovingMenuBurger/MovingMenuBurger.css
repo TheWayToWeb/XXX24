@@ -1,0 +1,184 @@
+:root {
+    --burger-color: #007bff;
+    --burger-active-color: transparent;
+    --burger-transition: all 0.3s ease-in-out;
+    --burger-width-base: 50px; /* 50px */
+    --burger-height-base: 48px; /* 48px */
+    --burger-bar-height-base: 4px; /* 4px */
+    --burger-border-radius: 5px; /* 5px */
+    --burger-button-padding-base: 10px; /* 10px */
+    --burger-button-margin-base: 0;
+}
+
+.MovingMenuBurger {
+    position: fixed;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex; /* Для центрирования содержимого */
+    flex-direction: column; /* Расположение полосок вертикально */
+    justify-content: space-between; /* Равномерное распределение пространства между полосками */
+    padding: var(--burger-button-padding-base); /* 10px */
+    margin: var(--burger-button-margin-base); /* 0 */
+    transition: opacity 0.2s ease-in-out; /* Плавное изменение прозрачности при наведении */
+}
+
+.MovingMenuBurger:hover {
+    opacity: 0.8;
+}
+
+.MovingMenuBurger span {
+    display: block;
+    width: 100%; /* Занимает всю ширину родителя (BurgerButton) */
+    height: var(--burger-bar-height-base); /* 4px */
+    background-color: var(--burger-color); /* #28a745 */
+    border-radius: var(--burger-border-radius); /* 5px */
+    transition: background-color var(--burger-transition), transform var(--burger-transition); /* Плавное изменение цвета и трансформации */
+}
+
+.MovingMenuBurger span::before,
+.MovingMenuBurger span::after {
+    content: "";
+    display: block;
+    width: 100%; /* Занимает всю ширину родителя (BurgerButton) */
+    height: var(--burger-bar-height-base); /* 4px */
+    background-color: var(--burger-color); /* #28a745 */
+    border-radius: var(--burger-border-radius); /* 5px */
+    transition: transform var(--burger-transition); /* Плавное изменение трансформации */
+}
+
+.MovingMenuBurger span::before {
+    transform: translateY(calc(var(--burger-bar-height-base) * -2.5)); /* -10px */
+}
+
+.MovingMenuBurger span::after {
+    transform: translateY(calc(var(--burger-bar-height-base) * 2.5)); /* 10px */
+}
+
+.MovingMenuBurger_Active span {
+    background-color: var(--burger-active-color); /* transparent */
+}
+
+.MovingMenuBurger_Active span::before,
+.MovingMenuBurger_Active span::after {
+    transform: rotate(45deg);
+}
+
+.MovingMenuBurger_Active span::after {
+    margin-top: 0; /* Убрано margin-top, так как space-between управляет положением */
+    transform: rotate(-45deg);
+}
+
+/* Адаптивные стили для очень маленьких мобильных экранов от 344px */
+@media (min-width: 344px) {
+    .MovingMenuBurger {
+        width: var(--burger-width-base); /* 54px */
+        height: calc(var(--burger-height-base) - 2px); /* 46px */
+        padding: 8px; /* 8px */
+    }
+
+    .MovingMenuBurger span,
+    .MovingMenuBurger span::before,
+    .MovingMenuBurger span::after {
+        height: var(--burger-bar-height-base); /* 4px */
+    }
+
+    .MovingMenuBurger span::before {
+        transform: translateY(calc(var(--burger-bar-height-base) * -1.75)); /* -7px */
+    }
+
+    .MovingMenuBurger span::after {
+        transform: translateY(calc(var(--burger-bar-height-base) * 0.75)); /* 3px */
+    }
+}
+/* Адаптивные стили для мобильных экранов от 576px */
+@media (min-width: 576px) {
+    .MovingMenuBurger {
+        width: calc(var(--burger-width-base) + 2px); /* 56px */
+        height: calc(var(--burger-height-base) + 2px); /* 50px */
+        padding: 9px; /* 9px */
+    }
+
+    .MovingMenuBurger span,
+    .MovingMenuBurger span::before,
+    .MovingMenuBurger span::after {
+        height: calc(var(--burger-bar-height-base) * 1.25); /* 5px */
+    }
+
+    .MovingMenuBurger span::before {
+        transform: translateY(calc(var(--burger-bar-height-base) * -2)); /* -8px */
+    }
+
+    .MovingMenuBurger span::after {
+        transform: translateY(calc(var(--burger-bar-height-base) * 1.25)); /* 5px */
+    }
+}
+/* Адаптивные стили для планшетов от 768px */
+@media (min-width: 768px) {
+    .MovingMenuBurger {
+        width: calc(var(--burger-width-base) + 10px); /* 64px */
+        height: calc(var(--burger-height-base) + 14px); /* 62px */
+        padding: 12px; /* 12px */
+    }
+
+    .MovingMenuBurger span,
+    .MovingMenuBurger span::before,
+    .MovingMenuBurger span::after {
+        height: calc(var(--burger-bar-height-base) * 1.25); /* 5px */
+    }
+
+    .MovingMenuBurger span::before {
+        transform: translateY(calc(var(--burger-bar-height-base) * -2)); /* -8px */
+    }
+
+    .MovingMenuBurger span::after {
+        transform: translateY(calc(var(--burger-bar-height-base) * 1.25)); /* 5px */
+    }
+}
+
+/* Адаптивные стили для планшетов от 992px */
+@media (min-width: 992px) {
+    .MovingMenuBurger {
+        width: calc(var(--burger-width-base) + 15px); /* 69px */
+        height: calc(var(--burger-height-base) + 6px); /* 54px */
+        padding: 13px; /* 13px */
+    }
+
+    .MovingMenuBurger span,
+    .BurgerButton span::before,
+    .BurgerButton span::after {
+        height: calc(var(--burger-bar-height-base) * 1.5); /* 6px */
+    }
+
+    .MovingMenuBurger span::before {
+        transform: translateY(calc(var(--burger-bar-height-base) * -2.25)); /* -9px */
+    }
+
+    .MovingMenuBurger span::after {
+        transform: translateY(calc(var(--burger-bar-height-base) * 1.5)); /* 6px */
+    }
+}
+
+/* Адаптивные стили для ПК от 1200px */
+@media (min-width: 1200px) {
+    .MovingMenuBurger {
+        width: calc(var(--burger-width-base) + 20px); /* 68px */
+        height: calc(var(--burger-height-base) + 8px); /* 56px */
+        padding: 14px; /* 14px */
+    }
+
+    .MovingMenuBurger span,
+    .MovingMenuBurger span::before,
+    .MovingMenuBurger span::after {
+        height: calc(var(--burger-bar-height-base) * 1.75); /* 7px */
+    }
+
+    .MovingMenuBurger span::before {
+        transform: translateY(calc(var(--burger-bar-height-base) * -2.5)); /* -10px */
+    }
+
+    .MovingMenuBurger span::after {
+        transform: translateY(calc(var(--burger-bar-height-base) * 1.75)); /* 7px */
+    }
+}

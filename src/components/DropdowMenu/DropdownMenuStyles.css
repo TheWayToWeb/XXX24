@@ -1,0 +1,110 @@
+:root {
+    --dropdown-button-color: #333333 !important;
+    --dropdown-button-bg: #d0d0d0;
+    --dropdown-button-border-radius: 8px; /* Менее скругленные углы */
+    --dropdown-button-border-width: 1px; /* Толщина границы кнопки */
+    --dropdown-button-padding-y: 6px; /* Вертикальные отступы кнопки */
+    --dropdown-button-padding-x: 12px; /* Горизонтальные отступы кнопки */
+    --dropdown-button-font-size: 14px; /* Уменьшаем размер шрифта */
+    --dropdown-menu-bg: #ffffff; /* Белый фон меню */
+    --dropdown-menu-border-width: 1px;
+    --dropdown-menu-border-radius: 4px;
+    --dropdown-menu-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Более легкая тень */
+    --dropdown-menu-padding-y: 5px; /* Вертикальные отступы меню */
+    --dropdown-menu-z-index: 1000;
+    --dropdown-transition-duration: 0.15s; /* Более быстрая анимация */
+    --dropdown-transition-property: background-color, color;
+    --dropdown-transition-timing-function: ease-in-out;
+}
+
+.Dropdown-Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dropdown-button-bg);
+    color: var(--dropdown-button-color);
+    border: none;
+    padding: var(--dropdown-button-padding-y) var(--dropdown-button-padding-x);
+    border-radius: var(--dropdown-button-border-radius);
+    box-shadow: var(--dropdown-menu-box-shadow);
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--dropdown-transition-property) var(--dropdown-transition-duration) var(--dropdown-transition-timing-function);
+    font-size: var(--button-font-size);
+}
+
+.Dropdown-Button:hover {
+    background-color: var(--dropdown-button-bg);
+    color: var(--dropdown-button-color);
+}
+
+.Dropdown-Button:focus {
+    box-shadow: none;
+    background-color: var(--dropdown-button-bg);
+    color: var(--dropdown-button-color);
+}
+
+.Dropdown-Menu {
+    display: none;
+    background-color: var(--dropdown-menu-bg);
+    border: var(--dropdown-menu-border-width) solid #ced4da; /* Используем цвет напрямую */
+    border-radius: var(--dropdown-menu-border-radius);
+    box-shadow: var(--dropdown-menu-box-shadow);
+    padding: var(--dropdown-menu-padding-y) 0; /* Небольшие вертикальные отступы */
+    z-index: var(--dropdown-menu-z-index);
+}
+
+.Dropdown-Menu_Show {
+    display: block;
+    border: none;
+    background: transparent;
+}
+
+/* Адаптивные стили для очень маленьких экранов мобильных устройств от 344px */
+@media (min-width: 344px) {
+    .Dropdown-Button {
+        min-width: 150px;
+        font-size: 12px;
+    }
+}
+
+/* Адаптивные стили для маленьких мобильных экранов от 576px */
+@media (min-width: 576px) {
+    .Dropdown-Button {
+        min-width: 120px;
+        font-size: 14px;
+    }
+}
+
+/* Адаптивные стили для планшетов от 768px */
+@media (min-width: 768px) {
+    .Dropdown-Button {
+        font-size: 16px;
+        padding: 8px 16px;
+        min-width: 150px;
+    }
+}
+
+/* Адаптивные стили для планшетов от 992px */
+@media (min-width: 992px) {
+    .Dropdown-Button {
+        min-width: 180px;
+    }
+}
+
+/* Адаптивные стили для ПК от 1200px */
+@media (min-width: 1200px) {
+    .Dropdown-Button {
+        font-size: 18px;
+        padding: 10px 20px;
+        min-width: 200px;
+    }
+}
+
+/* Адаптивные стили для широкоэкранных ПК от 1400px */
+@media (min-width: 1400px) {
+    .Dropdown-Button {
+        font-size: 24px;
+        min-width: 220px;
+    }
+}
