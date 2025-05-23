@@ -1,4 +1,9 @@
+:root {
+    --card-list-padding-left: 0;
+    --card-list-padding-right: 0;
+}
+
 .CardList {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: var(--card-list-padding-left);
+    padding-right: var(--card-list-padding-right);
 }
