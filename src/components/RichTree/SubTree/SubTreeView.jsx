@@ -1,23 +1,23 @@
 import React from 'react';
 import TreeListView from "../TreeList/TreeListView.jsx";
-import TreeListDataContentView from "../TreeListDataContent/TreeListDataContentView.jsx";
+import TreeContentListView from "../TreeDataContentList/TreeContentListView.jsx";
 
-const SubTreeView = ({ data, openTree }) => {
+const SubTreeView = React.memo(({ dataFolders, openTree }) => {
     return (
         <div className="dropdown-list SubTree">
             <div className={`SubTree-DropdownTreeList ${openTree ? 'SubTree-DropdownTreeList_Visible' : ''}`}>
-                {data.map(item => (
+                {dataFolders.map(data => (
                     <TreeListView
-                        key={item.id}
-                        title={item.name}
+                        key={data.id}
+                        title={data.name}
                         content={
-                            <TreeListDataContentView item={item}  />
+                            <TreeContentListView dataFolder={data}  />
                         }
                     />
                 ))}
             </div>
         </div>
     );
-}
+});
 
 export default SubTreeView;

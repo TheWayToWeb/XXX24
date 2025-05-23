@@ -13,11 +13,10 @@
     --main-menu-link-active-bg: #007bff;
     --main-menu-link-active-color: #ffffff;
     --main-menu-link-font-weight-active: bold;
-    --font-size-small: 15px;
-    --font-size-medium: 16px;
-    --font-size-large: 17px;
-    --font-size-xl: 18px;
-    --font-size-xxl: 19px;
+    --main-menu-font-size-small: 15px;
+    --main-menu-font-size-medium: 16px;
+    --main-menu-font-size-large: 17px;
+    --main-menu-font-size-xl: 18px;
     --main-menu-width: 250px;
     --main-menu-link-height: 50px;
     --main-menu-link-margin-bottom: 8px;
@@ -25,16 +24,22 @@
     --main-menu-link-hover-color: #007bff;
     --main-menu-link-hover-border-width: 2px;
     --main-menu-link-hover-border-style: solid;
-    --main-menu-min-height-base: 45px; /* 45px */
+    --main-menu-min-height-base: 60px;
     --main-menu-padding-horizontal-base: 20px; /* 20px */
+    --main-menu-margin-bottom: 8px;
+    --main-menu-padding-spacing-xs: 8px;
+    --main-menu-padding-spacing-sm: 12px;
+    --main-menu-padding-spacing-md: 16px;
+    --main-menu-padding-spacing-lg: 24px;
 }
 
 .ContainerMoveMenu {
     display: flex;
     justify-content: flex-end;
     align-items: center; /* Центрирование по вертикали, если есть другие элементы */
-    min-height: var(--main-menu-min-height-base); /* 45px */
+    min-height: var(--main-menu-min-height-base);
     padding: 0 var(--main-menu-padding-horizontal-base); /* 0 20px */
+    margin-bottom: var(--main-menu-margin-bottom);
 }
 
 .MovingMenu {
@@ -44,6 +49,7 @@
     width: var(--main-menu-width);
     height: 100%;
     background-color: var(--main-menu-bg);
+    padding: calc(var(--main-menu-padding-base) * 1.7); /* 25.5px */
     border: var(--main-menu-border-width) solid var(--main-menu-border-color);
     border-radius: var(--main-menu-border-radius);
     box-shadow: var(--main-menu-box-shadow);
@@ -66,6 +72,8 @@
     align-items: center;
     color: var(--main-menu-link-color);
     text-decoration: none;
+    padding: calc(var(--main-menu-link-padding-base) + 5px);
+    font-size: var(--font-size-xxl);
     border-radius: var(--main-menu-link-border-radius);
     transition: border-color var(--main-menu-transition), color var(--main-menu-transition);
     margin-bottom: var(--main-menu-link-margin-bottom); /* Добавляем небольшой отступ между ссылками */
@@ -88,32 +96,32 @@
     font-weight: var(--main-menu-link-font-weight-active);
 }
 
-/* Адаптивные стили для самых маленьких мобильных экранов от 344px */
+/* Адаптивные стили для самых маленьких мобильных экранов до 576px */
 @media (min-width: 344px) {
     .ContainerMoveMenu {
         min-height: 35px; /* 35px */
-        padding: 0 15px; /* 0 15px */
+        padding: 0 var(--main-menu-padding-spacing-xs);
     }
 
     .MovingMenu {
-        padding: calc(var(--main-menu-padding-base) * 0.8); /* 12px */
+        padding: calc(var(--main-menu-padding-spacing-xs) * 0.8); /* 12px */
     }
 
     .MovingMenu-Link {
-        font-size: var(--font-size-small);
-        padding: calc(var(--main-menu-link-padding-base) - 2px);
+        font-size: var(--main-menu-font-size-small);
+        padding: calc(var(--main-menu-padding-spacing-xs) - 2px);
     }
 }
 
-/* Адаптивные стили для мобильных экранов от 576px */
+/* Адаптивные стили для мобильных экранов до 767 */
 @media (min-width: 576px) {
     .ContainerMoveMenu {
         min-height: 40px; /* 40px */
-        padding: 0 var(--main-menu-padding-horizontal-base); /* 0 20px */
+        padding: 0 var(--main-menu-padding-spacing-sm);
     }
 
     .MovingMenu {
-        padding: calc(var(--main-menu-padding-base) * 0.8); /* 12px */
+        padding: calc(var(--main-menu-padding-spacing-sm) * 0.8); /* 12px */
         align-items: center;
     }
 
@@ -121,57 +129,39 @@
         width: 80%;
         text-align: center;
         margin-bottom: var(--main-menu-link-margin-bottom); /* 8px */
-        font-size: var(--font-size-medium);
+        padding-bottom: 0;
+        font-size: var(--main-menu-font-size-medium);
     }
 }
 
-/* Адаптивные стили для планшетов от 768px */
 @media (min-width: 768px) {
     .ContainerMoveMenu {
         min-height: 50px; /* 50px */
-        padding: 0 30px; /* 0 30px */
+        padding: 0 var(--main-menu-padding-spacing-md);
     }
 
     .MovingMenu {
-        padding: var(--main-menu-padding-base); /* 15px */
+        padding: var(--main-menu-padding-spacing-md);
     }
 
     .MovingMenu-Link {
-        padding: var(--main-menu-link-padding-base); /* 15px 20px */
-        font-size: var(--font-size-large);
+        padding: var(--main-menu-padding-spacing-md);
+        font-size: var(--main-menu-font-size-large);
     }
 }
 
-/* Адаптивные стили для планшетов от 992px */
 @media (min-width: 992px) {
     .ContainerMoveMenu {
-        min-height: 55px; /* 55px */
-        padding: 0 40px; /* 0 40px */
+        min-height: 50px;
+        padding: 0 var(--main-menu-padding-spacing-lg);
     }
 
     .MovingMenu {
-        padding: calc(var(--main-menu-padding-base) * 0.7); /* 10.5px */
+        padding: var(--main-menu-padding-spacing-lg);
     }
 
     .MovingMenu-Link {
-        font-size: var(--font-size-xl);
-        padding: calc(var(--main-menu-link-padding-base) + 3px);
-    }
-}
-
-/* Адаптивные стили для ПК от 1200px */
-@media (min-width: 1200px) {
-    .ContainerMoveMenu {
-        min-height: 60px; /* 60px */
-        padding: 0 50px; /* 0 50px */
-    }
-
-    .MovingMenu {
-        padding: calc(var(--main-menu-padding-base) * 1.7); /* 25.5px */
-    }
-
-    .MovingMenu-Link {
-        padding: calc(var(--main-menu-link-padding-base) + 5px);
-        font-size: var(--font-size-xxl);
+        padding: var(--main-menu-padding-spacing-lg);
+        font-size: var(--main-menu-font-size-xl);
     }
 }

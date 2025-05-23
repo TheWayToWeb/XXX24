@@ -1,15 +1,13 @@
 :root {
-    --rich-tree-button-padding: 0;
+    --rich-tree-button-padding-bottom: 0;
     --rich-tree-button-border: none;
     --rich-tree-button-background: transparent;
     --rich-tree-button-min-width: 100%;
-
-    --rich-tree-column-padding: 0;
-
-    --rich-tree-headline-padding: 8px;
-
-    --rich-tree-text-font-size: 18px;
     --rich-tree-text-margin-bottom: 0;
+    --rich-tree-font-size-small: 15px;
+    --rich-tree-font-size-medium: 16px;
+    --rich-tree-font-size-large: 17px;
+    --rich-tree-font-size-xlarge: 18px;
 }
 
 .Tree-Button {
@@ -18,7 +16,7 @@
     min-width: var(--rich-tree-button-min-width);
     padding-left: 0;
     padding-right: 0;
-    padding-bottom: var(--rich-tree-button-padding);
+    padding-bottom: var(--rich-tree-button-padding-bottom);
 }
 
 .Tree-Column,
@@ -28,6 +26,29 @@
 
 .Tree-MainTitle {
     text-align: left;
-    font-size: var(--rich-tree-text-font-size);
     margin-bottom: var(--rich-tree-text-margin-bottom);
+}
+
+@media (min-width: 344px) {
+    .Tree-MainTitle {
+        font-size: var(--rich-tree-font-size-small);
+    }
+}
+
+@media (min-width: 576px) {
+    .Tree-MainTitle {
+        font-size: var(--rich-tree-font-size-medium);
+    }
+}
+
+@media (min-width: 768px) {
+    .Tree-MainTitle {
+        font-size: var(--rich-tree-font-size-large);
+    }
+}
+
+@media (min-width: 992px) {
+    .Tree-MainTitle {
+        font-size: var(--rich-tree-font-size-xlarge);
+    }
 }

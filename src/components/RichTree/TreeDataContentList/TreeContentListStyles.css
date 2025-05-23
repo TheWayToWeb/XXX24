@@ -1,0 +1,45 @@
+:root {
+    --data-content-title-font-size: 18px;
+
+    /* Для мобильных устройств */
+    --tree-data-content-title-font-size-mobile: 14px;
+
+    /* Для средних экранов */
+    --tree-data-content-title-font-size-tablet: 16px;
+
+    /* Цвета */
+    --content-list-border-color: #007bff;
+    --content-list-item-bg-color: #f8f9fa;
+    --content-list-item-text-color: #212529;
+
+    /* Отступы */
+    --content-list-item-padding: 12px;
+    --content-list-margin: 12px;
+}
+
+.ContentList {
+    border-left: 2px solid var(--content-list-border-color);
+    border-radius: 0;
+    margin: var(--content-list-margin);
+}
+
+.ContentList-Item {
+    padding: var(--content-list-item-padding);
+    border: none;
+    font-size: var(--data-content-title-font-size);
+    background-color: var(--content-list-item-bg-color);
+    color: var(--content-list-item-text-color);
+}
+
+@media (max-width: 575px) {
+    .ContentList-Item {
+        font-size: var(--tree-data-content-title-font-size-mobile);
+    }
+}
+
+@media (max-width: 767px) {
+    .ContentList-Item {
+        font-size: var(--tree-data-content-title-font-size-tablet);
+    }
+}
+

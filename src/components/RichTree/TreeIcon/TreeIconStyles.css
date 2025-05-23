@@ -1,43 +1,66 @@
 :root {
     --tree-icon-fill: #007bff;
-    --tree-icon-font-size: 25px;
+    --tree-icon--font-size-small: 15px;
+    --tree-icon-font-size-medium: 16px;
+    --tree-icon-font-size-large: 17px;
+    --tree-icon-font-size-xl: 18px;
+    --tree-icon-spacing-xs: 8px;
+    --tree-icon-spacing-sm: 12px;
+    --tree-icon-spacing-md: 16px;
+    --tree-icon-spacing-lg: 24px;
 }
 
 .RichTreeIcon {
     display: flex;
 }
 
+@media (min-width: 344px) {
+    .RichTreeIcon {
+        padding: var(--tree-icon-spacing-xs);
+    }
+}
+
+@media (min-width: 576px) {
+    .RichTreeIcon {
+        padding: var(--tree-icon-spacing-sm);
+    }
+}
+
+@media (min-width: 768px) {
+    .RichTreeIcon {
+        padding: var(--tree-icon-spacing-md);
+    }
+}
+
+@media (min-width: 1200px) {
+    .RichTreeIcon {
+        padding: var(--tree-icon-spacing-lg);
+    }
+}
+
 .RichTreeIcon svg {
     fill: var(--tree-icon-fill);
-    font-size: var(--tree-icon-font-size);
 }
 
-@media (max-width: 344px) {
-    .RichTreeIcon svg {
-        font-size: 34px;
-    }
-}
-
-@media (max-width: 575px) {
-    .RichTreeIcon svg {
-        font-size: 31px;
-    }
-}
-
-@media (max-width: 767px) {
-    .RichTreeIcon svg {
-        font-size: 28px;
-    }
-}
-
-@media (max-width: 991px) {
+@media (min-width: 344px) {
     .RichTreeIcon:first-child {
         order: 1;
-        padding: 8px;
     }
 
     .RichTreeIcon svg {
-        font-size: 25px;
+        font-size: var(--tree-icon--font-size-small);
+    }
+}
+
+@media (min-width: 576px) {
+    .RichTreeIcon svg {
+        font-size: var(--tree-icon-font-size-medium);
+    }
+}
+
+@media (min-width: 768px) {
+    .RichTreeIcon svg {
+        font-size: var(--tree-icon-font-size-xl);
     }
 
     .RichTreeIcon:first-child svg.bi-chevron-right {

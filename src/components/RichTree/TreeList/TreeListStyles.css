@@ -3,10 +3,16 @@
     --tree-list-title-border: none;
     --tree-list-title-background-color: transparent;
     --tree-list-title-min-width: 100%;
-
     --tree-list-text-font-size: 18px;
-    --tree-list-text-font-size-mobile: 14px; /* Для мобильных устройств */
-    --tree-list-text-font-size-small: 16px; /* Для средних экранов */
+    --tree-list-font-size-small: 15px;
+    --tree-list-font-size-medium: 16px;
+    --tree-list-font-size-large: 17px;
+    --tree-list-font-size-xl: 18px;
+    --tree-list-spacing: 24px;
+    --tree-list-spacing-xs: 8px;
+    --tree-list-spacing-sm: 12px;
+    --tree-list-spacing-md: 16px;
+    --tree-list-spacing-lg: 24px;
 }
 
 .TreeList-ButtonTitle {
@@ -25,25 +31,59 @@
     font-size: var(--tree-list-text-font-size);
 }
 
-.TreeList-Content {
-    padding-left: 16px;
-    padding-right: 16px;
-}
-
 @media (max-width: 344px) {
-    .TreeList-Text {
-        font-size: var(--tree-list-text-font-size-mobile);
+    .TreeList-Title {
+        font-size: var(--tree-list-font-size-small);
     }
 }
 
 @media (max-width: 575px) {
-    .TreeList-Text {
-        font-size: var(--tree-list-text-font-size-small);
+    .TreeList-Title {
+        font-size: var(--tree-list-font-size-medium);
     }
 }
 
 @media (max-width: 767px) {
-    .TreeList-Text {
-        font-size: var(--tree-list-text-font-size); /* Оставляем размер шрифта по умолчанию */
+    .TreeList-Title {
+        font-size: var(--tree-list-font-size-large);
+    }
+}
+
+@media (max-width: 991px) {
+    .TreeList-Title {
+        font-size: var(--tree-list-font-size-xl);
+    }
+}
+
+.TreeList-Content {
+    padding-left: var(--tree-list-spacing);
+    padding-right: var(--tree-list-spacing);
+}
+
+@media (max-width: 344px) {
+    .TreeList-Content {
+        padding-left: var(--tree-list-spacing-xs);
+        padding-right: var(--tree-list-spacing-xs);
+    }
+}
+
+@media (max-width: 575px) {
+    .TreeList-Content {
+        padding-left: var(--tree-list-spacing-sm);
+        padding-right: var(--tree-list-spacing-sm);
+    }
+}
+
+@media (max-width: 767px) {
+    .TreeList-Content {
+        padding-left: var(--tree-list-spacing-md);
+        padding-right: var(--tree-list-spacing-md);
+    }
+}
+
+@media (max-width: 991px) {
+    .TreeList-Content {
+        padding-left: var(--tree-list-spacing-lg);
+        padding-right: var(--tree-list-spacing-lg);
     }
 }

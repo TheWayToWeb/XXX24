@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
 import './RouterControlTabsStyles.css';
 
@@ -8,18 +9,22 @@ const RouterControlTabsView = ({ links }) => {
 
     return (
         <div className="ControlTabs">
-            <header className="Tabs">
+            <div className="Tabs">
                 <nav className="nav nav-pills NavigateTabs">
                     {links.map((link) => (
                         <Link
-                            className={`nav-link NavigateTabs-Link ${location.pathname === link.path ? 'NavigateTabs-Link_Active' : ''}`}
+                            className={classNames(
+                                'nav-link',
+                                'NavigateTabs-Link',
+                                { 'active': location.pathname === link.route }
+                            )}
                             key={link.id}
                             id={`router_${link.id}`}
                             to={link.route}
                         />
                     ))}
                 </nav>
-            </header>
+            </div>
         </div>
     );
 };
