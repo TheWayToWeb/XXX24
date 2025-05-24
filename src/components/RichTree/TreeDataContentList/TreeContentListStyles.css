@@ -1,45 +1,82 @@
 :root {
-    --data-content-title-font-size: 18px;
-
-    /* Для мобильных устройств */
-    --tree-data-content-title-font-size-mobile: 14px;
-
-    /* Для средних экранов */
-    --tree-data-content-title-font-size-tablet: 16px;
-
     /* Цвета */
-    --content-list-border-color: #007bff;
-    --content-list-item-bg-color: #f8f9fa;
-    --content-list-item-text-color: #212529;
+    --tree-data-content-list-border-color: #a7adb3;
+    --tree-data-content-list-item-bg-color: #f8f9fa;
+    --tree-data-content-list-item-text-color: #a7adb3;
 
     /* Отступы */
-    --content-list-item-padding: 12px;
-    --content-list-margin: 12px;
+    --tree-data-content-spacing-xs: 8px;
+    --tree-data-content-spacing-sm: 12px;
+    --tree-data-content-spacing-md: 16px;
+    --tree-data-content-spacing-lg: 18px;
+
+    /* Размеры шрифтов */
+    --tree-data-content-font-size-small: 15px;
+    --tree-data-content-font-size-medium: 16px;
+    --tree-data-content-font-size-large: 17px;
+    --tree-data-content-font-size-xl: 18px;
 }
 
 .ContentList {
-    border-left: 2px solid var(--content-list-border-color);
+    border-left: 2px solid var(--tree-data-content-list-border-color);
     border-radius: 0;
-    margin: var(--content-list-margin);
 }
 
-.ContentList-Item {
-    padding: var(--content-list-item-padding);
-    border: none;
-    font-size: var(--data-content-title-font-size);
-    background-color: var(--content-list-item-bg-color);
-    color: var(--content-list-item-text-color);
-}
-
-@media (max-width: 575px) {
-    .ContentList-Item {
-        font-size: var(--tree-data-content-title-font-size-mobile);
+@media (min-width: 344px) {
+    .ContentList {
+        margin: var(--tree-data-content-spacing-xs);
     }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 576px) {
+    .ContentList {
+        margin: var(--tree-data-content-spacing-sm);
+    }
+}
+
+@media (min-width: 768px) {
+    .ContentList {
+        margin: var(--tree-data-content-spacing-md);
+    }
+}
+
+@media (min-width: 1200px) {
+    .ContentList {
+        margin: var(--tree-data-content-spacing-lg);
+    }
+}
+
+.ContentList-Item {
+    border: none;
+    background-color: var(--tree-data-content-list-item-bg-color);
+    color: var(--tree-data-content-list-item-text-color);
+}
+
+@media (min-width: 344px) {
     .ContentList-Item {
-        font-size: var(--tree-data-content-title-font-size-tablet);
+        padding: var(--tree-data-content-spacing-xs);
+        font-size: var(--tree-data-content-font-size-small);
+    }
+}
+
+@media (min-width: 576px) {
+    .ContentList-Item {
+        padding: var(--tree-data-content-spacing-sm);
+        font-size: var(--tree-data-content-font-size-small);
+    }
+}
+
+@media (min-width: 768px) {
+    .ContentList-Item {
+        padding: var(--tree-data-content-spacing-md);
+        font-size: var(--tree-data-content-font-size-large);
+    }
+}
+
+@media (min-width: 1200px) {
+    .ContentList-Item {
+        padding: var(--tree-data-content-spacing-lg);
+        font-size: var(--tree-data-content-font-size-xl);
     }
 }
 

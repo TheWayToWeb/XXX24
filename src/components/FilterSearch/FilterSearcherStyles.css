@@ -5,30 +5,34 @@
     --filter-searcher-focus-color: #212529; /* Темно-серый цвет текста при фокусе */
     --filter-searcher-box-shadow-inset: rgba(0, 0, 0, 0.075); /* Более светлая внутренняя тень */
     --filter-searcher-box-shadow-focus: rgba(0, 0, 0, 0.25); /* Более светлая тень фокуса */
-    --filter-searcher-border-radius: 4px; /* Менее скругленные углы */
-    --filter-searcher-padding-small: 6px; /* Уменьшенные отступы */
-    --filter-searcher-padding-medium: 8px;
-    --filter-searcher-padding-large: 10px;
-    --filter-searcher-padding-xl: 12px;
-    --filter-searcher-padding-xxl: 14px;
-    --filter-searcher-padding-huge: 16px;
-    --filter-searcher-font-size-small: 14px; /* Уменьшенные размеры шрифта */
-    --filter-searcher-font-size-medium: 16px;
-    --filter-searcher-font-size-large: 18px;
+    --filter-searcher-border-radius: 8px;
     --filtered-list-bg: #ffffff; /* Белый фон списка */
     --filtered-list-box-shadow: rgba(0, 0, 0, 0.05); /* Более легкая тень списка */
-    --filtered-list-border-radius: 2px; /* Менее скругленные углы списка */
-    --filtered-list-max-height-mobile: 200px; /* Уменьшенная максимальная высота для мобильных */
-    --filtered-list-max-height-desktop: 250px; /* Уменьшенная максимальная высота для десктопов */
-    --filtered-list-min-width: 200px; /* Уменьшенная минимальная ширина списка */
-    --filtered-list-item-padding-small: 6px; /* Уменьшенные отступы элемента списка */
-    --filtered-list-item-padding-medium: 8px;
+    --filtered-list-border-radius: 8px; /* Менее скругленные углы списка */
+
     --filtered-list-item-active-bg: #e9ecef; /* Светло-серый фон активного элемента */
     --filtered-list-item-active-color: #212529; /* Темно-серый цвет активного элемента */
     --transition-duration: 0.15s; /* Более быстрая анимация */
     --transition-easing: ease-in-out;
-    --filter-searcher-border-width: 1px;
+    --filter-searcher-border-width: 2px;
     --filtered-list-border-color: #ced4da;
+
+    --filtered-list-max-height-mobile: 200px; /* Уменьшенная максимальная высота для мобильных */
+    --filtered-list-max-height-desktop: 250px; /* Уменьшенная максимальная высота для десктопов */
+
+    /* Отступы для фильтров */
+    --filtered-padding-xs: 8px;
+    --filtered-padding-sm: 12px;
+    --filtered-padding-md: 16px;
+    --filtered-padding-lg: 24px;
+    --filtered-padding-xl: 28px;
+
+    /* Отступы для шрифтов */
+    --filtered-font-size-xs: 15px;
+    --filtered-font-size-md: 16px;
+    --filtered-font-size-lg: 17px;
+    --filtered-font-size-xl: 18px;
+    --filtered-font-size-huge: 19px;
 }
 
 .FilterSearcher {
@@ -39,8 +43,41 @@
     box-shadow: inset 0 1px 2px var(--filter-searcher-box-shadow-inset); /* Уменьшена интенсивность тени */
     transition: border-color var(--transition-duration) var(--transition-easing);
     border: var(--filter-searcher-border-width) solid transparent;
-    font-size: var(--filter-searcher-font-size-large);
-    padding: var(--filter-searcher-padding-huge);
+}
+
+@media (min-width: 344px) {
+    .FilterSearcher {
+        font-size: var(--filtered-font-size-xs);
+        padding: var(--filtered-padding-xs);
+    }
+}
+
+@media (min-width: 575px) {
+    .FilterSearcher {
+        font-size: var(--filtered-font-size-md);
+        padding: var(--filtered-padding-sm);
+    }
+}
+
+@media (min-width: 768px) {
+    .FilterSearcher {
+        font-size: var(--filtered-font-size-lg);
+        padding: var(--filtered-padding-md);
+    }
+}
+
+@media (min-width: 992px) {
+    .FilterSearcher {
+        font-size: var(--filtered-font-size-xl);
+        padding: var(--filtered-padding-lg);
+    }
+}
+
+@media (min-width: 1200px) {
+    .FilterSearcher {
+        font-size: var(--filtered-font-size-huge);
+        padding: var(--filtered-padding-xl);
+    }
 }
 
 .FilterSearcher:focus {
@@ -56,73 +93,60 @@
     box-shadow: 0 1px 3px var(--filtered-list-box-shadow); /* Уменьшена интенсивность тени списка */
     max-height: var(--filtered-list-max-height-desktop);
     overflow-y: auto;
-    min-width: var(--filtered-list-min-width);
     z-index: 1000;
-    background-color: var(--filtered-list-bg);
     border: var(--filter-searcher-border-width) solid var(--filtered-list-border-color); /* Добавлена светлая серая граница списка */
 }
 
 .FilteredList-Item {
-    padding: var(--filtered-list-item-padding-medium);
+    background-color: var(--filtered-list-bg);
     cursor: pointer;
     transition: background-color var(--transition-duration) var(--transition-easing),
     color var(--transition-duration) var(--transition-easing);
 }
 
-.FilteredList-Item.FilteredList-Item_Active {
+@media (min-width: 344px) {
+    .FilteredList-Item {
+        padding: var(--filtered-padding-xs);
+    }
+}
+
+@media (max-width: 575px) {
+    .FilteredList {
+        min-width: var(--filtered-list-max-height-mobile);
+    }
+}
+
+@media (min-width: 576px) {
+    .FilteredList {
+        min-width: var(--filtered-list-max-height-desktop);
+    }
+
+    .FilteredList-Item {
+        padding: var(--filtered-padding-sm);
+    }
+}
+
+@media (min-width: 768px) {
+    .FilteredList-Item {
+        padding: var(--filtered-padding-md);
+    }
+}
+
+@media (min-width: 992px) {
+    .FilteredList-Item {
+        padding: var(--filtered-padding-lg);
+    }
+}
+
+@media (min-width: 1200px) {
+    .FilteredList-Item {
+        padding: var(--filtered-padding-xl);
+    }
+}
+
+.FilteredList-Item_Active {
     background-color: var(--filtered-list-item-active-bg);
     color: var(--filtered-list-item-active-color);
 }
 
-/* Адаптация под самые маленькие мобильные экраны от 344px */
-@media (min-width: 344px) {
-    .FilterSearcher {
-        font-size: var(--filter-searcher-font-size-medium);
-        padding: var(--filter-searcher-padding-medium);
-    }
 
-    .FilteredList-Item {
-        padding: var(--filtered-list-item-padding-medium);
-        font-size: var(--filter-searcher-font-size-medium);
-    }
-}
-
-/* Адаптация под маленькие мобильные экраны от 576px */
-@media (min-width: 576px) {
-    .FilterSearcher {
-        font-size: var(--filter-searcher-font-size-large);
-        padding: var(--filter-searcher-padding-large);
-    }
-
-    .FilteredList {
-        min-width: var(--filtered-list-min-width); /* Возвращаем значение по умолчанию или корректируем */
-    }
-
-    .FilteredList-Item {
-        padding: var(--filtered-list-item-padding-medium); /* Возвращаем значение по умолчанию или корректируем */
-        font-size: var(--filter-searcher-font-size-large);
-    }
-}
-
-/* Адаптация под планшеты от 768px */
-@media (min-width: 768px) {
-    .FilterSearcher {
-        font-size: var(--filter-searcher-font-size-medium);
-        padding: var(--filter-searcher-padding-large);
-    }
-}
-/* Адаптация под планшеты от 992px */
-@media (min-width: 992px) {
-    .FilterSearcher {
-        font-size: var(--filter-searcher-font-size-large);
-        padding: var(--filter-searcher-padding-xl);
-    }
-}
-
-/* Адаптация под ПК */
-@media (min-width: 1200px) {
-    .FilterSearcher {
-        font-size: var(--filter-searcher-font-size-medium);
-        padding: var(--filter-searcher-padding-xxl);
-    }
-}

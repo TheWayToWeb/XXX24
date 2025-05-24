@@ -147,7 +147,7 @@
 @media (min-width: 768px) {
     .MovingMenuBurger {
         width: calc(var(--burger-width-base) + 10px); /* 64px */
-        padding: calc(var(--burger-button-spacing-md) + 7px);
+        padding: var(--burger-button-spacing-md);
     }
 
     .MovingMenuBurger span,
@@ -169,7 +169,7 @@
 @media (min-width: 992px) {
     .MovingMenuBurger {
         width: calc(var(--burger-width-base) + 20px); /* 68px */
-        padding: calc(var(--burger-button-spacing-lg) + 9px);
+        padding: var(--burger-button-spacing-lg) calc(var(--burger-button-spacing-lg) - 5px);
     }
 
     .MovingMenuBurger span,

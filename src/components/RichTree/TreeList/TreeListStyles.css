@@ -1,6 +1,7 @@
 :root {
     --tree-list-title-padding: 0;
     --tree-list-title-border: none;
+    --tree-list-title-color: #a7adb3;
     --tree-list-title-background-color: transparent;
     --tree-list-title-min-width: 100%;
     --tree-list-text-font-size: 18px;
@@ -28,60 +29,47 @@
 
 .TreeList-Title {
     text-align: left;
-    font-size: var(--tree-list-text-font-size);
+    color: var(--tree-list-title-color);
 }
 
-@media (max-width: 344px) {
+@media (min-width: 344px) {
     .TreeList-Title {
         font-size: var(--tree-list-font-size-small);
     }
-}
 
-@media (max-width: 575px) {
-    .TreeList-Title {
-        font-size: var(--tree-list-font-size-medium);
-    }
-}
-
-@media (max-width: 767px) {
-    .TreeList-Title {
-        font-size: var(--tree-list-font-size-large);
-    }
-}
-
-@media (max-width: 991px) {
-    .TreeList-Title {
-        font-size: var(--tree-list-font-size-xl);
-    }
-}
-
-.TreeList-Content {
-    padding-left: var(--tree-list-spacing);
-    padding-right: var(--tree-list-spacing);
-}
-
-@media (max-width: 344px) {
     .TreeList-Content {
         padding-left: var(--tree-list-spacing-xs);
         padding-right: var(--tree-list-spacing-xs);
     }
 }
 
-@media (max-width: 575px) {
+@media (min-width: 576px) {
+    .TreeList-Title {
+        font-size: var(--tree-list-font-size-medium);
+    }
+
     .TreeList-Content {
         padding-left: var(--tree-list-spacing-sm);
         padding-right: var(--tree-list-spacing-sm);
     }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) {
+    .TreeList-Title {
+        font-size: var(--tree-list-font-size-large);
+    }
+
     .TreeList-Content {
         padding-left: var(--tree-list-spacing-md);
         padding-right: var(--tree-list-spacing-md);
     }
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
+    .TreeList-Title {
+        font-size: var(--tree-list-font-size-xl);
+    }
+
     .TreeList-Content {
         padding-left: var(--tree-list-spacing-lg);
         padding-right: var(--tree-list-spacing-lg);

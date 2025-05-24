@@ -1,82 +1,87 @@
 :root {
-    --group-padding-mobile: 12px;
-    --group-padding-tablet-sm: 16px;
-    --group-padding-tablet-md: 20px;
-    --group-padding-desktop-sm: 24px;
-    --group-padding-desktop-md: 28px;
-    --group-padding-desktop-lg: 32px;
-    --group-padding-desktop-xl: 36px;
-    --item-padding-vertical-mobile: 6px;
-    --searcher-width-mobile: 100%;
+    /* Отступы */
+    --filter-search-group-padding-tablet-sm: 16px;
+    --filter-search-group-padding-tablet-md: 24px;
+    --filter-search-group-padding-desktop-sm: 32px;
+    --filter-search-group-padding-desktop-md: 48px;
+
+    --filter-search-item-padding-xs: 8px;
+    --filter-search-item-padding-sm: 12px;
+    --filter-search-item-padding-md: 16px;
+    --filter-search-item-padding-lg: 24px;
+    --filter-search-item-padding-xl: 28px;
+
+    /* Ширина */
+    --filter-searcher-width-mobile: 100%;
     --searcher-width-tablet-sm: 90%;
     --searcher-width-tablet-md: 80%;
     --searcher-width-desktop-sm: 75%;
     --searcher-width-desktop-md: 60%;
-    --searcher-width-desktop-lg: 50%;
 }
 
 .FilterSearchSection {
     display: flex;
+    align-items: center;
     flex-direction: row;
-    align-items: flex-start; /* Выравнивание элементов по началу строки */
-    gap: 10px; /* Отступ между элементами секции */
 }
 
-.FilterSearchItemContainer {
-    padding-top: 10px;
-    width: var(--searcher-width-desktop-lg); /* По умолчанию для больших экранов */
+@media (max-width: 991px) {
+    .FilterSearchSection {
+        flex-direction: column;
+    }
 }
 
-/* Адаптивные стили для очень маленьких мобильных экранов от 344px */
 @media (min-width: 344px) {
     .FilterSearchSection {
-        flex-direction: column;
-        gap: 8px;
+        gap: var(--filter-search-item-padding-xs);
     }
 
     .FilterSearchItemContainer {
-        width: var(--searcher-width-mobile);
-        padding-top: var(--item-padding-vertical-mobile);
+        padding-top: var(--filter-search-item-padding-xs);
+        width: var(--filter-searcher-width-mobile);
     }
 }
 
-/* Адаптивные стили для мобильных экранов от 576px */
 @media (min-width: 576px) {
     .FilterSearchSection {
-        flex-direction: column;
-        gap: 10px;
+        gap: var(--filter-search-item-padding-sm);
     }
 
     .FilterSearchItemContainer {
+        padding-top: var(--filter-search-item-padding-sm);
         width: var(--searcher-width-tablet-sm);
-        padding-top: var(--item-padding-vertical-mobile);
     }
 }
 
-/* Адаптивные стили для планшетов от 768px */
-@media (min-width: 768px) {
+@media (min-width: 767px) {
     .FilterSearchSection {
-        flex-direction: row;
-        align-items: center; /* Выравнивание элементов по центру по вертикали */
-        gap: 15px;
+        gap: var(--filter-search-item-padding-md);
     }
 
     .FilterSearchItemContainer {
+        padding-top: var(--filter-search-item-padding-md);
         width: var(--searcher-width-tablet-md);
-        padding-top: 0; /* Убираем верхний отступ на планшетах */
     }
 }
 
-/* Адаптивные стили для планшетов с большими экранами от 992px */
 @media (min-width: 992px) {
+    .FilterSearchSection {
+        gap: var(--filter-search-item-padding-lg);
+    }
+
     .FilterSearchItemContainer {
+        padding-top: var(--filter-search-item-padding-lg);
         width: var(--searcher-width-desktop-sm);
     }
 }
 
-/* Адаптивные стили для ПК экранов от 1200px */
 @media (min-width: 1200px) {
+    .FilterSearchSection {
+        gap: var(--filter-search-item-padding-xl);
+    }
+
     .FilterSearchItemContainer {
+        padding-top: var(--filter-search-item-padding-xl);
         width: var(--searcher-width-desktop-md);
     }
 }

@@ -1,5 +1,5 @@
 :root {
-    --tree-icon-fill: #007bff;
+    --tree-icon-fill: #a7adb3;
     --tree-icon--font-size-small: 15px;
     --tree-icon-font-size-medium: 16px;
     --tree-icon-font-size-large: 17px;
@@ -60,10 +60,16 @@
 
 @media (min-width: 768px) {
     .RichTreeIcon svg {
-        font-size: var(--tree-icon-font-size-xl);
+        font-size: var(--tree-icon-font-size-large);
     }
 
     .RichTreeIcon:first-child svg.bi-chevron-right {
         transform: rotate(90deg);
+    }
+}
+
+@media (min-width: 992px) {
+    .RichTreeIcon svg {
+        font-size: var(--tree-icon-font-size-xl);
     }
 }

@@ -27,6 +27,7 @@
 .Tree-MainTitle {
     text-align: left;
     margin-bottom: var(--rich-tree-text-margin-bottom);
+    color: #a7adb3;
 }
 
 @media (min-width: 344px) {
