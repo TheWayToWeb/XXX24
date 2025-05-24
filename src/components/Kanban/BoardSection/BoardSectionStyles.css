@@ -28,21 +28,18 @@
     --board-section-padding-xs: 8px;
     --board-section-padding-sm: 12px;
     --board-section-padding-md: 16px;
-    --board-section-padding-lg: 24px;
-    --board-section-padding-xl: 28px;
 }
 
 .BoardSection {
     background-color: var(--board-bg-color);
     border-radius: var(--board-border-radius);
-    min-height: 100vh;
     font-family: var(--board-font-family), sans-serif;
 }
 
 .BoardSectionButton {
     color: var(--board-section-button-text-color);
     background-color: var(--board-section-button-bg-color);
-    border-radius: var(--board-border-radius); /* Используем ту же переменную для радиуса */
+    border-radius: var(--board-border-radius);
     min-width: 100%;
     transition: var(--board-section-button-transition);
 }
@@ -71,14 +68,14 @@
 @media (min-width: 992px) {
     .BoardSectionButton {
         font-size: var(--board-section-button-font-size-xl);
-        padding: var(--board-section-padding-lg);
+        padding: var(--board-section-padding-xs) var(--board-section-padding-md);
     }
 }
 
 @media (min-width: 1200px) {
     .BoardSectionButton {
         font-size: var(--board-section-button-font-size-huge);
-        padding: var(--board-section-padding-xl);
+        padding: var(--board-section-padding-xs) var(--board-section-padding-sm);
     }
 }
 
