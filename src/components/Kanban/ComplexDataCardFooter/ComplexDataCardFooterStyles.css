@@ -1,5 +1,4 @@
 :root {
-    --card-margin-bottom: 8px;
     --card-border-radius: 8px;
     --card-padding: 0;
     --card-border: none;
@@ -7,6 +6,12 @@
     --card-body-border-bottom: 1px solid var(--card-body-border-color);
     --card-body-padding: 0;
     --card-footer-padding: 0;
+    /* Внутренние отступы для различных расширений экранов */
+    --card-footer-spacing-xs: 8px;
+    --card-footer-spacing-sm: 12px;
+    --card-footer-spacing-md: 16px;
+    --card-footer-spacing-lg: 24px;
+    --card-footer-spacing-xl: 28px;
 }
 
 .CardFooter {
@@ -15,12 +20,54 @@
     border-radius: var(--card-border-radius) !important;
 }
 
-.CardFooter_Available {
-    margin-top: var(--card-margin-bottom);
+@media (min-width: 344px) {
+    .CardFooter_Available {
+        margin-top: var(--card-footer-spacing-xs);
+    }
+
+    .CardFooter_Available .Card {
+        margin-bottom: var(--card-footer-spacing-xs);
+    }
 }
 
-.CardFooter_Available .Card {
-    margin-bottom: var(--card-margin-bottom);
+@media (min-width: 576px) {
+    .CardFooter_Available {
+        margin-top: var(--card-footer-spacing-sm);
+    }
+
+    .CardFooter_Available .Card {
+        margin-bottom: var(--card-footer-spacing-sm);
+    }
+}
+
+@media (min-width: 768px) {
+    .CardFooter_Available {
+        margin-top: var(--card-footer-spacing-md);
+    }
+
+    .CardFooter_Available .Card {
+        margin-bottom: var(--card-footer-spacing-md);
+    }
+}
+
+@media (min-width: 992px) {
+    .CardFooter_Available {
+        margin-top: var(--card-footer-spacing-lg);
+    }
+
+    .CardFooter_Available .Card {
+        margin-bottom: var(--card-footer-spacing-lg);
+    }
+}
+
+@media (min-width: 1200px) {
+    .CardFooter_Available {
+        margin-top: var(--card-footer-spacing-xl);
+    }
+
+    .CardFooter_Available .Card {
+        margin-bottom: var(--card-footer-spacing-xl);
+    }
 }
 
 .CardFooter_Available .Card:first-child .Card-Body {

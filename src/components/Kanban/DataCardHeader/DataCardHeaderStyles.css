@@ -1,26 +1,33 @@
 :root {
     --advanced-card-header-padding: 0;
-    --advanced-card-header-border: none;
-
-    --advanced-card-button-group-position: absolute;
-    --advanced-card-button-group-top: -15px;
     --advanced-card-button-group-left: 0;
     --advanced-card-button-group-right: 0;
+    --advanced-card-button-padding: 0;
+    --advanced-card-last-button-margin-right: 0;
+    --advanced-card-header-border: none;
+    --advanced-card-button-focus-box-shadow: none;
     --advanced-card-button-group-background: transparent;
-
+    --advanced-card-button-group-position: absolute;
+    --advanced-card-button-group-top: -15px;
     --advanced-card-button-background-color: #007bff;
     --advanced-card-button-color: #ffffff;
-    --advanced-card-button-border-radius: 8px;
-    --advanced-card-button-margin-right: 3px;
-    --advanced-card-button-padding: 0;
-    --advanced-card-button-font-size: 12px;
-    --advanced-card-button-transition: background-color 0.3s ease;
-
     --advanced-card-button-hover-background-color: #ffffff;
     --advanced-card-button-hover-color: #007bff;
-    --advanced-card-button-focus-box-shadow: none;
-
-    --advanced-card-last-button-margin-right: 0;
+    --advanced-card-button-border-radius: 8px;
+    --advanced-card-button-transition: background-color 0.3s ease;
+    /* Отступ справа */
+    --card-data-margin-right-xs: 8px;
+    --card-data-margin-right-sm: 12px;
+    --card-data-margin-right-md: 16px;
+    --card-data-margin-right-lg: 24px;
+    --card-data-margin-right-xl: 28px;
+    /* Диапазон шрифтов */
+    --advanced-card-button-font-size: 12px;
+    --card-data-font-size-xs: 15px;
+    --card-data-font-size-sm: 16px;
+    --card-data-font-size-md: 17px;
+    --card-data-font-size-lg: 18px;
+    --card-data-font-sze-xl: 19px;
 }
 
 .CardHeader {
@@ -41,10 +48,44 @@
     background-color: var(--advanced-card-button-background-color);
     color: var(--advanced-card-button-color);
     border-radius: var(--advanced-card-button-border-radius) !important;
-    margin-right: var(--advanced-card-button-margin-right);
     padding: var(--advanced-card-button-padding);
     font-size: var(--advanced-card-button-font-size);
     transition: var(--advanced-card-button-transition);
+}
+
+@media (min-width: 344px) {
+    .CardHeader-Button {
+        margin-right: var(--card-data-margin-right-xs);
+        font-size: var(--card-data-font-size-xs);
+    }
+}
+
+@media (min-width: 575px) {
+    .CardHeader-Button {
+        margin-right: var(--card-data-margin-right-sm);
+        font-size: var(--card-data-font-size-sm);
+    }
+}
+
+@media (min-width: 767px) {
+    .CardHeader-Button {
+        margin-right: var(--card-data-margin-right-md);
+        font-size: var(--card-data-font-size-md);
+    }
+}
+
+@media (min-width: 992px) {
+    .CardHeader-Button {
+        margin-right: var(--card-data-margin-right-lg);
+        font-size: var(--card-data-font-size-lg);
+    }
+}
+
+@media (min-width: 1200px) {
+    .CardHeader-Button {
+        margin-right: var(--card-data-margin-right-xl);
+        font-size: var(--card-data-font-sze-xl);
+    }
 }
 
 .CardHeader-Button:hover {

@@ -1,16 +1,51 @@
 :root {
     --kanban-bg-color: #e0e0e0;
     --kanban-border-radius: 8px;
-    --kanban-item-font-size: 20px;
     --kanban-item-shadow-h-offset: 3px;
     --kanban-item-shadow-v-offset: 3px;
     --kanban-item-shadow-blur: 7px;
     --kanban-item-shadow-color: rgba(52, 58, 64, 0.15);
+
+    /* Шрифты */
+    --kanban-item-font-size-xs: 15px;
+    --kanban-item-font-size-sm: 16px;
+    --kanban-item-font-size-md: 17px;
+    --kanban-item-font-size-lg: 18px;
+    --kanban-item-font-size-xl: 19px;
 }
 
 .BoardSectionContainer {
     background-color: var(--kanban-bg-color);
     border-radius: var(--kanban-border-radius);
-    font-size: var(--kanban-item-font-size);
     box-shadow: var(--kanban-item-shadow-h-offset) var(--kanban-item-shadow-v-offset) var(--kanban-item-shadow-blur) var(--kanban-item-shadow-color);
+}
+
+@media (min-width: 344px) {
+    .BoardSectionContainer {
+        font-size: var(--kanban-item-font-size-xs);
+    }
+}
+
+@media (min-width: 575px) {
+    .BoardSectionContainer {
+        font-size: var(--kanban-item-font-size-sm);
+    }
+}
+
+@media (min-width: 767px) {
+    .BoardSectionContainer {
+        font-size: var(--kanban-item-font-size-md);
+    }
+}
+
+@media (min-width: 992px) {
+    .BoardSectionContainer {
+        font-size: var(--kanban-item-font-size-lg);
+    }
+}
+
+@media (min-width: 1200px) {
+    .BoardSectionContainer {
+        font-size: var(--kanban-item-font-size-xl);
+    }
 }

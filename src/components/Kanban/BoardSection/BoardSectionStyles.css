@@ -1,17 +1,35 @@
 :root {
-    --board-padding: 10px;
     --board-bg-color: #f8f9fa;
     --board-border-color: #d3d3d3;
     --board-border-radius: 8px;
     --board-font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
 
-    --button-text-color: #ffffff;
-    --button-bg-color: #007bff;
-    --button-font-size: 12px;
-    --button-padding: 4px;
-    --button-transition: background-color 0.3s ease;
-    --button-hover-bg-color: #ffffff;
-    --button-hover-text-color: #007bff;
+    --board-section-button-text-color: #ffffff;
+    --board-section-button-bg-color: #007bff;
+    --board-section-button-transition: background-color 0.3s ease;
+    --board-section-button-hover-bg-color: #ffffff;
+    --board-section-button-hover-text-color: #007bff;
+
+    /* Текстовые шрифты */
+    --board-section-button-font-size-xs: 12px;
+    --board-section-button-font-size-sm: 16px;
+    --board-section-button-font-size-lg: 17px;
+    --board-section-button-font-size-xl: 18px;
+    --board-section-button-font-size-huge: 19px;
+
+    /* Ширина блока */
+    --board-section-width-xs: 100%;
+    --board-section-width-sm: 90%;
+    --board-section-width-md: 80%;
+    --board-section-width-xl: 75%;
+    --board-section-width-xLarge: 60%;
+
+    /* Внутренние отступы */
+    --board-section-padding-xs: 8px;
+    --board-section-padding-sm: 12px;
+    --board-section-padding-md: 16px;
+    --board-section-padding-lg: 24px;
+    --board-section-padding-xl: 28px;
 }
 
 .BoardSection {
@@ -22,19 +40,52 @@
 }
 
 .BoardSectionButton {
-    color: var(--button-text-color);
-    background-color: var(--button-bg-color);
-    font-size: var(--button-font-size);
-    padding: var(--button-padding);
+    color: var(--board-section-button-text-color);
+    background-color: var(--board-section-button-bg-color);
     border-radius: var(--board-border-radius); /* Используем ту же переменную для радиуса */
     min-width: 100%;
-    transition: var(--button-transition);
+    transition: var(--board-section-button-transition);
+}
+
+@media (min-width: 344px) {
+    .BoardSectionButton {
+        font-size: var(--board-section-button-font-size-xs);
+        padding: var(--board-section-padding-xs);
+    }
+}
+
+@media (min-width: 575px) {
+    .BoardSectionButton {
+        font-size: var(--board-section-button-font-size-sm);
+        padding: var(--board-section-padding-sm);
+    }
+}
+
+@media (min-width: 768px) {
+    .BoardSectionButton {
+        font-size: var(--board-section-button-font-size-lg);
+        padding: var(--board-section-padding-md);
+    }
+}
+
+@media (min-width: 992px) {
+    .BoardSectionButton {
+        font-size: var(--board-section-button-font-size-xl);
+        padding: var(--board-section-padding-lg);
+    }
+}
+
+@media (min-width: 1200px) {
+    .BoardSectionButton {
+        font-size: var(--board-section-button-font-size-huge);
+        padding: var(--board-section-padding-xl);
+    }
 }
 
 .BoardSectionButton:hover {
     border: none;
-    color: var(--button-hover-text-color);
-    background-color: var(--button-hover-bg-color);
+    color: var(--board-section-button-hover-text-color);
+    background-color: var(--board-section-button-hover-bg-color);
 }
 
 .BoardSectionButton:focus {
