@@ -5,7 +5,7 @@ import NotifyLoaderView from "../../Application/NotifyLoader/NotifyLoaderView.js
 import InfiniteTableDataStateNotifyIndexView
     from "../InfiniteTableDataStateNotify/InfiniteTableDataStateNotifyIndexView.jsx";
 import TableView from '../Table/TableView.jsx'; // Импортируем компонент TableView
-import './InfiniteScrollTableStyles.css';
+import './InfiniteScrollTableStyles.less';
 
 const InfiniteScrollTableView = React.memo(
     ({

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './TableCellEditorStyles.css';
+import './TableCellEditorStyles.less';
 
 const TableCellEditorView = React.memo(
     ({ value, onChange, onBlur, autoFocus }) => {

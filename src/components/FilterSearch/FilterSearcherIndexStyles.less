@@ -1,0 +1,77 @@
+// Less Variables
+/* Spacing */
+@filter-search-item-padding-xs: 8px;
+@filter-search-item-padding-sm: 12px;
+@filter-search-item-padding-md: 16px;
+@filter-search-item-padding-lg: 24px;
+@filter-search-item-padding-xl: 28px;
+
+/* Widths */
+@filter-searcher-width-mobile: 100%;
+@searcher-width-tablet-sm: 90%;
+@searcher-width-tablet-md: 80%;
+@searcher-width-desktop-sm: 75%;
+@searcher-width-desktop-md: 60%;
+
+// --- Mixin for Responsive Gap in FilterSearchSection ---
+.filter-search-section-responsive-gap() {
+    @media (min-width: 344px) {
+        gap: @filter-search-item-padding-xs;
+    }
+    @media (min-width: 576px) {
+        gap: @filter-search-item-padding-sm;
+    }
+    @media (min-width: 767px) {
+        gap: @filter-search-item-padding-md;
+    }
+    @media (min-width: 992px) {
+        gap: @filter-search-item-padding-lg;
+    }
+    @media (min-width: 1200px) {
+        gap: @filter-search-item-padding-xl;
+    }
+}
+
+// --- Mixin for Responsive FilterSearchItemContainer Styles ---
+.filter-search-item-container-responsive-styles() {
+    @media (min-width: 344px) {
+        padding-top: @filter-search-item-padding-xs;
+        width: @filter-searcher-width-mobile;
+    }
+    @media (min-width: 576px) {
+        padding-top: @filter-search-item-padding-sm;
+        width: @searcher-width-tablet-sm;
+    }
+    @media (min-width: 767px) {
+        padding-top: @filter-search-item-padding-md;
+        width: @searcher-width-tablet-md;
+    }
+    @media (min-width: 992px) {
+        padding-top: @filter-search-item-padding-lg;
+        width: @searcher-width-desktop-sm;
+    }
+    @media (min-width: 1200px) {
+        padding-top: @filter-search-item-padding-xl;
+        width: @searcher-width-desktop-md;
+    }
+}
+
+
+.FilterSearchSection {
+    display: flex;
+    align-items: center;
+    flex-direction: row; // Default for larger screens
+
+    // Overrides flex-direction for smaller screens
+    @media (max-width: 991px) {
+        flex-direction: column;
+    }
+
+    // Apply mixin for responsive gap
+    .filter-search-section-responsive-gap();
+}
+
+.FilterSearchItemContainer {
+    // Apply mixin for responsive padding-top and width
+    .filter-search-item-container-responsive-styles();
+}

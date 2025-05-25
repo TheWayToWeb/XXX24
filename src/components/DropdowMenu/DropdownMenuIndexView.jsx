@@ -3,9 +3,7 @@ import DropdownMenuSmart from "./DropdownMenuSmart.jsx";
 
 const DropdownMenuIndexView = () => {
     return (
-        <>
-            <DropdownMenuSmart />
-        </>
+        <DropdownMenuSmart />
     );
 };
 

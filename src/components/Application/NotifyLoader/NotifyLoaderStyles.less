@@ -1,0 +1,59 @@
+@data-card-loader-border-radius: 8px;
+@data-card-loader-background-color: #007bff;
+@data-card-loader-color: #ffffff;
+@data-card-loader-text-align: center;
+
+/* Шрифты */
+@data-card-loader-font-size-xs: 15px;
+@data-card-loader-font-size-sm: 16px;
+@data-card-loader-font-size-md: 17px;
+@data-card-loader-font-size-lg: 18px;
+@data-card-loader-font-size-xl: 19px;
+
+/* Внутренние отступы */
+@data-card-loader-spacing-xs: 8px;
+@data-card-loader-spacing-sm: 12px;
+@data-card-loader-spacing-md: 16px;
+@data-card-loader-spacing-lg: 24px;
+@data-card-loader-spacing-xl: 28px;
+
+/* Ширина блока контейнера */
+@data-card-loader-width-xs: 100%;
+@data-card-loader-width-sm: 90%;
+@data-card-loader-width-md: 80%;
+@data-card-loader-width-lg: 75%;
+@data-card-loader-width-xl: 60%;
+
+.NotifyLoader {
+    border-radius: @data-card-loader-border-radius;
+    background-color: @data-card-loader-background-color;
+    color: @data-card-loader-color;
+    text-align: @data-card-loader-text-align;
+
+// Nested Media Queries for responsive styles
+@media (min-width: 344px) {
+    font-size: @data-card-loader-font-size-xs;
+    padding: @data-card-loader-spacing-xs;
+    min-width: @data-card-loader-width-xs;
+}
+    @media (min-width: 576px) {
+        font-size: @data-card-loader-font-size-sm;
+        padding: @data-card-loader-spacing-sm;
+        min-width: @data-card-loader-width-sm;
+    }
+    @media (min-width: 768px) {
+        font-size: @data-card-loader-font-size-md;
+        padding: @data-card-loader-spacing-md;
+        min-width: @data-card-loader-width-md;
+    }
+    @media (min-width: 992px) {
+        font-size: @data-card-loader-font-size-lg;
+        padding: @data-card-loader-spacing-lg;
+        min-width: @data-card-loader-width-lg;
+    }
+    @media (min-width: 1200px) {
+        font-size: @data-card-loader-font-size-xl;
+        padding: @data-card-loader-spacing-xl;
+        min-width: @data-card-loader-width-xl;
+    }
+}

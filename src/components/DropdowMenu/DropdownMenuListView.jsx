@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ContainerFluidView from "../Application/ContainerFluid/ContainerFluidView.jsx";
 import PropTypes from 'prop-types'; // Импортируем PropTypes
-import './DropdownMenuListStyles.css';
+import './DropdownMenuListStyles.less';
 import './SidebarButtonsStyles.css';
 
 const DropdownMenuListView = React.memo(({ initItems, active, handleClickLink }) => {

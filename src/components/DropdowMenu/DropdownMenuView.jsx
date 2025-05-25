@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './DropdownMenuStyles.css';
+import './DropdownMenuStyles.less';
 import DropdownMenuListIndexView from "./DropdownMenuListIndexView.jsx";
 
 const DropdownMenuView = React.memo(({ show, onToggle }) => {

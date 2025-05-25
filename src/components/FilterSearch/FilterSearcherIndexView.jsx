@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FilterSearcherSmart from "./FilterSearcherSmart.jsx";
-import './FilterSearcherIndexStyles.css';
+import './FilterSearcherIndexStyles.less';
 
 const FilterSearcherIndexView = React.memo(() => {
     const [searchFields, setSearchFields] = useState([]);

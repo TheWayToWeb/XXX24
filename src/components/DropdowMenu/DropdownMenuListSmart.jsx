@@ -43,13 +43,11 @@ const DropdownMenuListSmart = () => {
     };
 
     return (
-        <>
-            <DropdownMenuListView
-                initItems={sidebarItems}
-                active={active}
-                handleClickLink={handleClickLink}
-            />
-        </>
+        <DropdownMenuListView
+            initItems={sidebarItems}
+            active={active}
+            handleClickLink={handleClickLink}
+        />
     );
 };
 

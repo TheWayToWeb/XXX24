@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types"; // Импортируем PropTypes
-import "./FilterSearcherStyles.css";
+import "./FilterSearcherStyles.less";
 
 const FilterSearcherView = React.memo(({ items, isOpen, onInputClick, placeholder, value }) => {
     const [activeItem, setActiveItem] = useState(null);

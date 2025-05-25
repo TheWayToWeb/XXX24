@@ -1,5 +1,5 @@
 import React from 'react';
-import './NotifyLoaderStyles.css';
+import './NotifyLoaderStyles.less';
 
 const NotifyLoaderView = ({text}) => {
     return (

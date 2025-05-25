@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './TableStyles.css';
+import './TableStyles.less';
 import TableCellEditorView from '../TableCellEditor/TableCellEditorView.jsx'; // Импортируем TableCellEditorView
 
 const TableView = React.memo(
@@ -17,7 +17,7 @@ const TableView = React.memo(
          handleBlur,
      }) => {
         return (
-            <table className="table Table" style={{ width: '100%' }}>
+            <table className="table Table">
                 <thead className="Table-Header">
                 <tr>
                     {columnHeader.map((header, index) => (
