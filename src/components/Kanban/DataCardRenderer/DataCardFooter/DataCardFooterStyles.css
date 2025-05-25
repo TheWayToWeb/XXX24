@@ -2,11 +2,11 @@
     --data-card-footer-item-status-radius: 8px;
 
     /* Отступы для разных экранов элемента Status */
-    --data-card-list-item-spacing-xs: 8px;
-    --data-card-list-item-spacing-sm: 12px;
-    --data-card-list-item-spacing-md: 14px;
-    --data-card-list-item-spacing-lg: 16px;
-    --data-card-list-item-spacing-xl: 18px;
+    --data-card-list-item-spacing-xs: 9px;
+    --data-card-list-item-spacing-sm: 8px;
+    --data-card-list-item-spacing-md: 7px;
+    --data-card-list-item-spacing-lg: 6px;
+    --data-card-list-item-spacing-xl: 4px;
 }
 
 .DataCardFooter {
