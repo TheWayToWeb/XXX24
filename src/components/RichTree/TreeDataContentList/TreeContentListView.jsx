@@ -1,5 +1,5 @@
 import React from 'react';
-import './TreeContentListStyles.css';
+import './TreeContentListStyles.less';
 
 const TreeContentListView = React.memo(({ dataFolder }) => {
     return (

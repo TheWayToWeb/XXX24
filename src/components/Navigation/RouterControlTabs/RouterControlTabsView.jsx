@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
-import './RouterControlTabsStyles.css';
+import './RouterControlTabsStyles.less';
 
 const RouterControlTabsView = ({ links }) => {
     const location = useLocation();

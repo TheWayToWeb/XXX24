@@ -5,7 +5,7 @@ import SubTreeView from "./SubTree/SubTreeView.jsx";
 import NotifyLoaderView from "../Application/NotifyLoader/NotifyLoaderView.jsx";
 import { ChevronRight, Folder } from "react-bootstrap-icons";
 import InfiniteScroll from "react-infinite-scroll-component";
-import './TreeStyles.css';
+import './TreeStyles.less';
 
 const TreeView = React.memo(({ dropdownRef, toggleTree, treeTitles, openTree, fetchMoreData, hasMore }) => {
     const [folderDataContent, setFolderDataContent] = useState([]);

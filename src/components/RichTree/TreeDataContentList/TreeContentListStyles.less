@@ -1,0 +1,67 @@
+// Цвета
+@tree-data-content-list-border-color: #a7adb3;
+@tree-data-content-list-item-bg-color: #f8f9fa;
+@tree-data-content-list-item-text-color: #a7adb3;
+
+// Отступы
+@tree-data-content-spacing-xs: 8px;
+@tree-data-content-spacing-sm: 12px;
+@tree-data-content-spacing-md: 16px;
+@tree-data-content-spacing-lg: 18px;
+
+// Размеры шрифтов
+@tree-data-content-font-size-small: 15px;
+@tree-data-content-font-size-medium: 16px;
+@tree-data-content-font-size-large: 17px;
+@tree-data-content-font-size-xl: 18px;
+
+
+.ContentList {
+    border-left: 2px solid @tree-data-content-list-border-color;
+    border-radius: 0;
+
+// Вложенные медиазапросы для отступов
+@media (min-width: 344px) {
+    margin: @tree-data-content-spacing-xs;
+}
+
+    @media (min-width: 576px) {
+        margin: @tree-data-content-spacing-sm;
+    }
+
+    @media (min-width: 768px) {
+        margin: @tree-data-content-spacing-md;
+    }
+
+    @media (min-width: 1200px) {
+        margin: @tree-data-content-spacing-lg;
+    }
+}
+
+.ContentList-Item {
+    border: none;
+    background-color: @tree-data-content-list-item-bg-color;
+    color: @tree-data-content-list-item-text-color;
+
+// Вложенные медиазапросы для отступов и размеров шрифтов
+@media (min-width: 344px) {
+    padding: @tree-data-content-spacing-xs;
+    font-size: @tree-data-content-font-size-small;
+}
+
+    @media (min-width: 576px) {
+        padding: @tree-data-content-spacing-sm;
+    // Здесь font-size остаётся small, как в оригинале
+    font-size: @tree-data-content-font-size-small;
+    }
+
+    @media (min-width: 768px) {
+        padding: @tree-data-content-spacing-md;
+        font-size: @tree-data-content-font-size-large;
+    }
+
+    @media (min-width: 1200px) {
+        padding: @tree-data-content-spacing-lg;
+        font-size: @tree-data-content-font-size-xl;
+    }
+}

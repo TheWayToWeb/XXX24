@@ -1,5 +1,5 @@
 import React from 'react';
-import './MovingMenuBurger.css';
+import './MovingMenuBurger.less';
 
 const MovingMenuBurger = ({ isActive, onToggleMenu }) => {
     return (

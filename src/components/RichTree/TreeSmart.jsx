@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import TreeView from "./TreeView.jsx";
-import './TreeStyles.css';
-import './TreeList/TreeListStyles.css';
+import './TreeStyles.less';
+import './TreeList/TreeListStyles.less';
 
 const TreeSmart = () => {
     // Меняем состояние для отслеживания открытого элемента

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ContainerFluid from "../../Application/ContainerFluid/ContainerFluidView.jsx";
 import TreeIconView from "../TreeIcon/TreeIconView.jsx";
 import { Folder } from "react-bootstrap-icons";
+import './TreeListStyles.less';
 
 const TreeListView = React.memo(({ title, content }) => {
     const [openTreeListItem, setOpenTreeListItem] = useState(false);

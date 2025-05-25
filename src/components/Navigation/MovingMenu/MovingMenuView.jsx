@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import MovingMenuBurger from "./MovingMenuBurger/MovingMenuBurger.jsx";
 import ContainerFluidView from "../../Application/ContainerFluid/ContainerFluidView.jsx";
-import './MovingMenuStyles.css';
+import './MovingMenuStyles.less';
 import './MovingMenuTemporaryStyles.css';
 
 const MovingMenuView = React.memo(({ isActive, onToggleMenu, menuItems }) => {
