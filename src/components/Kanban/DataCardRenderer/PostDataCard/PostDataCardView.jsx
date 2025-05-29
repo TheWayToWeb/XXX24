@@ -1,5 +1,5 @@
 import React from 'react';
-import DataCardHeaderView from "../DataCardHeader/DataCardHeaderView.jsx";
+import DataCardHeaderIndexView from "../DataCardHeader/DataCardHeaderIndexView.jsx";
 import DataCardFooterView from "../DataCardFooter/DataCardFooterView.jsx";
 import './PostDataCardStyles.less';
 
@@ -12,9 +12,7 @@ const PostDataCardView = React.memo(({
     postComments,
     toggleDataCard,
     listType,
-    countVisibleItems,
     isListVisible,
-    buttonsVisibleForId
  }) => {
 
     return (
@@ -23,10 +21,7 @@ const PostDataCardView = React.memo(({
                 className="card text-left Post"
                 onClick={toggleDataCard}
             >
-                <DataCardHeaderView
-                    currentItemVisibleId={buttonsVisibleForId}
-                    visibleCount={countVisibleItems}
-                />
+                <DataCardHeaderIndexView />
                 <div className="card-body Post-Body">
                     <h5 className="card-title Post-Title">Пользователь: {userId}</h5>
                     <h6 className="card-subtitle Post-Subtitle">{title}</h6>

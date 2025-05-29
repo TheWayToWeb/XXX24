@@ -1,5 +1,5 @@
 import React from 'react';
-import DataCardHeaderView from "../DataCardHeader/DataCardHeaderView.jsx";
+import DataCardHeaderIndexView from "../DataCardHeader/DataCardHeaderIndexView.jsx";
 import DataCardFooterView from "../DataCardFooter/DataCardFooterView.jsx";
 import './TodoDataCardStyles.less';
 
@@ -11,9 +11,7 @@ const TodoDataCardView = React.memo(({
     todosList,
     toggleDataCard,
     listType,
-    countVisibleItems,
     isListVisible,
-    buttonsVisibleForId
 }) => {
     // Выполняем отрисовку частичного компонента TodoDataCard
     return (
@@ -21,10 +19,7 @@ const TodoDataCardView = React.memo(({
             <div
                 className="card text-center TodoCard"
             >
-                <DataCardHeaderView
-                    currentItemVisibleId={buttonsVisibleForId}
-                    visibleCount={countVisibleItems}
-                />
+                <DataCardHeaderIndexView />
                 <div
                     className="card-body TodoCard-Body"
                     onClick={toggleDataCard}

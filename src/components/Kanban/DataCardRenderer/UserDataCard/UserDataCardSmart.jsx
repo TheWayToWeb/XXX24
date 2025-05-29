@@ -8,8 +8,8 @@ const UserDataCardSmart = () => {
     const rendererContext = useContext(DataCardRendererContext);
     const rendererChildrenContext = useContext(DataCardRendererChildContext);
     // Извлекаем необходимые данные из контекста
-    const { listType, countVisibleItems } = rendererContext;
-    const { rendererItem, visibleButtonsForId } = rendererChildrenContext;
+    const { listType } = rendererContext;
+    const { rendererItem } = rendererChildrenContext;
     // Достаем что нужно из другого контекста
     const { id, name, username, email, phone, company, hasPosts, posts } = rendererItem;
     // Инициализируем состояние отображения списка
@@ -31,9 +31,7 @@ const UserDataCardSmart = () => {
             posts={posts}
             toggleDataCard={toggleDataCard}
             listType={listType}
-            countVisibleItems={countVisibleItems}
             isListVisible={isListVisible}
-            buttonsVisibleForId={visibleButtonsForId}
         />
     );
 };

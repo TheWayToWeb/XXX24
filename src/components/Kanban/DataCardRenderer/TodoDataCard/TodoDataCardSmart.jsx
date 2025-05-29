@@ -8,8 +8,8 @@ const TodoDataCardSmart = () => {
     const rendererContext = useContext(DataCardRendererContext);
     const rendererChildrenContext = useContext(DataCardRendererChildContext);
     // Извлекаем необходимые данные из контекста
-    const { listType, countVisibleItems } = rendererContext;
-    const { rendererItem, visibleButtonsForId } = rendererChildrenContext;
+    const { listType } = rendererContext;
+    const { rendererItem } = rendererChildrenContext;
 
     const { id, name, username, hasTodosList, todosList } = rendererItem;
     const [isListVisible, setIsListVisible] = useState(false);
@@ -26,9 +26,7 @@ const TodoDataCardSmart = () => {
             todosList={todosList}
             toggleDataCard={toggleDataCard}
             listType={listType}
-            countVisibleItems={countVisibleItems}
             isListVisible={isListVisible}
-            buttonsVisibleForId={visibleButtonsForId}
         />
     );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DataCardHeaderView from "../DataCardHeader/DataCardHeaderView.jsx";
+import DataCardHeaderIndexView from "../DataCardHeader/DataCardHeaderIndexView.jsx";
 import DataCardFooterView from "../DataCardFooter/DataCardFooterView.jsx";
 import { EnvelopeAt, FileX, TelephoneOutbound } from "react-bootstrap-icons";
 import UserDataToastView from "../UserDataToast/UserDataToastView.jsx";
@@ -17,9 +17,7 @@ const UserDataCardView = React.memo(({
     posts,
     toggleDataCard,
     listType,
-    countVisibleItems,
-    isListVisible,
-    buttonsVisibleForId
+    isListVisible
                                      }) => {
     // отдельно состояния иконки EnvelopeAt
     const [isSuccessButtonEnvelopeAt, setIsSuccessButtonEnvelopeAt] = useState(false);
@@ -38,10 +36,7 @@ const UserDataCardView = React.memo(({
                 className="card text-center UserCard"
                 onClick={toggleDataCard}
             >
-                <DataCardHeaderView
-                    currentItemVisibleId={buttonsVisibleForId}
-                    visibleCount={countVisibleItems}
-                />
+                <DataCardHeaderIndexView />
                 <div className="card-body UserCard-Body">
                     <h5 className="card-title UserCard-Title">{ name }</h5>
                     <h6 className="card-subtitle UserCard-Subtitle">{ username }</h6>

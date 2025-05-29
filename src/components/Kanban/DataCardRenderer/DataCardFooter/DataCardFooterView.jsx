@@ -17,7 +17,7 @@ const DataCardFooterView = React.memo(({
                           <ul
                               className={classNames(
                                   'list-group',
-                                  'list-group-item',
+                                  'list-group-flush',
                                   'DataCardList',
                                   {
                                       'd-block': isListVisible,

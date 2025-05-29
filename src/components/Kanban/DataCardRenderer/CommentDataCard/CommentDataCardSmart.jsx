@@ -9,8 +9,8 @@ const CommentDataCardSmart = () => {
     const rendererContext = useContext(DataCardRendererContext);
     const rendererChildContext = useContext(DataCardRendererChildContext);
     // Извлекаем необходимые данные из контекстов
-    const { listType, countVisibleItems } = rendererContext;
-    const { rendererItem, visibleButtonsForId } = rendererChildContext;
+    const { listType } = rendererContext;
+    const { rendererItem } = rendererChildContext;
     // Извлекаем необходимые свойства из объекта renderItem
     const { id, email } = rendererItem;
     // Создаём вложенный массив для выпадающего списка карты из data
@@ -37,10 +37,7 @@ const CommentDataCardSmart = () => {
             commentsNestedList={commentsNestedList}
             toggleDataCard={toggleDataCard}
             listType={listType}
-            countVisibleItems={countVisibleItems}
             isListVisible={isListVisible}
-            buttonsVisibleForId={visibleButtonsForId}
-
         />
     );
 };

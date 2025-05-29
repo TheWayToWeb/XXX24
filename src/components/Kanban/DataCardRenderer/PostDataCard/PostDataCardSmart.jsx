@@ -8,8 +8,8 @@ const PostDataCardSmart = () => {
     const rendererContext = useContext(DataCardRendererContext);
     const rendererChildrenContext = useContext(DataCardRendererChildContext);
     // Извлекаем необходимые данные из контекста
-    const { listType, countVisibleItems } = rendererContext;
-    const { rendererItem, visibleButtonsForId } = rendererChildrenContext;
+    const { listType } = rendererContext;
+    const { rendererItem } = rendererChildrenContext;
     // Извлекаем необходимые данные из renderVisibleItem
     const { id, userId, title, body, hasComments, comments: postComments } = rendererItem;
     // Инициализируем состояние для показа выпадающего списка
@@ -29,9 +29,7 @@ const PostDataCardSmart = () => {
             postComments={postComments}
             toggleDataCard={toggleDataCard}
             listType={listType}
-            countVisibleItems={countVisibleItems}
             isListVisible={isListVisible}
-            buttonsVisibleForId={visibleButtonsForId}
          />
     );
 };

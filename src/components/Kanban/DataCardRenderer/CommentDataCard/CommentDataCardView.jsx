@@ -1,5 +1,5 @@
 import React from 'react';
-import DataCardHeaderView from "../DataCardHeader/DataCardHeaderView.jsx";
+import DataCardHeaderIndexView from "../DataCardHeader/DataCardHeaderIndexView.jsx";
 import DataCardFooterView from "../DataCardFooter/DataCardFooterView.jsx";
 import './CommentDataCardStyles.less';
 
@@ -9,9 +9,7 @@ const CommentDataCardView = React.memo(({
     commentsNestedList,
     toggleDataCard,
     listType,
-    countVisibleItems,
-    isListVisible,
-    buttonsVisibleForId
+    isListVisible
 }) => {
     // Рисуем частичный компонент CommentList
     return (
@@ -20,10 +18,7 @@ const CommentDataCardView = React.memo(({
                 className="card text-left CommentDataCard"
                 onClick={toggleDataCard}
             >
-                <DataCardHeaderView
-                    currentItemVisibleId={buttonsVisibleForId}
-                    visibleCount={countVisibleItems}
-                />
+               <DataCardHeaderIndexView />
                 <div className="card-body CommentDataCard-Body">
                     <h5 className="card-title CommentDataCard-Title">Пользователь: {userId}</h5>
                     <p className="card-text CommentDataCard-Text">Обратная связь: {userEmail}</p>
