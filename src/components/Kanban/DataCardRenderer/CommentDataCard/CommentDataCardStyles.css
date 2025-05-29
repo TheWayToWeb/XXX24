@@ -1,14 +1,14 @@
 :root {
     --comment-data-card-border-radius: 8px;
     --comment-data-card-body-padding: 8px;
-    --comment-data-card-body-bg-color: #e0e0e0;
-    --comment-data-card-title-color: #333333;
+    --comment-data-card-body-bg-color: #fefefe;
+    --comment-data-card-title-color: #636464;
     --comment-data-card-title-font-weight: bold;
-    --comment-data-card-subtitle-color: #a7adb3;
+    --comment-data-card-subtitle-color: #636464;
     --comment-data-card-border-width: 1px;
     --comment-data-card-border-style: solid;
-    --comment-data-card-border-color: #c0c0c0;
-    --comment-data-card-text-color: #333333;
+    --comment-data-card-border-color: #fdfdfe;
+    --comment-data-card-text-color: #636464;
 
     /* Внешний отступ снизу */
     --comment-data-card-margin-bottom-xs: 8px;

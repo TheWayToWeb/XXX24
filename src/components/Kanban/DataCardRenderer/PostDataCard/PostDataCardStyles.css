@@ -1,14 +1,14 @@
 :root {
     --post-data-card-border-radius: 8px;
     --post-data-card-body-padding: 8px;
-    --post-data-card-body-bg-color: #e0e0e0;
-    --post-data-card-title-color: #333333;
+    --post-data-card-body-bg-color: #cff4fc;
+    --post-data-card-title-color: #055160;
     --post-data-card-title-font-weight: bold;
-    --post-data-card-subtitle-color: #a7adb3;
+    --post-data-card-subtitle-color: #055160;
     --post-data-card-border-width: 1px;
     --post-data-card-border-style: solid;
-    --post-data-card-border-color: #c0c0c0;
-    --post-data-card-text-color: #333333;
+    --post-data-card-border-color: #b6effb;
+    --post-data-card-text-color: #055160;
 
     /* Внешний отступ снизу */
     --post-data-card-margin-bottom-xs: 8px;

@@ -1,14 +1,17 @@
 // src/components/KanbanList/KanbanListView.jsx
-import React from 'react';
+import React, { createContext, useMemo } from 'react';
 import './KanbanListStyles.css'; // Стили остаются здесь
-import DataCardRendererSmart from "../DataCardRenderer/DataCardRendererSmart.jsx";
+import DataCardRendererIndexView from "../DataCardRenderer/DataCardRendererIndexView.jsx";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const KanbanListContext = createContext(null);
 
 // Этот компонент отвечает только за отрисовку
 const KanbanListView = React.memo(({
                                          preLoader,
-                                         itemsVisible,
-                                         type,
-                                         visibleCount, // Передаем, если DataCardRendererSmart это требует
+                                         startVisibleData,
+                                         currentType,
+                                         countVisibleItems, // Передаем, если DataCardRendererSmart это требует
                                          showLoadMoreButton,
                                          onShowMore
                                      }) => {
@@ -18,25 +21,30 @@ const KanbanListView = React.memo(({
         );
     }
 
-    return (
-        <div className="BoardSection">
-            {/* Рендеринг списка карточек */}
-            <DataCardRendererSmart
-                itemsVisible={itemsVisible}
-                type={type}
-                visibleCount={visibleCount}
-            />
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const contextValue = useMemo(() => ({
+        startVisibleData: startVisibleData,
+        listType: currentType,
+        countVisibleItems: countVisibleItems
+    }), [startVisibleData, currentType, countVisibleItems]); // Перерисовываем контекст при изменении параметров
 
-            {/* Кнопка "Показать больше" */}
-            {showLoadMoreButton && (
-                <button
-                    className="btn BoardSectionButton"
-                    onClick={onShowMore}
-                >
-                    Показать больше
-                </button>
-            )}
-        </div>
+    return (
+        <KanbanListContext.Provider value={contextValue}>
+            <div className="BoardSection">
+                {/* Рендеринг списка карточек */}
+                <DataCardRendererIndexView />
+
+                {/* Кнопка "Показать больше" */}
+                {showLoadMoreButton && (
+                    <button
+                        className="btn BoardSectionButton"
+                        onClick={onShowMore}
+                    >
+                        Показать больше
+                    </button>
+                )}
+            </div>
+        </KanbanListContext.Provider>
     );
 });
 

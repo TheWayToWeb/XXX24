@@ -1,29 +1,41 @@
-import React, { useMemo } from 'react';
+import React, {createContext, useContext, useMemo} from 'react';
+import { DataCardRendererContext } from "./DataCardRendererSmart.jsx";
 
 // Импортируем созданные отдельные компоненты
-import CommentDataCardView from "./CommentDataCard/CommentDataCardView.jsx";
-import PostDataCardView from "./PostDataCard/PostDataCardView.jsx";
-import TodoDataCardView from "./TodoDataCard/TodoDataCardView.jsx";
-import UserDataCardView from "./UserDataCard/UserDataCardView.jsx";
+import CommentDataCardIndexView from "./CommentDataCard/CommentDataCardIndexView.jsx";
+import PostDataCardIndexView from "./PostDataCard/PostDataCardIndexView.jsx";
+import TodoDataCardIndexView from "./TodoDataCard/TodoDataCardIndexView.jsx";
+import UserDataCardIndexView from "./UserDataCard/UserDataCardIndexView.jsx";
+import NotifyLoaderView from "../../Application/NotifyLoader/NotifyLoaderView.jsx";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const DataCardRendererChildContext = createContext(null);
 
 const cardComponents = {
-    comment: CommentDataCardView,
-    post: PostDataCardView,
-    todo: TodoDataCardView,
-    user: UserDataCardView
+    comment: CommentDataCardIndexView,
+    post: PostDataCardIndexView,
+    todo: TodoDataCardIndexView,
+    user: UserDataCardIndexView
 };
 
-const MultiChoiceDataCardView = React.memo(({ renderedTypeList, rest, visibleCount, currentItemVisibleId }) => {
-    const CardComponent = useMemo(() => cardComponents[renderedTypeList], [renderedTypeList]);
+const DataCardRendererView = React.memo(({
+    rendererVisibleItem,
+    visibleItemButtonsForId
+                                            }) => {
+    const context = useContext(DataCardRendererContext);
+    const { listType } = context;
+    const CardComponent = useMemo(() => cardComponents[listType], [listType]);
+     
+    const contextValue = useMemo(() => ({
+        rendererItem: rendererVisibleItem,
+        visibleButtonsForId: visibleItemButtonsForId
+    }), [rendererVisibleItem, visibleItemButtonsForId]);
 
     return (
-        <CardComponent
-            data={rest[0]}
-            currentItemVisibleId={currentItemVisibleId}
-            visibleCount={visibleCount}
-            renderedTypeList={renderedTypeList}
-        />
+        <DataCardRendererChildContext.Provider value={contextValue}>
+            <CardComponent />
+        </DataCardRendererChildContext.Provider>
     );
 });
 
-export default MultiChoiceDataCardView;
+export default DataCardRendererView;

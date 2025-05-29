@@ -3,74 +3,67 @@ import KanbanListView from './KanbanListView.jsx'; // Импортируем п�
 
 // Этот компонент будет отвечать за логику и состояние
 const KanbanListSmart = React.memo(({ index, comments, posts, users, todos }) => {
-    const [visibleCount, setVisibleCount] = useState(3);
-    const [types, setTypes] = useState([]);
+    // Объединяем объявления useState для краткости
+    const [countVisibleItems, setCountVisibleItems] = useState(3);
+    const [listType, setListType] = useState([]);
     const [preLoader, setPreLoader] = useState(true);
 
-    // Используем useMemo для мемоизации, чтобы избежать ненужных пересчетов
-    // Преобразуем Set в Array, если данные приходят в виде Set
-    const dataArrays = useMemo(() => {
-        return [comments, posts, users, todos].map(data => Array.from(data || []));
-    }, [comments, posts, users, todos]);
+    // Используем useMemo для преобразования входных данных в массивы.
+    // Выбираем только данные для текущего индекса сразу, чтобы избежать лишних пересчетов.
+    const currentRawData = useMemo(() => {
+        const allData = [comments, posts, users, todos];
+        // Если index выходит за пределы, возвращаем пустой массив, чтобы избежать ошибок
+        return Array.from(allData[index] || []);
+    }, [index, comments, posts, users, todos]);
 
-    const visibleData = useMemo(() => {
-        return dataArrays.map(data => data.slice(0, visibleCount));
-    }, [dataArrays, visibleCount]);
+    // Вычисляем видимые данные только для текущего списка
+    const currentVisibleData = useMemo(() => {
+        return currentRawData.slice(0, countVisibleItems);
+    }, [currentRawData, countVisibleItems]);
 
     // Обработчик для кнопки "Показать больше"
     const handleShowMore = () => {
-        setVisibleCount(prevCount => prevCount + 3);
+        setCountVisibleItems(prevCount => prevCount + 3);
     };
 
-    // Эффект для имитации прелоадера
+    // Эффект для имитации прелоадера (упрощен)
     useEffect(() => {
-        const fetchPreLoader = async () => {
-            await new Promise(resolve => setTimeout(resolve, 300));
+        const timer = setTimeout(() => {
             setPreLoader(false);
-        };
-        fetchPreLoader();
+        }, 300);
+        return () => clearTimeout(timer); // Очистка таймера при размонтировании
     }, []);
 
-    // Эффект для имитации получения типов секций
+    // Эффект для имитации получения типов секций (упрощен)
     useEffect(() => {
         const fetchTypes = async () => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    const types = ['comment', 'post', 'user', 'todo'];
-                    resolve(types);
-                }, 100);
-            });
-        };
-
-        const getTypes = async () => {
             try {
-                const fetchedTypes = await fetchTypes();
-                setTypes(fetchedTypes);
+                // Имитация задержки
+                await new Promise(resolve => setTimeout(resolve, 100));
+                const types = ['comment', 'post', 'user', 'todo'];
+                setListType(types);
             } catch (error) {
                 console.error("Ошибка при получении данных типов секций: ", error);
-                setTypes([]);
+                setListType([]); // Устанавливаем пустой массив при ошибке
             }
         };
+        fetchTypes();
+    }, []); // Пустой массив зависимостей, эффект выполняется один раз при монтировании
 
-        getTypes();
-    }, []);
-
-    // Определяем, какие данные и тип будут переданы в KanbanListView
-    // В зависимости от индекса, выбираем нужный массив данных и тип
-    const currentItemsVisible = visibleData[index];
-    const currentType = types[index]; // Может быть undefined, пока types не загружены
+    // Определяем текущий тип на основе загруженного массива listType
+    const currentType = listType[index];
 
     // Определяем, нужно ли показывать кнопку "Показать больше"
-    const showLoadMoreButton = index >= 0 && index < dataArrays.length && dataArrays[index].length > visibleCount;
+    const showLoadMoreButton = currentRawData.length > countVisibleItems;
 
     return (
         <KanbanListView
             preLoader={preLoader}
-            itemsVisible={currentItemsVisible} // Передаем только те данные, которые должны быть видны
-            type={currentType} // Передаем тип для текущей секции
-            visibleCount={visibleCount} // Передаем, если DataCardRendererSmart это требует
+            startVisibleData={currentVisibleData} // Передаем только те данные, которые должны быть видны
+            currentType={currentType}             // Передаем тип для текущей секции
+            countVisibleItems={countVisibleItems}
             showLoadMoreButton={showLoadMoreButton}
-            onShowMore={handleShowMore} // Передаем функцию-обработчик
+            onShowMore={handleShowMore}           // Передаем функцию-обработчик
         />
     );
 });

@@ -3,15 +3,29 @@ import DataCardHeaderView from "../DataCardHeader/DataCardHeaderView.jsx";
 import DataCardFooterView from "../DataCardFooter/DataCardFooterView.jsx";
 import './PostDataCardStyles.css';
 
-const PostDataCardView = React.memo(({ renderedTypeList, data, currentItemVisibleId, visibleCount }) => {
-    const { id, userId, title, body, hasComments, comments: postComments } = data;
+const PostDataCardView = React.memo(({
+    id,
+    userId,
+    title,
+    body,
+    hasComments,
+    postComments,
+    toggleDataCard,
+    listType,
+    countVisibleItems,
+    isListVisible,
+    buttonsVisibleForId
+ }) => {
 
     return (
         <div className="col PostList" key={id}>
-            <div className="card text-left Post">
+            <div
+                className="card text-left Post"
+                onClick={toggleDataCard}
+            >
                 <DataCardHeaderView
-                    currentItemVisibleId={currentItemVisibleId}
-                    visibleCount={visibleCount}
+                    currentItemVisibleId={buttonsVisibleForId}
+                    visibleCount={countVisibleItems}
                 />
                 <div className="card-body Post-Body">
                     <h5 className="card-title Post-Title">Пользователь: {userId}</h5>
@@ -21,7 +35,8 @@ const PostDataCardView = React.memo(({ renderedTypeList, data, currentItemVisibl
                 <DataCardFooterView
                     hasEntries={hasComments}
                     entries={postComments}
-                    renderedTypeList={renderedTypeList}
+                    renderedTypeList={listType}
+                    isListVisible={isListVisible}
                 />
             </div>
         </div>

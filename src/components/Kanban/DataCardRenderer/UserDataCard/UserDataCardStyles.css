@@ -1,13 +1,13 @@
 :root {
     --user-data-card-border-radius: 8px;
-    --user-data-card-body-bg-color: #e0e0e0;
-    --user-data-card-title-color: #333333;
+    --user-data-card-body-bg-color: #d1e7dd;
+    --user-data-card-title-color: #0f5132;
     --user-data-card-title-font-weight: bold;
-    --user-data-card-subtitle-color: #a7adb3;
+    --user-data-card-subtitle-color: #0f5132;
     --user-data-card-border-width: 1px;
     --user-data-card-border-style: solid;
-    --user-data-card-border-color: #c0c0c0;
-    --user-data-card-text-color: #333333;
+    --user-data-card-border-color: #badbcc;
+    --user-data-card-text-color: #0f5132;
 
     /* Внешний отступ снизу */
     --user-data-card-margin-bottom-xs: 8px;

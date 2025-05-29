@@ -2,15 +2,49 @@ import React from 'react';
 import classNames from "classnames";
 import './DataCardFooterStyles.css';
 
-const DataCardFooterView = React.memo(({ hasEntries, entries, renderedTypeList }) => {
+const DataCardFooterView = React.memo(({
+        hasEntries,
+        entries,
+        renderedTypeList,
+        isListVisible,
+    }) => {
     const renderItems = () => {
       switch (renderedTypeList) {
+          case 'comment':
+              return (
+                  <>
+                      {entries?.map((entry) => (
+                          <ul
+                              className={classNames(
+                                  'list-group',
+                                  'list-group-item',
+                                  'DataCardList',
+                                  {
+                                      'd-block': isListVisible,
+                                      'd-none': !isListVisible
+                                  }
+                              )}
+                          >
+                              <li className="list-group-item DataCardList-Item">{entry.name}</li>
+                              <li className="list-group-item DataCardList-Item">{entry.body}</li>
+                          </ul>
+                      ))}
+                  </>
+              );
           case 'todo':
               return (
                 <>
                     {entries?.map((entry) => (
                         <ul
-                            className="list-group list-group-flush DataCardList"
+                            className={classNames(
+                                'list-group',
+                                'list-group-flush',
+                                'DataCardList',
+                                {
+                                    'd-block': isListVisible,
+                                    'd-none': !isListVisible
+                                }
+                            )}
                             key={entry.id}
                         >
                             <li className="list-group-item DataCardList-Item">{entry.title}</li>
@@ -34,7 +68,15 @@ const DataCardFooterView = React.memo(({ hasEntries, entries, renderedTypeList }
                 <>
                     {entries?.map(entry => (
                         <ul
-                            className="list-group list-group-flush DataCardList"
+                            className={classNames(
+                                'list-group',
+                                'list-group-flush',
+                                'DataCardList',
+                                {
+                                    'd-block': isListVisible,
+                                    'd-none': !isListVisible
+                                }
+                            )}
                             key={entry.id}
                         >
                             <li className="list-group-item DataCardList-Item">{entry.name}</li>
@@ -49,7 +91,15 @@ const DataCardFooterView = React.memo(({ hasEntries, entries, renderedTypeList }
                   <>
                       {entries?.map(entry => (
                           <ul
-                              className="list-group list-group-flush DataCardList"
+                              className={classNames(
+                                  "list-group",
+                                  "list-group-flush",
+                                  "DataCardList",
+                                  {
+                                      'd-block': isListVisible,
+                                      'd-none': !isListVisible
+                                  }
+                              )}
                               key={entry.id}
                           >
                               <li className="list-group-item DataCardList-Item">{entry.title}</li>

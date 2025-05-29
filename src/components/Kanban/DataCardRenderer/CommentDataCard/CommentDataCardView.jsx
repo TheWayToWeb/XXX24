@@ -1,25 +1,39 @@
 import React from 'react';
 import DataCardHeaderView from "../DataCardHeader/DataCardHeaderView.jsx";
+import DataCardFooterView from "../DataCardFooter/DataCardFooterView.jsx";
 import './CommentDataCardStyles.css';
 
-const CommentDataCardView = React.memo(({ data, currentItemVisibleId, visibleCount }) => {
-    const { id, name, email, body } = data;
-
+const CommentDataCardView = React.memo(({
+    userId,
+    userEmail,
+    commentsNestedList,
+    toggleDataCard,
+    listType,
+    countVisibleItems,
+    isListVisible,
+    buttonsVisibleForId
+}) => {
+    // Рисуем частичный компонент CommentList
     return (
-        <div className="col CommentList" key={id}>
-            <div className="card text-left CommentDataCard">
+        <div className="col CommentList" key={userId}>
+            <div
+                className="card text-left CommentDataCard"
+                onClick={toggleDataCard}
+            >
                 <DataCardHeaderView
-                    currentItemVisibleId={currentItemVisibleId}
-                    visibleCount={visibleCount}
+                    currentItemVisibleId={buttonsVisibleForId}
+                    visibleCount={countVisibleItems}
                 />
                 <div className="card-body CommentDataCard-Body">
-                    <h5 className="card-title CommentDataCard-Title">Пользователь: {id}</h5>
-                    <p className="card-text CommentDataCard-Text">Обратная связь: {email}</p>
+                    <h5 className="card-title CommentDataCard-Title">Пользователь: {userId}</h5>
+                    <p className="card-text CommentDataCard-Text">Обратная связь: {userEmail}</p>
                 </div>
-                <ul className="list-group list-group-flush">
-                    <li className="list-group-item">{name}</li>
-                    <li className="list-group-item">{body}</li>
-                </ul>
+                <DataCardFooterView
+                    hasEntries={commentsNestedList.length > 0}
+                    entries={commentsNestedList}
+                    renderedTypeList={listType}
+                    isListVisible={isListVisible}
+                />
             </div>
         </div>
     );
