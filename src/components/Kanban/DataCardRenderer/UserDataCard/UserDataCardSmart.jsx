@@ -1,17 +1,17 @@
 import React, { useState, useContext } from 'react';
-import { DataCardRendererContext } from "../DataCardRendererSmart.jsx";
 import { DataCardRendererChildContext } from "../DataCardRendererView.jsx";
+import { KanbanListContext } from "../../KanbanList/KanbanListView.jsx";
 import UserDataCardView from "./UserDataCardView.jsx";
 
 const UserDataCardSmart = () => {
     // Инициализируем контексты
-    const rendererContext = useContext(DataCardRendererContext);
+    const rendererContext = useContext(KanbanListContext);
     const rendererChildrenContext = useContext(DataCardRendererChildContext);
     // Извлекаем необходимые данные из контекста
     const { listType } = rendererContext;
-    const { rendererItem } = rendererChildrenContext;
+    const { visibleItem } = rendererChildrenContext;
     // Достаем что нужно из другого контекста
-    const { id, name, username, email, phone, company, hasPosts, posts } = rendererItem;
+    const { id, name, username, email, phone, company, hasPosts, posts } = visibleItem;
     // Инициализируем состояние отображения списка
     const [isListVisible, setIsListVisible] = useState(false);
     // Описываем функцию обработчик триггер которая показывает список

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { DataCardRendererContext } from "../DataCardRendererSmart.jsx";
 import { DataCardRendererChildContext } from "../DataCardRendererView.jsx";
+import { KanbanListContext } from "../../KanbanList/KanbanListView.jsx";
 import DataCardHeaderView from "./DataCardHeaderView.jsx";
 
 const DataCardHeaderSmart = () => {
     // Инициализируем контекст
-    const rendererContext = useContext(DataCardRendererContext);
+    const rendererContext = useContext(KanbanListContext);
     const rendererChildContext = useContext(DataCardRendererChildContext);
     // Извлекаем из контекстов visibleButtonsForId и visibleCount
     const { countVisibleItems } = rendererContext;

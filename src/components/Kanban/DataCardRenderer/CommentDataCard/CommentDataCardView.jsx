@@ -1,7 +1,7 @@
 import React from 'react';
 import DataCardHeaderIndexView from "../DataCardHeader/DataCardHeaderIndexView.jsx";
-import DataCardFooterView from "../DataCardFooter/DataCardFooterView.jsx";
 import './CommentDataCardStyles.less';
+import DataRendererDropdownView from "../DataRendererDropdown/DataRendererDropdownView.jsx";
 
 const CommentDataCardView = React.memo(({
     userId,
@@ -23,7 +23,7 @@ const CommentDataCardView = React.memo(({
                     <h5 className="card-title CommentDataCard-Title">Пользователь: {userId}</h5>
                     <p className="card-text CommentDataCard-Text">Обратная связь: {userEmail}</p>
                 </div>
-                <DataCardFooterView
+                <DataRendererDropdownView
                     hasEntries={commentsNestedList.length > 0}
                     entries={commentsNestedList}
                     renderedTypeList={listType}

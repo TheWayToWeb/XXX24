@@ -1,6 +1,6 @@
 import React from 'react';
 import DataCardHeaderIndexView from "../DataCardHeader/DataCardHeaderIndexView.jsx";
-import DataCardFooterView from "../DataCardFooter/DataCardFooterView.jsx";
+import DataRendererDropdownView from "../DataRendererDropdown/DataRendererDropdownView.jsx";
 import './PostDataCardStyles.less';
 
 const PostDataCardView = React.memo(({
@@ -27,7 +27,7 @@ const PostDataCardView = React.memo(({
                     <h6 className="card-subtitle Post-Subtitle">{title}</h6>
                     <p className="card-text Post-Text">{body}</p>
                 </div>
-                <DataCardFooterView
+                <DataRendererDropdownView
                     hasEntries={hasComments}
                     entries={postComments}
                     renderedTypeList={listType}

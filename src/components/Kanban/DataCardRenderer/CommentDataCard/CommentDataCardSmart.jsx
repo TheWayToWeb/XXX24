@@ -1,18 +1,19 @@
-import React, {useContext, useState} from 'react';
-import { DataCardRendererContext } from "../DataCardRendererSmart.jsx";
+import React, { useState, useContext } from 'react';
+import { KanbanListContext } from "../../KanbanList/KanbanListView.jsx";
 import { DataCardRendererChildContext } from "../DataCardRendererView.jsx";
 import CommentDataCardView from "./CommentDataCardView.jsx";
 import './CommentDataCardStyles.less';
 
+
 const CommentDataCardSmart = () => {
     // Инициализируем контекст
-    const rendererContext = useContext(DataCardRendererContext);
-    const rendererChildContext = useContext(DataCardRendererChildContext);
+    const kanbanListContext = useContext(KanbanListContext);
+    const rendererChildContext = useContext(DataCardRendererChildContext)
     // Извлекаем необходимые данные из контекстов
-    const { listType } = rendererContext;
-    const { rendererItem } = rendererChildContext;
+    const { listType } = kanbanListContext;
+    const { visibleItem } = rendererChildContext;
     // Извлекаем необходимые свойства из объекта renderItem
-    const { id, email } = rendererItem;
+    const { id, email } = visibleItem;
     // Создаём вложенный массив для выпадающего списка карты из data
     // Имя пользователя генерируем из email
     const userName = email.split('@')[0];

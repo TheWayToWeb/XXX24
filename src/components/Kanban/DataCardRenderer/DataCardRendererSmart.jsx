@@ -1,25 +1,22 @@
-import React, { useState, useEffect, createContext, useMemo } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import DataCardRendererView
     from "./DataCardRendererView.jsx";
 import NotifyLoaderView from "../../Application/NotifyLoader/NotifyLoaderView.jsx";
-// Объявляем значение по умолчанию для контекста
-// если компонент-потребитель попытается получить значение вне провайдера
-// eslint-disable-next-line react-refresh/only-export-components
-export const DataCardRendererContext = createContext(null);
+// выполняем импорт необходимого контекста
+import { KanbanListContext } from "../KanbanList/KanbanListView.jsx";
 
-const DataCardRendererSmart = React.memo(({ itemsVisible, type, visibleCount }) => {
+const DataCardRendererSmart = () => {
+    // инициализируем состояние загрузки лоадера NofifyLoaderView
     const [loading, setLoading] = useState(true);
-
-    const contextValue = useMemo(() => ({
-        listType: type,
-        countVisibleItems: visibleCount
-    }), [type, visibleCount]);
-
+    // инициализируем контекст списка элементов столбца канбан
+    const kanbanListContext = useContext(KanbanListContext);
+    // Извлекаем необходимые свойства из контекста
+    const { startVisibleData } = kanbanListContext;
     useEffect(() => {
         const fetchLoader = async () => {
             await new Promise(resolve => setTimeout(resolve, 500));
 
-            if (itemsVisible.length > 0) {
+            if (startVisibleData.length > 0) {
                 // Если количество элементов в массиве > 0, то скрываем loader
                 setLoading(false);
             } else {
@@ -29,25 +26,22 @@ const DataCardRendererSmart = React.memo(({ itemsVisible, type, visibleCount }) 
         };
 
         fetchLoader();
-    }, [itemsVisible]);
+    }, [startVisibleData]);
     return (
         <>
             {loading ? (
                 <NotifyLoaderView text="Загрузка..." />
             ) : (
-                itemsVisible.map((item) => (
-                    <DataCardRendererContext.Provider value={contextValue}>
-                        <DataCardRendererView
-                            rendererVisibleItem={itemsVisible[item.id - 1]}
-                            visibleItemButtonsForId={item.id}
-                            key={item.id}
-                        />
-                    </DataCardRendererContext.Provider>
-
+                startVisibleData.map((item) => (
+                    <DataCardRendererView
+                        rendererVisibleItem={startVisibleData[item.id - 1]}
+                        visibleItemButtonsForId={item.id}
+                        key={item.id}
+                    />
                 ))
             )}
         </>
     );
-});
+};
 
 export default DataCardRendererSmart;

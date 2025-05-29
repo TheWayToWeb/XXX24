@@ -1,6 +1,6 @@
 // src/components/KanbanList/KanbanListView.jsx
 import React, { createContext, useMemo } from 'react';
-import './KanbanListStyles.css'; // Стили остаются здесь
+import './KanbanListStyles.less'; // Стили остаются здесь
 import DataCardRendererIndexView from "../DataCardRenderer/DataCardRendererIndexView.jsx";
 
 // eslint-disable-next-line react-refresh/only-export-components

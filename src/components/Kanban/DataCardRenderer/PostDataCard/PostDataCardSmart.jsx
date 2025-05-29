@@ -1,17 +1,17 @@
 import React, { useState, useContext } from 'react';
-import { DataCardRendererContext } from "../DataCardRendererSmart.jsx";
+import { KanbanListContext } from "../../KanbanList/KanbanListView.jsx";
 import { DataCardRendererChildContext } from "../DataCardRendererView.jsx";
 import PostDataCardView from "./PostDataCardView.jsx";
 
 const PostDataCardSmart = () => {
     // Инициализируем контекст
-    const rendererContext = useContext(DataCardRendererContext);
-    const rendererChildrenContext = useContext(DataCardRendererChildContext);
+    const kanbanListContext = useContext(KanbanListContext);
+    const rendererChildContext = useContext(DataCardRendererChildContext);
     // Извлекаем необходимые данные из контекста
-    const { listType } = rendererContext;
-    const { rendererItem } = rendererChildrenContext;
+    const { listType } = kanbanListContext;
+    const { visibleItem } = rendererChildContext;
     // Извлекаем необходимые данные из renderVisibleItem
-    const { id, userId, title, body, hasComments, comments: postComments } = rendererItem;
+    const { id, userId, title, body, hasComments, comments: postComments } = visibleItem;
     // Инициализируем состояние для показа выпадающего списка
     const [isListVisible, setIsListVisible] = useState(false);
 

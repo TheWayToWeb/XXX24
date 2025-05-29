@@ -1,6 +1,6 @@
 import React from 'react';
 import DataCardHeaderIndexView from "../DataCardHeader/DataCardHeaderIndexView.jsx";
-import DataCardFooterView from "../DataCardFooter/DataCardFooterView.jsx";
+import DataRendererDropdownView from "../DataRendererDropdown/DataRendererDropdownView.jsx";
 import './TodoDataCardStyles.less';
 
 const TodoDataCardView = React.memo(({
@@ -27,7 +27,7 @@ const TodoDataCardView = React.memo(({
                     <h5 className="card-title TodoCard-Title">{ name }</h5>
                     <h6 className="card-subtitle TodoCard-Subtitle">{ username }</h6>
                 </div>
-                <DataCardFooterView
+                <DataRendererDropdownView
                     hasEntries={hasTodosList}
                     entries={todosList}
                     renderedTypeList={listType}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DataCardHeaderIndexView from "../DataCardHeader/DataCardHeaderIndexView.jsx";
-import DataCardFooterView from "../DataCardFooter/DataCardFooterView.jsx";
+import DataRendererDropdownView from "../DataRendererDropdown/DataRendererDropdownView.jsx";
 import { EnvelopeAt, FileX, TelephoneOutbound } from "react-bootstrap-icons";
 import UserDataToastView from "../UserDataToast/UserDataToastView.jsx";
 import classNames from "classnames";
@@ -95,7 +95,7 @@ const UserDataCardView = React.memo(({
                         </div>
                     </div>
                 </div>
-                <DataCardFooterView
+                <DataRendererDropdownView
                     hasEntries={hasPosts}
                     entries={posts}
                     renderedTypeList={listType}

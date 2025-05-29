@@ -1,17 +1,17 @@
 import React, { useState, useContext } from 'react';
-import { DataCardRendererContext } from "../DataCardRendererSmart.jsx";
 import { DataCardRendererChildContext } from "../DataCardRendererView.jsx";
+import { KanbanListContext } from "../../KanbanList/KanbanListView.jsx";
 import TodoDataCardView from "./TodoDataCardView.jsx";
 
 const TodoDataCardSmart = () => {
     // Инициализируем контекст
-    const rendererContext = useContext(DataCardRendererContext);
+    const rendererContext = useContext(KanbanListContext);
     const rendererChildrenContext = useContext(DataCardRendererChildContext);
     // Извлекаем необходимые данные из контекста
     const { listType } = rendererContext;
-    const { rendererItem } = rendererChildrenContext;
+    const { visibleItem } = rendererChildrenContext;
 
-    const { id, name, username, hasTodosList, todosList } = rendererItem;
+    const { id, name, username, hasTodosList, todosList } = visibleItem;
     const [isListVisible, setIsListVisible] = useState(false);
     const toggleDataCard = () => {
       setIsListVisible(!isListVisible);
