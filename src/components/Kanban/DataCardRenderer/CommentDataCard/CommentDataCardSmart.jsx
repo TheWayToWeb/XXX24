@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import { DataCardRendererContext } from "../DataCardRendererSmart.jsx";
 import { DataCardRendererChildContext } from "../DataCardRendererView.jsx";
 import CommentDataCardView from "./CommentDataCardView.jsx";
-import './CommentDataCardStyles.css';
+import './CommentDataCardStyles.less';
 
 const CommentDataCardSmart = () => {
     // Инициализируем контекст

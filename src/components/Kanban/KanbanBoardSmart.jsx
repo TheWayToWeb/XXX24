@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, createContext } from 'react';
 import KanbanBoardView from "./KanbanBoardView.jsx";
-import './KanbanBoardStyles.css';
+import './KanbanBoardStyles.less';
 
 // Создаем контекст для передачи данных из KanbanBoardSmart в KanbanListIndexView
 // eslint-disable-next-line react-refresh/only-export-components

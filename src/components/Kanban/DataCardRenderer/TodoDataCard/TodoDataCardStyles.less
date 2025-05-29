@@ -1,0 +1,171 @@
+// --- Переменные ---
+// Используем Less-переменные для всех значений, преобразуя CSS-переменные
+@todo-card-border-radius: 8px;
+@todo-card-body-padding: 8px; // Это значение по умолчанию, будет переопределено в медиа-запросах
+@todo-card-body-bg-color: #f8d7da;
+@todo-card-title-color: #842029;
+@todo-card-title-font-weight: bold;
+@todo-card-subtitle-color: #842029;
+@todo-card-border-width: 1px;
+@todo-card-border-style: solid;
+@todo-card-border-color: #f5c2c7;
+@todo-card-text-color: #842029;
+
+// Внешний отступ снизу
+@todo-card-margin-bottom-xs: 8px;
+@todo-card-margin-bottom-sm: 12px;
+@todo-card-margin-bottom-md: 8px; // Заметьте: md такой же как xs
+@todo-card-margin-bottom-lg: 12px; // Заметьте: lg такой же как sm
+@todo-card-margin-bottom-xl: 14px;
+
+// Отступы для адаптивности
+@todo-card-spacing-xs: 8px;
+@todo-card-spacing-sm: 12px;
+@todo-card-spacing-md: 16px;
+@todo-card-spacing-lg: 24px;
+@todo-card-spacing-xl: 28px;
+
+// Размеры шрифтов для адаптивности
+@todo-card-font-size-xs: 15px;
+@todo-card-font-size-sm: 16px;
+@todo-card-font-size-md: 17px;
+@todo-card-font-size-lg: 18px;
+@todo-card-font-size-xl: 19px;
+
+@todo-card-renderer-padding-left: 0;
+@todo-card-renderer-padding-right: 0;
+
+// --- Миксины для медиа-запросов ---
+// Как и ранее, учитываем небольшие расхождения в брейкпоинтах (575/576, 767/768)
+// в вашем оригинальном CSS. В продакшене лучше унифицировать.
+.media-xs(@rules) {
+    @media (min-width: 344px) { @rules(); }
+}
+.media-sm-body(@rules) { // для TodoCard-Body, TodoCard-Subtitle, TodoCard-Text
+    @media (min-width: 575px) { @rules(); }
+}
+.media-sm-title(@rules) { // для TodoCard-Title
+    @media (min-width: 576px) { @rules(); }
+}
+.media-md-body(@rules) { // для TodoCard-Body, TodoCard-Subtitle, TodoCard-Text
+    @media (min-width: 767px) { @rules(); }
+}
+.media-md-title(@rules) { // для TodoCard-Title
+    @media (min-width: 768px) { @rules(); }
+}
+.media-lg(@rules) {
+    @media (min-width: 992px) { @rules(); }
+}
+.media-xl(@rules) {
+    @media (min-width: 1200px) { @rules(); }
+}
+
+
+.TodoList {
+    padding-left: @todo-card-renderer-padding-left;
+    padding-right: @todo-card-renderer-padding-right;
+}
+
+// --- Основной блок стилей для .TodoCard с вложенностью ---
+.TodoCard {
+    border: none;
+    border-radius: @todo-card-border-radius;
+
+    &-Body { // Вложенность: .TodoCard-Body
+        background-color: @todo-card-body-bg-color;
+        border-radius: @todo-card-border-radius;
+        border: @todo-card-border-width @todo-card-border-style @todo-card-border-color;
+        padding: @todo-card-body-padding; // Значение по умолчанию
+
+        // Использование миксинов для адаптивного padding
+        .media-xs({ padding: @todo-card-spacing-xs; });
+        .media-sm-body({ padding: @todo-card-spacing-sm; });
+        .media-md-body({ padding: @todo-card-spacing-md; });
+        .media-lg({ padding: @todo-card-spacing-lg; });
+        .media-xl({ padding: @todo-card-spacing-xl; });
+    }
+
+    &-Title { // Вложенность: .TodoCard-Title
+        color: @todo-card-title-color;
+        font-weight: @todo-card-title-font-weight;
+
+        // Использование миксинов для адаптивного font-size и padding-bottom
+        .media-xs({
+            font-size: @todo-card-font-size-xs;
+            padding-bottom: @todo-card-spacing-xs;
+        });
+        .media-sm-title({ // Используем специфичный миксин
+            font-size: @todo-card-font-size-sm;
+            padding-bottom: @todo-card-spacing-sm;
+        });
+        .media-md-title({ // Используем специфичный миксин
+            font-size: @todo-card-font-size-md;
+            padding-bottom: @todo-card-spacing-md;
+        });
+        .media-lg({
+            font-size: @todo-card-font-size-lg;
+            padding-bottom: @todo-card-spacing-lg;
+        });
+        .media-xl({
+            font-size: @todo-card-font-size-xl;
+            padding-bottom: @todo-card-spacing-xl;
+        });
+    }
+
+    &-Subtitle { // Вложенность: .TodoCard-Subtitle
+        color: @todo-card-subtitle-color;
+
+        // Использование миксинов для адаптивного font-size и padding-bottom
+        .media-xs({
+            font-size: @todo-card-font-size-xs;
+            padding-bottom: @todo-card-spacing-xs;
+        });
+        .media-sm-body({ // Используем специфичный миксин
+            font-size: @todo-card-font-size-sm;
+            padding-bottom: @todo-card-spacing-sm;
+        });
+        .media-md-body({ // Используем специфичный миксин
+            font-size: @todo-card-font-size-md;
+            padding-bottom: @todo-card-spacing-md;
+        });
+        .media-lg({
+            font-size: @todo-card-font-size-lg;
+            padding-bottom: @todo-card-spacing-lg;
+        });
+        .media-xl({
+            font-size: @todo-card-font-size-xl;
+            padding-bottom: @todo-card-spacing-xl;
+        });
+    }
+
+    &-Text { // Вложенность: .TodoCard-Text
+        color: @todo-card-text-color;
+
+        // Использование миксинов для адаптивного font-size и padding-bottom
+        .media-xs({
+            font-size: @todo-card-font-size-xs;
+            padding-bottom: @todo-card-spacing-xs;
+        });
+        .media-sm-body({ // Используем специфичный миксин
+            font-size: @todo-card-font-size-sm;
+            padding-bottom: @todo-card-spacing-sm;
+        });
+        .media-md-body({ // Используем специфичный миксин
+            font-size: @todo-card-font-size-md;
+            padding-bottom: @todo-card-spacing-md;
+        });
+        .media-lg({
+            font-size: @todo-card-font-size-lg;
+            padding-bottom: @todo-card-spacing-lg;
+        });
+        .media-xl({
+            font-size: @todo-card-font-size-xl;
+            padding-bottom: @todo-card-spacing-xl;
+        });
+
+        // Псевдо-класс внутри вложенного правила
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+}

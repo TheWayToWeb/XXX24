@@ -1,7 +1,7 @@
 import React from 'react';
 import DataCardHeaderView from "../DataCardHeader/DataCardHeaderView.jsx";
 import DataCardFooterView from "../DataCardFooter/DataCardFooterView.jsx";
-import './PostDataCardStyles.css';
+import './PostDataCardStyles.less';
 
 const PostDataCardView = React.memo(({
     id,

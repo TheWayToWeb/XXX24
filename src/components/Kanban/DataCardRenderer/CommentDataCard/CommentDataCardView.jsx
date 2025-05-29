@@ -1,7 +1,7 @@
 import React from 'react';
 import DataCardHeaderView from "../DataCardHeader/DataCardHeaderView.jsx";
 import DataCardFooterView from "../DataCardFooter/DataCardFooterView.jsx";
-import './CommentDataCardStyles.css';
+import './CommentDataCardStyles.less';
 
 const CommentDataCardView = React.memo(({
     userId,
