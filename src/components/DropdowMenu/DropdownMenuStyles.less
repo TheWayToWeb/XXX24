@@ -32,7 +32,7 @@
 @dropdown-button-width-sm: 75%;
 @dropdown-button-width-md: 80%;
 @dropdown-button-width-lg: 90%;
-@dropdown-button-width-xl: 100%;
+@dropdown-button-width-xl: 100px;
 
 // --- Mixin for Responsive Dropdown Button Padding & Font Size ---
 .dropdown-button-responsive-padding-and-font() {
@@ -56,7 +56,7 @@
     }
     @media (min-width: 1200px) {
         padding: @dropdown-spacing-lg; // Original CSS used @dropdown-spacing-lg here
-    font-size: @dropdown-font-size-xl;
+        font-size: @dropdown-font-size-xl;
     }
 }
 
@@ -92,7 +92,7 @@
     background-color: @dropdown-button-bg;
     color: @dropdown-button-color;
     border: none;
-    border-radius: @dropdown-button-border-radius;
+    border-radius: @dropdown-button-border-radius @dropdown-button-border-radius 0 0;
     box-shadow: @dropdown-menu-box-shadow;
     cursor: pointer;
     font-weight: 500;

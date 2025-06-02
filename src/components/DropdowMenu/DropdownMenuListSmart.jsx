@@ -10,15 +10,14 @@ const DropdownMenuListSmart = () => {
             return new Promise((resolve) => {
                 setTimeout(() => {
                     const data = [
-                        { id: 1, innerText: "Приходы", path: "/coming", demonstrated: false },
-                        { id: 2, innerText: "Расходы", path: "/expenses", demonstrated: false },
-                        { id: 3, innerText: "Задание", path: '/tasks', demonstrated: false },
-                        { id: 4, innerText: "Остатки", path: '/remains', demonstrated: false },
-                        { id: 5, innerText: "Визуализация", path: "/vision", demonstrated: false },
-                        { id: 6, innerText: "Админ", path: "/", demonstrated: true },
-                        { id: 7, innerText: "Поддержка", path: "/support", demonstrated: false },
-                        { id: 8, innerText: "Прочее", path: "/others", demonstrated: false },
-                        { id: 9, innerText: "Персональное", path: "/private", demonstrated: false }
+                        { id: 1, text: 'Продажи', path: "/sales" },
+                        { id: 2, text: 'Покупки', path: "/purchases" },
+                        { id: 3, text: 'Производство', path: "/production" },
+                        { id: 4, text: 'Склады', path: "/warehouses" },
+                        { id: 5, text: 'Бухгалтерия', path: "/accounting" },
+                        { id: 6, text: 'Справочники', path: "/directories" },
+                        { id: 7, text: 'Отчеты', path: "/reports" },
+                        { id: 6, text: 'Настройки', path: "/settings" }
                     ];
                     resolve(data);
                 }, 500); // Имитация задержки в пол секунды

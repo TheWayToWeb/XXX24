@@ -1,92 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import ContainerFluidView from "../Application/ContainerFluid/ContainerFluidView.jsx";
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types'; // Импортируем PropTypes
 import './DropdownMenuListStyles.less';
 import './SidebarButtonsStyles.css';
+import { ButtonStretchContext } from "./DropdownMenuSmart.jsx";
+import classNames from "classnames";
 
 const DropdownMenuListView = React.memo(({ initItems, active, handleClickLink }) => {
-    const [activeButton, setActiveButton] = useState(null);
-    const [buttonsData, setButtonsData] = useState([]);
-    // Имитация асинхронной операции получения данных кнопок (запрос к API)
-    useEffect(() => {
-        const loadButtonsData = async () => {
-            try {
-                // Задержка имитации сетевого запроса
-                await new Promise(resolve => setTimeout(resolve, 500));
-                const fetchedDataControlButtons = [
-                    { id: 1, label: '+', action: 'add' },
-                    { id: 2, label: '-', action: 'subsctract' },
-                    { id: 3, label: '0', action: 'counter'}
-                ];
-                setButtonsData(fetchedDataControlButtons);
-            } catch (error) {
-                console.error("Ошибка при получении данных кнопок боковой панели: ", error);
-                setButtonsData([]);
-            }
-        };
+    const [activeIndexItem, setActiveIndexItem] = useState(false);
+    const { canStretch, stretchSideMenuWidth } = useContext(ButtonStretchContext);
 
-        loadButtonsData();
-    }, []);
-    const handleButtonClick = (item) => {
-        setActiveButton(item.id);
+    const handleActiveItemClick = (item) => {
+        const { id } = item;
+        setActiveIndexItem(id);
     };
 
     return (
         <>
             <nav className="navbar Sidebar">
                 {initItems.length > 0 ? <div className="navbar-collapse Sidebar-Collapse">
-                    <ul className="navbar-nav Sidebar-List">
+                    <ul
+                        className="navbar-nav Sidebar-List"
+                        style={{
+                            width: `${stretchSideMenuWidth}px`,
+                            transition: 'width 0.5s ease'
+                        }}
+                    >
                         {initItems.map((item) => (
                             <li
-                                className={`nav-item Sidebar-Item ${active === item.id ? 'Sidebar-Item_Active' : ''}`}
-                                key={item.id}>
-                                {
-                                    item.id <= initItems.length - 1 && (
-                                        <a
-                                            className="nav-link Sidebar-Link"
-                                            onClick={() => handleClickLink(item)}
-                                        >
-                                            {item.innerText}
-                                        </a>
-                                    )
-                                }
-                                {
-                                    item.id === initItems.length ? (
-                                        <div
-                                            className="container-fluid"
-
-                                        >
-                                            <div className="row">
-                                                <div
-                                                    className="col-12"
-                                                >
-                                                    <a
-                                                        type="button"
-                                                        className={`nav-link Sidebar-Link ${active === item.id ? 'Sidebar-Link_Active' : ''}`}
-                                                        onClick={() => handleButtonClick(item)}
-                                                    >
-                                                        {item.innerText}
-                                                    </a>
-                                                </div>
-                                                <div className="col-12">
-                                                    <div
-                                                        className="btn-group SidebarButtons SidebarButtons_Horizontal"
-                                                    >
-                                                        {buttonsData.map((button) => (
-                                                            <button
-                                                                type="button"
-                                                                className={`btn SidebarButton ${activeButton === button.id ? 'SidebarButton_Active' : ''}`}
-                                                                id={`sidebar-${button.action}`}
-                                                                key={button.id}
-                                                                onClick={() => handleButtonClick(button)}
-                                                            >{button.label}</button>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ) : null
-                                }
+                                key={item.id}
+                                className={classNames(
+                                    'nav-item',
+                                    'Sidebar-Item', {
+                                        'Sidebar-Item_Active': activeIndexItem === item.id
+                                    })}
+                                onClick={() => handleActiveItemClick(item)}
+                            >
+                                {canStretch ? (
+                                    <a className="nav-link Sidebar-Link">{ item.text }</a>
+                                ) : (<span>Any Icon</span>)}
                             </li>
                         ))}
                     </ul>

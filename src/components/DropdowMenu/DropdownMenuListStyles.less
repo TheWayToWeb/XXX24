@@ -29,7 +29,7 @@
 @sidebar-list-width-sm: 75%;
 @sidebar-list-width-md: 85%;
 @sidebar-list-width-lg: 90%;
-@sidebar-list-width-xl: 100%;
+@sidebar-list-width-xl: 100px;
 
 // --- Mixin for Responsive List Width ---
    .sidebar-list-responsive-width() {
@@ -98,7 +98,7 @@
         list-style: none;
         margin: 0;
         background: @sidebar-list-bg;
-        border-radius: @sidebar-border-radius;
+        border-radius: 0 0 @sidebar-border-radius @sidebar-border-radius;
         border: @sidebar-list-border-width @sidebar-list-border-style @sidebar-list-border-color;
         text-align: center;
 
@@ -120,10 +120,5 @@
 
     // Apply responsive padding mixin
     .sidebar-link-responsive-padding();
-    }
-
-    .Sidebar-Collapse {
-        display: flex;
-        align-items: center;
     }
 }
