@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DropdownMenuView from "./DropdownMenuView.jsx";
 
 const DropdownMenuSmart = () => {
-  const [show, setShow] = useState(false);
-
-  const handleClickDropdownMenu = () => {
-      // Изменяем предыдущее состояние
-      setShow(prevShow => !prevShow);
-  }
+    /* Вот тут нужно изменять логику, чтобы выпадающий список был всегда открыт */
 
   return (
-      <DropdownMenuView
-        show={show}
-        onToggle={handleClickDropdownMenu}
-      />
+      <DropdownMenuView show="null" onToggle="null"/>
   );
 };
 
