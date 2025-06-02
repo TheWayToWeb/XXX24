@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import './DropdownMenuStyles.less';
-import DropdownMenuListIndexView from "./DropdownMenuListIndexView.jsx";
+/* Импортируем контекст */
 import { ButtonStretchContext } from "./DropdownMenuSmart.jsx";
+/* импортируем библиотеку classNames */
 import classNames from "classnames";
+/* импортируем стили выпадающего меню */
+import './DropdownMenuStyles.less';
+import DropdownMenuListSmart from "./DropdownMenuList";
 
 const DropdownMenuView = () => {
     const { canStretch, changeDropdownButtonWidth, stretchSideMenuWidth } = useContext(ButtonStretchContext);
@@ -33,15 +35,10 @@ const DropdownMenuView = () => {
                     'Dropdown-Menu_Show'
                 )}
             >
-                <DropdownMenuListIndexView />
+                <DropdownMenuListSmart />
             </ul>
         </div>
     );
-};
-
-DropdownMenuView.propTypes = {
-    show: PropTypes.bool.isRequired,
-    onToggle: PropTypes.func.isRequired,
 };
 
 export default DropdownMenuView;
