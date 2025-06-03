@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, createContext } from 'react';
 // Импортируем презентационный компонент выпадающего списка
 import DropdownMenuListView from "./DropdownMenuListView.jsx";
 // Импортируем функцию fetchedData
 import { fetchedData } from "../fetchedData.js";
+// создаем контекст DropdownList
+// eslint-disable-next-line react-refresh/only-export-components
+export const DropdownListContext = createContext(null);
+
 // Описание презентационного компонента
 const DropdownMenuListSmart = () => {
     // Инициализация состояния активного элемента списка
-    const [active, setActive] = useState(null);
+    const [activeIndexItem, setActiveIndexItem] = useState(false);
     // Инициализация состояния для массива sidebarItems
     const [items, setItems] = useState([]);
     // Вызываем useEffect хук
@@ -28,16 +32,24 @@ const DropdownMenuListSmart = () => {
         getDropdownListItems();
     }, []);
 
-    const handleClickLink = (item) => {
-        setActive(item.id); // Устанавливаем активный пункт
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const handleActiveItemClick = (item) => {
+        const { id } = item;
+        setActiveIndexItem(id);
     };
 
+    // Создаем переменную контекста
+    const dropdownContextValue = useMemo(() => ({
+        dropdownListItems: items,
+        activeIndex: activeIndexItem,
+        handleActiveClick: handleActiveItemClick
+    }), [items, activeIndexItem, handleActiveItemClick]);
+
     return (
-        <DropdownMenuListView
-            initItems={items}
-            active={active}
-            handleClickLink={handleClickLink}
-        />
+        <DropdownListContext value={dropdownContextValue}>
+            <DropdownMenuListView />
+        </DropdownListContext>
+
     );
 };
 
