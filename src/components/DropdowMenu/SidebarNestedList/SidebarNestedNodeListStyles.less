@@ -1,0 +1,20 @@
+@sidebar-nested-node-list-border-radius: 8px;
+@sidebar-nested-node-list-margin-left: 100px;
+@sidebar-nested-node-item-background-color: #ffffff;
+
+.SidebarNestedNodeList {
+  border-radius: @sidebar-nested-node-list-border-radius;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;
+  &_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: @sidebar-nested-node-list-margin-left;
+  }
+  &-Item {
+    background-color: @sidebar-nested-node-item-background-color;
+    border: none;
+  }
+}
