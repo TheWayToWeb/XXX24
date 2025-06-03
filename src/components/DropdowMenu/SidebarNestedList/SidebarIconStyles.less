@@ -1,0 +1,29 @@
+@sidebar-icon-font-size-xl: 28px;
+@sidebar-icon-font-size-lg: 24px;
+@sidebar-icon-font-size-md: 18px;
+@sidebar-icon-font-size-sm: 16px;
+
+.sidebar-icon-font-size-styles() {
+  @media (min-width: 344px) {
+    font-size: @sidebar-icon-font-size-sm;
+  }
+
+  @media (min-width: 768px) {
+    font-size: @sidebar-icon-font-size-md;
+  }
+
+  @media (min-width: 992px) {
+    font-size: @sidebar-icon-font-size-lg;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: @sidebar-icon-font-size-xl;
+  }
+}
+
+.SidebarIconFontSize {
+  .sidebar-icon-font-size-styles();
+}
+
+
+
