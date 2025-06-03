@@ -1,0 +1,61 @@
+// Less Variables (equivalent to CSS Custom Properties)
+@tree-icon-fill: #a7adb3;
+@tree-icon-font-size-small: 15px; // Исправлено двойное тире
+@tree-icon-font-size-medium: 16px;
+@tree-icon-font-size-large: 17px;
+@tree-icon-font-size-xl: 18px;
+@tree-icon-spacing-xs: 8px;
+@tree-icon-spacing-sm: 12px;
+@tree-icon-spacing-md: 16px;
+@tree-icon-spacing-lg: 24px;
+
+.RichTreeIcon {
+    display: flex;
+
+// Nested Media Queries for padding
+@media (min-width: 344px) {
+    padding: @tree-icon-spacing-xs;
+}
+    @media (min-width: 576px) {
+        padding: @tree-icon-spacing-sm;
+    }
+    @media (min-width: 768px) {
+        padding: @tree-icon-spacing-md;
+    }
+    @media (min-width: 1200px) { // Note: original had 1200px, not 992px for this one
+    padding: @tree-icon-spacing-lg;
+    }
+
+// Nested styles for svg and first-child
+svg {
+    fill: @tree-icon-fill;
+
+// Nested Media Queries for svg font-size
+@media (min-width: 344px) {
+    font-size: @tree-icon-font-size-small;
+}
+    @media (min-width: 576px) {
+        font-size: @tree-icon-font-size-medium;
+    }
+    @media (min-width: 768px) {
+        font-size: @tree-icon-font-size-large;
+    }
+    @media (min-width: 992px) {
+        font-size: @tree-icon-font-size-xl;
+    }
+}
+
+// Styles for :first-child within RichTreeIcon
+&:first-child {
+    @media (min-width: 344px) {
+        order: 1;
+    }
+
+// Nested svg styles for :first-child specifically
+svg.bi-chevron-right {
+    @media (min-width: 768px) {
+        transform: rotate(90deg);
+    }
+}
+}
+}

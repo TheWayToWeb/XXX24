@@ -1,0 +1,112 @@
+@primary-color: #343a40;
+@secondary-color: #e0e0e0;
+@text-color-secondary: #e0e0e0;
+@border-radius: 8px;
+@transition-duration: 0.3s;
+
+/* Отступы */
+@infinite-scroll-table-spacing-xs: 8px;
+@infinite-scroll-table-spacing-sm: 12px;
+@infinite-scroll-table-spacing-md: 8px;
+@infinite-scroll-table-spacing-lg: 12px;
+@infinite-scroll-table-spacing-xl: 14px;
+
+/* Размеры шрифтов */
+@infinite-scroll-table-font-size-xs: 15px;
+@infinite-scroll-table-font-size-sm: 16px;
+@infinite-scroll-table-font-size-md: 17px;
+@infinite-scroll-table-font-size-lg: 18px;
+@infinite-scroll-table-font-size-xl: 19px;
+
+
+// --- Mixin for Responsive Styles of .TableButtons ---
+   .table-buttons-responsive-styles() {
+@media (min-width: 344px) {
+    padding: @infinite-scroll-table-spacing-xs;
+    gap: @infinite-scroll-table-spacing-xs;
+    font-size: @infinite-scroll-table-font-size-xs;
+}
+@media (min-width: 575px) {
+    padding: @infinite-scroll-table-spacing-sm;
+    gap: @infinite-scroll-table-spacing-sm;
+    font-size: @infinite-scroll-table-font-size-sm;
+}
+@media (min-width: 768px) {
+    padding: @infinite-scroll-table-spacing-md;
+    gap: @infinite-scroll-table-spacing-md;
+    font-size: @infinite-scroll-table-font-size-md;
+}
+@media (min-width: 992px) {
+    padding: @infinite-scroll-table-spacing-lg;
+    gap: @infinite-scroll-table-spacing-lg;
+    font-size: @infinite-scroll-table-font-size-lg;
+}
+@media (min-width: 1200px) {
+    padding: @infinite-scroll-table-spacing-xl;
+    gap: @infinite-scroll-table-spacing-xl;
+    font-size: @infinite-scroll-table-font-size-xl;
+}
+}
+
+// --- Mixin for Responsive Styles of .TableButton ---
+   .table-button-responsive-styles() {
+@media (min-width: 344px) {
+    padding: @infinite-scroll-table-spacing-xs;
+    font-size: @infinite-scroll-table-font-size-xs;
+}
+@media (min-width: 575px) {
+    padding: @infinite-scroll-table-spacing-sm;
+    font-size: @infinite-scroll-table-font-size-sm;
+}
+@media (min-width: 768px) {
+    padding: @infinite-scroll-table-spacing-md;
+    font-size: @infinite-scroll-table-font-size-md;
+}
+@media (min-width: 992px) {
+    padding: @infinite-scroll-table-spacing-lg;
+    font-size: @infinite-scroll-table-font-size-lg;
+}
+@media (min-width: 1200px) {
+    padding: @infinite-scroll-table-spacing-xl;
+    font-size: @infinite-scroll-table-font-size-xl;
+}
+}
+
+
+.TableButtons {
+    position: sticky;
+    left: 50%;
+    bottom: 20px;
+    border-radius: @border-radius;
+    cursor: pointer;
+    display: flex;
+    max-width: 25%; // Max width in pixels might be more consistent across screens.
+
+// Apply responsive styles using the mixin
+.table-buttons-responsive-styles();
+
+    .TableButton {
+        background-color: @secondary-color;
+        color: @primary-color;
+        border-radius: @border-radius;
+        box-shadow: 0 4px 6px rgba(108, 117, 125, 0.5);
+        border: none;
+        cursor: pointer;
+        transition: background-color @transition-duration ease-in-out, color @transition-duration ease-in-out;
+
+    // Apply responsive styles using the mixin
+    .table-button-responsive-styles();
+
+        &:hover {
+            background-color: @primary-color;
+            color: @text-color-secondary;
+        }
+
+        &_Active {
+            background-color: @primary-color;
+            color: @text-color-secondary;
+            border-color: @primary-color; // Note: Original CSS had no border on base button, but sets one here.
+        // Ensure this is intended.
+        }
+    }
+}

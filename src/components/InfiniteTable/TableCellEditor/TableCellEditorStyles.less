@@ -1,0 +1,65 @@
+// Less Variables
+/* Font size ranges */
+@table-cell-editor-font-size-xs: 15px;
+@table-cell-editor-font-size-sm: 16px;
+@table-cell-editor-font-size-md: 17px;
+@table-cell-editor-font-size-xl: 18px;
+@table-cell-editor-font-size-xxl: 19px;
+
+/* Padding */
+@table-cell-editor-padding-xs: 8px;
+@table-cell-editor-padding-sm: 12px;
+@table-cell-editor-padding-md: 8px; // Note: Same as xs in original CSS
+@table-cell-editor-padding-lg: 12px; // Note: Same as sm in original CSS
+@table-cell-editor-padding-xLarge: 14px;
+
+
+// --- Mixin for Responsive Prominent InputEditor Styles ---
+   .input-editor-prominent-responsive-styles() {
+@media (min-width: 344px) {
+    padding: @table-cell-editor-padding-xs;
+    font-size: @table-cell-editor-font-size-xs;
+}
+@media (min-width: 575px) {
+    padding: @table-cell-editor-padding-sm;
+    font-size: @table-cell-editor-font-size-xs; // Original CSS had xs again
+}
+@media (min-width: 768px) {
+    padding: @table-cell-editor-padding-md;
+    font-size: @table-cell-editor-font-size-md;
+}
+@media (min-width: 992px) {
+    padding: @table-cell-editor-padding-lg;
+    font-size: @table-cell-editor-font-size-xl;
+}
+@media (min-width: 1200px) {
+    padding: @table-cell-editor-padding-xLarge;
+    font-size: @table-cell-editor-font-size-xxl;
+}
+}
+
+
+.InputEditer {
+    width: 100%;
+    text-align: center;
+
+    &_Transparent {
+        background-color: transparent;
+        border: none;
+        color: inherit;
+        font-family: inherit;
+
+        &:focus {
+            color: inherit;
+            background-color: transparent;
+            border: none;
+            outline: 0;
+            box-shadow: none;
+        }
+    }
+
+    &_Prominent {
+    // Apply responsive styles using the mixin
+    .input-editor-prominent-responsive-styles();
+    }
+}
