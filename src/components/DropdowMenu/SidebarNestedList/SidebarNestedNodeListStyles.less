@@ -1,4 +1,6 @@
 @sidebar-nested-node-list-border-radius: 8px;
+// Написать хук useStyles() потому что marginLeft считается динамически
+// от размера окна (= высота основного меню)
 @sidebar-nested-node-list-margin-left: 100px;
 @sidebar-nested-node-item-background-color: #ffffff;
 
@@ -8,13 +10,13 @@
 @sidebar-nested-node-list-container-width-xl: 180px;
 @sidebar-nested-node-list-container-width-xxl: 200px;
 
-@sidebar-nested-node-list-item-font-size-sm: 15px;
-@sidebar-nested-node-list-item-font-size-md: 16px;
-@sidebar-nested-node-list-item-font-size-lg: 17px;
-@sidebar-nested-node-list-item-font-size-xl: 18px;
-@sidebar-nested-node-list-item-font-size-xxl: 19px;
+@nested-node-list-item-font-size-sm: 15px;
+@nested-node-list-item-font-size-md: 16px;
+@nested-node-list-item-font-size-lg: 17px;
+@nested-node-list-item-font-size-xl: 18px;
+@nested-node-list-item-font-size-xxl: 19px;
 
-.sidebarNestedNodeContainerStyles() {
+.sidebar-nested-node-container-responsive-style() {
   @media (min-width: 344px) {
     width: @sidebar-nested-node-list-container-width-sm;
   }
@@ -36,48 +38,43 @@
   }
 }
 
-.sidebarNestedNodeListItemStyles() {
+.sidebar-nested-node-list-item-responsive-style() {
   @media (min-width: 344px) {
-    font-size: @sidebar-nested-node-list-item-font-size-sm;
+    font-size: @nested-node-list-item-font-size-sm;
   }
 
   @media (min-width: 575px) {
-    font-size: @sidebar-nested-node-list-item-font-size-md;
+    font-size: @nested-node-list-item-font-size-md;
   }
 
   @media (min-width: 768px) {
-    font-size: @sidebar-nested-node-list-item-font-size-lg;
+    font-size: @nested-node-list-item-font-size-lg;
   }
 
   @media (min-width: 992px) {
-    font-size: @sidebar-nested-node-list-item-font-size-xl;
+    font-size: @nested-node-list-item-font-size-xl;
   }
 
   @media (min-width: 1200px) {
-    font-size: @sidebar-nested-node-list-item-font-size-xxl;
+    font-size: @nested-node-list-item-font-size-xxl;
   }
 }
 
 .SidebarNestedNodeList {
+  position: absolute;
+  top: 0;
+  left: 0;
   border-radius: @sidebar-nested-node-list-border-radius;
-  margin: 0;
+  box-shadow:
+          0 5px 5px -3px rgba(0, 0, 0, 0.2),
+          0 8px 10px 1px rgba(0, 0, 0, 0.14),
+          0 3px 14px 2px rgba(0, 0, 0, 0.1);
   padding: 0;
   z-index: 1000;
-  &Container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: @sidebar-nested-node-list-border-radius;
-    box-shadow:
-            0 5px 5px -3px rgba(0, 0, 0, 0.2),
-            0 8px 10px 1px rgba(0, 0, 0, 0.14),
-            0 3px 14px 2px rgba(0, 0, 0, 0.1);
-    padding: 0;
-    .sidebarNestedNodeContainerStyles();
-  }
+  .sidebar-nested-node-container-responsive-style();
   &-Item {
     background-color: @sidebar-nested-node-item-background-color;
     border: none;
-    .sidebarNestedNodeListItemStyles();
+    .sidebar-nested-node-list-item-responsive-style();
   }
 }

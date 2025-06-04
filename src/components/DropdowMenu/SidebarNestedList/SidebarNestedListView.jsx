@@ -1,8 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 // Импорт библиотеки classNames
 import classNames from "classnames";
-/* Импорт стилей иконки сложенного списка */
-import './SidebarIconStyles.less';
 /* Импорт стилей фрагмента выпадающего списка NestedNodeList */
 import './SidebarNestedNodeListStyles.less';
 // Импорт react-list
@@ -10,6 +8,7 @@ import ReactList from 'react-list';
 // Импортируем галочку из react-bootstrap
 import { Check2 } from 'react-bootstrap-icons';
 import { ButtonStretchContext } from "../DropdownMenuSmart.jsx";
+import ContainerFluidView from "../../Application/ContainerFluid/ContainerFluidView.jsx";
 
 // Блок описания компонента вложенного списка
 const SidebarNestedListView = ({
@@ -22,36 +21,72 @@ const SidebarNestedListView = ({
 }) => {
     /* Извлекаем ширину растягиваемого элемента */
     const { stretchSideMenuWidth } = useContext(ButtonStretchContext);
+    // Инициализируем состояние для удаления элемента меню
+    const [newItems, setNewItems] = useState(items);
+    // Функция для получения нового массива элементов с учетом удаленных
+    const getNewItems = (item) => {
+        const { id } = item;
+        setNewItems(prevItems => prevItems.filter(item => item.id !== id ));
+    };
 
     return (
         <>
-            {items.map((item, index) => (
+            {newItems.map((item, index) => (
                 <li
                     key={item.id}
                     className={classNames(
                         'nav-item',
                         'Sidebar-Item', {
-                            'Sidebar-Item_Active': activeIndex === item.id
+                            'Sidebar-Item_active': activeIndex === item.id
                         }
                     )}
                     onClick={() => handleActiveClick(item)}
                 >
                     <a className="nav-link Sidebar-Link">
-                        {iconMapping[index]}
-                        {canStretch && (
-                            <>
-                                <span className="Sidebar-Text">{item.text}</span>
-                                <span className="badge">
-                                    <Check2 />
+                        <ContainerFluidView>
+                            <div
+                                className={classNames(
+                                    'col-sm-12',
+                                    'col-md-6',
+                                    'Sidebar-LinkTextContainer'
+                                )}
+                            >
+                                <span className="Sidebar-IconContainer">
+                                    {iconMapping[index]}
                                 </span>
-                            </>
-                        )}
+                                {canStretch && (
+                                    <span>{item.text}</span>
+                                )}
+                            </div>
+                            <div
+                                className={classNames(
+                                    'col-sm-12',
+                                    'col-md-6',
+                                    'Sidebar-ItemButtonContainer'
+                                )}
+                            >
+                                {canStretch && (
+                                    <span
+                                        className={classNames(
+                                            'badge',
+                                            'Sidebar-ButtonItem',
+                                            'Sidebar-ButtonItem_delete'
+                                        )}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            getNewItems(item)
+                                        }}
+                                    >
+                                        <Check2 />
+                                    </span>
+                                )}
+                            </div>
+                        </ContainerFluidView>
                     </a>
                     <ul
                         className={classNames(
                             'd-none',
-                            'SidebarNestedNodeListContainer',
-                            {
+                            'SidebarNestedNodeList', {
                                 'd-block': activeIndex === item.id
                             }
                         )}
@@ -76,7 +111,11 @@ const SidebarNestedListView = ({
                                             key={child.id}
                                         >
                                             {child.text}
-                                            <span className="badge">
+                                            <span className={classNames(
+                                                'badge',
+                                                'SidebarNestedNodeList-ButtonItem',
+                                                'SidebarNestedNodeList-ButtonItem_delete'
+                                            )}>
                                                 <Check2 />
                                             </span>
                                         </li>

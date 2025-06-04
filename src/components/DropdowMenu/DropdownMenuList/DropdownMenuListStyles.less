@@ -1,6 +1,7 @@
 @sidebar-list-bg: #2196f3;
-@sidebar-link-color: #ffffff; //
-@sidebar-link-active-bg: #333333; // !important removed
+@sidebar-link-color: #ffffff;
+@sidebar-link-icon-delete-color: #ffffff;
+@sidebar-link-active-bg: #333333;
 @sidebar-border-radius: 8px;
 @sidebar-link-border-radius: 2px;
 @sidebar-link-font-weight: 500;
@@ -29,6 +30,8 @@
 @sidebar-list-width-md: 85%;
 @sidebar-list-width-lg: 90%;
 @sidebar-list-width-xl: 100px;
+/* Коэффициент увеличения иконок */
+@increasing-icons: 1.2;
 
 // --- Mixin for Responsive List Width ---
    .sidebar-list-responsive-width() {
@@ -68,22 +71,44 @@
 }
 }
 
-   .sidebar-list-responsive-styles() {
-@media (min-width: 344px) {
-    font-size: @sidebar-font-size-xs;
+.sidebar-list-responsive-styles() {
+    @media (min-width: 344px) {
+        font-size: @sidebar-font-size-xs;
+    }
+    @media (min-width: 575px) {
+        font-size: @sidebar-font-size-sm;
+    }
+    @media (min-width: 768px) {
+        font-size: @sidebar-font-size-md;
+    }
+    @media (min-width: 992px) {
+        font-size: @sidebar-font-size-lg;
+    }
+    @media (min-width: 1200px) {
+        font-size: @sidebar-font-size-xl;
+    }
 }
-@media (min-width: 575px) {
-    font-size: @sidebar-font-size-sm;
-}
-@media (min-width: 768px) {
-    font-size: @sidebar-font-size-md;
-}
-@media (min-width: 992px) {
-    font-size: @sidebar-font-size-lg;
-}
-@media (min-width: 1200px) {
-    font-size: @sidebar-font-size-xl;
-}
+
+.sidebar-list-icon-responsive-styles() {
+    @media (min-width: 344px) {
+        font-size: @sidebar-font-size-xs * @increasing-icons;
+    }
+
+    @media (min-width: 575px) {
+        font-size: @sidebar-font-size-sm * @increasing-icons;
+    }
+
+    @media (min-width: 768px) {
+        font-size: @sidebar-font-size-md * @increasing-icons;
+    }
+
+    @media (min-width: 992px) {
+        font-size: @sidebar-font-size-lg * @increasing-icons;
+    }
+
+    @media (min-width: 1200px) {
+        font-size: @sidebar-font-size-xl * @increasing-icons;
+    }
 }
 
 .Sidebar {
@@ -102,20 +127,41 @@
 
     // Apply responsive width mixin
     .sidebar-list-responsive-width();
-    // Apply responsive padding and font size mixin
+    // Apply responsive font size mixin
     .sidebar-list-responsive-styles();
     }
 
-    .Sidebar-Link {
-        display: block;
-        text-decoration: none;
-        border-radius: @sidebar-link-border-radius;
-        transition: background @sidebar-transition-duration ease-in-out;
-        color: @sidebar-link-color;
-        font-weight: @sidebar-link-font-weight;
-        border: none;
-        cursor: pointer;
-
+    .Sidebar {
+        &-Link {
+            display: inline-block;
+            text-decoration: none;
+            border-radius: @sidebar-link-border-radius;
+            transition: background @sidebar-transition-duration ease-in-out;
+            color: @sidebar-link-color;
+            font-weight: @sidebar-link-font-weight;
+            border: none;
+            cursor: pointer;
+            // Apply responsive padding mixin
+            .sidebar-link-responsive-padding();
+        }
+        &-TextContainer,
+        &-ItemButtonContainer {
+            padding: 0;
+        }
+        &-ContainerText {
+            display: flex;
+            flex-direction: column;
+        }
+        &-IconContainer {
+            .sidebar-list-icon-responsive-styles();
+        }
+        &-ButtonItem {
+            border-radius: @sidebar-border-radius;
+            .sidebar-list-responsive-styles();
+            &_delete {
+                color: #ffffff;
+            }
+        }
     // Apply responsive padding mixin
     .sidebar-link-responsive-padding();
     }
