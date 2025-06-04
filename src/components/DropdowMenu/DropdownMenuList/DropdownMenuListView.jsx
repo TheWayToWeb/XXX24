@@ -11,7 +11,7 @@ import SidebarNestedListSmart from "../SidebarNestedList";
 
 const DropdownMenuListView = () => {
     const { stretchSideMenuWidth } = useContext(ButtonStretchContext);
-    const { dropdownListItems } = useContext(DropdownListContext);
+    const { dropdownListItems, fixedMenuHeight } = useContext(DropdownListContext);
 
     return (
         <nav className="navbar Sidebar">
@@ -21,6 +21,7 @@ const DropdownMenuListView = () => {
                         className="navbar-nav Sidebar-List"
                         style={{
                             width: `${stretchSideMenuWidth}px`,
+                            height: `${fixedMenuHeight}px`,
                             transition: 'width 0.5s ease'
                         }}
                     >

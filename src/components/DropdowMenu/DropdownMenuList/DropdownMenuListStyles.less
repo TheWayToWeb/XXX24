@@ -1,6 +1,5 @@
-@sidebar-bg: transparent;
-@sidebar-list-bg: #d0d0d0;
-@sidebar-link-color: #333333; // !important removed, Less handles specificity differently
+@sidebar-list-bg: #2196f3;
+@sidebar-link-color: #ffffff; //
 @sidebar-link-active-bg: #333333; // !important removed
 @sidebar-border-radius: 8px;
 @sidebar-link-border-radius: 2px;
@@ -8,7 +7,7 @@
 @sidebar-transition-duration: 0.2s;
 @sidebar-list-border-width: 1px;
 @sidebar-list-border-style: solid; // Corrected: CSS '2px' was invalid for border-style
-@sidebar-list-border-color: #c0c0c0;
+@sidebar-list-border-color: #2196f3;
 
 /* Spacing */
 @sidebar-spacing-xs: 8px;
@@ -88,9 +87,8 @@
 }
 
 .Sidebar {
-    background-color: @sidebar-bg;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    //font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     .Sidebar-List {
         display: flex; /* Changed from 'block' to 'flex' as later overridden by flex */

@@ -13,6 +13,24 @@ const DropdownMenuListSmart = () => {
     const [activeIndexItem, setActiveIndexItem] = useState(false);
     // Инициализация состояния для массива sidebarItems
     const [items, setItems] = useState([]);
+    // Инициализация состояния для получения высоту окна
+    const [windowHeight, setWindowHeight] = useState(0);
+    // Вот тут в хуке вычисляем высоту окна
+    useEffect(() => {
+        // Функция для обновления высоты
+        const updateHeight = () => {
+            setWindowHeight(window.innerHeight);
+        };
+        // Устанавливаем начальную высоту при монтировании
+        updateHeight();
+        // Добавляем слушатель изменения размера окна
+        window.addEventListener('resize', updateHeight);
+        // Очистка при размонтировании компонента
+        return () => {
+            window.removeEventListener('resize', updateHeight)
+        };
+    }, []);
+
     // Вызываем useEffect хук
     useEffect(() => {
         // Инициализируем функцию для извлечения данных
@@ -42,8 +60,9 @@ const DropdownMenuListSmart = () => {
     const dropdownContextValue = useMemo(() => ({
         dropdownListItems: items,
         activeIndex: activeIndexItem,
-        handleActiveClick: handleActiveItemClick
-    }), [items, activeIndexItem, handleActiveItemClick]);
+        handleActiveClick: handleActiveItemClick,
+        fixedMenuHeight: windowHeight
+    }), [items, activeIndexItem, handleActiveItemClick, windowHeight]);
 
     return (
         <DropdownListContext value={dropdownContextValue}>

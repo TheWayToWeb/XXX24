@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 // Импорт библиотеки classNames
 import classNames from "classnames";
 /* Импорт стилей иконки сложенного списка */
@@ -7,6 +7,9 @@ import './SidebarIconStyles.less';
 import './SidebarNestedNodeListStyles.less';
 // Импорт react-list
 import ReactList from 'react-list';
+// Импортируем галочку из react-bootstrap
+import { Check2 } from 'react-bootstrap-icons';
+import { ButtonStretchContext } from "../DropdownMenuSmart.jsx";
 
 // Блок описания компонента вложенного списка
 const SidebarNestedListView = ({
@@ -17,10 +20,12 @@ const SidebarNestedListView = ({
    handleActiveClick,
    fixedMenuHeight
 }) => {
+    /* Извлекаем ширину растягиваемого элемента */
+    const { stretchSideMenuWidth } = useContext(ButtonStretchContext);
 
     return (
         <>
-            {items.map((item) => (
+            {items.map((item, index) => (
                 <li
                     key={item.id}
                     className={classNames(
@@ -32,14 +37,30 @@ const SidebarNestedListView = ({
                     onClick={() => handleActiveClick(item)}
                 >
                     <a className="nav-link Sidebar-Link">
-                        {iconMapping[item.id]}
+                        {iconMapping[index]}
                         {canStretch && (
-                            <span className="Sidebar-Text">{item.text}</span>
+                            <>
+                                <span className="Sidebar-Text">{item.text}</span>
+                                <span className="badge">
+                                    <Check2 />
+                                </span>
+                            </>
                         )}
                     </a>
-                    <div
-                        className="SidebarNestedNodeList_container"
-                        style={{ overflowY: 'auto', maxHeight: `${fixedMenuHeight}px`}}
+                    <ul
+                        className={classNames(
+                            'd-none',
+                            'SidebarNestedNodeListContainer',
+                            {
+                                'd-block': activeIndex === item.id
+                            }
+                        )}
+                        style={{
+                            overflow: 'auto',
+                            maxHeight: `${fixedMenuHeight}px`,
+                            marginLeft: `${stretchSideMenuWidth}px`,
+                            transition: "margin-left 0.5s ease-in-out"
+                        }}
                     >
                         {/* Проверка наличия детей */}
                         {item.children && item.children.length > 0 && (
@@ -55,6 +76,9 @@ const SidebarNestedListView = ({
                                             key={child.id}
                                         >
                                             {child.text}
+                                            <span className="badge">
+                                                <Check2 />
+                                            </span>
                                         </li>
                                     );
                                 }}
@@ -62,7 +86,7 @@ const SidebarNestedListView = ({
                                 type='uniform'
                             />
                         )}
-                    </div>
+                    </ul>
                 </li>
             ))}
         </>
