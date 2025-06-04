@@ -28,7 +28,7 @@ const DropdownMenuView = () => {
                     <span className="Dropdown-ButtonText">Категории</span>
                 ) : null }
             </button>
-            <ul
+            <div
                 className={classNames(
                     'dropdown-menu',
                     'Dropdown-Menu',
@@ -36,7 +36,7 @@ const DropdownMenuView = () => {
                 )}
             >
                 <DropdownMenuListSmart />
-            </ul>
+            </div>
         </div>
     );
 };
