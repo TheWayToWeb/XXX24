@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
-/* Импортируем контекст */
-import { ButtonStretchContext } from "./DropdownMenuSmart.jsx";
+import React, { memo } from 'react';
 /* импортируем библиотеку classNames */
 import classNames from "classnames";
 /* импортируем стили выпадающего меню */
 import './DropdownMenuStyles.less';
 import DropdownMenuListSmart from "./DropdownMenuList";
 
-const DropdownMenuView = () => {
-    const { canStretch, changeDropdownButtonWidth, stretchSideMenuWidth } = useContext(ButtonStretchContext);
+const DropdownMenuView = memo(({
+    canStretch,
+    changeDropdownButtonWidth,
+    stretchSideMenuWidth
+}) => {
     return (
         <div className="dropdown Dropdown">
             <button
@@ -39,6 +40,6 @@ const DropdownMenuView = () => {
             </div>
         </div>
     );
-};
+});
 
 export default DropdownMenuView;

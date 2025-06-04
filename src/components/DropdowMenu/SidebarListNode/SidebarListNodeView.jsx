@@ -1,147 +1,139 @@
-import React, { useState, useContext } from 'react';
-// Импорт библиотеки classNames
+import React, { useState } from 'react';
+// Импортируем библиотеку classNames
 import classNames from "classnames";
-/* Импорт стилей фрагмента выпадающего списка NestedNodeList */
-import './SidebarListNodeStyles.less';
-// Импорт react-list
+// Импортируем компонент ReactList для отображения вложенного списка
 import ReactList from 'react-list';
+// Импортируем и применяем Link вместо ссылки
 import { Link } from 'react-router-dom';
-// Импортируем галочку из react-bootstrap
-import { Check2 } from 'react-bootstrap-icons';
-import { ButtonStretchContext } from "../DropdownMenuSmart.jsx";
+// Импортируем ContainerFluid Bootstrap
 import ContainerFluidView from "../../Application/ContainerFluid/ContainerFluidView.jsx";
+// Импортируем иконку галочки
+import { Check2 } from 'react-bootstrap-icons';
+// Импортируем стили выпадающего списка
+import './SidebarListNodeStyles.less';
 
-// Блок описания компонента вложенного списка
 const SidebarListNodeView = ({
-   canStretch,
-   iconMapping,
-   items,
-   activeIndex,
-   handleActiveClick,
-   fixedMenuHeight
-}) => {
-    // Коэффициент процентного отношения
+                                 canStretch, // Свойство изменяющее текст кнопки и контент бокового меню
+                                 stretchSideMenuWidth, // Ширина бокового меню
+                                 iconMapping, // Массив иконок бокового меню
+                                 isListOpen, // Указываем открыт ли выпадающий список
+                                 items, // Массив элементов бокового меню
+                                 activeIndex, // Активный элемент бокового меню
+                                 activeItemId, // Id активного элемента выпадающего списка
+                                 handleActiveClick, // Обработчик клика на активном элементе бокового меню
+                                 handleActiveClickNodeList, // Обработчик клика на активном элементе выпадающего списка
+                                 fixedMenuHeight, // Высота бокового меню
+                             }) => {
+    // Процентная часть
     const nestedListHeightPercent = 0.7;
-    // Корректируем значение высоты с помощью коэффициента
+    // Корректировка высоты выпадающего списка с помощью процентной части
     const nestedListMaxHeight = fixedMenuHeight * nestedListHeightPercent;
-    /* Извлекаем ширину растягиваемого элемента */
-    const { stretchSideMenuWidth } = useContext(ButtonStretchContext);
-    // Инициализируем состояние для удаления элемента меню
-    const [newItems, setNewItems] = useState(items);
-    // Функция для получения нового массива элементов с учетом удаленных
-    const getNewItems = (item) => {
-        const { id } = item;
-        setNewItems(prevItems => prevItems.filter(item => item.id !== id ));
+    // Инициализируем новый массив
+    const [localItems, setLocalItems] = useState(items);
+    // Функция удаления элемента массива по его id
+    const removeItem = (itemId) => {
+        setLocalItems(prev => prev.filter(item => item.id !== itemId));
     };
 
     return (
         <>
-            {newItems.map((item, index) => (
+            {localItems.map((item, index) => (
                 <li
                     key={item.id}
                     className={classNames(
                         'nav-item',
                         'Sidebar-Item', {
-                        'Sidebar-Item_active': activeIndex === item.id
-                        }
-                    )}
+                        'Sidebar-Item_active': activeIndex === item.id,
+                    })}
                     onClick={() => handleActiveClick(item)}
                 >
-                    <a
-                        className={classNames(
+                    <a className={classNames(
                         'nav-link',
-                            'Sidebar-Link'
-                        )}
-                    >
+                        'Sidebar-Link'
+                    )}>
                         <ContainerFluidView>
-                            <div
-                                className={classNames(
+                            <div className={classNames(
                                 'col-sm-12',
-                                    'col-md-6',
-                                    'Sidebar-LinkTextContainer'
-                                )}
-                            >
-                                <span className={classNames(
-                                    'Sidebar-IconContainer'
-                                )}>
-                                    {iconMapping[index]}
-                                </span>
-                                {canStretch && (
-                                    <span>{item.text}</span>
-                                )}
+                                'col-md-6',
+                                'Sidebar-LinkTextContainer'
+                            )}>
+                                <span className="Sidebar-IconContainer">{iconMapping[index]}</span>
+                                {canStretch && <span>{item.text}</span>}
                             </div>
-                            <div
-                                className={classNames(
-                                'col-sm-12',
+                            {canStretch && (
+                                <div className={classNames(
+                                    'col-sm-12',
                                     'col-md-6',
                                     'Sidebar-ItemButtonContainer'
-                                )}
-                            >
-                                {canStretch && (
-                                    <span
-                                        className={classNames(
-                                        'badge',
-                                            'Sidebar-ButtonItem',
-                                            'Sidebar-ButtonItem_delete'
-                                        )}
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            getNewItems(item)
-                                        }}
-                                    >
-                                        <Check2 />
-                                    </span>
-                                )}
-                            </div>
+                                )}>
+                                  <span
+                                      className={classNames(
+                                          'badge',
+                                          'Sidebar-ButtonItem',
+                                          'Sidebar-ButtonItem_delete'
+                                      )}
+                                      onClick={(e) => {
+                                          e.stopPropagation();
+                                          removeItem(item.id);
+                                      }}
+                                  >
+                                    <Check2 />
+                                  </span>
+                                </div>
+                            )}
                         </ContainerFluidView>
                     </a>
+
+                    {/* Вложенный список */}
                     <ul
                         className={classNames(
-                        'd-none',
                             'SidebarListNode', {
-                            'd-block': activeIndex === item.id
-                            }
-                        )}
+                            'd-none': activeIndex !== item.id,
+                            'd-block': activeIndex === item.id,
+                        })}
                         style={{
                             overflow: 'auto',
                             maxHeight: `${nestedListMaxHeight}px`,
                             marginLeft: `${stretchSideMenuWidth}px`,
-                            transition: "margin-left 0.5s ease-in-out"
+                            transition: "margin-left 0.5s ease-in-out",
                         }}
                     >
-                        {/* Проверка наличия детей */}
-                        {item.children && item.children.length > 0 && (
+                        {isListOpen && item.children.length > 0 && (
                             <ReactList
                                 itemRenderer={(index) => {
                                     const child = item.children[index];
                                     return (
                                         <li
-                                            className={classNames(
-                                            'list-group-item',
-                                                'SidebarListNode-Item'
-                                            )}
                                             key={child.id}
+                                            className={classNames(
+                                                'list-group-item',
+                                                'SidebarListNode-Item', {
+                                                'SidebarListNode-Item_active': activeItemId === child.id,
+                                            })}
                                         >
                                             <Link
                                                 to={child.path}
                                                 className={classNames(
-                                                'nav-link',
+                                                    'nav-link',
                                                     'SidebarListNode-Link'
                                                 )}
+                                                onClick={() => handleActiveClickNodeList(child.id)}
                                             >
                                                 <div className={classNames(
-                                                'SidebarListNode-LinkTextContainer'
+                                                    'SidebarListNode-LinkTextContainer'
                                                 )}>
                                                     <span className={classNames(
                                                         'SidebarListNode-LinkText'
                                                     )}>
                                                         {child.text}
                                                     </span>
-                                                    <span className={classNames(
-                                                        'badge',
-                                                        'SidebarListNode-Button',
-                                                        'SidebarListNode-Button_delete'
-                                                    )}>
+                                                    <span
+                                                        className={classNames(
+                                                            'badge',
+                                                                'SidebarListNode-Button',
+                                                                'SidebarListNode-Button_delete'
+                                                        )}
+                                                    >
                                                         <Check2 />
                                                     </span>
                                                 </div>
@@ -150,7 +142,7 @@ const SidebarListNodeView = ({
                                     );
                                 }}
                                 length={item.children.length}
-                                type='uniform'
+                                type="uniform"
                             />
                         )}
                     </ul>

@@ -5,7 +5,6 @@ export const data = [
     {
         id: 1,
         text: "Продажи",
-        path: "/sales",
         children: [
             { id: v4(), text: "Заказы", path: "/orders" },
             { id: v4(), text: "Отгрузки", path: "/shipment" },
@@ -20,7 +19,6 @@ export const data = [
     {
         id: 2,
         text: "Покупки",
-        path: "/purchases",
         children: [
             { id: v4(), text: "Обработка заявок", path: "/process_bid" },
             { id: v4(), text: "Обработка поступлений", path: "/process_income" },
@@ -36,7 +34,6 @@ export const data = [
     {
         id: 3,
         text: "Производство",
-        path: "/production",
         children: [
             { id: v4(), "text": "Производство", "path": "/production" },
             { id: v4(), "text": "Производственные операции", "path": "/production_operations" },
@@ -58,7 +55,6 @@ export const data = [
     {
         id: 4,
         text: "Склады",
-        path: "/warehouses",
         children: [
             { id: v4(), text: "Приемка", path: "/acceptance" },
             { id: v4(), text: "Партии", path: "/batches" },
@@ -76,7 +72,6 @@ export const data = [
     {
         id: 5,
         text: "Бухгалтерия",
-        path: "/accounting",
         children: [
             { id: v4(), text: "Оплата", path: "/payment" },
             { id: v4(), text: "Заявка на оплату", path: "/payment_request" },
@@ -94,7 +89,6 @@ export const data = [
     {
         id: 6,
         text: "Справочники",
-        path: "/directories",
         children: [
             { id: v4(), text: "Контакты", path: "/contacts" },
             { id: v4(), text: "Контрагенты", path: "" },
@@ -117,7 +111,6 @@ export const data = [
     {
         id: 7,
         text: "Отчеты",
-        path: "/reports",
         children: [
             { id: v4(), text: "Анализ продукции", path: "/product_analysis" },
             { id: v4(), text: "Валовая прибыль", path: "/gross_profit" },
@@ -128,7 +121,6 @@ export const data = [
     {
         id: 8,
         text: "Настройки",
-        path: "/settings",
         children: [
             { id: v4(), text: "Компании", path: "" },
             { id: v4(), text: "Организации", path: "" },

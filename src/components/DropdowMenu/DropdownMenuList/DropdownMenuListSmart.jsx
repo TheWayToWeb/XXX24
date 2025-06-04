@@ -9,29 +9,16 @@ export const DropdownListContext = createContext(null);
 
 // Описание презентационного компонента
 const DropdownMenuListSmart = () => {
-    // Инициализация состояния активного элемента списка
-    const [activeIndexItem, setActiveIndexItem] = useState(false);
     // Инициализация состояния для массива sidebarItems
     const [items, setItems] = useState([]);
     // Инициализация состояния для получения высоту окна
     const [windowHeight, setWindowHeight] = useState(0);
-    // Вот тут в хуке вычисляем высоту окна
-    useEffect(() => {
-        // Функция для обновления высоты
-        const updateHeight = () => {
-            setWindowHeight(window.innerHeight);
-        };
-        // Устанавливаем начальную высоту при монтировании
-        updateHeight();
-        // Добавляем слушатель изменения размера окна
-        window.addEventListener('resize', updateHeight);
-        // Очистка при размонтировании компонента
-        return () => {
-            window.removeEventListener('resize', updateHeight)
-        };
-    }, []);
+    // Инициализация состояния активного элемента списка
+    const [activeIndexItem, setActiveIndexItem] = useState(false);
+    // Инициализация состояния для раскрытия выпадающего списка
+    const [isListOpen, setIsListOpen] = useState(false);
 
-    // Вызываем useEffect хук
+    // Обработка получения данных по API
     useEffect(() => {
         // Инициализируем функцию для извлечения данных
         const getDropdownListItems = async () => {
@@ -50,24 +37,51 @@ const DropdownMenuListSmart = () => {
         getDropdownListItems();
     }, []);
 
+    // Вот тут в хуке вычисляем высоту окна
+    useEffect(() => {
+        // Функция для обновления высоты
+        const updateHeight = () => {
+            setWindowHeight(window.innerHeight);
+        };
+        // Устанавливаем начальную высоту при монтировании
+        updateHeight();
+        // Добавляем слушатель изменения размера окна
+        window.addEventListener('resize', updateHeight);
+        // Очистка при размонтировании компонента
+        return () => {
+            window.removeEventListener('resize', updateHeight)
+        };
+    }, []);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const handleActiveItemClick = (item) => {
         const { id } = item;
         setActiveIndexItem(id);
+        setIsListOpen(true);
     };
 
     // Создаем переменную контекста
-    const dropdownContextValue = useMemo(() => ({
-        dropdownListItems: items,
-        activeIndex: activeIndexItem,
-        handleActiveClick: handleActiveItemClick,
-        fixedMenuHeight: windowHeight
-    }), [items, activeIndexItem, handleActiveItemClick, windowHeight]);
+    const dropdownContextValue = useMemo(
+        () => ({
+            sidebarListItems: items, // Массив элементов боковой панели
+            fixedMenuHeight: windowHeight, // По заданию высоту меню принимаем равной высоте окна браузера
+            isListOpen: isListOpen, // Свойство, отвечающее за видимость вложенного списка
+            activeIndex: activeIndexItem, // Индекс активного элемента боковой панели
+            handleActiveClick: handleActiveItemClick // Функция обработка активного элемента по клику
+        }),
+        [
+            items,
+            windowHeight,
+            isListOpen,
+            activeIndexItem,
+            handleActiveItemClick
+        ]
+    );
 
     return (
-        <DropdownListContext value={dropdownContextValue}>
+        <DropdownListContext.Provider value={dropdownContextValue}>
             <DropdownMenuListView />
-        </DropdownListContext>
+        </DropdownListContext.Provider>
 
     );
 };

@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
+// Импортируем компоненты React Router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-/* Импорт необходимых иконок */
+/* Импорт иконок бокового меню */
 import {
     Book,
     Boxes,
@@ -13,13 +14,13 @@ import {
     Wrench
 } from "react-bootstrap-icons";
 
-/* Импортируем компонент вложенный список */
+/* Импортируем презентационный компонент вложенного списка */
 import SidebarListNodeView from './SidebarListNodeView.jsx';
-/* Импорт контекста ButtonStretch */
+/* Импортируем контекст кнопки бокового меню */
 import { ButtonStretchContext } from "../DropdownMenuSmart.jsx";
-/* Импорт контекста DropdownList */
+/* Импортируем контекст самого бокового меню */
 import { DropdownListContext } from "../DropdownMenuList/DropdownMenuListSmart.jsx";
-/* Преобразуем набор иконок в объект с ключами (маппинг) */
+/* Создаем объект иконок с ключами (Mapping) */
 const iconMapping = {
     0: <MicrosoftTeams />,
     1: <Cart3 />,
@@ -31,21 +32,60 @@ const iconMapping = {
     7: <Wrench />,
     8: <QuestionSquare />
 };
-/* Блок умного компонента */
+/* Умный компонент выпадающего списка */
 const SidebarItemContainer = () => {
-    /* Извлекаем свойство canStretch из ButtonStretchContext */
-    const { canStretch } = useContext(ButtonStretchContext);
-    /* Аналогично извлекаем свойства из DropdownListContext */
-    const { dropdownListItems, activeIndex, handleActiveClick, fixedMenuHeight } = useContext(DropdownListContext);
+    /*
+        Свойство изменяющее текст кнопки и бокового меню при его растягивании
+        Получаем ширину, на которую растягивается меню
+     */
+    const {
+        canStretch,
+        stretchSideMenuWidth
+    } = useContext(ButtonStretchContext);
+    /*
+        Получаем массив элементов боковой панели
+        Получаем значение индекса активного элемента
+     */
+    const {
+        isListOpen,
+        sidebarListItems,
+        activeIndex,
+        handleActiveClick,
+        fixedMenuHeight
+    } = useContext(DropdownListContext);
+    // Инициализация состояния указывающее открыто ли меню
+    // Состояние для установки активного пункта вложенного списка
+    const [activeListItemId, setActiveListItemId] = useState(null);
+    /*
+        Функция устанавливающая активный пункт
+        у вложенного списка и должна строго принимать id
+     */
+    const handleActiveClickNestedList = (id) => {
+        setActiveListItemId(id);
+    };
 
     return (
         <Router>
             <SidebarListNodeView
+                // Свойство для изменения отрисовки кнопки и бокового меню
                 canStretch={canStretch}
+                // Ширина на которую растягивается боковое меню
+                stretchSideMenuWidth={stretchSideMenuWidth}
+                // Объект иконок боковой панели
                 iconMapping={iconMapping}
-                items={dropdownListItems}
+                // Указывает, открыт ли выпадающий список
+                isListOpen={isListOpen}
+                // Передаем в массив элементов бокового меню
+                items={sidebarListItems}
+                // Индекс активного элемента боковой панели
                 activeIndex={activeIndex}
+                // Id активного элемента вложенного списка
+                activeItemId={activeListItemId}
+                // Обработка клика списка боковой панели
                 handleActiveClick={handleActiveClick}
+                // Обработка клика у вложенного списка
+                handleActiveClickNodeList={handleActiveClickNestedList}
+                // Высота боковой панели
                 fixedMenuHeight={fixedMenuHeight}
             />
             <Routes>
