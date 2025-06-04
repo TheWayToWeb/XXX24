@@ -1,0 +1,173 @@
+@sidebar-node-list-border-radius: 8px;
+// Написать хук useStyles() потому что marginLeft считается динамически
+// от размера окна (= высота основного меню)
+@sidebar-node-list-margin-left: 100px;
+@sidebar-node-list-background-color: #ffffff;
+@sidebar-node-item-background-color: #ffffff;
+
+@sidebar-node-list-container-width-sm: 120px;
+@sidebar-node-list-container-width-md: 140px;
+@sidebar-node-list-container-width-lg: 160px;
+@sidebar-node-list-container-width-xl: 180px;
+@sidebar-node-list-container-width-xxl: 200px;
+
+@node-list-item-font-size-sm: 15px;
+@node-list-item-font-size-md: 16px;
+@node-list-item-font-size-lg: 17px;
+@node-list-item-font-size-xl: 18px;
+@node-list-item-font-size-xxl: 19px;
+// Коэффициент для управления размером иконок
+@increasing-icons: 1.2;
+
+.sidebar-node-container-responsive-style() {
+  @media (min-width: 344px) {
+    width: @sidebar-node-list-container-width-sm;
+  }
+
+  @media (min-width: 575px) {
+    width: @sidebar-node-list-container-width-md;
+  }
+
+  @media (min-width: 768px) {
+    width: @sidebar-node-list-container-width-lg;
+  }
+
+  @media (min-width: 992px) {
+    width: @sidebar-node-list-container-width-xl;
+  }
+
+  @media (min-width: 1200px) {
+    width: @sidebar-node-list-container-width-xxl;
+  }
+}
+
+.sidebar-node-list-item-responsive-style() {
+  @media (min-width: 344px) {
+    font-size: @node-list-item-font-size-sm;
+  }
+
+  @media (min-width: 575px) {
+    font-size: @node-list-item-font-size-md;
+  }
+
+  @media (min-width: 768px) {
+    font-size: @node-list-item-font-size-lg;
+  }
+
+  @media (min-width: 992px) {
+    font-size: @node-list-item-font-size-xl;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: @node-list-item-font-size-xxl;
+  }
+}
+
+.sidebar-node-list-item-icon-responsive-style() {
+  @media (min-width: 344px) {
+    font-size: @node-list-item-font-size-sm * @increasing-icons;
+  }
+
+  @media (min-width: 575px) {
+    font-size: @node-list-item-font-size-md * @increasing-icons;
+  }
+
+  @media (min-width: 768px) {
+    font-size: @node-list-item-font-size-lg * @increasing-icons;
+  }
+
+  @media (min-width: 992px) {
+    font-size: @node-list-item-font-size-lg * @increasing-icons;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: @node-list-item-font-size-xl * @increasing-icons;
+  }
+}
+
+.SidebarListNode {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: @sidebar-node-list-border-radius;
+  background-color: @sidebar-node-list-background-color;
+  box-shadow:
+          0 5px 5px -3px rgba(0, 0, 0, 0.2),
+          0 8px 10px 1px rgba(0, 0, 0, 0.14),
+          0 3px 14px 2px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  z-index: 1000;
+  .sidebar-node-container-responsive-style();
+  &-Item {
+    background-color: @sidebar-node-item-background-color;
+    border: none;
+    //padding: 14px;
+    text-align: left;
+    .sidebar-node-list-item-responsive-style();
+  }
+  &-Link {
+    display: inline-block;
+    width: 100%;
+    color: #2196f3;
+    padding:0;
+    cursor: pointer;
+  }
+  &-Link:hover {
+    color: #2196f3;
+  }
+  &-LinkTextContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-LinkText {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+  &-Button {
+    .sidebar-node-list-item-icon-responsive-style();
+    &_delete {
+      color: #842029;
+    }
+  }
+}
+
+@media (min-width: 344px) {
+  .SidebarListNode {
+    &-Item {
+      padding: 4px;
+    }
+  }
+}
+
+@media (min-width: 575px) {
+  .SidebarListNode {
+    &-Item {
+      padding: 6px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .SidebarListNode {
+    &-Item {
+      padding: 8px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .SidebarListNode {
+    &-Item {
+      padding: 12px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .SidebarListNode {
+    &-Item {
+      padding: 14px;
+    }
+  }
+}

@@ -7,7 +7,7 @@ import {DropdownListContext} from "./DropdownMenuListSmart.jsx";
 import './DropdownMenuListStyles.less';
 import '../SidebarButtonsStyles.css';
 // импортируем умный компонент
-import SidebarNestedListSmart from "../SidebarNestedList";
+import SidebarNestedListSmart from "../SidebarListNode";
 
 const DropdownMenuListView = () => {
     const { stretchSideMenuWidth } = useContext(ButtonStretchContext);
