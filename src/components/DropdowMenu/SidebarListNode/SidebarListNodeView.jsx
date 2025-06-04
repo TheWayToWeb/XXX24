@@ -19,6 +19,10 @@ const SidebarListNodeView = ({
    handleActiveClick,
    fixedMenuHeight
 }) => {
+    // Коэффициент процентного отношения
+    const nestedListHeightPercent = 0.7;
+    // Корректируем значение высоты с помощью коэффициента
+    const nestedListMaxHeight = fixedMenuHeight * nestedListHeightPercent;
     /* Извлекаем ширину растягиваемого элемента */
     const { stretchSideMenuWidth } = useContext(ButtonStretchContext);
     // Инициализируем состояние для удаления элемента меню
@@ -99,7 +103,7 @@ const SidebarListNodeView = ({
                         )}
                         style={{
                             overflow: 'auto',
-                            maxHeight: `${fixedMenuHeight}px`,
+                            maxHeight: `${nestedListMaxHeight}px`,
                             marginLeft: `${stretchSideMenuWidth}px`,
                             transition: "margin-left 0.5s ease-in-out"
                         }}
