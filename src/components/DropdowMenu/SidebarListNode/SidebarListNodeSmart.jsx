@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 /* Импорт необходимых иконок */
 import {
     Book,
@@ -38,14 +39,19 @@ const SidebarItemContainer = () => {
     const { dropdownListItems, activeIndex, handleActiveClick, fixedMenuHeight } = useContext(DropdownListContext);
 
     return (
-        <SidebarListNodeView
-            canStretch={canStretch}
-            iconMapping={iconMapping}
-            items={dropdownListItems}
-            activeIndex={activeIndex}
-            handleActiveClick={handleActiveClick}
-            fixedMenuHeight={fixedMenuHeight}
-        />
+        <Router>
+            <SidebarListNodeView
+                canStretch={canStretch}
+                iconMapping={iconMapping}
+                items={dropdownListItems}
+                activeIndex={activeIndex}
+                handleActiveClick={handleActiveClick}
+                fixedMenuHeight={fixedMenuHeight}
+            />
+            <Routes>
+                {/* Тут будут прописаны маршруты с помощью тега Route */}
+            </Routes>
+        </Router>
     );
 };
 

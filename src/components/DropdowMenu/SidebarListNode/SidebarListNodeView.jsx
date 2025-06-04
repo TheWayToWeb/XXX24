@@ -5,6 +5,7 @@ import classNames from "classnames";
 import './SidebarListNodeStyles.less';
 // Импорт react-list
 import ReactList from 'react-list';
+import { Link } from 'react-router-dom';
 // Импортируем галочку из react-bootstrap
 import { Check2 } from 'react-bootstrap-icons';
 import { ButtonStretchContext } from "../DropdownMenuSmart.jsx";
@@ -121,8 +122,8 @@ const SidebarListNodeView = ({
                                             )}
                                             key={child.id}
                                         >
-                                            <a
-
+                                            <Link
+                                                to={child.path}
                                                 className={classNames(
                                                 'nav-link',
                                                     'SidebarListNode-Link'
@@ -144,7 +145,7 @@ const SidebarListNodeView = ({
                                                         <Check2 />
                                                     </span>
                                                 </div>
-                                            </a>
+                                            </Link>
                                         </li>
                                     );
                                 }}
