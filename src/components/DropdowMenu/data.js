@@ -6,14 +6,54 @@ export const data = [
         id: 1,
         text: "Продажи",
         children: [
-            { id: v4(), text: "Заказы", path: "/orders" },
-            { id: v4(), text: "Отгрузки", path: "/shipment" },
-            { id: v4(), text: "Контакты", path: "/contacts" },
-            { id: v4(), text: "Контрагенты", path: "/counterparties" },
-            { id: v4(), text: "Отчеты продаж", path: "/sales_reports" },
-            { id: v4(), text: "Лиды", path: "/leads" },
-            { id: v4(), text: "Счета покупателям", path: "/customer_invoices" },
-            { id: v4(), text: "Документооборот", path: "/document_flow" }
+            {
+                id: v4(),
+                text: "Заказы",
+                path: "/orders",
+                routeComponentName: "salesOrdersContainer"
+            },
+            {
+                id: v4(),
+                text: "Отгрузки",
+                path: "/shipment",
+                routeComponentName: "shipmentContainer"
+            },
+            {
+                id: v4(),
+                text: "Контакты",
+                path: "/contacts",
+                routeComponentName: "contactsContainer"
+            },
+            {
+                id: v4(),
+                text: "Контрагенты",
+                path: "/counterparties",
+                routeComponentName: "counterpartiesContainer"
+            },
+            {
+                id: v4(),
+                text: "Отчеты продаж",
+                path: "/sales_reports",
+                routeComponentName: "salesReportsContainer"
+            },
+            {
+                id: v4(),
+                text: "Лиды",
+                path: "/leads",
+                routeComponentName: "leadsContainer"
+            },
+            {
+                id: v4(),
+                text: "Счета покупателям",
+                path: "/customer_invoices",
+                routeComponentName: "customerInvoicesContainer"
+            },
+            {
+                id: v4(),
+                text: "Документооборот",
+                path: "/document_flow",
+                routeComponentName: "documentFlowContainer"
+            }
         ]
     },
     {

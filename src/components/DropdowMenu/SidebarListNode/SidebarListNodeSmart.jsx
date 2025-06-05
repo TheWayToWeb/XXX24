@@ -1,6 +1,4 @@
 import React, { useState, useContext } from 'react';
-// Импортируем компоненты React Router
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 /* Импорт иконок бокового меню */
 import {
     Book,
@@ -32,6 +30,7 @@ const iconMapping = {
     7: <Wrench />,
     8: <QuestionSquare />
 };
+
 /* Умный компонент выпадающего списка */
 const SidebarItemContainer = () => {
     /*
@@ -65,33 +64,28 @@ const SidebarItemContainer = () => {
     };
 
     return (
-        <Router>
-            <SidebarListNodeView
-                // Свойство для изменения отрисовки кнопки и бокового меню
-                canStretch={canStretch}
-                // Ширина на которую растягивается боковое меню
-                stretchSideMenuWidth={stretchSideMenuWidth}
-                // Объект иконок боковой панели
-                iconMapping={iconMapping}
-                // Указывает, открыт ли выпадающий список
-                isListOpen={isListOpen}
-                // Передаем в массив элементов бокового меню
-                items={sidebarListItems}
-                // Индекс активного элемента боковой панели
-                activeIndex={activeIndex}
-                // Id активного элемента вложенного списка
-                activeItemId={activeListItemId}
-                // Обработка клика списка боковой панели
-                handleActiveClick={handleActiveClick}
-                // Обработка клика у вложенного списка
-                handleActiveClickNodeList={handleActiveClickNestedList}
-                // Высота боковой панели
-                fixedMenuHeight={fixedMenuHeight}
-            />
-            <Routes>
-                {/* Тут будут прописаны маршруты с помощью тега Route */}
-            </Routes>
-        </Router>
+        <SidebarListNodeView
+            // Свойство для изменения отрисовки кнопки и бокового меню
+            canStretch={canStretch}
+            // Ширина на которую растягивается боковое меню
+            stretchSideMenuWidth={stretchSideMenuWidth}
+            // Объект иконок боковой панели
+            iconMapping={iconMapping}
+            // Указывает, открыт ли выпадающий список
+            isListOpen={isListOpen}
+            // Передаем в массив элементов бокового меню
+            items={sidebarListItems}
+            // Индекс активного элемента боковой панели
+            activeIndex={activeIndex}
+            // Id активного элемента вложенного списка
+            activeItemId={activeListItemId}
+            // Обработка клика списка боковой панели
+            handleActiveClick={handleActiveClick}
+            // Обработка клика у вложенного списка
+            handleActiveClickNodeList={handleActiveClickNestedList}
+            // Высота боковой панели
+            fixedMenuHeight={fixedMenuHeight}
+        />
     );
 };
 
