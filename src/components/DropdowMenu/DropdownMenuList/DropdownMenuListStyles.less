@@ -111,6 +111,22 @@
     }
 }
 
+.apply-pulse(@duration) {
+    animation: heartbeat-pulse @duration forwards;
+}
+
+@keyframes heartbeat-pulse {
+    0% {
+        transform: scale(1); /* Original size */
+    }
+    50% {
+        transform: scale(1.05); /* Slightly larger */
+    }
+    100% {
+        transform: scale(1); /* Return to original size */
+    }
+}
+
 .Sidebar {
     padding: 0;
     //font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -132,6 +148,11 @@
     }
 
     .Sidebar {
+        &-Item_active {
+            & .Sidebar-Link {
+                .apply-pulse(0.7s)
+            }
+        }
         &-Link {
             display: inline-block;
             text-decoration: none;

@@ -1,88 +1,129 @@
-@sidebar-node-list-border-radius: 8px;
+// Масштабирование иконок на 120%
+@scalling-side-menu-icons: 1.2;
+// Скругление углов вложенного списка
+@nested-list-border-radius: 8px;
+// Цвет фона элемента вложенного списка
+@nested-list-item-background-color: #ffffff;
+// Цвет фона элемента вложенного списка при активном состоянии
+@nested-list-active-item-background-color: #2196f3;
+// Цвет текста ссылки элемента вложенного списка
+@nested-list-item-color-text: #2196f3;
+// Цвет ссылки элемента вложенного списка при активном состоянии
+@nested-list-active-item-color-text: #ffffff;
+@nested-list-hover-item-color-text: #2196f3;
+// Цвет ссылки элемента вложенного списка при наведении
+@nested-list-hover-active-item-color-text: #ffffff;
+// Цвет кнопки удаления элемента вложенного списка
+@nested-list-button-delete-item-color: #842029;
+
+/* Ширина контейнера вложенного списка для маленьких мобильных устройств */
+@nested-list-container-width-sm: 120px;
+/* Ширина контейнера вложенного списка для мобильных устройств */
+@nested-list-container-width-md: 140px;
+/* Ширина контейнера вложенного списка для планшетов */
+@nested-list-container-width-lg: 160px;
+/* Ширина контейнера вложенного списка ПК */
+@nested-list-container-width-xl: 180px;
+/* Ширина контейнера вложенного списка для больших ПК */
+@nested-list-container-width-xxl: 200px;
+/* Размер шрифта элемента вложенного списка для маленьких мобильных устройств */
+@nested-list-item-font-size-sm: 15px;
+/* Размер шрифта элемента вложенного списка для мобильных устройств */
+@nested-list-item-font-size-md: 16px;
+/* Размер шрифта элемента вложенного списка для планшетов */
+@nested-list-item-font-size-lg: 17px;
+/* Размер шрифта элемента вложенного списка для ПК */
+@nested-list-item-font-size-xl: 18px;
+/* Размер шрифта элемента вложенного списка для больших ПК */
+@nested-list-item-font-size-xxl: 19px;
+/* Внутренние отступы элемента вложенного списка для маленьких мобильных устройств */
+@nested-list-item-spacing-sm: 4x;
+/* Внутренние отступы элемента вложенного списка для мобильных устройств */
+@nested-list-item-spacing-md: 6px;
+/* Внутренние отступы элемента вложенного списка для планшетов */
+@nested-list-item-spacing-lg: 8px;
+/* Внутренние отступы элемента вложенного списка для ПК */
+@nested-list-item-spacing-xl: 12px;
+/* Внутренние отступы элемента вложенного списка для больших ПК */
+@nested-list-item-spacing-xxl: 16px;
 // Написать хук useStyles() потому что marginLeft считается динамически
 // от размера окна (= высота основного меню)
 @sidebar-node-list-margin-left: 100px;
-@sidebar-node-list-background-color: #ffffff;
-@sidebar-node-item-background-color: #ffffff;
 
-@sidebar-node-list-container-width-sm: 120px;
-@sidebar-node-list-container-width-md: 140px;
-@sidebar-node-list-container-width-lg: 160px;
-@sidebar-node-list-container-width-xl: 180px;
-@sidebar-node-list-container-width-xxl: 200px;
-
-@node-list-item-font-size-sm: 15px;
-@node-list-item-font-size-md: 16px;
-@node-list-item-font-size-lg: 17px;
-@node-list-item-font-size-xl: 18px;
-@node-list-item-font-size-xxl: 19px;
-// Коэффициент для управления размером иконок
-@increasing-icons: 1.2;
 
 .sidebar-node-container-responsive-style() {
   @media (min-width: 344px) {
-    width: @sidebar-node-list-container-width-sm;
+    width: @nested-list-container-width-sm;
   }
 
   @media (min-width: 575px) {
-    width: @sidebar-node-list-container-width-md;
+    width: @nested-list-container-width-md;
   }
 
   @media (min-width: 768px) {
-    width: @sidebar-node-list-container-width-lg;
+    width: @nested-list-container-width-lg;
   }
 
   @media (min-width: 992px) {
-    width: @sidebar-node-list-container-width-xl;
+    width: @nested-list-container-width-xl;
   }
 
   @media (min-width: 1200px) {
-    width: @sidebar-node-list-container-width-xxl;
+    width: @nested-list-container-width-xxl;
   }
 }
 
 .sidebar-node-list-item-responsive-style() {
   @media (min-width: 344px) {
-    font-size: @node-list-item-font-size-sm;
+    font-size: @nested-list-item-font-size-sm;
+    padding: @nested-list-item-spacing-sm;
   }
 
   @media (min-width: 575px) {
-    font-size: @node-list-item-font-size-md;
+    font-size: @nested-list-item-font-size-md;
+    padding: @nested-list-item-spacing-md;
   }
 
   @media (min-width: 768px) {
-    font-size: @node-list-item-font-size-lg;
+    font-size: @nested-list-item-font-size-lg;
+    padding: @nested-list-item-spacing-lg;
   }
 
   @media (min-width: 992px) {
-    font-size: @node-list-item-font-size-xl;
+    font-size: @nested-list-item-font-size-xl;
+    padding: @nested-list-item-spacing-xl;
   }
 
   @media (min-width: 1200px) {
-    font-size: @node-list-item-font-size-xxl;
+    font-size: @nested-list-item-font-size-xxl;
+    padding: @nested-list-item-spacing-xxl;
   }
 }
 
 .sidebar-node-list-item-icon-responsive-style() {
   @media (min-width: 344px) {
-    font-size: @node-list-item-font-size-sm * @increasing-icons;
+    font-size: @nested-list-item-font-size-sm * @scalling-side-menu-icons;
   }
 
   @media (min-width: 575px) {
-    font-size: @node-list-item-font-size-md * @increasing-icons;
+    font-size: @nested-list-item-font-size-md * @scalling-side-menu-icons;
   }
 
   @media (min-width: 768px) {
-    font-size: @node-list-item-font-size-lg * @increasing-icons;
+    font-size: @nested-list-item-font-size-lg * @scalling-side-menu-icons;
   }
 
   @media (min-width: 992px) {
-    font-size: @node-list-item-font-size-lg * @increasing-icons;
+    font-size: @nested-list-item-font-size-lg * @scalling-side-menu-icons;
   }
 
   @media (min-width: 1200px) {
-    font-size: @node-list-item-font-size-xl * @increasing-icons;
+    font-size: @nested-list-item-font-size-xl * @scalling-side-menu-icons;
   }
+}
+
+.apply-pulse(@duration) {
+  animation: heartbeat-pulse @duration forwards;
 }
 
 @keyframes heartbeat-pulse {
@@ -101,8 +142,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: @sidebar-node-list-border-radius;
-  background-color: @sidebar-node-list-background-color;
+  border-radius: @nested-list-border-radius;
   box-shadow:
           0 5px 5px -3px rgba(0, 0, 0, 0.2),
           0 8px 10px 1px rgba(0, 0, 0, 0.14),
@@ -111,26 +151,35 @@
   z-index: 1000;
   .sidebar-node-container-responsive-style();
   &-Item {
-    background-color: @sidebar-node-item-background-color;
+    background-color: @nested-list-item-background-color;
     border: none;
     text-align: left;
     cursor: pointer;
     .sidebar-node-list-item-responsive-style();
     &_active {
-      background-color: #2196f3;
-      animation: heartbeat-pulse 0.7s ease-in-out;
+      background-color: @nested-list-active-item-background-color;
+      .apply-pulse(0.7s);
+    }
+  }
+  &-Item_active {
+    & .SidebarListNode-Link {
+      color: @nested-list-active-item-color-text;
+    }
+  }
+  &-Item_active {
+    & .SidebarListNode-Link:hover {
+      color: @nested-list-hover-active-item-color-text;
     }
   }
   &-Link {
     display: inline-block;
     width: 100%;
-    color: #2196f3;
+    color: @nested-list-item-color-text;
     padding:0;
     cursor: pointer;
-
   }
   &-Link:hover {
-    color: #2196f3;
+    color: @nested-list-hover-item-color-text;
   }
   &-LinkTextContainer {
     display: flex;
@@ -144,51 +193,7 @@
   &-Button {
     .sidebar-node-list-item-icon-responsive-style();
     &_delete {
-      color: #842029;
-    }
-  }
-}
-
-.SidebarListNode-Item_active .SidebarListNode-Link {
-  color: #ffffff;
-}
-
-@media (min-width: 344px) {
-  .SidebarListNode {
-    &-Item {
-      padding: 4px;
-    }
-  }
-}
-
-@media (min-width: 575px) {
-  .SidebarListNode {
-    &-Item {
-      padding: 6px;
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  .SidebarListNode {
-    &-Item {
-      padding: 8px;
-    }
-  }
-}
-
-@media (min-width: 992px) {
-  .SidebarListNode {
-    &-Item {
-      padding: 12px;
-    }
-  }
-}
-
-@media (min-width: 1200px) {
-  .SidebarListNode {
-    &-Item {
-      padding: 14px;
+      color: @nested-list-button-delete-item-color;
     }
   }
 }
