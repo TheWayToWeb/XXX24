@@ -30,9 +30,29 @@ const SidebarListNodeView = ({
     const nestedListMaxHeight = fixedMenuHeight * nestedListHeightPercent;
     // Инициализируем новый массив
     const [localItems, setLocalItems] = useState(items);
-    // Функция удаления элемента массива по его id
+    // Функция удаления элемента массива бокового меню по его id
     const removeItem = (itemId) => {
         setLocalItems(prev => prev.filter(item => item.id !== itemId));
+    };
+    // Функция удаления элемента массива вложенного списка
+    const removeNestedListItem = (childId) => {
+      setLocalItems(prevItems =>
+        prevItems.map(item => {
+            // Проверяем не пуст ли родительский элемент
+            // чей массив children нужно изменить
+            if (item.children.length > 0) {
+                // Возвращаем новый объект item, скопировав все его свойства
+                // и обновляем вложенный массив children
+                return {
+                    ...item,
+                    children: item.children.filter(child => child.id !== childId)
+                };
+            }
+            // Если у item вложенный массив children отсутствует
+            // возвращаем его без изменений
+            return item;
+        })
+      );
     };
 
     return (
@@ -133,6 +153,7 @@ const SidebarListNodeView = ({
                                                                 'SidebarListNode-Button',
                                                                 'SidebarListNode-Button_delete'
                                                         )}
+                                                        onClick={() => {removeNestedListItem(child.id)}}
                                                     >
                                                         <Check2 />
                                                     </span>
