@@ -10,7 +10,7 @@ import {
     Shipment,
     Counterparties,
     CustomerInvoices
-} from '../Desktops/Sales';
+} from './Sales';
 
 import {
     ProcessBid,
@@ -22,25 +22,25 @@ import {
     PurchaseProduction,
     GiveBackSupplier,
     ProvisionContainer
-} from '../Desktops/Purchases';
+} from './Purchases';
 
 import {
-    GrindingContainer,
-    HeatTreatmentContainer,
-    HotLandingContainer,
-    InteroperationalContainer,
-    LazerContainer,
-    MarkingContainer,
-    MillingContainer,
-    ProductionContainer,
-    ProductionOperationsContainer,
-    SawingContainer,
-    ThreadRollingContainer,
-    ThroughHolesContainer,
-    TurningContainer,
-    CncContainer,
-    ColdLandingContainer
-} from '../Desktops/Production';
+    Grinding,
+    HeatTreatment,
+    HotLanding,
+    Interoperational,
+    Lazer,
+    Marking,
+    Milling,
+    Production,
+    ProductionOperations,
+    Sawing,
+    ThreadRolling,
+    ThroughHoles,
+    Turning,
+    Cnc,
+    ColdLanding
+} from './Production';
 
 import {
     AccountMovements,
@@ -54,7 +54,36 @@ import {
     Unloading,
     Calculations,
     CashDocuments
-} from '../Desktops/Accounting';
+} from './Accounting';
+
+import {
+    Acceptance,
+    Batches,
+    Cancellation,
+    GiveOut,
+    InventoryAudit,
+    Posting,
+    ProductExport, StockBalance, Stocks, Storage, Transfer
+} from "./Warehouses";
+
+import {
+    Classification,
+    CoatingsTypes,
+    Configurations,
+    CounterpartyRegisters,
+    DirectoriesCodesOperations,
+    DirectoryContacts,
+    GOST_OST_Lists,
+    MaterialGrades,
+    MaterialGroup,
+    MaterialsHandbook,
+    MaterialStrengthClasses,
+    Nomenclature,
+    ProductionOperationsGuides,
+    ProductTypes,
+    SalesFunnels,
+    StorageSpace
+} from './References'
 
 // Создаем объект с именами ключей и компонентами
 const componentsMap = {
@@ -80,21 +109,34 @@ const componentsMap = {
     provision: ProvisionContainer,
 
     // Все столы производства
-    grindingContainer: GrindingContainer,
-    heatTreatmentContainer: HeatTreatmentContainer,
-    hotLandingContainer: HotLandingContainer,
-    interoperationalContainer: InteroperationalContainer,
-    lazerContainer: LazerContainer,
-    markingContainer: MarkingContainer,
-    millingContainer: MillingContainer,
-    productionContainer: ProductionContainer,
-    productionOperationsContainer: ProductionOperationsContainer,
-    sawingContainer: SawingContainer,
-    threadRollingContainer: ThreadRollingContainer,
-    throughHolesContainer: ThroughHolesContainer,
-    turningContainer: TurningContainer,
-    cncContainer: CncContainer,
-    coldLandingContainer: ColdLandingContainer,
+    grinding: Grinding,
+    heatTreatment: HeatTreatment,
+    hotLanding: HotLanding,
+    interoperational: Interoperational,
+    lazer: Lazer,
+    marking: Marking,
+    milling: Milling,
+    production: Production,
+    productionOperations: ProductionOperations,
+    sawing: Sawing,
+    threadRolling: ThreadRolling,
+    throughHoles: ThroughHoles,
+    turning: Turning,
+    cnc: Cnc,
+    coldLanding: ColdLanding,
+
+    /* Все столы склада */
+    acceptance: Acceptance,
+    batches: Batches,
+    cancellation: Cancellation,
+    giveOut: GiveOut,
+    inventoryAudit: InventoryAudit,
+    posting: Posting,
+    productExport: ProductExport,
+    stockBalance: StockBalance,
+    stocks: Stocks,
+    storage: Storage,
+    transfer: Transfer,
 
     /* Все столы бухгалтерии */
     accountMovements: AccountMovements,
@@ -108,6 +150,24 @@ const componentsMap = {
     unloading: Unloading,
     calculations: Calculations,
     cashDocuments: CashDocuments,
+
+    /* Все справочники */
+    classification: Classification,
+    coatingsTypes: CoatingsTypes,
+    configurations: Configurations,
+    counterpartyRegisters: CounterpartyRegisters,
+    directoriesCodesOperations: DirectoriesCodesOperations,
+    directoryContacts: DirectoryContacts,
+    gost_ost_lists: GOST_OST_Lists,
+    materialGrades: MaterialGrades,
+    materialGroup: MaterialGroup,
+    materialsHandbook: MaterialsHandbook,
+    materialStrengthClasses: MaterialStrengthClasses,
+    nomenclature: Nomenclature,
+    productionOperationsGuides: ProductionOperationsGuides,
+    productTypes: ProductTypes,
+    salesFunnels: SalesFunnels,
+    storageSpace: StorageSpace,
 };
 
 // Автоматически создаем объект с React-элементами
