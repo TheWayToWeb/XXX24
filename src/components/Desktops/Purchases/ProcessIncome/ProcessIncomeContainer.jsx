@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProcessIncomeContainer = () => {
     return (
-        <div>
+        <div className="Desktop">
             Рабочий стол обработки поступлений
         </div>
     );

@@ -2,21 +2,21 @@ import React from 'react';
 
 /* Импортируем компоненты рабочих столов */
 import {
-    ContactsContainer,
-    DocumentFlowContainer,
-    LeadsContainer,
-    SalesOrdersContainer,
-    SalesReportsContainer,
-    ShipmentContainer,
-    CounterpartiesContainer,
-    CustomerInvoicesContainer
+    Contacts,
+    DocumentFlow,
+    Leads,
+    SalesOrders,
+    SalesReports,
+    Shipment,
+    Counterparties,
+    CustomerInvoices
 } from '../Desktops/Sales';
 
 import {
-    ProcessBidContainer,
-    ProcessIncomeContainer,
-    PurchasesOrdersContainer,
-    IncomesContainer,
+    ProcessBid,
+    ProcessIncome,
+    PurchasesOrders,
+    Incomes,
     ImportIncomes,
     PurchaseIncome,
     PurchaseProduction,
@@ -24,28 +24,90 @@ import {
     ProvisionContainer
 } from '../Desktops/Purchases';
 
+import {
+    GrindingContainer,
+    HeatTreatmentContainer,
+    HotLandingContainer,
+    InteroperationalContainer,
+    LazerContainer,
+    MarkingContainer,
+    MillingContainer,
+    ProductionContainer,
+    ProductionOperationsContainer,
+    SawingContainer,
+    ThreadRollingContainer,
+    ThroughHolesContainer,
+    TurningContainer,
+    CncContainer,
+    ColdLandingContainer
+} from '../Desktops/Production';
+
+import {
+    AccountMovements,
+    CashAccruals,
+    Implementations,
+    ImportPayments,
+    MaterialsProcessing,
+    OperationTypes,
+    Payment,
+    PaymentRequest,
+    Unloading,
+    Calculations,
+    CashDocuments
+} from '../Desktops/Accounting';
+
 // Создаем объект с именами ключей и компонентами
 const componentsMap = {
     // Все столы Продаж
-    contactsContainer: ContactsContainer,
-    documentFlowContainer: DocumentFlowContainer,
-    leadsContainer: LeadsContainer,
-    salesOrdersContainer: SalesOrdersContainer,
-    salesReportsContainer: SalesReportsContainer,
-    shipmentContainer: ShipmentContainer,
-    counterpartiesContainer: CounterpartiesContainer,
-    customerInvoicesContainer: CustomerInvoicesContainer,
+    contacts: Contacts,
+    documentFlow: DocumentFlow,
+    leads: Leads,
+    salesOrders: SalesOrders,
+    salesReports: SalesReports,
+    shipment: Shipment,
+    counterparties: Counterparties,
+    customerInvoices: CustomerInvoices,
 
     // Все столы покупок
-    processBidContainer: ProcessBidContainer,
-    processIncomeContainer: ProcessIncomeContainer,
-    purchasesOrdersContainer: PurchasesOrdersContainer,
-    incomesContainer: IncomesContainer,
+    processBid: ProcessBid,
+    processIncome: ProcessIncome,
+    purchasesOrders: PurchasesOrders,
+    incomes: Incomes,
     importIncomes: ImportIncomes,
     purchaseIncome: PurchaseIncome,
     purchaseProduction: PurchaseProduction,
     giveBackSupplier: GiveBackSupplier,
-    provisionContainer: ProvisionContainer
+    provision: ProvisionContainer,
+
+    // Все столы производства
+    grindingContainer: GrindingContainer,
+    heatTreatmentContainer: HeatTreatmentContainer,
+    hotLandingContainer: HotLandingContainer,
+    interoperationalContainer: InteroperationalContainer,
+    lazerContainer: LazerContainer,
+    markingContainer: MarkingContainer,
+    millingContainer: MillingContainer,
+    productionContainer: ProductionContainer,
+    productionOperationsContainer: ProductionOperationsContainer,
+    sawingContainer: SawingContainer,
+    threadRollingContainer: ThreadRollingContainer,
+    throughHolesContainer: ThroughHolesContainer,
+    turningContainer: TurningContainer,
+    cncContainer: CncContainer,
+    coldLandingContainer: ColdLandingContainer,
+
+    /* Все столы бухгалтерии */
+    accountMovements: AccountMovements,
+    cashAccruals: CashAccruals,
+    implementations: Implementations,
+    importPayments: ImportPayments,
+    materialsProcessing: MaterialsProcessing,
+    operationTypes: OperationTypes,
+    payment: Payment,
+    paymentRequest: PaymentRequest,
+    unloading: Unloading,
+    calculations: Calculations,
+    cashDocuments: CashDocuments,
 };
 
 // Автоматически создаем объект с React-элементами

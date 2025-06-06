@@ -1,8 +1,9 @@
 import React from 'react';
+import '../../GeneralCssDesktops.css';
 
 const ProcessBidContainer = () => {
     return (
-        <div>
+        <div className="Desktop">
             Обработка заявок
         </div>
     );

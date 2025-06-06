@@ -1,8 +1,9 @@
 import React from 'react';
+import '../../GeneralCssDesktops.css';
 
 const LeadsContainer = () => {
     return (
-        <div>
+        <div className="Desktop">
             Рабочий стол лидов
         </div>
     );

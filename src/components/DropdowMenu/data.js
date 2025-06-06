@@ -9,50 +9,50 @@ export const data = [
             {
                 id: v4(),
                 text: "Заказы",
-                path: "/orders",
-                routeComponentName: "salesOrdersContainer"
+                path: "/",
+                routeComponentName: "salesOrders"
             },
             {
                 id: v4(),
                 text: "Отгрузки",
                 path: "/shipment",
-                routeComponentName: "shipmentContainer"
+                routeComponentName: "shipment"
             },
             {
                 id: v4(),
                 text: "Контакты",
                 path: "/contacts",
-                routeComponentName: "contactsContainer"
+                routeComponentName: "contacts"
             },
             {
                 id: v4(),
                 text: "Контрагенты",
                 path: "/counterparties",
-                routeComponentName: "counterpartiesContainer"
+                routeComponentName: "counterparties"
             },
             {
                 id: v4(),
                 text: "Отчеты продаж",
                 path: "/sales_reports",
-                routeComponentName: "salesReportsContainer"
+                routeComponentName: "salesReports"
             },
             {
                 id: v4(),
                 text: "Лиды",
                 path: "/leads",
-                routeComponentName: "leadsContainer"
+                routeComponentName: "leads"
             },
             {
                 id: v4(),
                 text: "Счета покупателям",
                 path: "/customer_invoices",
-                routeComponentName: "customerInvoicesContainer"
+                routeComponentName: "customerInvoices"
             },
             {
                 id: v4(),
                 text: "Документооборот",
                 path: "/document_flow",
-                routeComponentName: "documentFlowContainer"
+                routeComponentName: "documentFlow"
             }
         ]
     },
@@ -60,15 +60,60 @@ export const data = [
         id: 2,
         text: "Покупки",
         children: [
-            { id: v4(), text: "Обработка заявок", path: "/process_bid" },
-            { id: v4(), text: "Обработка поступлений", path: "/process_income" },
-            { id: v4(), text: "Заказы", path: "/orders" },
-            { id: v4(), text: "Поступления", path: "/incomes" },
-            { id: v4(), text: "Импортные поступления", path: "/import_incomes" },
-            { id: v4(), text: "Заявки на закупку", path: "/purchase_income" },
-            { id: v4(), text: "Заявки на производство", path: "/purchase_production" },
-            { id: v4(), text: "Возвраты поставщикам", path: "/give_back_supplier" },
-            { id: v4(), text: "Снабжение", path: "/provision" }
+            {
+                id: v4(),
+                text: "Обработка заявок",
+                path: "/process_bid",
+                routeComponentName: "processBid"
+            },
+            {
+                id: v4(),
+                text: "Обработка поступлений",
+                path: "/process_income",
+                routeComponentName: "processIncome"
+            },
+            {
+                id: v4(),
+                text: "Заказы",
+                path: "/orders",
+                routeComponentName: "purchasesOrders"
+            },
+            {
+                id: v4(),
+                text: "Поступления",
+                path: "/incomes",
+                routeComponentName: "incomes"
+            },
+            {
+                id: v4(),
+                text: "Импортные поступления",
+                path: "/import_incomes",
+                routeComponentName: "importIncomes"
+            },
+            {
+                id: v4(),
+                text: "Заявки на закупку",
+                path: "/purchase_income",
+                routeComponentName: "purchaseIncome"
+            },
+            {
+                id: v4(),
+                text: "Заявки на производство",
+                path: "/purchase_production",
+                routeComponentName: "purchaseProduction"
+            },
+            {
+                id: v4(),
+                text: "Возвраты поставщикам",
+                path: "/give_back_supplier",
+                routeComponentName: "giveBackSupplier"
+            },
+            {
+                id: v4(),
+                text: "Снабжение",
+                path: "/provision",
+                routeComponentName: "provision"
+            }
         ]
     },
     {
@@ -113,17 +158,73 @@ export const data = [
         id: 5,
         text: "Бухгалтерия",
         children: [
-            { id: v4(), text: "Оплата", path: "/payment" },
-            { id: v4(), text: "Заявка на оплату", path: "/payment_request" },
-            { id: v4(), text: "Кассовые документы", path: "/cash_documents" },
-            { id: v4(), text: "Импорт оплат", path: "import_payments" },
-            { id: v4(), text: "Реализации (акты, УПД, накладные)", path: "/implementations" },
-            { id: v4(), text: "Переработка сырья", path: "/materials_processing" },
-            { id: v4(), text: "Начисления", path: "/cash_accruals" },
-            { id: v4(), text: "Движения по счетам", path: "/account_movements" },
-            { id: v4(), text: "Выгрузка", path: "/unloading" },
-            { id: v4(), text: "Расчеты", path: "/calculations" },
-            { id: v4(), text: "Виды операций", path: "/operation_types" }
+            {
+                id: v4(),
+                text: "Оплата",
+                path: "/payment",
+                routeComponentName: "payment"
+            },
+            {
+                id: v4(),
+                text: "Заявка на оплату",
+                path: "/payment_request",
+                routeComponentName: "paymentRequest"
+            },
+            {
+                id: v4(),
+                text: "Кассовые документы",
+                path: "/cash_documents",
+                routeComponentName: "cashDocuments"
+            },
+            {
+                id: v4(),
+                text: "Импорт оплат",
+                path: "import_payments",
+                routeComponentName: "importPayments"
+            },
+            {
+                id: v4(),
+                text: "Реализации (акты, УПД, накладные)",
+                path: "/implementations",
+                routeComponentName: "implementations"
+            },
+            {
+                id: v4(),
+                text: "Переработка сырья",
+                path: "/materials_processing",
+                routeComponentName: "materialsProcessing"
+            },
+            {
+                id: v4(),
+                text: "Начисления",
+                path: "/cash_accruals",
+                routeComponentName: "cashAccruals"
+            },
+            {
+                id: v4(),
+                text: "Движения по счетам",
+                path: "/account_movements",
+                routeComponentName: "accountMovements"
+
+            },
+            {
+                id: v4(),
+                text: "Выгрузка",
+                path: "/unloading",
+                routeComponentName: "unloading"
+            },
+            {
+                id: v4(),
+                text: "Расчеты",
+                path: "/calculations",
+                routeComponentName: "calculations"
+            },
+            {
+                id: v4(),
+                text: "Виды операций",
+                path: "/operation_types",
+                routeComponentName: "operationTypes"
+            }
         ]
     },
     {

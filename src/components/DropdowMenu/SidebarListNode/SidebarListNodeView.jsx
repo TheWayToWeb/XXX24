@@ -25,7 +25,7 @@ const SidebarListNodeView = ({
                                  fixedMenuHeight, // Высота бокового меню
                              }) => {
     // Процентная часть
-    const nestedListHeightPercent = 0.7;
+    const nestedListHeightPercent = 0.75;
     // Корректировка высоты выпадающего списка с помощью процентной части
     const nestedListMaxHeight = fixedMenuHeight * nestedListHeightPercent;
     // Инициализируем новый массив
@@ -78,7 +78,9 @@ const SidebarListNodeView = ({
                                 'Sidebar-LinkTextContainer'
                             )}>
                                 <span className="Sidebar-IconContainer">{iconMapping[index]}</span>
-                                {canStretch && <span>{item.text}</span>}
+                                {canStretch && (
+                                    <span className="Sidebar-LinkText">{item.text}</span>
+                                )}
                             </div>
                             {canStretch && (
                                 <div className={classNames(
@@ -113,6 +115,7 @@ const SidebarListNodeView = ({
                         })}
                         style={{
                             overflow: 'auto',
+                            minHeight: `${fixedMenuHeight * 0.5}px`,
                             maxHeight: `${nestedListMaxHeight}px`,
                             marginLeft: `${stretchSideMenuWidth}px`,
                             transition: "margin-left 0.5s ease-in-out",

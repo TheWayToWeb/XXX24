@@ -176,6 +176,12 @@
         &-IconContainer {
             .sidebar-list-icon-responsive-styles();
         }
+        &-LinkText {
+            /* Эти строки нужны чтобы не сломало верстку */
+            max-width: 130px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         &-ButtonItem {
             border-radius: @sidebar-border-radius;
             .sidebar-list-icon-responsive-styles();

@@ -189,6 +189,10 @@
     display: inline-block;
     width: 100%;
     text-align: center;
+    /* Ограничиваем текст пунктов меню чтобы не ломало верстку */
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   &-Button {
     .sidebar-node-list-item-icon-responsive-style();
