@@ -120,38 +120,168 @@ export const data = [
         id: 3,
         text: "Производство",
         children: [
-            { id: v4(), "text": "Производство", "path": "/production" },
-            { id: v4(), "text": "Производственные операции", "path": "/production_operations" },
-            { id: v4(), "text": "Межоперационный", "path": "/interoperational" },
-            { id: v4(), "text": "Распиловка", "path": "/sawing" },
-            { id: v4(), "text": "ЧПУ", "path": "/cnc" },
-            { id: v4(), "text": "Токарка", "path": "/turning" },
-            { id: v4(), "text": "Фрезеровка", "path": "/milling" },
-            { id: v4(), "text": "Контровочные отверстия", "path": "/through_holes" },
-            { id: v4(), "text": "Холодная высадка", "path": "/cold_landing" },
-            { id: v4(), "text": "Горячая высадка", "path": "/hot_landing" },
-            { id: v4(), "text": "Накатка резьбы", "path": "/thread_rolling" },
-            { id: v4(), "text": "Маркировка", "path": "/marking" },
-            { id: v4(), "text": "Лазер", "path": "/lazer" },
-            { id: v4(), "text": "Термичка", "path": "/heat_treatment" },
-            { id: v4(), "text": "Шлифовка", "path": "/grinding" }
+            {
+                id: v4(),
+                "text": "Производство",
+                "path": "/production",
+                routeComponentName: "production"
+            },
+            {
+                id: v4(),
+                "text": "Производственные операции",
+                "path": "/production_operations",
+                routeComponentName: "productionOperations"
+            },
+            {
+                id: v4(),
+                "text": "Межоперационный",
+                "path": "/interoperational",
+                routeComponentName: "interoperational"
+            },
+            {
+                id: v4(),
+                "text": "Распиловка",
+                "path": "/sawing",
+                routeComponentName: "sawing"
+            },
+            {
+                id: v4(),
+                "text": "ЧПУ",
+                "path": "/cnc",
+                routeComponentName: "cnc"
+            },
+            {
+                id: v4(),
+                "text": "Токарка",
+                "path": "/turning",
+                routeComponentName: "turning"
+            },
+            {
+                id: v4(),
+                "text": "Фрезеровка",
+                "path": "/milling",
+                routeComponentName: "milling"
+            },
+            {
+                id: v4(),
+                "text": "Контровочные отверстия",
+                "path": "/through_holes",
+                routeComponentName: "throughHoles"
+            },
+            {
+                id: v4(),
+                "text": "Холодная высадка",
+                "path": "/cold_landing",
+                routeComponentName: "coldLanding"
+            },
+            {
+                id: v4(),
+                "text": "Горячая высадка",
+                "path": "/hot_landing",
+                routeComponentName: "hotLanding"
+            },
+            {
+                id: v4(),
+                "text": "Накатка резьбы",
+                "path": "/thread_rolling",
+                routeComponentName: "threadRolling"
+            },
+            {
+                id: v4(),
+                "text": "Маркировка",
+                "path": "/marking",
+                routeComponentName: "marking"
+            },
+            {
+                id: v4(),
+                "text": "Лазер",
+                "path": "/lazer",
+                routeComponentName: "lazer"
+            },
+            {
+                id: v4(),
+                "text": "Термичка",
+                "path": "/heat_treatment",
+                routeComponentName: "heatTreatment"
+            },
+            {
+                id: v4(),
+                "text": "Шлифовка",
+                "path": "/grinding",
+                routeComponentName: "grinding"
+            }
         ]
     },
     {
         id: 4,
         text: "Склады",
         children: [
-            { id: v4(), text: "Приемка", path: "/acceptance" },
-            { id: v4(), text: "Партии", path: "/batches" },
-            { id: v4(), text: "Перемещения ТМЦ", path: "/transfer" },
-            { id: v4(), text: "Выдача ТМЦ", path: "/give_out" },
-            { id: v4(), text: "Списания", path: "/cancellation" },
-            { id: v4(), text: "Склады", path: "/stocks" },
-            { id: v4(), text: "Остатки склада", path: "/stock_balance" },
-            { id: v4(), text: "Инвентаризация", path: "/inventory_audit" },
-            { id: v4(), text: "Оприходование", path: "/posting" },
-            { id: v4(), text: "Хранение сырья", path: "/storage" },
-            { id: v4(), text: "Отгрузка", path: "/product_export" }
+            {
+                id: v4(),
+                text: "Приемка",
+                path: "/acceptance",
+                routeComponentName: "acceptance"
+            },
+            {
+                id: v4(),
+                text: "Партии",
+                path: "/batches",
+                routeComponentName: "batches"
+            },
+            {
+                id: v4(),
+                text: "Перемещения ТМЦ",
+                path: "/transfer",
+                routeComponentName: "transfer"
+            },
+            {
+                id: v4(),
+                text: "Выдача ТМЦ",
+                path: "/give_out",
+                routeComponentName: "giveOut"
+            },
+            {
+                id: v4(),
+                text: "Списания",
+                path: "/cancellation",
+                routeComponentName: "cancellation"
+            },
+            {
+                id: v4(),
+                text: "Склады",
+                path: "/stocks",
+                routeComponentName: "stocks"
+            },
+            {
+                id: v4(),
+                text: "Остатки склада",
+                path: "/stock_balance",
+                routeComponentName: "stockBalance"
+            },
+            {
+                id: v4(),
+                text: "Инвентаризация",
+                path: "/inventory_audit",
+                routeComponentName: "inventoryAudit"
+            },
+            {
+                id: v4(),
+                text: "Оприходование",
+                path: "/posting",
+                routeComponentName: "posting"
+            },
+            {
+                id: v4(),
+                text: "Хранение сырья",
+                path: "/storage",
+                routeComponentName: "storage"
+            },
+            {
+                id: v4(),
+                text: "Отгрузка",
+                path: "/product_export",
+                routeComponentName: "productExport"
+            }
         ]
     },
     {
@@ -231,22 +361,103 @@ export const data = [
         id: 6,
         text: "Справочники",
         children: [
-            { id: v4(), text: "Контакты", path: "/contacts" },
-            { id: v4(), text: "Контрагенты", path: "" },
-            { id: v4(), text: "Номенклатура", path: "" },
-            { id: v4(), text: "Операции", path: "" },
-            { id: v4(), text: "Места хранения", path: "" },
-            { id: v4(), text: "Операционные коды", path: "" },
-            { id: v4(), text: "Воронки", path: "" },
-            { id: v4(), text: "Материалы", path: "" },
-            { id: v4(), text: "Марки материалов", path: "" },
-            { id: v4(), text: "Классы прочности материалов", path: "" },
-            { id: v4(), text: "Группа материалов", path: "" },
-            { id: v4(), text: "Сортаменты", path: "" },
-            { id: v4(), text: "Исполнения", path: "" },
-            { id: v4(), text: "Виды изделия", path: "" },
-            { id: v4(), text: "ГОСТ/ОСТ", path: "" },
-            { id: v4(), text: "Виды покрытий", path: "" }
+            {
+                id: v4(),
+                text: "Справочник контактов",
+                path: "/directory_contacts",
+                routeComponentName: "directoryContacts"
+
+            },
+            {
+                id: v4(),
+                text: "Справочник контрагентов",
+                path: "/counterparty_registers",
+                routeComponentName: "counterpartyRegisters"
+            },
+            {
+                id: v4(),
+                text: "Номенклатура",
+                path: "/nomenclature",
+                routeComponentName: "nomenclature"
+            },
+            {
+                id: v4(),
+                text: "Справочник производственных операций",
+                path: "/production_operations_guides",
+                routeComponentName: "productionOperationsGuides"
+            },
+            {
+                id: v4(),
+                text: "Места хранения",
+                path: "/storage_space",
+                routeComponentName: "storageSpace"
+            },
+            {
+                id: v4(),
+                text: "Справочник операционных кодов",
+                path: "/directories_codes_operations",
+                routeComponentName: "directoriesCodesOperations"
+            },
+            {
+                id: v4(),
+                text: "Воронки",
+                path: "/sales_funnels",
+                routeComponentName: "salesFunnels"
+            },
+            {
+                id: v4(),
+                text: "Справочник материалов",
+                path: "/materials_handbook",
+                routeComponentName: "materialsHandbook"
+            },
+            {
+                id: v4(),
+                text: "Марки материалов",
+                path: "/material_grades",
+                routeComponentName: "materialGrades"
+            },
+            {
+                id: v4(),
+                text: "Классы прочности материалов",
+                path: "/material_strength_classes",
+                routeComponentName: "materialStrengthClasses"
+            },
+            {
+                id: v4(),
+                text: "Группа материалов",
+                path: "/material_group",
+                routeComponentName: "materialGroup"
+            },
+            {
+                id: v4(),
+                text: "Сортаменты",
+                path: "/classification",
+                routeComponentName: "classification"
+            },
+            {
+                id: v4(),
+                text: "Исполнения",
+                path: "/configurations",
+                routeComponentName: "configurations"
+            },
+            {
+                id: v4(),
+                text: "Виды изделий",
+                path: "/productTypes",
+                routeComponentName: "productTypes"
+            },
+            {
+                id: v4(),
+                text: "ГОСТ/ОСТ",
+                path: "/GOST_OST_Lists",
+                routeComponentName: "gost_ost_lists"
+            },
+            {
+                id: v4(),
+                text: "Виды покрытий",
+                path: "/coatingsTypes",
+                routeComponentName: "coatingsTypes"
+            }
         ]
     },
     {
