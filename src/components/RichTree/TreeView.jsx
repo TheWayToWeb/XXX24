@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import ContainerFluid from "../Application/ContainerFluid/ContainerFluidView.jsx";
+import ContainerFluid from "../../shared/ContainerFluid/ContainerFluidView.jsx";
 import TreeIconView from "./TreeIcon/TreeIconView.jsx";
 import SubTreeView from "./SubTree/SubTreeView.jsx";
-import NotifyLoaderView from "../Application/NotifyLoader/NotifyLoaderView.jsx";
+import NotifyLoaderView from "../../shared/NotifyLoader/NotifyLoaderView.jsx";
 import { ChevronRight, Folder } from "react-bootstrap-icons";
 import InfiniteScroll from "react-infinite-scroll-component";
 import './TreeStyles.less';

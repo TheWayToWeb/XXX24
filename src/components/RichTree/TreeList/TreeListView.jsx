@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ContainerFluid from "../../Application/ContainerFluid/ContainerFluidView.jsx";
+import ContainerFluid from "../../../shared/ContainerFluid/ContainerFluidView.jsx";
 import TreeIconView from "../TreeIcon/TreeIconView.jsx";
 import { Folder } from "react-bootstrap-icons";
 import './TreeListStyles.less';

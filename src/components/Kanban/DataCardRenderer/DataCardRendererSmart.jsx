@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import DataCardRendererView
     from "./DataCardRendererView.jsx";
-import NotifyLoaderView from "../../Application/NotifyLoader/NotifyLoaderView.jsx";
+import NotifyLoaderView from "../../../shared/NotifyLoader/NotifyLoaderView.jsx";
 // выполняем импорт необходимого контекста
 import { KanbanListContext } from "../KanbanList/KanbanListView.jsx";
 

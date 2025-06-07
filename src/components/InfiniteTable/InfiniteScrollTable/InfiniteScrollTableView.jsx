@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import NotifyLoaderView from "../../Application/NotifyLoader/NotifyLoaderView.jsx";
+import NotifyLoaderView from "../../../shared/NotifyLoader/NotifyLoaderView.jsx";
 import InfiniteTableDataStateNotifyIndexView
     from "../InfiniteTableDataStateNotify/InfiniteTableDataStateNotifyIndexView.jsx";
 import TableView from '../Table/TableView.jsx'; // Импортируем компонент TableView

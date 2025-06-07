@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from "classnames";
-import ContainerFluidView from "../Application/ContainerFluid/ContainerFluidView.jsx";
+import ContainerFluidView from "../../shared/ContainerFluid/ContainerFluidView.jsx";
 import KanbanListIndexView from "./KanbanList/KanbanListIndexView.jsx";
 
 const KanbanBoardView = () => {
