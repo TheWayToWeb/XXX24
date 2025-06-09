@@ -464,26 +464,96 @@ export const data = [
         id: 7,
         text: "Отчеты",
         children: [
-            { id: v4(), text: "Анализ продукции", path: "/product_analysis" },
-            { id: v4(), text: "Валовая прибыль", path: "/gross_profit" },
-            { id: v4(), text: "Изменение цен", path: "/price_changes" },
-            { id: v4(), text: "Отчеты сотрудников", path: "/employee_reports" },
+            {
+                id: v4(),
+                text: "Анализ продукции",
+                path: "/product_analysis",
+                routeComponentName: "productAnalysis"
+            },
+            {
+                id: v4(),
+                text: "Валовая прибыль",
+                path: "/gross_profit",
+                routeComponentName: "grossProfit"
+            },
+            {
+                id: v4(),
+                text: "Изменение цен",
+                path: "/price_changes",
+                routeComponentName: "priceChanges"
+            },
+            {
+                id: v4(),
+                text: "Отчеты сотрудников",
+                path: "/employee_reports",
+                routeComponentName: "employeeReports"
+            },
         ]
     },
     {
         id: 8,
         text: "Настройки",
         children: [
-            { id: v4(), text: "Компании", path: "" },
-            { id: v4(), text: "Организации", path: "" },
-            { id: v4(), text: "Подразделения", path: "" },
-            { id: v4(), text: "Должности", path: "" },
-            { id: v4(), text: "Роли", path: "" },
-            { id: v4(), text: "Сотрудники", path: "" },
-            { id: v4(), text: "Отпуска", path: "" },
-            { id: v4(), text: "Типы оборудования", path: "" },
-            { id: v4(), text: "Типы производства", path: "" },
-            { id: v4(), text: "Метки", path: "" }
+            {
+                id: v4(),
+                text: "Компании",
+                path: "/companies",
+                routeComponentName: "companies"
+            },
+            {
+                id: v4(),
+                text: "Организации",
+                path: "/organizations",
+                routeComponentName: "organizations"
+            },
+            {
+                id: v4(),
+                text: "Подразделения",
+                path: "/units",
+                routeComponentName: "units"
+            },
+            {
+                id: v4(),
+                text: "Должности",
+                path: "/positions",
+                routeComponentName: "positions"
+            },
+            {
+                id: v4(),
+                text: "Роли",
+                path: "/roles",
+                routeComponentName: "roles"
+            },
+            {
+                id: v4(),
+                text: "Сотрудники",
+                path: "/employees",
+                routeComponentName: "employees"
+            },
+            {
+                id: v4(),
+                text: "Отпуска",
+                path: "/vacations",
+                routeComponentName: "vacations"
+            },
+            {
+                id: v4(),
+                text: "Типы оборудования",
+                path: "/equipmentTypes",
+                routeComponentName: "equipmentTypes"
+            },
+            {
+                id: v4(),
+                text: "Типы производства",
+                path: "/productionTypes",
+                routeComponentName: "productionTypes"
+            },
+            {
+                id: v4(),
+                text: "Метки",
+                path: "/tags",
+                routeComponentName: "tags"
+            }
         ]
     }
 ];
