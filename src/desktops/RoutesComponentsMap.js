@@ -10,7 +10,7 @@ import {
     Shipment,
     Counterparties,
     CustomerInvoices
-} from './Sales/index.js';
+} from './Sales';
 
 import {
     ProcessBid,
@@ -22,7 +22,7 @@ import {
     PurchaseProduction,
     GiveBackSupplier,
     ProvisionContainer
-} from './Purchases/index.js';
+} from './Purchases';
 
 import {
     Grinding,
@@ -40,7 +40,7 @@ import {
     Turning,
     Cnc,
     ColdLanding
-} from './Production/index.js';
+} from './Production';
 
 import {
     AccountMovements,
@@ -54,7 +54,7 @@ import {
     Unloading,
     Calculations,
     CashDocuments
-} from './Accounting/index.js';
+} from './Accounting';
 
 import {
     Acceptance,
@@ -64,7 +64,7 @@ import {
     InventoryAudit,
     Posting,
     ProductExport, StockBalance, Stocks, Storage, Transfer
-} from "./Warehouses/index.js";
+} from "./Warehouses";
 
 import {
     Classification,
@@ -83,7 +83,27 @@ import {
     ProductTypes,
     SalesFunnels,
     StorageSpace
-} from './References/index.js'
+} from './References'
+
+import {
+    EmployeeReports,
+    GrossProfit,
+    PriceChanges,
+    ProductAnalysis
+} from './Reports'
+
+import {
+    Companies,
+    Organizations,
+    Units,
+    Positions,
+    Roles,
+    Employees,
+    Vacations,
+    EquipmentTypes,
+    ProductionTypes,
+    Tags
+} from './Settings';
 
 // Создаем объект с именами ключей и компонентами
 const componentsMap = {
@@ -168,6 +188,24 @@ const componentsMap = {
     productTypes: ProductTypes,
     salesFunnels: SalesFunnels,
     storageSpace: StorageSpace,
+
+    /* Все отчеты */
+    employeeReports: EmployeeReports,
+    grossProfit: GrossProfit,
+    priceChanges: PriceChanges,
+    productAnalysis: ProductAnalysis,
+
+    /* Все настроечные столы */
+    companies: Companies,
+    organizations: Organizations,
+    units: Units,
+    positions: Positions,
+    roles: Roles,
+    employees: Employees,
+    vacations: Vacations,
+    equipmentTypes: EquipmentTypes,
+    productionTypes: ProductionTypes,
+    tags: Tags,
 };
 
 // Автоматически создаем объект с React-элементами
