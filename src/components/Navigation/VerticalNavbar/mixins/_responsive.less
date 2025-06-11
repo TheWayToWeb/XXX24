@@ -1,0 +1,27 @@
+@width-sm: 70px;
+@width-md: 75px;
+@width-lg: 85px;
+@width-xl: 90px;
+@width-xxl: 100px;
+
+.responsive-width-list() {
+  @media (min-width: 344px) {
+    width: @width-sm;
+  }
+
+  @media (min-width: 575px) {
+    width: @width-md;
+  }
+
+  @media (min-width: 768px) {
+    width: @width-lg;
+  }
+
+  @media (min-width: 992px) {
+    width: @width-xl;
+  }
+
+  @media (min-width: 1200px) {
+    width: @width-xxl;
+  }
+}

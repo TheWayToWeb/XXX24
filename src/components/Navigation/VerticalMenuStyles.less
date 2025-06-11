@@ -1,0 +1,45 @@
+@import 'mixins/_flexbox';
+@import 'mixins/_responsive';
+@import 'mixins/_transition';
+// Colors
+@vertical-menu-button-color: #ffffff;
+@vertical-menu-button-bg: #2196f3;
+@vertical-menu-menu-bg: #ffffff;
+// Typography
+@vertical-menu-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+@vertical-menu-button-border-radius: 8px;
+
+.VerticalMenu {
+    &-ToggleButton {
+    .centerFlex();
+    background-color: @vertical-menu-button-bg;
+    color: @vertical-menu-button-color;
+    border: none;
+    border-radius: @vertical-menu-button-border-radius @vertical-menu-button-border-radius 0 0;
+    box-shadow: @vertical-menu-box-shadow;
+    cursor: pointer;
+    font-weight: 600;
+    .transition();
+    // Apply responsive padding and font size
+    .responsive-font-and-padding();
+    // Apply responsive width and font size (note: font size will be overridden if defined in both mixins)
+    .responsive-font();
+        &:hover {
+            background-color: @vertical-menu-button-bg;
+            color: @vertical-menu-button-color;
+        }
+        &:focus {
+            box-shadow: none;
+            background-color: @vertical-menu-button-bg;
+            color: @vertical-menu-button-color;
+        }
+    }
+    // Раскрываем список и сбрасываем у него отступы
+    &-ListContainer {
+        display: block;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border: none;
+    }
+}

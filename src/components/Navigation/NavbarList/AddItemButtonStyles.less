@@ -1,0 +1,23 @@
+@import '../mixins/_responsive';
+@import '../mixins/_transition';
+// Colors
+@add-item-button-border-color: #2196f3;
+@add-item-button-background-color: #ffffff;
+@add-item-button-color: #2196f3;
+@add-item-button-hover-color: #ffffff;
+@add-item-button-hover-background-color: #2196f3;
+//Typography
+@add-item-button-border-width: 1px;
+
+.AddItemButton {
+  position: absolute;
+  border: 1px solid @add-item-button-border-color;
+  background: @add-item-button-background-color;
+  color: @add-item-button-color;
+  .responsive-padding-half();
+  &:hover {
+    background: @add-item-button-hover-background-color;
+    color: @add-item-button-hover-color;
+    .transition();
+  }
+}

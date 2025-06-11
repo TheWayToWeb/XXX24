@@ -1,0 +1,30 @@
+// Scale icons const
+@scale-icons-percent: 1.2;
+// Responsive Fonts
+@font-size-sm: 15px;
+@font-size-md: 16px;
+@font-size-lg: 17px;
+@font-size-xl: 18px;
+@font-size-xxl: 19px;
+// Scale Icons Mixin
+.scale-font-size-icons-responsive() {
+  @media (min-width: 344px) {
+    font-size: @font-size-sm * @scale-icons-percent;
+  }
+
+  @media (min-width: 575px) {
+    font-size: @font-size-md * @scale-icons-percent;
+  }
+
+  @media (min-width: 768px) {
+    font-size: @font-size-lg * @scale-icons-percent;
+  }
+
+  @media (min-width: 992px) {
+    font-size: @font-size-xl * @scale-icons-percent;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: @font-size-xxl * @scale-icons-percent;
+  }
+}
