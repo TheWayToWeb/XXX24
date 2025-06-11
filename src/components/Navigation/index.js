@@ -1,1 +1,0 @@
-export { default as DropdownMenuSmart } from "./DropdownMenuSmart.jsx";
