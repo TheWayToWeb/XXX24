@@ -1,0 +1,46 @@
+@import '../tools/mixins/_child-navbar-list-responsive';
+
+// Компонентные стили выпадающего меню
+.ChildNavbarList {
+  .child-navbar-list-width-responsive();
+  // Необходимо для позиционирования дочернего меню
+  // Относительно его нового родительского элемента
+  position: absolute;
+  top: 0;
+  left: 20px;
+  z-index: 1000;
+  &-Item {
+    .child-navbar-list-padding-responsive();
+    .child-navbar-font-size-responsive();
+    cursor: pointer;
+  }
+  &-Link {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+  }
+  &-ButtonContainer {
+    display: flex;
+  }
+  &-LinkTextContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-LinkText {
+    width: 100%;
+    max-width: 130px;
+    display: inline-block;
+    position: relative;
+    padding-right: 10px;
+    &::after {
+      content: "";
+      width: 10px;
+      pointer-events: none;
+    }
+  }
+  &-Button {
+    &_delete {
+      .child-navbar-list-font-icon-responsive();
+    }
+  }
+}

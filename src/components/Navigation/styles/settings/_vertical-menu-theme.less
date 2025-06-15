@@ -1,0 +1,22 @@
+// Переменные темы компонента
+@vertical-menu-button-color: #ffffff;
+@vertical-menu-button-bg: #007FFF;
+@vertical-menu-menu-bg: #ffffff;
+// Стили меню
+.VerticalMenu {
+  &-ToggleButton {
+    background-color: @vertical-menu-button-bg;
+    // Задаем цвет текста кнопки в обычном состоянии
+    color: @vertical-menu-button-color;
+    &:hover {
+      // Задаем цвета для кнопки при прикосновении
+      background-color: @vertical-menu-button-bg;
+      color: @vertical-menu-button-color;
+    }
+    &:focus {
+      // Задаем цвета для кнопки в состоянии фокуса
+      background-color: @vertical-menu-button-bg;
+      color: @vertical-menu-button-color;
+    }
+  }
+}

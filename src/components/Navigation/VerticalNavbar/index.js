@@ -1,0 +1,1 @@
+export { default as VerticalNavbar } from './VerticalNavbarSmart.jsx';

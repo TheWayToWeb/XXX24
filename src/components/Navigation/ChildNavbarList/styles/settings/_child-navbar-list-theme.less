@@ -1,0 +1,52 @@
+@child-navbar-list-background-color: #2196f3;
+// Цвет фона элемента вложенного списка
+@child-navbar-list-item-background-color: #2196f3;
+// Цвет фона элемента вложенного списка при активном состоянии
+@child-navbar-list-active-item-background-color: #ffffff;
+// Цвет текста ссылки элемента вложенного списка
+@child-navbar-list-item-color-text: #ffffff;
+// Цвет ссылки элемента вложенного списка при активном состоянии
+@child-navbar-list-active-item-color-text: #2196f3;
+@child-navbar-list-hover-item-color-text: #ffffff;
+// Цвет ссылки элемента вложенного списка при наведении
+@child-navbar-list-hover-active-item-color-text: #2196f3;
+// Цвет кнопки удаления элемента вложенного списка
+@child-navbar-list-button-delete-item-color: #842029;
+
+// Стили темы компонента
+.ChildNavbarList {
+  background-color: @child-navbar-list-background-color;
+  &-Item {
+    background-color: @child-navbar-list-item-background-color;
+    &_active {
+      background-color: @child-navbar-list-active-item-background-color;
+      & .ChildNavbarList-Link {
+        color: @child-navbar-list-active-item-color-text;
+      }
+      & .ChildNavbarList-Link:hover {
+        color: @child-navbar-list-hover-active-item-color-text;
+      }
+      & .ChildNavbarList-LinkText {
+        &::after {
+          background: linear-gradient(to right, transparent, #ffffff);
+        }
+      }
+    }
+  }
+  &-Link {
+    color: @child-navbar-list-item-color-text;
+  }
+  &-Link:hover {
+    color: @child-navbar-list-hover-item-color-text;
+  }
+  &-LinkText {
+    &::after {
+      background: linear-gradient(to right, transparent, #2196f3);
+    }
+  }
+  &-Button {
+    &_delete {
+      color: @child-navbar-list-button-delete-item-color;
+    }
+  }
+}
