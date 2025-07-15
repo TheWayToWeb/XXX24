@@ -1,0 +1,26 @@
+// Основные параметры управления интерфейсом
+// Устанавливаем основной цвет текста
+@color-text: #ffffff;
+// Устанавливаем фон выпадающего списка по умолчанию
+@dropdown-bg: #212529;
+// Устанавливаем прозрачный цвет фона
+@background-transparent: transparent;
+
+// Параметры управления интерфейсом при наведении
+// Устанавливаем цвет элемента выпадающего списка
+@background-hover: #ffc107;
+// Устанавливаем цвет текста элемента выпадающего списка
+@color-text-hover: #212529;
+
+// Тема 3 - черная Стили меню профиля пользователя
+.account-dropdown-menu {
+  background-color: @dropdown-bg;
+  &__link {
+    background-color: @background-transparent;
+    color: @color-text;
+    &:hover {
+      background-color: @background-hover;
+      color: @color-text-hover;
+    }
+  }
+}

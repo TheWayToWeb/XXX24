@@ -1,0 +1,63 @@
+// Компонентные стили блока учетной записи
+// со списком
+.dropdown-menu--showed {
+  display: block;
+  z-index: 1000;
+  margin-top: 30px;
+}
+
+.account-dropdown {
+  &__toggle {
+    width: 223px;
+    border-radius: 16px;
+    transition: background 0.5s ease;
+
+    background-size: 200% 100% !important;
+    background-position: 0 0 !important;
+    &:hover {
+      background-position: -100% 0 !important;
+    }
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    order: 1;
+    margin-left: 6px;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+  &__menu {
+    margin-top: 35px;
+    border-radius: 8px;
+    padding: 12px 0 6px;
+    @media (max-width: 991px) {
+      margin-top: 30px;
+    }
+  }
+  &__item {
+    padding: 6px 24px;
+    border-radius: 8px;
+    transition: background-color 0.5s ease-in-out;
+    cursor: pointer;
+    &--user-name,
+    &--user-position {
+      padding: 3px 12px;
+      border-radius: 12px;
+    }
+  }
+}
+
+
+
+

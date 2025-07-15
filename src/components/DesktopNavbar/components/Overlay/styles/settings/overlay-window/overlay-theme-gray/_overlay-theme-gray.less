@@ -1,0 +1,74 @@
+// Основные цвета интерфейса
+// Цвет заднего фона модального окна
+@color-overlay-background: rgba(108, 117, 125, 0.3);
+// Основной цвет модального окна
+@color-modal-background: #d3d3d3;
+// Основной цвет текста элементов
+@color-primary: #007bff;
+
+// Цвета элементов управления
+// Основной цвет фона чекбоксов
+@color-checkbox-background: #ffffff;
+// Цвет добавления акцента чекбоксам
+@color-checkbox-primary: #007bff;
+// Фон кнопки закрытия модального окна
+@color-button-close-background: #007bff;
+// Цвет текста кнопки закрытия окна
+@color-button-close-text: #ffffff;
+
+// Дополнительные переменные
+// Основной цвет границы элементов
+@color-border-primary: #007bff;
+// Дополнительный прозрачный цвет элементов
+@color-transparent: transparent;
+
+// Тема 2 - серая
+// Для всплывающего окна списка управления параметрами таблицы
+// Стили всплывающего окна списка параметров таблицы
+.overlay-editable {
+  // Задаем полупрозрачный серый цвет экрана во время появления окна
+  background-color: @color-overlay-background;
+  &__content {
+    // Задаем серый цвет фона окна списка параметров
+    background-color: @color-modal-background;
+  }
+  // Стили кнопки закрытия модального окна
+  &__button-close {
+    background-color: @color-button-close-background; // Задаем цвет фона кнопки закрытия модального окна
+    color: @color-button-close-text; // Задаем цвет текста кнопки закрытия модального окна
+  }
+}
+// Стили заголовка окна редактирования
+.column-list {
+  // Стили чекбокса заголовка окна
+  &__checkbox-label {
+    background-color: @color-checkbox-background; // Устанавливаем цвет фона чекбокса
+    color: @color-checkbox-primary; // Устанавливаем цвет маркера чекбокса
+    border-color: @color-border-primary; // Устанавливаем цвет границы чекбокса
+  }
+  // Стили текста чекбокса в заголовке окна
+  &__checkbox-text {
+    // Устанавливаем цвет текста чекбокса в заголовке окна
+    color: @color-primary;
+  }
+}
+
+// Стили списка параметров таблицы в окне
+.overlay-editable-list {
+  &--column, // Обнуляем цвет элементов списка заголовка окна
+  &__item { // Обнуляем цвет элементов списка области содержимого окна
+    background-color: @color-transparent;
+  }
+  // Стили кастомного чекбокса списка содержимого окна
+  //  управления табличными параметрами
+  &__check-label {
+    color: @color-checkbox-primary; // Устанавливаем цвет маркера чекбокса
+    border-color: @color-border-primary; // Устанавливаем цвет границы чекбокса
+    background-color: @color-checkbox-background; // Устанавливаем цвет фона чекбокса
+  }
+}
+// Стили текста чекбокса списка содержимого окна
+// управления табличными параметрами
+.form-check-text {
+  color: @color-primary;
+}

@@ -1,0 +1,23 @@
+// Компонентные стили навигационной панели
+.nav-panel {
+  &__nav {
+    border-radius: 8px;
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+  }
+  &__button {
+    transition: background-color 0.5s ease-in-out;
+    &:focus {
+      background-color: #ffffff;
+    }
+  }
+  &__account-dropdown {
+    @media (max-width: 991px) {
+      width: 100%;
+      margin-top: 18px;
+    }
+  }
+}
+
+

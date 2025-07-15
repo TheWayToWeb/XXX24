@@ -1,0 +1,63 @@
+// Основные цвета интерфейса
+// Цвет заднего фона модального окна
+@color-overlay-background: rgba(33, 37, 41, 0.5);
+// Основной цвет текста элементов
+@color-primary: #212529;
+
+// Цвета элементов управления
+// Основной цвет фона чекбоксов
+@color-checkbox-background: #007bff;
+// Цвет добавления акцента чекбоксам
+@color-checkbox-primary: #ffffff;
+// Фон кнопки закрытия модального окна
+@color-button-close-background: #007bff;
+// Цвет текста кнопки закрытия окна
+@color-button-close-text: #ffffff;
+
+// Дополнительные переменные
+// Основной цвет границы элементов
+@color-border-primary: #007bff;
+
+// Тема 1 - белая
+.overlay-editable {
+  // Задаем полупрозрачный нежно-голубой цвет заднего фона окна
+  background-color: @color-overlay-background;
+  &__button-close {
+    // Стили кнопки закрытия модального окна
+    background-color: @color-button-close-background;
+    color: @color-button-close-text;
+  }
+}
+
+// Стили заголовка окна редактирования
+.column-list {
+  // Стили чекбокса заголовка окна
+  &__checkbox-label {
+    background-color: @color-checkbox-background; // Устанавливаем цвет фона чекбокса
+    color: @color-checkbox-primary; // Устанавливаем цвет маркера чекбокса
+    border-color: @color-border-primary; // Устанавливаем цвет границы чекбокса
+  }
+  // Стили текста чекбокса в заголовке окна
+  &__checkbox-text {
+    color: @color-primary; // устанавливаем цвет текста в заголовке окна
+    font-weight: 600; // устанавливаем жирность текста заголовка окна
+  }
+}
+
+// Стили списка управляющих параметров таблицы окна
+.overlay-editable-list {
+  // Стили кастомного чекбокса списка содержимого окна
+  // управления табличными параметрами
+  &__check-label {
+    color: @color-checkbox-primary; // Устанавливаем цвет маркера чекбокса
+    border-color: @color-border-primary; // Устанавливаем цвет границы чекбокса
+    background-color: @color-checkbox-background; // Устанавливаем цвет фона чекбокса
+  }
+}
+
+// Стили текста чекбокса списка содержимого окна
+// управления параметрами таблицы
+.form-check-text {
+  color: @color-primary; // устанавливаем цвет текста для наименования столбца
+  font-weight: 600; // устанавливаем жирность для наименования столбца
+}
