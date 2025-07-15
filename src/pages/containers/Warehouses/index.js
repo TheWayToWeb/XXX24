@@ -1,0 +1,11 @@
+export { default as Acceptance } from "./components/Acceptance/AcceptanceContainer.jsx";
+export { default as Batches } from "./components/Batches/BatchesContainer.jsx";
+export { default as Cancellation } from "./components/Cancellation/CancellationContainer.jsx";
+export { default as GiveOut } from "./components/GiveOut/GiveOutContainer.jsx";
+export { default as InventoryAudit } from "./components/InventoryAudit/InventoryAuditContainer.jsx";
+export { default as Posting } from "./components/Posting/PostingContainer.jsx";
+export { default as ProductExport } from "./components/ProductExport/ProductExportContainer.jsx";
+export { default as StockBalance } from "./components/StockBalance/StockBalanceContainer.jsx";
+export { default as Stocks } from "./components/Stocks/StocksContainer.jsx";
+export { default as Storage } from "./components/Storage/StorageContainer.jsx";
+export { default as Transfer } from "./components/Transfer/TransferContainer.jsx";
