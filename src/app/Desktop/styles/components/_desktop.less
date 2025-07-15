@@ -1,0 +1,96 @@
+// Подключаем миксин адаптивной конфигурации рабочего стола
+@import '../tools/_desktop-responsive';
+
+// Переменные для градиента рабочего стола
+@colorLight: #f8f9fa;
+@colorPrimary: #0d6efd;
+@colorSecondary: #6c757d;
+@colorLightGray: #ced4da;
+
+// Основные стили рабочего стола
+.Desktop {
+  // Базовые размеры и позиционирование
+  height: 100vh;
+  margin-left: auto;
+  overflow: hidden;
+
+  // Применение адаптивных миксинов
+  .desktop-container-width-responsive();
+  .desktop-padding-responsive();
+  // Задаем сам движущийся градиент рабочего стола с наклоном 45 градусов
+  background: linear-gradient(45deg,
+    @colorLight,
+    @colorSecondary,
+    @colorLightGray,
+    @colorPrimary
+  );
+  // Задаем размеры градиента рабочего стола
+  background-size: 1600% 1600%;
+  // Задаем анимацию градиента на рабочем столе
+  animation: gradient-animation 10s linear infinite;
+
+  // Задаем саму анимацию движения градиента на рабочем столе
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+
+  // Стили для заголовка
+  &-Title {
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+.desktop-title-box {
+  &__select-data {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+  }
+}
+
+// Стили для навигационной панели
+.desktop {
+  &__title-box {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-nav {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+
+    &-outer {
+      display: flex;
+      position: relative;
+    }
+  }
+}
+
+// Стили класса контейнера приложений
+.desktop-app-launcher {
+  // растягиваем контейнер приложений
+  // на всю ширину и высоту
+  width: 100%;
+  height: 100%;
+  // Добавляем отступы ярлыкам приложений слева и справа
+  padding: 0 20px;
+}
+
+
+
+
+
+
+
+
+
+

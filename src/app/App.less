@@ -1,0 +1,38 @@
+// Общий контейнер, чтобы управлять слоями
+.app-container {
+  position: relative;
+  height: 100vh; // или min-height, если нужно
+}
+
+// Фон с частицами занимает весь экран и не мешает контенту
+.particles-background {
+  position: fixed; // фиксированный фон
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; // позади всего контента
+}
+
+// Основной секционный блок с контентом
+.hero {
+  width: 100%;
+  //height: calc(100vh - /* высота меню, если есть */);
+
+  display:flex;
+  //flex-direction: center;
+  justify-content:center;
+  align-items:center;
+
+  // Можно добавить отступы или padding, чтобы не перекрывать меню
+
+
+}
+
+.hero-heading {
+  z-index :1; // поверх фона
+  padding :1rem;
+
+  text-align:center;
+  color:#2d4a77;
+}
