@@ -1,0 +1,297 @@
+[
+  {
+    "production": {
+      "performers": [
+        {
+          "id": 1,
+          "firstName": "Иван",
+          "lastName": "Иванов",
+          "position": "Рабочий",
+          "level": 1,
+          "facilityIds": {
+            "ids": [1, 2],
+            "level": 2
+          }
+        },
+        {
+          "id": 2,
+          "firstName": "Мария",
+          "lastName": "Петрова",
+          "position": "Инженер",
+          "level": 1,
+          "facilityIds": {
+            "ids": [3],
+            "level": 2
+          }
+        }
+      ],
+      "facilities": [
+        {
+          "id": 1,
+          "name": "Линия А",
+          "description": "Основная производственная линия А",
+          "type": "Производственное оборудование",
+          "performerId": 1,
+          "level": 1
+        },
+        {
+          "id": 2,
+          "name": "Пресс Б",
+          "description": "Пресс для обработки металла",
+          "type": "Обработка металла",
+          "performerId": 1,
+          "level": 1
+        },
+        {
+          "id": 3,
+          "name": "Линия B",
+          "description": "Дополнительная линия B",
+          "type": "Производственное оборудование",
+          "performerId": 2,
+          "level": 1
+        }
+      ],
+      "orders": [
+        {
+          "id": 1,
+          "performerId": 1,
+          "orderName": "Заказ на детали А",
+          "orderDescription": "Производство деталей типа А для клиента X",
+          "completionPercentage": 75,
+          "status": "В работе",
+          "startDate": "2024-04-01",
+          "endDate": null,
+          "level": 1,
+          "relatedOrders": {
+            "ids": [2],
+            "level": 2
+          },
+          "standards": {
+            "gost": "Государственный стандарт 1",
+            "ost": "Современный стандарт 1",
+            "level": 2
+          },
+          "amount": 100,
+          "daysOnStage": 2,
+          "details": {
+            "headDrilling": true,
+            "bodyDrilling": true,
+            "headProcessing": true,
+            "slot": true,
+            "internalHexagon": false,
+            "polish": true,
+            "threadRolling": false,
+            "hexHead": true,
+            "roundHead": false,
+            "headHeight": 10,
+            "headThickness": 5,
+            "workpieceArea": 200,
+            "level": 2
+          }
+        },
+        {
+          "id": 2,
+          "performerId": 2,
+          "orderName": "Заказ на детали B",
+          "orderDescription": "Производство деталей типа B для клиента Y",
+          "completionPercentage": 50,
+          "status": "В процессе",
+          "startDate": "2024-04-05",
+          "endDate": null,
+          "level": 1,
+          "relatedOrders": {
+            "ids": [1],
+            "level": 2
+          },
+          "standards": {
+            "gost": "Государственный стандарт 2",
+            "ost": "Современный стандарт 2",
+            "level": 2
+          },
+          "amount": 1000,
+          "daysOnStage": 7,
+          "details": {
+            "headDrilling": true,
+            "bodyDrilling": false,
+            "headProcessing": true,
+            "slot": false,
+            "internalHexagon": false,
+            "polish": false,
+            "threadRolling": false,
+            "hexHead": true,
+            "roundHead": false,
+            "headHeight": 8,
+            "headThickness": 4,
+            "workpieceArea": 150,
+            "level": 2
+          }
+        }
+      ],
+      "assortments": [
+        {
+          "id": 1,
+          "assortmentName": "Сталь 45",
+          "assortmentDescription": "Высококачественная сталь для деталей А и B",
+          "orderId": 1,
+          "level": 1
+        },
+        {
+          "id": 2,
+          "assortmentName": "Пластик ABS",
+          "assortmentDescription": "Пластик для прототипов и деталей B",
+          "orderId": 2,
+          "level": 1
+        }
+      ]
+    },
+    "storages": {
+      "materials": [
+        {
+          "id": 1,
+          "name": "Сталь 45",
+          "description": "Высококачественная сталь для деталей А и B",
+          "orderId": 1,
+          "amount": 150,
+          "level": 1
+        },
+        {
+          "id": 2,
+          "name": "Пластик ABS",
+          "description": "Пластик для прототипов и деталей B",
+          "orderId": 2,
+          "amount": 0,
+          "level": 1
+        }
+      ],
+      "orders": [
+        {
+          "id": 1,
+          "performerId": 1,
+          "orderName": "Заказ на детали А",
+          "orderDescription": "Производство деталей типа для клиента X",
+          "completionPercentage": 75,
+          "status": "В работе",
+          "startDate": "2024-04-01",
+          "endDate": null,
+          "level": 1,
+          "relatedOrders": {
+            "ids": [2],
+            "level": 2
+          },
+          "standards": {
+            "gost": "Государственный стандарт 1",
+            "ost": "Современный стандарт 1",
+            "level": 2
+          },
+          "amount": 100,
+          "daysOnStage": 2,
+          "details": {
+            "headDrilling": true,
+            "bodyDrilling": true,
+            "headProcessing": true,
+            "slot": true,
+            "internalHexagon": false,
+            "polish": true,
+            "threadRolling": false,
+            "hexHead": true,
+            "roundHead": false,
+            "headHeight": 10,
+            "headThickness": 5,
+            "workpieceArea": 200,
+            "level": 2
+          }
+        },
+        {
+          "id": 2,
+          "performerId": 2,
+          "name": "Заказ на детали B",
+          "description": "Производство деталей типа B для клиента Y",
+          "completionPercentage": 50,
+          "status": "В процессе",
+          "startDate": "2024-04-05",
+          "endDate": null,
+          "level": 1,
+          "relatedOrders": {
+            "ids": [1],
+            "level": 2
+          },
+          "standards": {
+            "gost": "Государственный стандарт 2",
+            "ost": "Современный стандарт 2",
+            "level": 2
+          },
+          "amount": 1000,
+          "daysOnStage": 7,
+          "details": {
+            "headDrilling": true,
+            "bodyDrilling": false,
+            "headProcessing": true,
+            "slot": false,
+            "internalHexagon": false,
+            "polish": false,
+            "threadRolling": false,
+            "hexHead": true,
+            "roundHead": false,
+            "headHeight": 8,
+            "headThickness": 4,
+            "workpieceArea": 150,
+            "level": 2
+          }
+        }
+      ],
+      "clients": [
+        {
+          "id": 1,
+          "firstName": "Иван",
+          "lastName": "Иванов",
+          "position": "Директор",
+          "email": "ivanov@example.com",
+          "phone": "+7-900-123-45--67",
+          "level": 1,
+          "address": {
+            "city": "Москва",
+            "street": "ул.Ленина,д.1",
+            "zipcode": "101000",
+            "level": 2
+          },
+          "company": {
+            "name": "OOO Строймастер",
+            "level": 2,
+            "address": {
+              "street": "ул.Пушкина, д.10",
+              "city": "Москва",
+              "zipcode": "101001",
+              "level": 3
+            }
+          },
+          "orderIds": [1, 2]
+        },
+        {
+          "id": 2,
+          "firstName": "Мария",
+          "lastName": "Петрова",
+          "position": "Менеджер",
+          "email": "maria.petrov@example.com",
+          "phone": "+7-901-234-56-78",
+          "level": 1,
+          "address": {
+            "city": "Санкт-Петербург",
+            "street": "ул.Невский проспект, д.5",
+            "zipcode": "190000",
+            "level": 2
+          },
+          "company": {
+            "name": "ЗАО Мебель Проект",
+            "level": 2,
+            "address": {
+              "street": "ул.Маяковского, д.20",
+              "city": "Санкт-Петербург",
+              "zipcode": "190002",
+              "level": 3
+            }
+          }
+        }
+      ]
+    }
+  }
+]
