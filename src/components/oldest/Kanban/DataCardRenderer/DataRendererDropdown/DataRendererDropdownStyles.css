@@ -1,0 +1,48 @@
+:root {
+    --data-card-footer-item-status-radius: 8px;
+
+    /* Отступы для разных экранов элемента Status */
+    --data-card-list-item-spacing-xs: 9px;
+    --data-card-list-item-spacing-sm: 8px;
+    --data-card-list-item-spacing-md: 7px;
+    --data-card-list-item-spacing-lg: 6px;
+    --data-card-list-item-spacing-xl: 4px;
+}
+
+.DataCardFooter {
+    border-top: none;
+}
+
+.DataCardList-Item_Status {
+    border-radius: var(--data-card-footer-item-status-radius) !important;
+}
+
+@media (min-width: 344px) {
+    .DataCardList-Item_Status {
+        padding: var(--data-card-list-item-spacing-xs);
+    }
+}
+
+@media (min-width: 575px) {
+    .DataCardList-Item_Status {
+        padding: var(--data-card-list-item-spacing-sm);
+    }
+}
+
+@media (min-width: 768px) {
+    .DataCardList-Item_Status {
+        padding: var(--data-card-list-item-spacing-md);
+    }
+}
+
+@media (min-width: 992px) {
+    .DataCardList-Item_Status {
+        padding: var(--data-card-list-item-spacing-lg);
+    }
+}
+
+@media (min-width: 1200px) {
+    .DataCardList-Item_Status {
+        padding: var(--data-card-list-item-spacing-xl);
+    }
+}

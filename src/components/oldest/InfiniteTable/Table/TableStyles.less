@@ -1,0 +1,227 @@
+// Less Variables
+@primary-color: #343a40;
+@secondary-color: #e0e0e0;
+@text-color-primary: #333;
+@text-color-secondary: #e0e0e0;
+@border-color: #6c757d;
+@hover-background: #f8f9fa;
+@even-row-background: #f2f2f2;
+@box-shadow-color: rgba(0, 0, 0, 0.1);
+@border-radius: 8px;
+@transition-duration: 0.3s;
+
+/* Spacing */
+@table-spacing-xs: 8px;
+@table-spacing-sm: 12px;
+@table-spacing-md: 8px; // Note: This is the same as xs in original CSS.
+@table-spacing-lg: 12px; // Note: This is the same as sm in original CSS.
+@table-spacing-xl: 14px;
+
+/* Fonts */
+@table-font-size-xs: 15px;
+@table-font-size-sm: 16px;
+@table-font-size-md: 17px;
+@table-font-size-lg: 18px;
+@table-font-size-xl: 19px;
+
+
+// --- Mixin for Responsive Header (th) Padding ---
+                                        .table-header-th-responsive-padding() {
+@media (min-width: 344px) {
+    padding: @table-spacing-xs;
+}
+@media (min-width: 575px) {
+    padding: @table-spacing-sm;
+}
+@media (min-width: 768px) {
+    padding: @table-spacing-md;
+}
+@media (min-width: 992px) {
+    padding: @table-spacing-lg;
+}
+@media (min-width: 1200px) {
+    padding: @table-spacing-xl;
+}
+}
+
+// --- Mixin for Responsive Body (td) Padding ---
+                                      .table-body-td-responsive-padding() {
+@media (min-width: 344px) {
+    padding: @table-spacing-xs;
+}
+@media (min-width: 576px) { // Note: Original CSS had 576px here for td
+padding: @table-spacing-sm;
+}
+@media (min-width: 767px) { // Note: Original CSS had 767px here for td
+padding: @table-spacing-md;
+}
+@media (min-width: 992px) {
+    padding: @table-spacing-lg;
+}
+@media (min-width: 1200px) {
+    padding: @table-spacing-xl;
+}
+}
+
+// --- Mixin for Responsive Body (tr, td, td::before) details ---
+                                                      .table-body-responsive-details() {
+@media (min-width: 344px) {
+    margin-bottom: @table-spacing-xs;
+    td {
+        font-size: @table-font-size-xs;
+        padding-left: @table-spacing-xs;
+        &::before {
+            left: @table-spacing-xs;
+            font-size: calc(@table-spacing-xs - 1px);
+        }
+    }
+}
+@media (min-width: 575px) {
+    margin-bottom: @table-spacing-sm;
+    td {
+        font-size: @table-font-size-sm;
+        padding-left: @table-spacing-sm;
+        &::before {
+            left: @table-spacing-sm;
+            font-size: calc(@table-spacing-sm - 1px);
+        }
+    }
+}
+@media (min-width: 768px) {
+    margin-bottom: @table-spacing-md;
+    td {
+        font-size: @table-font-size-md;
+        padding-left: @table-spacing-md;
+        &::before {
+            left: @table-spacing-md;
+            font-size: calc(@table-spacing-md - 1px);
+        }
+    }
+}
+@media (min-width: 992px) {
+    margin-bottom: @table-spacing-lg;
+}
+@media (min-width: 1200px) {
+    margin-bottom: @table-spacing-xl;
+}
+}
+
+
+.Table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 10px @box-shadow-color;
+    border-radius: @border-radius;
+
+// Responsive styles for mobile/tablet (max-width: 991px)
+@media (max-width: 991px) {
+    border: 0;
+}
+
+    .Table-Header {
+        background-color: @primary-color;
+        color: @text-color-secondary;
+
+    // Responsive styles for mobile/tablet (max-width: 991px)
+    @media (max-width: 991px) {
+        display: none;
+    }
+
+        th {
+            border-right: 1px solid @text-color-secondary;
+            text-align: center;
+
+        // Apply responsive padding mixin
+        .table-header-th-responsive-padding();
+
+            &:first-child {
+                border-top-left-radius: @border-radius;
+            }
+
+            &:last-child {
+                border-top-right-radius: @border-radius;
+                border-right: none;
+            }
+        }
+    }
+
+    .Table-Body {
+        background-color: @secondary-color;
+
+        tr {
+        // Responsive styles for mobile/tablet (max-width: 991px)
+        @media (max-width: 991px) {
+            display: block;
+            border-bottom: none;
+        }
+        // Apply responsive margin-bottom and other details
+        .table-body-responsive-details();
+
+            &:nth-child(even) {
+                background-color: @even-row-background;
+            }
+        }
+
+        td {
+            border-bottom: 1px solid @border-color;
+            border-right: 1px solid @secondary-color;
+            text-align: center;
+            transition: background @transition-duration ease-in-out;
+            color: @text-color-primary; // Assuming a default text color for body cells.
+
+        // Apply responsive padding mixin
+        .table-body-td-responsive-padding();
+
+            &:last-child {
+                border-right: none;
+            }
+
+            &:hover {
+                background-color: @hover-background;
+            }
+
+        // Responsive styles for mobile/tablet (max-width: 991px)
+        @media (max-width: 991px) {
+            display: block;
+            text-align: right;
+            border-bottom: 1px dotted @border-color;
+            position: relative;
+            border-right: 1px solid transparent; // Remove right border
+        }
+
+            &:last-child {
+                @media (max-width: 991px) {
+                    border-bottom: 0;
+                }
+            }
+
+            &::before {
+            // Base styles for mobile/tablet pseudo-element
+            @media (max-width: 991px) {
+                content: attr(data-label);
+                position: absolute;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-align: left;
+            }
+            }
+        }
+    }
+
+// Final overrides for larger desktop screens (as per original CSS at the end)
+@media (min-width: 992px) {
+    .Table-Header th,
+    .Table-Body td {
+        padding: @table-spacing-lg; // Overrides previous padding at this breakpoint
+    }
+}
+    @media (min-width: 1200px) {
+        .Table-Header th,
+        .Table-Body td {
+            padding: @table-spacing-xl; // Overrides previous padding at this breakpoint
+        }
+    }
+}
+
+
