@@ -1,0 +1,63 @@
+// Цвета заголовков
+@table-head-background-color-odd: #adb5bd;
+@table-head-background-color-even: #17a2b8;
+// Цвета заголовков при наведении
+@table-head-for-hover-background-color-odd: #6c757d;
+@table-head-for-hover-background-color-even: #007bff;
+// Цвета ячеек второго столбца
+@table-cell-second-column-background-color-even: #17a2b8;
+// Цвет ячеек второго столбца при наведении
+@table-cell-second-column-for-hover-background-color-even: #007bff;
+
+// Цвета ячеек второго столбца при наведении
+
+// Компонентные стили цветовой темы таблицы
+.table {
+  &__column {
+    color: #ffffff;
+    &:nth-child(odd) {
+      background-color: @table-head-background-color-odd;
+      &:hover {
+        background-color: @table-head-for-hover-background-color-odd;
+      }
+    }
+    &:nth-child(even) {
+      background-color: @table-head-background-color-even;
+      &:hover {
+        background-color: @table-head-for-hover-background-color-even;
+      }
+    }
+  }
+
+  &__cell &__item-cell {
+    color: #6c757d;
+  }
+  &__cell:nth-child(odd):hover &__item-cell {
+    background-color: #6c757d;
+    color: #ffffff;
+  }
+  &__cell:nth-child(even) &__item-cell:nth-child(2) {
+    background-color: @table-cell-second-column-background-color-even;
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+  &__cell:nth-child(even):hover &__item-cell:nth-child(2) {
+    background-color: @table-cell-second-column-for-hover-background-color-even;
+  }
+}
+
+// Добавляем цвет в неактивном состоянии
+.table-striped > tbody > tr:nth-of-type(odd) td {
+  background-color: #adb5bd;
+  color: #ffffff;
+}
+
+// Цветовая палитра стилей чекбоксов
+.table {
+  &__checkbox-label {
+    // задаем цвет границы чекбокса
+    border-color: #0dcaf0;
+    // задаем внутренний цвет маркера чекбокса
+    color: #0dcaf0;
+  }
+}

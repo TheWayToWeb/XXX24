@@ -1,0 +1,13 @@
+// Переменная для цвета фона чекбокса
+@checkbox-checked-background-color: #a8dadc;
+
+// Стили для активного состояния чекбокса
+input[type="checkbox"]:checked + .tree-sublist__custom-checkbox {
+  // Основной стиль фона
+  background-color: @checkbox-checked-background-color;
+
+  // Стили для иконки внутри чекбокса
+  svg {
+    color: #ffffff;
+  }
+}

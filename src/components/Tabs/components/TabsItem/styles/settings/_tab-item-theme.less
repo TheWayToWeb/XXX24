@@ -1,0 +1,20 @@
+
+
+// Тема элемента таба
+.nav-tab {
+  background-color: #ffffff;
+  border-color: #ced4da;
+  &--active {
+    background-color: #6c757d;
+  }
+  &__link {
+    background-color: transparent;
+    color: #6c757d;
+    &:hover {
+      color: #6c757d;
+    }
+  }
+  &--active &__link {
+    color: #ffffff !important;
+  }
+}

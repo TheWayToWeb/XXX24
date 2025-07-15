@@ -1,0 +1,19 @@
+// Компонентные стили комплексного дерева
+.rct-tree {
+  &-main &-item-button {
+    // Устанавливаем прозрачный фон для кнопки
+    background-color: transparent;
+  }
+  &-main &-items-container {
+    // Сбрасываем стандартный внешний отступ у внутреннего списка
+    margin-bottom: 0;
+  }
+  &-main &-items-container &-item-li {
+    // Убираем стандартные индикаторы у элементов списка
+    list-style-type: none;
+  }
+  &-main &-items-container {
+    padding-left: 0;
+    margin-left: 0;
+  }
+}

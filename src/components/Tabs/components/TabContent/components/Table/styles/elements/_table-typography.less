@@ -1,0 +1,27 @@
+// Компонентные стили типографики таблицы
+.table {
+  &__column {
+    vertical-align: middle;
+  }
+  &__label {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 400;
+  }
+  &__item-cell {
+    text-align: left;
+    vertical-align: middle !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 400;
+  }
+}
+
+// Стили типографики чекбоксов
+.table {
+  &__checkbox-label {
+    border: 1px dashed;
+    text-align: center;
+    font-size: 18px;
+  }
+}

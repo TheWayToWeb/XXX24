@@ -1,0 +1,17 @@
+// Стили темы компонента
+.tree-list {
+  &__dropdown-button {
+    color: #007FFF;
+  }
+}
+
+// Задаем цвет главного кастомного чекбокса
+// Если у нас активен основной чекбокс
+input[type="checkbox"]:checked + .tree-list__custom-checkbox {
+  // Изменяем фон кастомного чекбокса
+  background-color: #007FFF;
+  & svg {
+    // Изменяем цвет иконки кастомного чекбокса
+    color: #ffffff;
+  }
+}
