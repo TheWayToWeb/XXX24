@@ -1,0 +1,1 @@
+export { default as VerticalMenu } from "./VerticalMenuSmart.jsx";

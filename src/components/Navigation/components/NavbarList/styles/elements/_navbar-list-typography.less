@@ -1,0 +1,41 @@
+@import '../tools/mixins/_responsive-navbar-list';
+
+// Диапазон адаптивного размера иконок элемента списка
+@navbar-list-font-icon-sm: 28px; // Размер иконки для очень маленьких гаджетов
+@navbar-list-font-icon-md: 32px; // Размер иконки для мобильных телефонов
+@navbar-list-font-icon-lg: 36px; // Размер иконки для ноутбуков
+@navbar-list-font-icon-xl: 40px; // Размер иконки для ПК
+// Диапазон адаптивного размера иконок дополнительных опций элемента списка
+@navbar-list-option-font-icon-sm: 24px;
+@navbar-list-option-font-icon-md: 22px;
+@navbar-list-option-font-icon-lg: 20px;
+@navbar-list-option-font-icon-xl: 18px;
+
+.NavbarList {
+  &-Link {
+    .responsive-padding-nav-list();
+  }
+  &-Icon {
+    padding-right: 10px;
+    .responsive-nav-list-font-icon(
+      @navbar-list-font-icon-sm,
+      @navbar-list-font-icon-md,
+      @navbar-list-font-icon-lg,
+      @navbar-list-font-icon-xl
+    );
+  }
+  &-IconText {
+    .responsive-font-size-nav-list();
+  }
+  &-Button {
+    padding-right: 10px;
+    &_delete {
+      .responsive-nav-list-font-icon(
+        @navbar-list-option-font-icon-sm,
+        @navbar-list-option-font-icon-md,
+        @navbar-list-option-font-icon-lg,
+        @navbar-list-option-font-icon-xl
+      );
+    }
+  }
+}

@@ -1,0 +1,55 @@
+// Подключаем адаптивные шрифты и отступы
+@import '../tools/_toggle-button-responsive-mixins';
+// Подключаем вертикальное выравнивание
+@import '../tools/_toggle-button-vertical-center-flex-mixin';
+// Подключаем плавные переходы
+@import '../../../../styles/tools/_vertical-menu-apply-transition-mixin';
+@import '../tools/_child-apply-transition-mixin';
+
+// Стили компонента toggle button
+.toggleButton {
+  // Задаем высоту блока относительно body
+  height: 10%;
+  z-index: -1 !important;
+  &__content {
+    // Используем миксин для вертикального выравнивания
+    .toggle-button-vertical-center-flex();
+    height: 40px;
+    &:last-child {
+      width: 100%;
+    }
+  }
+  &__chevronLeft,
+  &__chevronDown {
+    cursor: pointer;
+    // Используем миксин для увеличения размера иконок
+    .toggle-button-font-size-scale-responsive();
+  }
+  &__chevronDown {
+    padding-right: 4px;
+  }
+  &__wrapper {
+    padding: 4px 2px 4px 12px;
+    // Используем миксин для установки размера шрифта
+    .toggle-button-font-size-responsive();
+    &:hover {
+      .child-apply-transition();
+    }
+  }
+  &__button {
+    &--close {
+      padding: 4px;
+    }
+    &--added {
+      &:hover {
+        .transition();
+      }
+    }
+    &--close,
+    &--added {
+      cursor: pointer;
+      .toggle-button-font-size-scale-responsive();
+    }
+  }
+}
+

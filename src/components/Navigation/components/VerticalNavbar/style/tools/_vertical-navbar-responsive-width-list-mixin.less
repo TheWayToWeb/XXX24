@@ -1,0 +1,28 @@
+// Адаптивный диапазон ширины списка
+@vertical-navbar-width-list-sm: 70px;
+@vertical-navbar-width-list-md: 75px;
+@vertical-navbar-width-list-lg: 85px;
+@vertical-navbar-width-list-xl: 90px;
+@vertical-navbar-width-list-xxl: 100px;
+// Создаем миксин адаптации списка панели
+.vertical-navbar-responsive-width-list() {
+  @media (min-width: 344px) {
+    width: @vertical-navbar-width-list-sm;
+  }
+
+  @media (min-width: 575px) {
+    width: @vertical-navbar-width-list-md;
+  }
+
+  @media (min-width: 768px) {
+    width: @vertical-navbar-width-list-lg;
+  }
+
+  @media (min-width: 992px) {
+    width: @vertical-navbar-width-list-xl;
+  }
+
+  @media (min-width: 1200px) {
+    width: @vertical-navbar-width-list-xxl;
+  }
+}
