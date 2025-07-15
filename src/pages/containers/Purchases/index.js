@@ -1,0 +1,9 @@
+export { default as ProcessBid } from "./components/ProcessBid/ProcessBidContainer.jsx";
+export { default as ProcessIncome } from "./components/ProcessIncome/ProcessIncomeContainer.jsx";
+export { default as PurchasesOrders } from "./components/PurchasesOrders/PurchasesOrdersContainer.jsx";
+export { default as Incomes } from "./components/Incomes/IncomesContainer.jsx";
+export { default as ImportIncomes } from "./components/ImportIncomes/ImportIncomesContainer.jsx";
+export { default as PurchaseIncome } from "./components/PurchaseIncome/PurchaseIncomeContainer.jsx";
+export { default as PurchaseProduction } from "./components/PurchaseProduction/PurchaseProductionContainer.jsx";
+export { default as GiveBackSupplier } from "./components/GiveBackSupplier/GiveBackSupplierContainer.jsx";
+export { default as ProvisionContainer } from "./components/Provision/ProvisionContainer.jsx";

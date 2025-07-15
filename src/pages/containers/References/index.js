@@ -1,0 +1,16 @@
+export { default as Classification } from "./components/Classification/ClassificationContainer.jsx";
+export { default as CoatingsTypes } from "./components/CoatingsTypes/СoatingsTypesContainer.jsx";
+export { default as Configurations } from "./components/Configurations/СonfigurationsContainer.jsx";
+export { default as CounterpartyRegisters } from "./components/CounterpartyRegisters/СounterpartyRegistersContainer.jsx";
+export { default as DirectoriesCodesOperations } from "./components/DirectoriesCodesOperations/DirectoriesCodesOperationsContainer.jsx";
+export { default as DirectoryContacts } from "./components/DirectoryContacts/DirectoryContactsContainer.jsx";
+export { default as GOST_OST_Lists } from "./components/GOST_OST_Lists/GOST_OST_ListsContainer.jsx";
+export { default as MaterialGrades } from "./components/MaterialGrades/MaterialGradesContainer.jsx";
+export { default as MaterialGroup } from "./components/MaterialGroup/MaterialGroupContainer.jsx";
+export { default as MaterialsHandbook } from "./components/MaterialsHandbook/MaterialsHandbookContainer.jsx";
+export { default as MaterialStrengthClasses } from "./components/MaterialStrengthClasses/MaterialStrengthClassesContainer.jsx";
+export { default as Nomenclature } from "./components/Nomenclature/NomenclatureContainer.jsx";
+export { default as ProductionOperationsGuides } from "./components/ProductionOperationsGuides/ProductionOperationsGuidesContainer.jsx";
+export { default as ProductTypes } from "./components/ProductTypes/ProductTypesContainer.jsx";
+export { default as SalesFunnels } from "./components/SalesFunnels/SalesFunnelsContainer.jsx";
+export { default as StorageSpace } from "./components/StorageSpace/StorageSpaceContainer.jsx";
