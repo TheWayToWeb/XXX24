@@ -1,0 +1,46 @@
+
+// Стили кнопки отображения выпадающего списка
+// с иконками меню
+.drop-end {
+  width: 84px;
+  margin-right: 3px;
+  border-radius: 8px;
+  transition: background-color 0.5s ease-in-out;
+  @media (max-width: 991px) {
+    width: 100%;
+  }
+  &__component {
+    position: relative;
+  }
+}
+// Стили выпадающего списка
+.dropdown-vertical {
+  position: absolute;
+  border-radius: 8px;
+  z-index: 1000;
+  @media (max-width: 991px) {
+    top: 0;
+    right: 0;
+    margin-right: -3.125rem;
+  }
+  &__button {
+    border-radius: 8px;
+    &-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &__button-container + .nav-panel__button {
+    border-radius: 8px !important;
+  }
+}
+// Стили блока учетной записи пользователя
+.navbar-top {
+  &__account-dropdown {
+    @media (max-width: 991px) {
+      width: 100%;
+      margin-top: 18px;
+    }
+  }
+}
