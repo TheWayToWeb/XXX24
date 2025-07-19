@@ -1,0 +1,47 @@
+// --- Переменные ---
+// Заменяем CSS-переменные на Less-переменные
+@kanban-bg-color: #e0e0e0;
+@kanban-border-radius: 8px;
+@kanban-item-shadow-h-offset: 3px;
+@kanban-item-shadow-v-offset: 3px;
+@kanban-item-shadow-blur: 7px;
+@kanban-item-shadow-color: rgba(52, 58, 64, 0.15);
+
+// Шрифты для адаптивности
+@kanban-item-font-size-xs: 15px;
+@kanban-item-font-size-sm: 16px;
+@kanban-item-font-size-md: 17px;
+@kanban-item-font-size-lg: 18px;
+@kanban-item-font-size-xl: 19px;
+
+// --- Миксины для медиа-запросов ---
+   .media-xs(@rules) {
+    @media (min-width: 344px) { @rules(); }
+}
+.media-sm(@rules) {
+    @media (min-width: 575px) { @rules(); }
+}
+.media-md(@rules) {
+    @media (min-width: 767px) { @rules(); }
+}
+.media-lg(@rules) {
+    @media (min-width: 992px) { @rules(); }
+}
+.media-xl(@rules) {
+    @media (min-width: 1200px) { @rules(); }
+}
+
+
+.BoardSectionContainer {
+    background-color: @kanban-bg-color;
+    border-radius: @kanban-border-radius;
+// Используем интерполяцию для объединения переменных в свойстве box-shadow
+box-shadow: @kanban-item-shadow-h-offset @kanban-item-shadow-v-offset @kanban-item-shadow-blur @kanban-item-shadow-color;
+
+// Использование миксинов для адаптивного размера шрифта
+.media-xs({ font-size: @kanban-item-font-size-xs; });
+    .media-sm({ font-size: @kanban-item-font-size-sm; });
+    .media-md({ font-size: @kanban-item-font-size-md; });
+    .media-lg({ font-size: @kanban-item-font-size-lg; });
+    .media-xl({ font-size: @kanban-item-font-size-xl; });
+}

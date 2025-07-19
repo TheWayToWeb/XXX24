@@ -1,0 +1,171 @@
+// --- Переменные ---
+// Заменяем CSS-переменные на Less-переменные
+@user-card-border-radius: 8px;
+@user-card-body-bg-color: #d1e7dd;
+@user-card-title-color: #0f5132;
+@user-card-title-font-weight: bold;
+@user-card-subtitle-color: #0f5132;
+@user-card-border-width: 1px;
+@user-card-border-style: solid;
+@user-card-border-color: #badbcc;
+@user-card-text-color: #0f5132;
+
+// Внешний отступ снизу
+@user-card-margin-bottom-xs: 8px;
+@user-card-margin-bottom-sm: 12px;
+@user-card-margin-bottom-md: 8px; // Заметьте: md такой же как xs
+@user-card-margin-bottom-lg: 12px; // Заметьте: lg такой же как sm
+@user-card-margin-bottom-xl: 14px;
+
+// Отступы для адаптивности
+@user-card-spacing-xs: 8px;
+@user-card-spacing-sm: 12px;
+@user-card-spacing-md: 8px; // Заметьте: md такой же как xs
+@user-card-spacing-lg: 12px; // Заметьте: lg такой же как sm
+@user-card-spacing-xl: 14px;
+
+// Размеры шрифтов для адаптивности
+@user-card-font-size-xs: 15px;
+@user-card-font-size-sm: 16px;
+@user-card-font-size-md: 17px;
+@user-card-font-size-lg: 18px;
+@user-card-font-size-xl: 19px;
+
+@user-card-renderer-padding-left: 0;
+@user-card-renderer-padding-right: 0;
+
+// --- Миксины для медиа-запросов ---
+// Обратите внимание на небольшие расхождения в брейкпоинтах (575/576, 767/768)
+// Я сохранил их как в вашем исходном CSS, но обычно лучше их унифицировать.
+.media-xs(@rules) {
+    @media (min-width: 344px) { @rules(); }
+}
+.media-sm-body(@rules) { // для UserCard-Body, UserCard-Subtitle, UserCard-Text
+    @media (min-width: 575px) { @rules(); }
+}
+.media-sm-title(@rules) { // для UserCard-Title
+    @media (min-width: 576px) { @rules(); }
+}
+.media-md-body(@rules) { // для UserCard-Body, UserCard-Subtitle, UserCard-Text
+    @media (min-width: 767px) { @rules(); }
+}
+.media-md-title(@rules) { // для UserCard-Title
+    @media (min-width: 768px) { @rules(); }
+}
+.media-lg(@rules) {
+    @media (min-width: 992px) { @rules(); }
+}
+.media-xl(@rules) {
+    @media (min-width: 1200px) { @rules(); }
+}
+
+
+.UserDataList {
+    padding-left: @user-card-renderer-padding-left;
+    padding-right: @user-card-renderer-padding-right;
+}
+
+// --- Основной блок стилей для .UserCard с вложенностью ---
+.UserCard {
+    border: none;
+    border-radius: @user-card-border-radius;
+
+    &-Body { // Вложенность: .UserCard-Body
+        background-color: @user-card-body-bg-color;
+        border-radius: @user-card-border-radius;
+        border: @user-card-border-width @user-card-border-style @user-card-border-color;
+        // Здесь нет начального padding, но вы можете добавить его, если он отличается от @user-card-spacing-xs
+        // padding: @user-card-spacing-xs; // Или другое значение по умолчанию
+
+        // Использование миксинов для адаптивного padding
+        .media-xs({ padding: @user-card-spacing-xs; });
+        .media-sm-body({ padding: @user-card-spacing-sm; });
+        .media-md-body({ padding: @user-card-spacing-md; });
+        .media-lg({ padding: @user-card-spacing-lg; });
+        .media-xl({ padding: @user-card-spacing-xl; });
+    }
+
+    &-Title { // Вложенность: .UserCard-Title
+        color: @user-card-title-color;
+        font-weight: @user-card-title-font-weight;
+
+        // Использование миксинов для адаптивного font-size и padding-bottom
+        .media-xs({
+            font-size: @user-card-font-size-xs;
+            padding-bottom: @user-card-spacing-xs;
+        });
+        .media-sm-title({ // Используем специфичный миксин
+            font-size: @user-card-font-size-sm;
+            padding-bottom: @user-card-spacing-sm;
+        });
+        .media-md-title({ // Используем специфичный миксин
+            font-size: @user-card-font-size-md;
+            padding-bottom: @user-card-spacing-md;
+        });
+        .media-lg({
+            font-size: @user-card-font-size-lg;
+            padding-bottom: @user-card-spacing-lg;
+        });
+        .media-xl({
+            font-size: @user-card-font-size-xl;
+            padding-bottom: @user-card-spacing-xl;
+        });
+    }
+
+    &-Subtitle { // Вложенность: .UserCard-Subtitle
+        color: @user-card-subtitle-color;
+
+        // Использование миксинов для адаптивного font-size и padding-bottom
+        .media-xs({
+            font-size: @user-card-font-size-xs;
+            padding-bottom: @user-card-spacing-xs;
+        });
+        .media-sm-body({ // Используем специфичный миксин
+            font-size: @user-card-font-size-sm;
+            padding-bottom: @user-card-spacing-sm;
+        });
+        .media-md-body({ // Используем специфичный миксин
+            font-size: @user-card-font-size-md;
+            padding-bottom: @user-card-spacing-md;
+        });
+        .media-lg({
+            font-size: @user-card-font-size-lg;
+            padding-bottom: @user-card-spacing-lg;
+        });
+        .media-xl({
+            font-size: @user-card-font-size-xl;
+            padding-bottom: @user-card-spacing-xl;
+        });
+    }
+
+    &-Text { // Вложенность: .UserCard-Text
+        color: @user-card-text-color;
+
+        // Использование миксинов для адаптивного font-size и padding-bottom
+        .media-xs({
+            font-size: @user-card-font-size-xs;
+            padding-bottom: @user-card-spacing-xs;
+        });
+        .media-sm-body({ // Используем специфичный миксин
+            font-size: @user-card-font-size-sm;
+            padding-bottom: @user-card-spacing-sm;
+        });
+        .media-md-body({ // Используем специфичный миксин
+            font-size: @user-card-font-size-md;
+            padding-bottom: @user-card-spacing-md;
+        });
+        .media-lg({
+            font-size: @user-card-font-size-lg;
+            padding-bottom: @user-card-spacing-lg;
+        });
+        .media-xl({
+            font-size: @user-card-font-size-xl;
+            padding-bottom: @user-card-spacing-xl;
+        });
+
+        // Псевдо-класс внутри вложенного правила
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,101 @@
+@router-tabs-spacing-xs: 8px;
+@router-tabs-spacing-sm: 12px;
+@router-tabs-spacing-md: 16px;
+@router-tabs-spacing-lg: 24px;
+
+@router-tabs-font-family-icons: 'bootstrap-icons';
+@router-tabs-font-size-small: 15px;
+@router-tabs-font-size-medium: 16px;
+@router-tabs-font-size-large: 17px;
+@router-tabs-font-size-xlarge: 18px;
+
+.NavigateTabs {
+    @media (min-width: 344px) {
+        padding-top: @router-tabs-spacing-xs;
+        padding-bottom: @router-tabs-spacing-xs;
+    }
+
+    @media (min-width: 576px) {
+        padding-top: @router-tabs-spacing-sm;
+        padding-bottom: @router-tabs-spacing-sm;
+    }
+
+    @media (min-width: 992px) {
+        padding-top: @router-tabs-spacing-md;
+        padding-bottom: @router-tabs-spacing-md;
+    }
+
+    @media (min-width: 1200px) {
+        padding-top: @router-tabs-spacing-lg;
+        padding-bottom: @router-tabs-spacing-lg;
+    }
+}
+
+.NavigateTabs-Link {
+    display: inline-block;
+    font-family: @router-tabs-font-family-icons;
+
+    @media (min-width: 344px) {
+        margin-right: @router-tabs-spacing-xs;
+        font-size: @router-tabs-font-size-small;
+    }
+
+    @media (min-width: 576px) {
+        margin-right: @router-tabs-spacing-sm;
+        font-size: @router-tabs-font-size-medium;
+    }
+
+    @media (min-width: 767px) {
+        margin-right: @router-tabs-spacing-md;
+        font-size: @router-tabs-font-size-large;
+    }
+
+    @media (min-width: 992px) {
+        margin-right: @router-tabs-spacing-lg;
+        font-size: @router-tabs-font-size-xlarge;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+#router_1::before {
+    content:"\F3C6";
+}
+
+#router_2::before {
+    content:"\F3CA";
+}
+
+#router_3::before {
+    content: "\F3C7";
+}
+
+@media (min-width: 344px) {
+    #router_1::before,
+    #router_2::before {
+        margin-right: @router-tabs-spacing-xs;
+    }
+}
+
+@media (min-width: 576px) {
+    #router_1::before,
+    #router_2::before {
+        margin-right: @router-tabs-spacing-sm;
+    }
+}
+
+@media (min-width: 768px) {
+    #router_1::before,
+    #router_2::before {
+        margin-right: @router-tabs-spacing-md;
+    }
+}
+
+@media (min-width: 992px) {
+    #router_1::before,
+    #router_2::before {
+        margin-right: @router-tabs-spacing-lg;
+    }
+}
