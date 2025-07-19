@@ -1,0 +1,8 @@
+// Объявляем переменные для свойства плавного перехода
+@apply-transition-property: background-color;
+@apply-transition-duration: 0.3s;
+@apply-transition-timing-function: ease-in-out;
+// Создаем миксин плавного перехода для фона
+.transition() {
+  transition: @apply-transition-property @apply-transition-duration @apply-transition-timing-function;
+}

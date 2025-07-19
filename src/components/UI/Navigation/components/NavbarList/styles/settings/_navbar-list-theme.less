@@ -1,0 +1,48 @@
+// Переменные для хранение темы списка
+// Основное состояние
+@navbar-list-link-color: #ffffff;
+@navbar-list-button-color: #ffffff;
+@navbar-list-link-background-color: #007FFF;
+// Состояние прикосновения
+@navbar-list-link-hover-color: #ffffff;
+@navbar-list-button-hover-color: #ffffff;
+@navbar-list-link-background-color: #007FFF;
+// Переход в активное состояние
+@navbar-list-link-active-color: #007FFF;
+@navbar-list-button-active-color: #007FFF;
+@navbar-list-link-active-background-color: #ffffff;
+
+.NavbarList {
+  &-Link {
+    // Основное состояние
+    background-color: @navbar-list-link-background-color;
+    color: @navbar-list-link-color;
+    .NavbarList-Button {
+      color: @navbar-list-button-color;
+    }
+    &:hover {
+      // Прикосновение
+      background-color: @navbar-list-link-background-color;
+      color: @navbar-list-link-hover-color;
+      .NavbarList-Button {
+        color: @navbar-list-button-hover-color;
+      }
+    }
+    &_active {
+      // Переход в активное состояние
+      background-color: @navbar-list-link-active-background-color;
+      color: @navbar-list-link-active-color;
+      .NavbarList-Button {
+        color: @navbar-list-button-active-color;
+      }
+    }
+    &_active:hover {
+      // Прикосновение когда добавлен активный класс
+      background-color: @navbar-list-link-active-background-color;
+      color: @navbar-list-link-active-color;
+      .NavbarList-Button {
+        color: @navbar-list-button-active-color;
+      }
+    }
+  }
+}

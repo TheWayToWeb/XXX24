@@ -1,0 +1,87 @@
+// Адаптивный промежуток текста элементов списка вложенного меню
+@child-navbar-list-text-md: 12px;
+@child-navbar-list-text-lg: 14px;
+@child-navbar-list-text-xl: 16px;
+// Адаптивный промежуток иконочного шрифта выпадающего списка
+@child-navbar-list-font-icon-sm: 24px;
+@child-navbar-list-font-icon-md: 22px;
+@child-navbar-list-font-icon-lg: 20px;
+@child-navbar-list-font-icon-xl: 18px;
+// Адаптивный промежуток ширины выпадающего списка
+@child-navbar-list-width-sm: 160px;
+@child-navbar-list-width-md: 180px;
+@child-navbar-list-width-lg: 200px;
+@child-navbar-list-width-xl: 220px;
+// Адаптивный промежуток внутренних отступов элементов списка
+@navbar-list-padding-sm: 16px; // Отступы для очень маленьких гаджетов
+@navbar-list-padding-md: 14px; // Отступы для мобильных телефонов
+@navbar-list-padding-lg: 12px; // Отступы для планшетов
+@navbar-list-padding-xl: 8px; // Отступы для ноутбуков
+
+.child-navbar-list-font-icon-responsive() {
+  @media (min-width: 344px) {
+    font-size: @child-navbar-list-font-icon-sm;
+  }
+
+  @media (min-width: 768px) {
+    font-size: @child-navbar-list-font-icon-md;
+  }
+
+  @media (min-width: 992px) {
+    font-size: @child-navbar-list-font-icon-lg;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: @child-navbar-list-font-icon-xl;
+  }
+}
+
+.child-navbar-font-size-responsive() {
+  @media (min-width: 344px) {
+    font-size: @child-navbar-list-text-md;
+  }
+
+  @media (min-width: 768px) {
+    font-size: @child-navbar-list-text-lg;
+  }
+
+  @media (min-width: 992px) {
+    font-size: @child-navbar-list-text-xl
+  }
+}
+// В этом миксине <подгоняем> ширину выпадающего списка меню под ширину кнопки
+.child-navbar-list-width-responsive() {
+  @media (min-width: 344px) {
+    width: @child-navbar-list-width-sm;
+  }
+
+  @media (min-width: 768px) {
+    width: @child-navbar-list-width-md;
+  }
+
+  @media (min-width: 820px) {
+    width: @child-navbar-list-width-lg;
+  }
+
+  @media (min-width: 853px) {
+    width: @child-navbar-list-width-xl;
+  }
+}
+
+.child-navbar-list-padding-responsive() {
+  @media (min-width: 344px) {
+    padding: 16px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 14px;
+  }
+
+  @media (min-width: 992px) {
+    padding: 12px;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 8px;
+  }
+}

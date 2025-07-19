@@ -1,0 +1,32 @@
+// Стили меню
+.VerticalMenu {
+  &-ToggleButton {
+    // Перемещаем при помощи задания крайней нижней позиции экрана
+    left: 0;
+    bottom: 0;
+    // Убираем границы у кнопки
+    border: none;
+    // Убираем скругления у кнопки
+    border-radius: 0;
+    &:focus {
+      // При фокусе убираем тень
+      box-shadow: none;
+    }
+    &::after {
+      // Убираем стандартную иконку
+      display: none;
+    }
+  }
+  // Сбрасываем стили у раскрывающего списка
+  &-ListContainer {
+    // Делаем его видимым
+    display: block;
+    // Сбрасываем отступы
+    padding: 0;
+    margin: 0;
+    // Делаем его прозрачным
+    background: transparent;
+    // Убираем границы
+    border: none;
+  }
+}

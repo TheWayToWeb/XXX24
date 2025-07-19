@@ -1,0 +1,12 @@
+// Подключаем созданные миксины
+@import '../tools/_vertical-navbar-flexbox-orientation-mixin';
+@import '../tools/_vertical-navbar-responsive-width-list-mixin';
+// Компонентные стили вертикальной панели навигации
+.VerticalNavbar {
+  &-List {
+    .vertical-navbar-flexbox-orientation();
+    height: 100%;
+    // Apply responsive width mixin
+    .vertical-navbar-responsive-width-list();
+  }
+}

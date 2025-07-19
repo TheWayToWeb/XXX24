@@ -1,0 +1,22 @@
+// Сброс коробочных стилей Bootstrap
+.ChildNavbarList {
+  margin-bottom: 0;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  &,
+  &-Link {
+    padding: 0;
+  }
+  &-Item {
+    border: none;
+  }
+  &-LinkText {
+    &::after {
+      position: absolute;
+      // Растягиваем элемент на всю высоту
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
