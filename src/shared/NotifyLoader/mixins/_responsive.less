@@ -1,0 +1,68 @@
+// Spinner width responsive
+@spinner-width-sm: 20px;
+@spinner-width-md: 40px;
+@spinner-width-lg: 60px;
+@spinner-width-xl: 80px;
+@spinner-width-xxl: 100px;
+// Spinner height responsive
+@spinner-height-sm: 20px;
+@spinner-height-md: 40px;
+@spinner-height-lg: 60px;
+@spinner-height-xl: 80px;
+@spinner-height-xxl: 100px;
+// Spinner spacing responsive
+@spinner-margin-sm: 4px;
+@spinner-margin-md: 6px;
+@spinner-margin-lg: 8px;
+@spinner-margin-xl: 12px;
+@spinner-margin-xxl: 14px;
+
+// Responsive sizes spinner mixin
+.spinner-sizes-responsive() {
+  @media (min-width: 344px) {
+    width: @spinner-width-sm;
+    height: @spinner-height-sm;
+  }
+
+  @media (min-width: 575px) {
+    width: @spinner-width-md;
+    height: @spinner-height-md;
+  }
+
+  @media (min-width: 768px) {
+    width: @spinner-width-lg;
+    height: @spinner-height-lg;
+  }
+
+  @media (min-width: 992px) {
+    width: @spinner-width-xl;
+    height: @spinner-height-xl;
+  }
+
+  @media (min-width: 1200px) {
+    width: @spinner-width-xxl;
+    height: @spinner-height-xxl;
+  }
+}
+
+.spinner-spacing-responsive() {
+  @media (min-width: 344px) {
+    margin-top: @spinner-margin-sm;
+  }
+
+  @media (min-width: 575px) {
+    margin-top: @spinner-margin-md;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: @spinner-margin-lg;
+  }
+
+  @media (min-width: 992px) {
+    margin-top: @spinner-margin-xl;
+  }
+
+  @media (min-width: 1200px) {
+    margin-top: @spinner-margin-xxl;
+  }
+}
