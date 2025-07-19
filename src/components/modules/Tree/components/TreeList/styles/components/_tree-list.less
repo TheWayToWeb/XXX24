@@ -1,0 +1,87 @@
+@import '../tools/_tree-list-centered-flex-mixin';
+
+// Стили компонента Tree List
+.tree-list {
+  // Базовые стили для всего компонента
+  border-radius: 8px;
+
+  // Стили для элементов колонки
+  &__item-column {
+  @include tree-list-centered-flex(space-around);
+
+    // Модификатор для позиционирования
+    &--left {
+      position: relative;
+    }
+  }
+
+  // Стили для чекбоксов
+  &__self-checkbox,
+  &__dropdown-button {
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-right: 6px;
+    z-index: 100;
+  }
+
+  // Стили для кастомного чекбокса
+  &__custom-checkbox {
+    width: 24px;
+    height: 24px;
+  @include tree-list-centered-flex(center);
+    border-radius: 8px;
+    padding: 0 3px;
+    &-icon {
+      margin-top: -1.5px;
+    }
+  }
+
+  // Стили для заголовка элемента
+  &__item-title {
+    width: 100%;
+  }
+
+  // Стили для кнопок
+  &__button {
+    transition: background-color 0.5s ease-in-out;
+
+    // Базовые размеры для всех кнопок
+    &--added {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      margin-left: 12px;
+      margin-bottom: 20px;
+    }
+
+    // Общие стили для кнопок удаления и обновления
+    &--delete,
+    &--update {
+      width: 45px;
+      height: 45px;
+      background-color: #007bff;
+      color: #ffffff;
+      border-radius: 8px !important;
+      padding: 6px 12px;
+
+      // Стили при наведении
+      &:hover {
+        background-color: #ffffff;
+        color: #007bff;
+      }
+    }
+
+    // Дополнительные отступы
+    &--delete {
+      margin-right: 6px;
+    }
+
+    // Стили для фокуса
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+

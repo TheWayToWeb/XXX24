@@ -1,0 +1,18 @@
+// Стили сброса дочернего списка дерева
+input[type="checkbox"]:checked + .tree-sublist__custom-checkbox {
+  border: none;
+}
+
+.tree-sublist {
+  &__item {
+    border-bottom: none;
+  }
+  &__custom-checkbox {
+    padding: 0 !important;
+  }
+  &__self-checkbox {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
