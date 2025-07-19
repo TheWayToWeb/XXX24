@@ -1,1 +1,0 @@
-export { default as DropdownInteractiveBarResponsive } from "./DropdownInteractiveBarResponsive.jsx";
