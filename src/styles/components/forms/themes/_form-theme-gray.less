@@ -1,0 +1,21 @@
+// Подключаем параметры управления интерфейсом при наведении
+@import '../settings/_form-gray-vars';
+// Подключаем функцию устанавливающую цвет границы поля ввода
+@import '../mixins/_border-style-set';
+
+// Стили серой темы
+.form-modal {
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
+.input-large {
+  // Устанавливаем начальный цвет границы поля ввода
+  @border-color-light: #f8f9fa;
+
+  // Установка стартового цвета границы
+  .border-style-set(@border-color-light);
+  &:focus {
+    // Установка цвета границы при фокусе
+    .border-style-set(@_form-border-color-white);
+  }
+}

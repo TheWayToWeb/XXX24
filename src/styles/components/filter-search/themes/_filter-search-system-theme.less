@@ -1,0 +1,20 @@
+// Подключаем параметры управления интерфейсом
+@import '../settings/_filter-search-system-vars';
+
+// Стили системной темы верхнего фильтра поиска
+.filter-search {
+  // Начальный цвет фона фильтра поиска
+  @background-default: rgba(33, 37, 41, 0.5);
+  // Начальный цвет границы фильтра поиска
+  @border-color: #ffc107;
+
+  // Устанавливаем цвет фона фильтру поиска
+  background-color: @background-default;
+  // Устанавливаем цвет границы фильтра поиска
+  border-color: @border-color;
+  &::placeholder,
+  &:focus {
+    // Устанавливаем цвет текста фильтра поиска
+   color: @filter-search-color-text;
+  }
+}

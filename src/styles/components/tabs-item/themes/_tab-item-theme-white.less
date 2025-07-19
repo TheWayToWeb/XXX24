@@ -1,0 +1,40 @@
+// Подключаем параметры управления интерфейсом при наведении
+@import '../settings/_tabs-item-white-vars';
+// Подключаем функцию стилизации интерфейса
+@import '../mixins/_link-styled';
+
+// Стили элемента списка табов белой темы
+.tabs-item {
+  &.nav-item &__link {
+    // Устанавливаем цвет фона по умолчанию элемента списка
+    @background-default: #ffffff;
+    // Устанавливаем основной цвет текста
+    @color-text-primary: #007bff;
+    // Основной цвет границы
+    @border-color-primary: #007bff;
+    // Устанавливаем основной цвет границы
+    border-color: @border-color-primary !important;
+    // Прозрачный цвет границы
+    @border-color-transparent: transparent;
+
+    // Начальные стили элемента списка
+    .link-styled(
+      @background-default,
+      @color-text-primary
+    );
+    &:hover {
+      // Устанавливаем прозрачный цвет границы
+      border-color: @border-color-transparent;
+      // Стили элемента списка при наведении
+      .link-styled(
+        @tab-item-background-primary,
+        @tab-item-color-text
+      );
+    }
+  }
+}
+
+
+
+
+

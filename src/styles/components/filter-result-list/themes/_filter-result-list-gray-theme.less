@@ -1,0 +1,31 @@
+// Подключаем параметры управления интерфейсом
+@import '../settings/_filter-result-gray-vars';
+
+// Тема 2 - серая Список результатов фильтра поиска
+.filter-result {
+  // Цвет фона списка
+  @background-color-light-gray: #ced4da;
+  // Цвет текста элементов списка
+  @color-text: #ffffff;
+
+  &-list {
+    // Устанавливаем цвет фона списка
+    background-color: @background-color-light-gray;
+  }
+  &__item {
+    // Устанавливаем цвета фона элемента списка
+    background-color: @background-color-light-gray;
+    &:hover {
+      // Устанавливаем цвет фона элемента списка при наведении
+      background-color: @filter-list-background-hover;
+    }
+  }
+  &__text {
+    // Устанавливаем цвет текста элементов списка
+    color: @color-text;
+  }
+  &__item:hover &__text {
+    // Устанавливаем цвет текста элемента списка при наведении
+    color: @filter-list-color-text-hover;
+  }
+}

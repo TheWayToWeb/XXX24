@@ -1,0 +1,35 @@
+// Подключаем параметры управления интерфейсом при наведении
+@import '../settings/_tabs-item-dark-vars';
+
+// Подключаем функцию стилизации интерфейса
+@import '../mixins/_link-styled';
+
+// Стили темной темы элемента списка табов
+.tabs-item {
+  // Устанавливаем прозрачный цвет границы
+  @border-color-transparent: transparent;
+
+  &.nav-item &__link {
+    // Устанавливаем начальный цвет фона
+    @background-color-dark: #212529;
+    // Устанавливаем начальный цвет текста
+    @color-text: #ffc107;
+    // Устанавливаем желтый цвет границы
+    @border-color-yellow: #ffc107;
+    // Устанавливаем желтый цвет границы
+    border-color: @border-color-yellow !important;
+
+    .link-styled(
+      @background-color-dark,
+      @color-text
+    );
+  }
+  &.nav-item &__link:hover {
+    border-color: @border-color-transparent;
+
+    .link-styled(
+      @tabs-item-background-color-hover,
+      @tabs-item-color-text-hover
+    );
+  }
+}

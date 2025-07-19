@@ -1,0 +1,52 @@
+// Подключаем функцию стилизации контейнера
+@import '../mixins/_container-styling';
+// Подключаем функцию устанавливающую цвет границы для элемента
+@import '../mixins/_border-style-set';
+
+// Стили серой темы выпадающего списка учетной записи пользователя
+.account-dropdown {
+  // Серый цвет фона
+  @background-color-secondary: #6c757d;
+  // Серый цвет границы
+  @border-color-secondary: #6c757d;
+  // Белый цвет границы
+  @border-color-white: #ffffff;
+  // Серый цвет текста
+  @color-text-secondary: #6c757d;
+
+  // Стили контейнера учетной записи
+  &__toggle {
+    // Устанавливаем базовый градиент контентной области
+    background: linear-gradient(to right, #f8f9fa, #f8f9fa 75%, #f8f9fa);
+    &:hover {
+      .container-styling(
+          // устанавливаем основной градиент контентной области
+          linear-gradient(to right, #f8f9fa, #f8f9fa 75%, #6c757d),
+          // устанавливаем серый цвет границы блока учетной записи
+          @border-color-secondary
+      );
+    }
+  }
+  // Стили области аватара
+  &__avatar {
+    .container-styling(
+      // устанавливаем серый цвет фона области фото пользователя
+      @background-color-secondary,
+      // устанавливаем белый цвет границы вокруг области фото пользователя
+      @border-color-white
+    );
+  }
+  // Стили текстовых элементов
+  &__item--user-name, // правило для имени
+  &__item--user-position { // правило для должности
+    // Устанавливаем серый цвет текста
+    color: @color-text-secondary !important;
+  }
+  // Стили текстовых элементов при наведении
+  &__item--user-name:hover,
+  &__item--user-position:hover {
+    // Устанавливаем серый цвет границы
+    // вокруг текстовых элементов
+    .border-style-set(@border-color-secondary);
+  }
+}

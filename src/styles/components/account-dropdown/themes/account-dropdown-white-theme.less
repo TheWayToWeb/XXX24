@@ -1,0 +1,38 @@
+// Подключаем параметры управления интерфейсом
+@import '../settings/_acc-dropdown-white-vars';
+// Подключаем функцию визуальной стилизации
+@import '../mixins/_colored-scheme';
+
+// Белая тема выпадающего меню профиля пользователя
+.account-dropdown-menu {
+  // Устанавливаем основной цвет границы
+  @border-color-primary: #007bff;
+  // Устанавливаем основной цвет текста
+  @color-text-primary: #007bff;
+  // Прозрачный цвет границы
+  @border-color-transparent: transparent;
+
+  // Белый цвет фона
+  @background-color-white: #ffffff;
+
+  // Стили элемента списка в неактивном состоянии
+  &__link {
+    // Устанавливаем основной цвет границы
+    border-color: @border-color-primary;
+
+    .colored-scheme(
+      @background-color-white,
+      @color-text-primary
+    );
+    // Стили элемента списка при наведении
+    &:hover {
+      // Устанавливаем прозрачный цвет границы
+      border-color: @border-color-transparent;
+
+      .colored-scheme(
+        @acc-dropdown-background-color-primary,
+        @acc-dropdown-color-text-white
+      );
+    }
+  }
+}

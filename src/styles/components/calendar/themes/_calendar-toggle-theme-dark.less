@@ -1,0 +1,29 @@
+// Подключаем переменные интерфейса кнопки календаря
+@import '../settings/_calendar-toggle-dark-vars';
+// Подключаем функцию стилизации кнопки
+@import '../mixins/_button-touch-styles';
+
+// Стили темной темы кнопки календаря
+.calendar-toggle {
+  // Устанавливаем начальный фон кнопки
+  @background-default-color: #212529;
+  // Устанавливаем начальный цвет границы
+  @border-default-color: #ffc107;
+  // Устанавливаем начальный цвет текста
+  @color-text: #ffc107;
+
+  // Начальные стили кнопки
+  .button-touch-styles(
+    @background-default-color,
+    @border-default-color,
+    @color-text
+  );
+  &:hover {
+    // Стили кнопки при наведении
+    .button-touch-styles(
+      @background-color-hover,
+      @border-color-transparent,
+      @color-text-hover
+    );
+  }
+}

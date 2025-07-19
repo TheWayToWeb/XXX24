@@ -1,0 +1,29 @@
+// Подключаем функцию устанавливающую цвет границы контейнера
+@import '../../../../components/Layouts/DesktopAppMenu/styles/mixins/_border-style-set';
+
+// Стили белой темы компонента меню приложений
+.desktop-app-menu {
+  // Белый цвет границы
+  @border-color-start: #ffffff;
+  // Прозрачный цвет границы
+  @border-color-transparent: transparent;
+
+  &__container-fluid {
+    // Применяется для неактивного состояния
+    &:not(.has-active) {
+      // Устанавливаем прозрачный цвет границы
+      border-color: @border-color-transparent;
+    }
+
+    // Применяются для активного состояния
+    &.has-active {
+      // Устанавливаем белый цвет границы контейнеру
+      .border-style-set(@border-color-start);
+      // Устанавливаем полупрозрачный белый цвет для контейнера
+      background-color: rgba(255, 255, 255, 0.3);
+      // Устанавливаем мягкую белую тень
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+

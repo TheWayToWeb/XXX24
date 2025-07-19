@@ -1,0 +1,16 @@
+// Подключаем параметры управления интерфейсом
+@import '../settings/_filter-search-white-vars';
+
+// Стили белой темы верхнего фильтра поиска
+.filter-search {
+  // Основной цвет границы фильтра поиска
+  @border-color-primary: #007bff;
+
+  // Устанавливаем начальный цвет границы фильтра поиска
+  border-color: @border-color-primary;
+  &::placeholder,
+  &:focus {
+    // Устанавливаем цвет текста фильтра поиска
+    color: @filter-search-color-text-primary;
+  }
+}

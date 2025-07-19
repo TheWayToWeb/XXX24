@@ -1,0 +1,31 @@
+// Подключаем параметры управления интерфейсом
+@import '../settings/_filter-result-white-vars';
+
+// Тема 1 - Белая Список результатов фильтра поиска
+.filter-result {
+  // Начальный цвет фона списка
+  @background-color-white: #ffffff;
+  &-list {
+    // Устанавливаем белый цвет списка результатов
+    background-color: @background-color-white;
+  }
+  &__item {
+    // Устанавливаем аналогичный цвет фона элементу списка
+    background-color: @background-color-white;
+    &:hover {
+      // Устанавливаем цвет элементу списка при наведении
+      background-color: @filter-result-background-color-primary;
+    }
+  }
+  &__text {
+    // Цвет текста элемента списка
+    @color-text-primary: #007bff;
+
+    // Устанавливаем цвет текста элементу списка в неактивном состоянии
+    color: @color-text-primary;
+  }
+  &__item:hover &__text {
+    // Устанавливаем цвет текста элемента списка при наведении
+    color: @filter-result-color-text-hover;
+  }
+}

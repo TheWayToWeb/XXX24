@@ -1,0 +1,44 @@
+// Подключаем параметры управления интерфейсом
+@import '../settings/_vertical-forms-white-vars';
+
+// Подключаем функцию стилизации списка
+@import '../mixins/_color-setup';
+// Подключаем функцию стилизации кнопки
+@import '../mixins/_button-styles';
+
+// Белая тема выпадающего списка форм ввода
+.dropdown-vertical {
+  // Устанавливаем белый цвет фона выпадающего списка
+  @background-color-white: #ffffff;
+  // Устанавливаем основной цвет границы
+  @border-color-primary: #007bff;
+  // Устанавливаем основной цвет текста
+  @color-text-primary: #007bff;
+  // Устанавливаем прозрачный цвет границы
+  @border-color-transparent: transparent;
+
+  // Стилизация списка
+  .color-setup(
+    @background-color-white,
+    @border-color-primary
+  );
+  &__button {
+    // Начальная стилизация кнопки
+    .button-styles(
+      @background-color-white,
+      @border-color-transparent,
+      @color-text-primary
+    );
+    &:hover {
+      // Стилизация кнопки при наведении
+      .button-styles(
+        @vertical-forms-background-color-primary,
+        @border-color-transparent,
+        @vertical-forms-color-text-hover
+      );
+    }
+  }
+}
+
+
+

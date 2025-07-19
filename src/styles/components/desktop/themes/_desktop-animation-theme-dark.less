@@ -1,0 +1,28 @@
+// Подключаем анимацию градиента
+@import '../mixins/_desktop-gradient-animation-move';
+
+// 3-тема системная
+// Параметры управления интерфейсом
+@color-light: #f8f9fa; // устанавливаем светлый цвет градиента
+@color-secondary: rgba(22, 13, 27, 0.3); // устанавливаем темно-серый цвет градиента
+@color-warning: #ffc107; // устанавливаем лунно-желтый цвет градиента
+@color-light-gray: #ced4da; // устанавливаем светло-серый цвет градиента
+
+// Параметры заголовка
+// Устанавливаем цвет заголовка на рабочем стола
+@color-text: #ffffff;
+
+// Стили рабочего стола
+.desktop {
+  background: linear-gradient(45deg,
+    @color-light,
+    @color-secondary,
+    @color-warning,
+    @color-light-gray
+  );
+
+  .gradient-animation-mixin();
+  &__title { // стили заголовка рабочего стола
+    color: @color-text !important;
+  }
+}

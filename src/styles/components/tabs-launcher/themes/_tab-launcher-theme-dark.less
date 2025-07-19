@@ -1,0 +1,34 @@
+// Подключаем параметры управления интерфейсом
+@import '../settings/_tabs-launcher-dark-vars';
+
+// Стили темной темы компонента отображения вкладок
+.tabs-launcher {
+  // Темный фон кнопки
+  @button-background-dark: #212529;
+  // Стартовый цвет границы
+  @border-color: #ffc107;
+  // Стартовый цвет текста
+  @color-text: #ffc107;
+  // Прозрачный цвет границы
+  @border-color-transparent: transparent;
+
+  // Начальные стили кнопки отображения вкладок
+  &__button {
+    // Устанавливаем темный фон кнопки
+    background: @button-background-dark;
+    // Устанавливаем стартовый цвет границы
+    border-color: @border-color;
+    // Устанавливаем стартовый цвет текста
+    color: @color-text;
+
+    // Стили кнопки отображения вкладок при наведении
+    &:hover {
+      background: @tabs-launcher-button-background-hover;
+      border-color: @border-color-transparent;
+      color: @tabs-launcher-color-text-hover;
+    }
+
+    // Стили кнопки отображения вкладок при фокусе
+    //...
+  }
+}

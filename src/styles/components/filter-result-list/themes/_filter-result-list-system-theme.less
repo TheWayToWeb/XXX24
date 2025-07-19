@@ -1,0 +1,31 @@
+// Подключаем основные параметры управления интерфейсом
+@import '../settings/_filter-result-system-vars';
+
+// Тема 3 - Системная Список результатов фильтра поиска
+.filter-result {
+  // Начальный фон
+  @background-color-dark: #212529;
+  // Цвет текста элемента списка в неактивном состоянии
+  @color-text: #ffc107;
+
+  &-list {
+    // Устанавливаем черный цвет списка результатов
+    background-color: @background-color-dark;
+  }
+  &__item {
+    // Устанавливаем аналогичный цвет фона по умолчанию
+    background-color: @background-color-dark;
+    &:hover {
+      // Устанавливаем цвет фона элементу списка при наведении
+      background-color: @filter-list-background-hover;
+    }
+  }
+  &__text {
+    // Устанавливаем цвет текста элементу списка в неактивном состоянии
+    color: @color-text;
+  }
+  &__item:hover &__text {
+    // Устанавливаем цвет текста элемента списка при наведении
+    color: @color-text-hover;
+  }
+}

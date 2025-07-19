@@ -1,0 +1,34 @@
+// Подключаем параметры управления интерфейсом
+@import '../settings/_acc-dropdown-dark-vars';
+// Подключаем функцию визуальной стилизации
+@import '../mixins/_colored-scheme';
+
+// Черная тема выпадающего меню профиля пользователя
+.account-dropdown-menu {
+  // Темный фон выпадающего списка
+  @background-color-dark: #212529;
+  // Прозрачный цвет фона
+  @background-transparent: transparent;
+  // Белый цвет текста
+  @color-text-white: #ffffff;
+
+  // Устанавливаем темный фон выпадающего списка
+  background-color: @background-color-dark;
+
+  // Стили элемента списка в неактивном состоянии
+  &__link {
+    .colored-scheme(
+      // устанавливаем прозрачный цвет фона для элемента
+      @background-transparent,
+      // устанавливаем белый цвет текста для элемента
+      @color-text-white
+    );
+    // Стили элемента списка при наведении
+    &:hover {
+      .colored-scheme(
+        @acc-dropdown-background-hover,
+        @acc-dropdown-color-text-dark
+      );
+    }
+  }
+}

@@ -1,0 +1,30 @@
+// Подключаем параметры управления интерфейсом в белой теме
+@import '../settings/_chat-toggle-white-vars';
+// Подключаем функцию стилизации кнопки
+@import '../mixins/_button-styles';
+
+// Стили кнопки отображения чата белой темы
+.chat-toggle {
+  // Устанавливаем прозрачный фон кнопки
+  @color-button-default: transparent;
+  // Устанавливаем цвет границы по умолчанию
+  @border-color-default: #ffffff;
+  // Устанавливаем цвет текста
+  @color-text: #ffffff;
+
+  // Стили начального состояния кнопки
+  .button-styles(
+    @color-button-default,
+    @border-color-default,
+    @color-text
+  );
+  &:hover,
+  &:focus {
+    // Стили при наведении и фокусе
+    .button-styles(
+      @background-color-primary,
+      @border-color-transparent,
+      @color-text
+    );
+  }
+}

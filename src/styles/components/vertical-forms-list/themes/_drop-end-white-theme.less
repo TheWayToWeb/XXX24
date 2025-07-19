@@ -1,0 +1,37 @@
+// Подключаем основные параметры управления интерфейсом
+@import '../settings/_drop-end-white-vars';
+// Подключаем функцию стилизации кнопки
+@import '../mixins/_button-styles';
+
+// Стили светлой темы списка отображения форм ввода
+.drop-end {
+  // Устанавливаем белый цвет фона
+  @background-color-white: #ffffff;
+  // Устанавливаем основной цвет границы
+  @border-color-primary: #007bff;
+  // Устанавливаем основной цвет текста
+  @color-text-primary: #007bff;
+  // Устанавливаем прозрачный цвет границы
+  @border-color-transparent: transparent;
+
+  // Начальные стили кнопки
+  .button-styles(
+    @background-color-white,
+    @border-color-primary,
+    @color-text-primary
+  );
+  &:hover {
+    .button-styles(
+      @drop-end-background-color-hover-primary,
+      @border-color-transparent,
+      @drop-end-color-text-white
+    );
+  }
+  &--focused {
+    .button-styles(
+      @drop-end-background-color-active,
+      @border-color-transparent,
+      @drop-end-color-text-white
+    );
+  }
+}

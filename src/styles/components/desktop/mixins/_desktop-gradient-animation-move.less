@@ -1,0 +1,19 @@
+.gradient-animation-mixin() {
+  // Задаем размеры градиента рабочего стола
+  background-size: 400% 400%;
+  // Задаем анимацию градиента на рабочем столе
+  animation: gradient-move 10s linear infinite;
+
+  // Задаем саму анимацию движения градиента на рабочем столе
+  @keyframes gradient-move {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+}

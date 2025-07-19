@@ -1,0 +1,28 @@
+// Подключаем анимацию градиента
+@import '../mixins/_desktop-gradient-animation-move';
+
+// 1-ая тема белая
+// Параметры управления интерфейсом
+// Основные параметры градиента фона
+@color-light: #f8f9fa; // устанавливаем светлый цвет градиента
+@color-primary: #007bff; // устанавливаем основной цвет градиента
+@color-info: #5bc0de; // устанавливаем нежно-голубой цвет градиента
+@color-light-gray: #ced4da; // устанавливаем светло-серый цвет градиента
+
+// Параметры заголовка
+// Устанавливаем цвет заголовка
+@color-text: #ffffff;
+
+// Стили рабочего стола
+.desktop {
+  background: linear-gradient(45deg,
+  @color-light,
+  @color-primary,
+  @color-info,
+  @color-light-gray
+  );
+  .gradient-animation-mixin();
+  &__title { // стили заголовка рабочего стола
+    color: @color-text !important;
+  }
+}

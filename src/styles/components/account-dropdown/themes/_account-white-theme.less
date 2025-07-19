@@ -1,0 +1,49 @@
+// Подключаем функцию стилизации контейнера
+@import '../mixins/_container-styling';
+// Подключаем функцию устанавливающую цвет границы для элемента
+@import '../mixins/_border-style-set';
+
+// Белая тема выпадающего списка учетной записи пользователя
+.account-dropdown {
+  // Светлый цвет фона
+  @background-color-light: #f8f9fa;
+  // Основной синий цвет
+  @color-primary: #007bff;
+  // Основной цвет границы
+  @border-color-primary: #007bff;
+
+  // Стили контейнера учетной записи
+  &__toggle {
+    // Устанавливаем базовый градиент контейнера учетной записи
+    background: linear-gradient(to right, #f8f9fa, #f8f9fa 75%, #f8f9fa);
+    &:hover {
+      .container-styling(
+        // устанавливаем основной градиент контейнера учетной записи
+        linear-gradient(to right, #ffffff, #ffffff 75%, #cff4fc),
+        // устанавливаем основной градиент границы контейнера учетной записи
+        @border-color-primary
+      );
+    }
+  }
+  // Стили области аватара
+  &__avatar {
+    .container-styling(
+      @background-color-light,
+      @border-color-primary
+    );
+  }
+  // Стили текстовых элементов
+  &__item--user-name, // правило для имени
+  &__item--user-position { // правило для должности
+    // Устанавливаем основной цвет текста
+    color: @color-primary !important;
+  }
+    // Стили текстовых элементов при наведении
+  &__item--user-name:hover,
+  &__item--user-position:hover {
+    // Устанавливаем основной цвет границы
+    // вокруг текстовых элементов
+    .border-style-set(@border-color-primary);
+  }
+
+}

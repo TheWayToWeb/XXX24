@@ -1,0 +1,20 @@
+// Основные параметры управления интерфейсом
+@import '../settings/_filter-search-gray-vars';
+
+// Стили серой темы верхнего фильтра поиска
+.filter-search {
+  // Фон фильтра поиска
+  @background-secondary: #6c757d;
+  // Цвет границы фильтра поиска
+  @border-color-white: #ffffff;
+
+  // Устанавливаем цвет фона фильтра поиска
+  background-color: @background-secondary;
+  // Устанавливаем цвет границы фильтра поиска
+  border-color: @border-color-white;
+  &::placeholder,
+  &:focus {
+    //  Устанавливаем цвет текста фильтра поиска
+    color: @filter-search-color-text;
+  }
+}
